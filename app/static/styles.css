@@ -1,0 +1,51 @@
+body{
+    margin: 1rem;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Navbar Styles */
+#navbar_container{
+    background-color: blueviolet;
+}
+
+.navbar_item > a {
+    color:white;
+    text-decoration: none;
+}
+
+
+
+/* Home Page Styles */
+#home_page_container{
+    background-color: green;
+}
+
+
+
+/* Properties Page Styles */
+#properties_page_container{
+    background-color: green;
+}
+
+
+
+/* About Page Styles */
+#about_page_container{
+    background-color: green;
+}
+
+
+
+/* Contact Page Container */
+#contact_page_container{
+    background-color: green;
+}
+
+/* Footer Styles */
+
+#footer_container{
+    background-color: white;
+}
