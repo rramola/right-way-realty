@@ -1,5 +1,28 @@
 {% extends "base_template.html" %} {% load static%} {%block content%}
-<div id="properties_page_container">
-  <p>Properties</p>
-</div>
+<head>
+  <title>Properties</title>
+</head>
+<body>
+  <h1>Properties</h1>
+  <ul>
+    {% for property in properties %}
+    <div class="property">
+      <h2>{{ property.mls_number }}</h2>
+      <p>{{ property.description }}</p>
+      <p>Price: ${{ property.list_price }}</p>
+      <p>Location: {{ property.street_name }}, {{ property.city }}</p>
+
+      {% if property.images.all %}
+      <div class="images">
+        {% for image in property.images.all %}
+        <img src="{{ image.image }}" alt="Property Image" />
+        {% endfor %}
+      </div>
+      {% else %}
+      <p>No images available.</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </ul>
+</body>
 {%endblock content%}

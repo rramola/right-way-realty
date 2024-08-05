@@ -18,11 +18,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app.views import *
+from django.conf import settings
+from django.conf.urls.static import static
+from django.urls import path, include
 
 urlpatterns = [
+    path("admin/", admin.site.urls),
+    path('', include('app.urls')),
+    path("", home_page, name="home"),
     path("contact/", contact_page, name="contact"),
     path("about/", about_page, name="about"),
-    path("properties/", properties_page, name="properties"),
-    path("", home_page, name="home"),
-    path("admin/", admin.site.urls),
+    path("properties/", property_list, name="properties"),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

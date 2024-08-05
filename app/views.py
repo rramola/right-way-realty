@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
+from .models import *
 
 # Create your views here.
 
@@ -14,9 +15,9 @@ def about_page(request):
     return render(request, "about.html", context)
 
 
-def properties_page(request):
-    context = {}
-    return render(request, "properties.html", context)
+def property_list(request):
+    properties = Property.objects.all()
+    return render(request, 'properties.html', {'properties': properties})
 
 
 def contact_page(request):
