@@ -1,7 +1,12 @@
 import os
 import django
 import random
+# from app import views
 
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'right_way_realty.settings')
+django.setup()
+
+from app.models import Property, PropertyImage
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'right_way_realty.settings')
 django.setup()
 
@@ -93,3 +98,34 @@ def create_dummy_properties():
 if __name__ == "__main__":
     create_dummy_properties()
     print("Dummy properties with PlaceKitten images created successfully.")
+
+
+
+
+# def create_dummy_properties(mls_numbers, list_prices,house_numbers, street_names,bedrooms, baths, subdivisions, cities, descriptions, images):
+#     existing_mls_numbers = set(Property.objects.values_list('mls_number', flat=True))
+    
+#     mls_numbers = [f"MLS{1000+i}" for i in range(10)]
+#     list_prices = [250000, 450000, 750000, 1200000, 320000, 540000, 870000, 980000, 1100000, 1300000]
+#     house_numbers = [str(i) for i in range(1, 11)]
+#     for i in range(100):
+#         # Generate unique MLS number
+#         while mls_numbers[i] in existing_mls_numbers:
+#             mls_numbers[i] = f"MLS{random.randint(1000, 9999)}"
+#         existing_mls_numbers.add(mls_numbers[i])
+
+    
+#     property = Property.objects.create(
+#         mls_number=mls_numbers,
+#         list_price=list_prices,
+#         house_number=house_numbers,
+#         street_name=street_names,
+#         bedrooms=bedrooms,
+#         baths=baths,
+#         subdivision=subdivisions,
+#         city=cities,
+#         description=descriptions,
+#         images = images
+#     )
+
+

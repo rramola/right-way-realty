@@ -10,6 +10,7 @@ class Property(models.Model):
     subdivision = models.CharField(max_length=100, default='Unknown Subdivision')
     city = models.CharField(max_length=100, default='Unknown City')
     description = models.TextField(default='No description available.')
+    # image = models.ImageField(default="test.jpg", null=True, blank=True)
 
     def __str__(self):
         return self.mls_number
@@ -17,6 +18,6 @@ class Property(models.Model):
 class PropertyImage(models.Model):
     property = models.ForeignKey(Property, related_name='images', on_delete=models.CASCADE)
     image = models.URLField(max_length=200)
-
+    # image = models.ImageField(default="test.jpg", null=True, blank=True)
     def __str__(self):
         return f"Image for {self.property.mls_number}"

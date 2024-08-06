@@ -1,0 +1,26 @@
+{% extends "base_template.html" %} {% load static%}
+{% block content %}
+<form
+method="POST"
+action=""
+id="add_property_form_container"
+enctype="multipart/form-data"
+>
+{% csrf_token %}
+{{form.mls_number}}
+{{form.list_price}}
+{{form.house_number}}
+{{form.street_name}}
+{{form.bedrooms}}
+{{form.baths}}
+{{form.subivision}}
+{{form.city}}
+{{form.desription}}
+{{form.image}}
+
+<button type="submit" id="add_property_form_submit_button">Submit</button>
+    <button id="add_property_form_cancel_button">
+      <span><a href="{% url 'home' %}" class="cancel">Cancel</a></span>
+    </button>
+</form>
+{% endblock content %}

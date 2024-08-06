@@ -16,6 +16,7 @@
       <div class="images">
         {% for image in property.images.all %}
         <img src="{{ image.image }}" alt="Property Image" />
+        <img src={% static "test.jpg" %}>
         {% endfor %}
       </div>
       {% else %}
