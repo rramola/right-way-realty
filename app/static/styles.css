@@ -5,20 +5,22 @@ body{
     flex-direction: column;
     overflow: hidden;
     margin: 0;
+    height: 100vh;
+    width: 100vw;
 }
 
 
 /* Navbar Styles */
 #navbar_container{
-    margin: 0;
     background-color: #295943;
-    position: relative;
+    margin: 0;
+    position: absolute;
     display: flex;
+    height: 10%;
     justify-content: center;
     top: 0;
-    height: 10%;
     width: 100%;
-    left:0px;
+    left: 0px;
 }
 
 .navbar_item > a {
@@ -52,14 +54,104 @@ body{
 /* Contact Page Container */
 #contact_page_container{
     background-color: #014235;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
+    justify-content: center;
 }
 
-#contact_us_text{
+#contact_us_header{
     color: #A09D6E;
+    margin: 10px;
+}
+
+#contact_form_container{
+    margin-bottom: 1rem;
+    overflow:hidden;
+    width:80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80%;
+    justify-content: center;
+}
+
+#contact_us_form{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem;
+}
+  
+
+#contact_form_container{
+    margin-bottom: 1rem;
+    overflow:hidden
+}
+
+#form_grouping{
+    display: grid;
+    margin: 1rem;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: 100%;
+}
+
+    
+.form_group {
+    margin-bottom: 15px;
+  
+}
+
+    
+    
+.form_group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #A09D6E;
+}
+
+    
+.form_group input, 
+.form_group textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#message{
+    padding: 1rem;
+}
+
+.form_group input:focus, 
+.form_group textarea:focus {
+    border-color: #007bff;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
 
 /* Footer Styles */
@@ -69,9 +161,29 @@ body{
     margin: 0;
     position: absolute;
     display: flex;
+    height: 10%;
     justify-content: center;
     bottom: 0;
-    height: 10%;
     width: 100%;
     left:0px;
+}
+
+
+
+
+
+
+@media (max-width: 400px) {
+    
+    
+    
+    
+
+}
+
+@media (min-width: 400px) {
+        
+    #contact_us_header{
+        font-size: 3rem;
+    }
 }

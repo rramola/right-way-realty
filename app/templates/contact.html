@@ -1,11 +1,23 @@
 {% extends "base_template.html" %} {% load static%} {%block content%}
 <div id="contact_page_container">
   <div id="contact_form_container">
-    <div id="contact_form_header">
-      <h1 id="contact_us_text">Contact Us</h1>
-    </div>
-    <form>
-      <div id="contact_form_name_container"></div>
+    <form action="#" method="post" id="contact_us_form">
+      <h2 id="contact_us_header">Contact Us</h2>
+      <div id="form_grouping">
+        <div class="form_group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form_group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form_group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </div>
     </form>
   </div>
 </div>
