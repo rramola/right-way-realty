@@ -1,14 +1,24 @@
 body{
-    margin: 1rem;
-    background-color: aqua;
+    background-color: #A09D6E;
+    padding: 0;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    margin: 0;
 }
 
 
 /* Navbar Styles */
 #navbar_container{
-    background-color: blueviolet;
+    margin: 0;
+    background-color: #295943;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    height: 10%;
+    width: 100%;
+    left:0px;
 }
 
 .navbar_item > a {
@@ -41,11 +51,27 @@ body{
 
 /* Contact Page Container */
 #contact_page_container{
-    background-color: green;
+    background-color: #014235;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact_us_text{
+    color: #A09D6E;
 }
 
 /* Footer Styles */
 
 #footer_container{
-    background-color: white;
+    background-color: #A09D6E;
+    margin: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+    height: 10%;
+    width: 100%;
+    left:0px;
 }
