@@ -81,15 +81,9 @@ body {
 }
 
 /* Home Page Styles */
-#home_page_container {
-  background-color: green;
-}
 
-#bannerIMG {
-  object-fit: cover;
-  object-position: center;
-  width: 100%;
-}
+
+
 
 /* Properties Page Styles */
 #properties_page_container {

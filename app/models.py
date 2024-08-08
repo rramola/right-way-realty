@@ -1,5 +1,7 @@
 from django.db import models
+
 import requests
+
 
 class Property(models.Model):
     mls_number = models.CharField(max_length=100, unique=True)
@@ -11,8 +13,12 @@ class Property(models.Model):
     subdivision = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
     description = models.TextField()
-    latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
-    longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
+    latitude = models.DecimalField(
+        max_digits=9, decimal_places=6, null=True, blank=True
+    )
+    longitude = models.DecimalField(
+        max_digits=9, decimal_places=6, null=True, blank=True
+    )
 
     def save(self, *args, **kwargs):
         if not self.latitude or not self.longitude:
@@ -25,9 +31,9 @@ class Property(models.Model):
         url = f"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={api_key}"
         response = requests.get(url)
         geocode_result = response.json()
-        if geocode_result['status'] == 'OK':
-            location = geocode_result['results'][0]['geometry']['location']
-            return location['lat'], location['lng']
+        if geocode_result["status"] == "OK":
+            location = geocode_result["results"][0]["geometry"]["location"]
+            return location["lat"], location["lng"]
         else:
             return None, None
 
@@ -36,9 +42,10 @@ class Property(models.Model):
 
 
 class PropertyImage(models.Model):
-    property = models.ForeignKey(Property, related_name='images', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='property_images/')
+    property = models.ForeignKey(
+        Property, related_name="images", on_delete=models.CASCADE
+    )
+    image = models.ImageField(upload_to="property_images/")
 
     def __str__(self):
         return f"Image for {self.property.mls_number}"
-
