@@ -6,7 +6,7 @@
       src="{% static 'images/bannerhouse.png' %}"
       alt="Banner House"
     />
-    <section id="home_page_personalized_service">
+    {% comment %} <section id="home_page_personalized_service">
       <div class="content">
         <h1>Personalized Service</h1>
         <p>We offer tailored solutions to meet your unique needs.</p>
@@ -19,17 +19,30 @@
         <h1>The Right Way</h1>
         <p>Experience the difference with our exceptional service.</p>
       </div>
-    </section>
+    </section> {% endcomment %}
 
     <!--Property Preview Section -->
     <div id="home_page_properties_container">
       <h1>Properties</h1>
+      <div class="property-list">
       {% for property in properties %}
       <div class="property">
-        <img src="{{ property.image.url }}" alt="{{ property.name }}" />
-        <h2>{{ property.name }}</h2>
-        <p>{{ property.description }}</p>
-        <p>${{ property.price }}</p>
+        {% if property.images.all %}
+        <div class="images">
+        {% for image in property.images.all %}
+        <img src="{{ image.image.url }}" alt="Property Image" />
+        {% endfor %}
+        </div>
+        {% else %}
+        <p>No images available.</p>
+        {% endif %}
+        <div class="property_info">
+          <h2>{{ property.name|default:"No name available" }}</h2>
+          <p>{{ property.city }}</p>
+          <p>{{ property.street_name }}</p>
+          <p>{{ property.description }}</p>
+          <p>${{ property.price }}</p>
+        </div>
       </div>
       {% endfor %}
     </div>

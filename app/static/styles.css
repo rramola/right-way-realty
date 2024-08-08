@@ -81,9 +81,35 @@ body {
 }
 
 /* Home Page Styles */
+#home_page_properties_container {
+    background-color: #EAEEFB;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
 
+#home_page_properties_container > h1 {
+    font-size: 3rem;
+    color: #014235;
+    margin-top: 3rem;
+}
+.property_info{
+    color: #A09D6E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
 
-
+.property_info > h2 {
+    font-size: 2rem;
+}
 
 /* Properties Page Styles */
 #properties_page_container {
