@@ -21,6 +21,9 @@ def property_list(request):
     properties = Property.objects.all()
     return render(request, 'properties.html', {'properties': properties})
 
+def googlemaps_view(request):
+    return render(request, 'googlemaps.html')
+
 # def add_property(request):
 #     myForm = AddPropertyForm()
 #     if request.method == "POST":

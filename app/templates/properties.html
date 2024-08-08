@@ -1,22 +1,24 @@
 {% extends "base_template.html" %} {% load static%} {%block content%}
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Properties</title>
 </head>
 <body>
-  <h1>Properties</h1>
-  <ul>
+  <div class="property-list">
     {% for property in properties %}
     <div class="property">
       <h2>{{ property.mls_number }}</h2>
       <p>{{ property.description }}</p>
       <p>Price: ${{ property.list_price }}</p>
       <p>Location: {{ property.street_name }}, {{ property.city }}</p>
+      <p>Latitude: {{ property.latitude }}</p>
+      <p>Longitude: {{ property.longitude }}</p>
 
       {% if property.images.all %}
       <div class="images">
         {% for image in property.images.all %}
-        <img src="{{ image.image }}" alt="Property Image" />
-        <img src={% static "test.jpg" %}>
+        <img src="{{ image.image.url }}" alt="Property Image" />
         {% endfor %}
       </div>
       {% else %}
@@ -24,6 +26,6 @@
       {% endif %}
     </div>
     {% endfor %}
-  </ul>
+  </div>
+  {%endblock content%}
 </body>
-{%endblock content%}
