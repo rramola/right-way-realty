@@ -1,12 +1,13 @@
 function toggleNavbar() {
-    var navbar = document.querySelector('.vertical-navbar');
-    if (navbar.style.width === '200px') {
-        navbar.style.width = '0';
+    var navbarItems = document.getElementById('navbar_items');
+    if (navbarItems.classList.contains('show')) {
+        navbarItems.classList.remove('show');
+        navbarItems.classList.add('hide');
     } else {
-        navbar.style.width = '200px';
+        navbarItems.classList.remove('hide');
+        navbarItems.classList.add('show');
     }
 }
-
 
 document.addEventListener("DOMContentLoaded", function() {
     const sections = document.querySelectorAll("section");
