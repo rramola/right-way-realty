@@ -9,47 +9,75 @@ body{
     width: 100vw;
 }
 
-
 /* Navbar Styles */
 #navbar_container{
     background-color: #295943;
     margin: 0;
     position: absolute;
     display: flex;
-    height: 10%;
-    justify-content: center;
+    height: 8%;
     top: 0;
     width: 100%;
-    left: 0px;
+    left: 0;
+    align-items: center;
+    padding: 0 1rem; 
+}
+
+#logo {
+    width: 5rem;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#logo > img {
+    width: 11rem;
+    height: 5rem;
+}
+
+#navbar_items {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto; 
 }
 
 .navbar_item > a {
-    color:white;
+    color:#dddddd;
     text-decoration: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-right: 1rem;
 }
 
-
+.navbar_item > a:hover {
+    color: black;
+    transform: scale(1.2);
+    text-shadow: 0 0 5px #fff;
+}
 
 /* Home Page Styles */
 #home_page_container{
     background-color: green;
 }
 
-
+#bannerIMG{
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+}
 
 /* Properties Page Styles */
 #properties_page_container{
     background-color: green;
 }
 
-
-
 /* About Page Styles */
 #about_page_container{
     background-color: green;
 }
-
-
 
 /* Contact Page Container */
 #contact_page_container{
@@ -86,7 +114,6 @@ body{
     align-items: center;
     margin: 3rem;
 }
-  
 
 #contact_form_container{
     margin-bottom: 1rem;
@@ -102,14 +129,10 @@ body{
     width: 100%;
 }
 
-    
 .form_group {
     margin-bottom: 15px;
-  
 }
 
-    
-    
 .form_group label {
     display: block;
     margin-bottom: 5px;
@@ -117,7 +140,6 @@ body{
     color: #A09D6E;
 }
 
-    
 .form_group input, 
 .form_group textarea {
     padding: 10px;
@@ -155,7 +177,6 @@ button:hover {
 }
 
 /* Footer Styles */
-
 #footer_container{
     background-color: #A09D6E;
     margin: 0;
@@ -168,21 +189,11 @@ button:hover {
     left:0px;
 }
 
-
-
-
-
-
 @media (max-width: 400px) {
-    
-    
-    
-    
-
+    /* Add responsive styles here */
 }
 
 @media (min-width: 400px) {
-        
     #contact_us_header{
         font-size: 3rem;
     }

@@ -2,4 +2,31 @@
 <div id="home_page_container">
   <p>Home</p>
 </div>
+<div class="content">
+  <img id="bannerIMG" src="{% static 'images/bannerhouse.png' %}" alt="Banner House">
+  <section id="personalized_service">
+    <div class="content">
+        <h1>Personalized Service</h1>
+        <p>We offer tailored solutions to meet your unique needs.</p>
+    </div>
+</section>
+
+<!-- The Right Way Section -->
+<section id="the_right_way">
+    <div class="content">
+        <h1>The Right Way</h1>
+        <p>Experience the difference with our exceptional service.</p>
+    </div>
+</section>
+  <h1>Properties</h1>
+  {% for property in properties %}
+      <div class="property">
+          <img src="{{ property.image.url }}" alt="{{ property.name }}">
+          <h2>{{ property.name }}</h2>
+          <p>{{ property.description }}</p>
+          <p>${{ property.price }}</p>
+      </div>
+  {% endfor %}
+</div>
+<script src="{% static 'js/script.js' %}"></script>
 {%endblock content%}

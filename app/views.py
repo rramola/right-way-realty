@@ -7,7 +7,8 @@ from .models import *
 
 
 def home_page(request):
-    context = {}
+    properties = Property.objects.all()
+    context = {'properties': properties}
     return render(request, "home.html", context)
 
 

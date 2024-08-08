@@ -11,19 +11,17 @@
 <body>
 
     <div id="navbar_container">
-        <div id="navbar_home_link_container" class="navbar_item">
-            <a href ="{% url 'home'%}">Home</a>
+        <div id="logo">
+            <img id="logoIMG" src="{% static "images/RWRLogo.png" %}" alt="Logo">
         </div>
-        <div id="navbar_properties_link_container" class="navbar_item">
-            <a href ="{% url 'properties'%}">Properties</a>
-        </div>
-        <div id="navbar_about_link_container" class="navbar_item">
-            <a href ="{% url 'about'%}">About</a>
-        </div>
-        <div id="navbar_contact_link_container" class="navbar_item">
-            <a href ="{% url 'contact'%}">Contact</a>
+        <div id="navbar_items">
+            <div class="navbar_item"><a href="#">Home</a></div>
+            <div class="navbar_item"><a href="#">Properties</a></div>
+            <div class="navbar_item"><a href="#">About</a></div>
+            <div class="navbar_item"><a href="#">Contact</a></div>
         </div>
     </div>
+    
 
     
     {% block content %}
