@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "phonenumber_field",
     "app",
 ]
 
@@ -70,6 +71,17 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "right_way_realty.wsgi.application"
+
+#Email
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.example.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'rramola@basecampcodingacademy.org'
+EMAIL_HOST_PASSWORD = 'RRgi123!'
+DEFAULT_FROM_EMAIL = 'your-email@example.com'
+
 
 
 # Database

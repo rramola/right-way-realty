@@ -1,64 +1,64 @@
 {% extends "base_template.html" %} {% load static%} {%block content%}
 <div id="contact_page_container">
   <div id="contact_form_container">
-    <form action="#" method="post" id="contact_us_form">
+    <form method="POST" action="{% url 'contact' %}" id="contact_us_form">
       <h2 id="contact_us_header">Contact Us</h2>
+      {% csrf_token %}
       <div id="contact_us_form_grouping">
         <div id="contact_us_form_name_group">
           <div class="contact_us_form_group">
-            <label for="contact_us_first_name">First Name</label>
-            <input
-              type="text"
-              id="contact_us_first_name"
-              name="first_name"
-              required
-            />
+            <label for="{{ form.first_name.id_for_label }}">First Name</label>
+            {{ form.first_name }}
           </div>
           <div class="contact_us_form_group">
-            <label for="contact_us_last_name">Last Name</label>
-            <input
-              type="text"
-              id="contact_us_last_name"
-              name="contact_us_last_name"
-              required
-            />
+              <label for="{{ form.last_name.id_for_label }}">Last Name</label>
+              {{ form.last_name }}
+              {% if form.first_name.errors %}
+              <div class="form-error">
+                  {{ form.first_name.errors|striptags }}
+                  {% if form.last_name.errors %}
+                  <div class="form-error">
+                      {{ form.last_name.errors|striptags }}
+                  </div>
+              {% endif %}
+              </div>
+          {% endif %}
           </div>
         </div>
-        {% comment %} <div id+"" {% endcomment %}
         <div class="contact_us_form_group">
-          <label for="phone_number">Phone Number</label>
-          <input
-            type="text"
-            id="contact_us_phone_numer"
-            name="contact_us_phone_numer"
-            required
-          />
+            <label for="{{ form.phone_number.id_for_label }}">Phone Number</label>
+            {{ form.phone_number }}
+            {% if form.phone_number.errors %}
+            <div class="form-error">
+                {{ form.phone_number.errors|striptags }}
+            </div>
+        {% endif %}
         </div>
         <div class="contact_us_form_group">
-          <label for="contact_us_email">Email</label>
-          <input
-            type="email"
-            id="contact_us_email"
-            name="contact_us_email"
-            required
-          />
+            <label for="{{ form.email.id_for_label }}">Email</label>
+            {{ form.email }}
+            {% if form.email.errors %}
+                <div class="form-error">
+                    {{ form.email.errors|striptags }}
+                </div>
+            {% endif %}
         </div>
         <div class="contact_us_form_group">
-          <label for="contact_us_message">Message</label>
-          <textarea
-            id="contact_us_message"
-            name="contact_us_message"
-            rows="5"
-            required
-          ></textarea>
+            <label for="{{ form.message.id_for_label }}">Message</label>
+            {{ form.message }}
+            {% if form.message.errors %}
+                <div class="form-error">
+                    {{ form.message.errors|striptags }}
+                </div>
+            {% endif %}
         </div>
         <div id="contact_us_form_button_container">
-          <button type="submit" id="contact_form_submit_button">
-            Send Message
-          </button>
+            <button type="submit" id="contact_form_submit_button">
+                Send Message
+            </button>
         </div>
       </div>
-    </form>
+  </form>
   </div>
 </div>
 {%endblock content%}
