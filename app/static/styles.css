@@ -83,8 +83,25 @@ body {
 /* Home Page Styles */
 #home_page_properties_container {
     background-color: #EAEEFB;
+    display: flex;
+    /* flex-direction: column;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%; */
+}
+
+.property-list{
+    background-color: #EAEEFB;
+    display: flex;
+    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
     justify-items: center;
     align-items: center;
@@ -98,6 +115,8 @@ body {
     font-size: 3rem;
     color: #014235;
     margin-top: 3rem;
+    display: flex;
+    justify-content: center;
 }
 .property_info{
     color: #A09D6E;
