@@ -58,10 +58,10 @@
     const properties = [
       {% for property in properties %}
       {
-        lat: {{ property.latitude }},
-        lng: {{ property.longitude }},
-        title: "{{ property.house_number }} {{ property.street_name }}, {{ property.city }}",
-        price: "{{ property.list_price }}",
+        lat: parseFloat("{{ property.latitude }}"),
+        lng: parseFloat("{{ property.longitude }}"),
+        title: "{{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }}, {{ property.city }}, {{ property.state }}",
+        price: "{{ property.list_price }}"
       },
       {% endfor %}
     ];
