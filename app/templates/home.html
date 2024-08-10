@@ -2,16 +2,11 @@
 {% load static %}
 {% block content %}
 <div id="home_page_container">
-    {% comment %} <div id="home_page_header_container">
-        <img
-            id="home_page_banner_img"
-            src="{% static 'images/bannerhouse.png' %}"
-            alt="Banner House"
-        /> {% endcomment %}
     <div id="home_page_banner_video">
         <video id = "fillV" autoplay muted loop>
             <source src="{% static 'images/videobanner.mp4' %}" type="video/mp4">
         </video>
+    </div>
         {% comment %}
         <section id="home_page_personalized_service">
             <div class="content">
