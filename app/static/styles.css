@@ -10,7 +10,8 @@ body {
 
 /********************************** Navbar Styles **************************************************/
 #navbar_container {
-  background-color: #295943;
+  /* background-color: #295943; */
+  background-color: #EAEEFB;
   margin: 0;
   position: absolute;
   display: flex;
@@ -20,6 +21,9 @@ body {
   left: 0;
   align-items: center;
   z-index: 1000;
+  border-bottom: 1px solid #EAEEFB;
+  opacity: 0.9;
+  padding: .5rem;
 }
 
 #logo {
@@ -33,6 +37,7 @@ body {
 #logo>img {
   width: 11rem;
   height: 5rem;
+  
 }
 
 #navbar_items {
@@ -58,7 +63,7 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
-  color: #dddddd;
+  color: #2a7a3d;
   text-decoration: none;
   padding: 1rem;
   font-size: 1.1rem;
