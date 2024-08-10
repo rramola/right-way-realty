@@ -60,6 +60,7 @@ body {
 }
 
 .navbar_item>a {
+  font-family: sans-serif;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -120,6 +121,29 @@ body {
 
 #home_page_banner_text {
   width: 100%;
+}
+
+#home_page_personalized_service .content {
+    opacity: 0;
+    transform: translateY(1rem); /* Slightly move down for a smoother effect */
+    transition: opacity 1s ease-out, transform 2s ease-out;
+}
+
+/* Fade-in effect */
+#home_page_personalized_service .content.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#home_page_the_right_way .content{
+    opacity: 0;
+    transform: translateY(1rem); /* Slightly move down for a smoother effect */
+    transition: opacity 3s ease-out, transform 5s ease-out;
+}
+
+#home_page_the_right_way .content.fade-in{
+    opacity: 1;
+    transform: translateY(0);
 }
 
 #fillV {
@@ -327,7 +351,6 @@ body {
   justify-content: space-between;
   padding: 50px;
   background-color: #e5d9b9;
-  /* Matches the background color */
 }
 
 .testimonial_item {
@@ -335,9 +358,7 @@ body {
   margin: 20px;
   padding: 20px;
   background-color: #e5d9b9;
-  /* Background color for each testimonial */
   border-left: 5px solid #1b5e20;
-  /* Green line on the left */
 }
 
 .testimonial_item .quote {
@@ -349,7 +370,6 @@ body {
 .testimonial_text {
   font-size: 1.2em;
   color: #344e41;
-  /* Dark green text */
   margin: 20px 0;
   line-height: 1.6;
 }
@@ -358,7 +378,6 @@ body {
   font-weight: bold;
   font-size: 1em;
   color: #344e41;
-  /* Dark green text */
 }
 
 /**************************** Properties Page Styles *********************************************/
@@ -367,8 +386,38 @@ body {
 }
 
 /************************************ About Page Styles *******************************************/
-#about_page_container {
-  background-color: green;
+
+.header {
+    padding: 2rem;
+}
+
+.company-name {
+    font-size: 3rem;
+    font-weight: bold;
+    /* margin-bottom: 20px; */
+}
+
+.about_page_container {
+    background-color: #014235;
+    /* border-radius: 20px; */
+    /* margin: 40px auto; */
+    color: #EAEEFB;
+    padding: 2rem;
+    width: 190%;
+    text-align: left;
+}
+
+.about_page_container h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.about-us-content  p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    overflow-wrap: break-word
+
+    /* position: absolute ; */
 }
 
 /************************************************** Contact Page Styles ************************************************/
