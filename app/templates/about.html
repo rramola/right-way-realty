@@ -1,5 +1,26 @@
 {% extends "base_template.html" %} {% load static%} {%block content%}
-<div id="about_page_container">
-  <p>About</p>
+<div class="about_page_container">
+  <div class="header">
+      <h1 class="company-name">RIGHT-WAY REALTY</h1>
+  </div>
+  <div class="about-us-image">
+      <img src="{% static 'images/rwrstore.png' %}" alt="About Us Image">
+  </div>
+  <h2>About Us</h2>
+  <div class="about-us-content">
+      <p>
+          At Right-Way Realty, we believe that finding your dream home or the perfect property investment should be an enjoyable and rewarding experience. Founded in Oxford, Mississippi, we have been serving the local community with dedication, transparency, and integrity for over a decade.
+      </p>
+      <p>
+          Our team of experienced real estate professionals is committed to providing personalized service tailored to your unique needs. Whether you are buying, selling, or renting, we are here to guide you every step of the way.
+      </p>
+      <p>
+          We pride ourselves on our deep knowledge of the Oxford market and our ability to match clients with properties that perfectly suit their needs. From charming homes to commercial investments, we have a diverse portfolio of properties to explore.
+      </p>
+      <p>
+          Our mission is to make the real estate process as smooth and stress-free as possible. We take the time to listen to your goals, understand your needs, and work tirelessly to help you achieve them.
+      </p>
+  </div>
 </div>
+
 {%endblock content%}
