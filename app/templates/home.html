@@ -19,45 +19,11 @@
             </section>
         </div> 
     </div>
-
-        <!-- Property Preview Section -->
-        {% comment %} <div id="home_page_properties_container">
-            <h1>Properties</h1>
-            <div class="property-list">
-                {% with properties|slice:":3" as properties_slice %}
-                {% for property in properties_slice %}
-                <div class="property">
-                    {% if property.images.all %}
-                    <div class="home_page_property_images">
-                        {% for image in property.images.all %}
-                        <img src="{{ image.image.url }}" alt="Property Image" />
-                        {% endfor %}
-                    </div>
-                    {% else %}
-                    <p>No images available.</p>
-                    {% endif %}
-                    <div class="property_info">
-                        <div class="property_info_header">
-                            <h2>{{ property.name|default:"No name available" }}</h2>
-                        </div>
-                        <div class="property_info_content">
-                            <p>{{ property.city }}</p>
-                            <p>{{ property.street_name }}</p>
-                            <p>{{ property.description }}</p>
-                            <p>${{ property.price }}</p>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-                {% endwith %}
-            </div>
-        </div> {% endcomment %}
-
         <div id="home_page_properties_container">
-            <h1>Properties Preview</h1>
+            <h1>PROPERTY SHOWCASE</h1>
             <div class="property-list-wrapper">
                 <div class="property-list">
-                    {% with properties|slice:":5" as properties_slice %}
+                    {% with properties|slice:":3" as properties_slice %}
                     {% for property in properties_slice %}
                     <div class="property">
                         {% if property.images.all %}
@@ -70,9 +36,9 @@
                         <p>No images available.</p>
                         {% endif %}
                         <div class="property_info">
-                            <div class="property_info_header">
+                            {% comment %} <div class="property_info_header">
                                 <h2>{{ property.name|default:"No name available" }}</h2>
-                            </div>
+                            </div> {% endcomment %}
                             <div class="property_info_content">
                                 <p>{{ property.city }}</p>
                                 <p>{{ property.street_name }}</p>

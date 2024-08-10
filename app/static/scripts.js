@@ -9,7 +9,7 @@ function toggleNavbar() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll("section");
 
     const options = {
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // HOME PAGE FADE IN BANNER TEXT
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll('#home_page_banner_text .content');
 
     const observer = new IntersectionObserver((entries) => {
@@ -50,3 +50,5 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(section);
     });
 });
+
+
