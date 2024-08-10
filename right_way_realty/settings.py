@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-$tp%#7shjbl-f*-74%xez$#2+&@c6^k*65d*w^!%bcvvq3n0!_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['your-app-name.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -156,14 +156,14 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Initialize environment variables
-env = environ.Env()
-# Read .env file (optional, for local development)
-environ.Env.read_env()
+# env = environ.Env()
+# # Read .env file (optional, for local development)
+# environ.Env.read_env()
 
-# Set your secret key and debug flag using environment variables
-SECRET_KEY = env('SECRET_KEY')
-DEBUG = env.bool('DEBUG', default=False)
+# # Set your secret key and debug flag using environment variables
+# SECRET_KEY = env('SECRET_KEY')
+# DEBUG = env.bool('DEBUG', default=False)
 
-# Use environment variables for your API keys
-GOOGLE_MAPS_API_KEY = env('GOOGLE_MAPS_API_KEY')
-FLEXMLS_API_KEY = env('FLEXMLS_API_KEY')
+# # Use environment variables for your API keys
+# GOOGLE_MAPS_API_KEY = env('GOOGLE_MAPS_API_KEY')
+# FLEXMLS_API_KEY = env('FLEXMLS_API_KEY')
