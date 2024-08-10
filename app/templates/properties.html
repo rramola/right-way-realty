@@ -6,10 +6,10 @@
     <p>{{ property.description }}</p>
     <p>Price: ${{ property.list_price }}</p>
     <p>Location: {{ property.street_name }}, {{ property.city }}</p>
+    {% comment %}
     <p>Latitude: {{ property.latitude }}</p>
     <p>Longitude: {{ property.longitude }}</p>
-
-    {% if property.images.all %}
+    {% endcomment %} {% if property.images.all %}
     <div class="images">
       {% for image in property.images.all %}
       <img src="{{ image.image.url }}" alt="Property Image" />

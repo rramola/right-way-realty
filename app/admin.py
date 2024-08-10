@@ -6,7 +6,11 @@ class PropertyImageInline(admin.TabularInline):
     extra = 1
 
 class PropertyAdmin(admin.ModelAdmin):
-    list_display = ('mls_number', 'list_price', 'house_number', 'street_name', 'bedrooms', 'baths', 'subdivision', 'city')
+    list_display = (
+        'mls_number', 'list_price', 'house_number', 'street_name', 
+        'street_suffix', 'city', 'state', 'postal_code', 'bedrooms', 
+        'baths_full', 'baths_half', 'baths_three_quarter', 'building_area_total'
+    )
     inlines = [PropertyImageInline]
 
 admin.site.register(Property, PropertyAdmin)

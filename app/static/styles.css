@@ -20,9 +20,9 @@ body {
   left: 0;
   align-items: center;
   z-index: 1000;
-  border-bottom: 1px solid #EAEEFB;
+  border-bottom: 1px solid #eaeefb;
   opacity: 0.9;
-  padding-top: .5rem;
+  padding-top: 0.5rem;
 }
 
 #logo {
@@ -36,7 +36,6 @@ body {
 #logo>img {
   width: 11rem;
   height: 5rem;
-
 }
 
 #navbar_items {
@@ -69,8 +68,7 @@ body {
   font-size: 1.1rem;
   margin-right: 1rem;
   font-weight: lighter;
-  letter-spacing: .1rem;
-
+  letter-spacing: 0.1rem;
 }
 
 .navbar_item>a:hover {
@@ -108,14 +106,12 @@ body {
   margin: 0 auto;
 }
 
-
 #home_page_banner_video {
   display: inline-flex;
   position: relative;
   align-items: center;
   justify-content: center;
   width: 100vw;
-
 }
 
 #home_page_banner_text {
@@ -130,6 +126,8 @@ body {
 
 /* Fade-in effect */
 #home_page_personalized_service .content.fade-in {
+  opacity: 1;
+  transform: translateY(0);
   opacity: 1;
   transform: translateY(0);
 }
@@ -174,12 +172,10 @@ body {
   margin-top: 2rem;
 }
 
-
 #home_page_personalized_service h1 {
   font-weight: bold;
-  letter-spacing: .2rem;
+  letter-spacing: 0.2rem;
 }
-
 
 #home_page_the_right_way {
   text-align: center;
@@ -190,8 +186,7 @@ body {
 
 #home_page_the_right_way h1 {
   font-weight: lighter;
-  letter-spacing: .2rem;
-
+  letter-spacing: 0.2rem;
 }
 
 /* #home_page_properties_container {
@@ -279,7 +274,7 @@ body {
 
 #expertise_section h1 {
   font-size: 3em;
-  font-family: 'Serif';
+  font-family: "Serif";
   margin-bottom: 50px;
 }
 
@@ -345,7 +340,7 @@ body {
 
 .agent_info h1 {
   font-size: 3em;
-  font-family: 'Serif';
+  font-family: "Serif";
   margin-bottom: 20px;
 }
 
@@ -426,7 +421,7 @@ body {
   background-color: #014235;
   /* border-radius: 20px; */
   /* margin: 40px auto; */
-  color: #EAEEFB;
+  color: #eaeefb;
   padding: 2rem;
   width: 190%;
   text-align: left;
@@ -440,8 +435,9 @@ body {
 .about-us-content p {
   font-size: 1.2rem;
   margin-bottom: 20px;
-  overflow-wrap: break-word
-    /* position: absolute ; */
+  overflow-wrap: break-word;
+
+  /* position: absolute ; */
 }
 
 /************************************************** Contact Page Styles ************************************************/
@@ -584,31 +580,25 @@ button:hover {
 #property-list {
   width: 30%;
   padding: 10px;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 #map {
   width: 70%;
-  height: 100%;
+  height: 100vh;
 }
 
 /********************* Media Queries for Mobile Responsiveness ************************************/
-
 
 @media (max-width: 900px) {
   #home_page_personalized_service {
     font-size: 2rem;
   }
 
-
   #home_page_the_right_way {
     font-size: 1rem;
   }
-
-
 }
-
-
 
 @media (max-width: 600px) {
 

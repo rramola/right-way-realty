@@ -1,24 +1,29 @@
 from django.db import models
-
 import requests
 
 
 class Property(models.Model):
-    mls_number = models.CharField(max_length=100, unique=True)
-    list_price = models.DecimalField(max_digits=10, decimal_places=2)
-    house_number = models.CharField(max_length=10)
-    street_name = models.CharField(max_length=255)
-    bedrooms = models.IntegerField()
-    baths = models.DecimalField(max_digits=2, decimal_places=1)
-    subdivision = models.CharField(max_length=255)
-    city = models.CharField(max_length=255)
-    description = models.TextField()
-    latitude = models.DecimalField(
-        max_digits=9, decimal_places=6, null=True, blank=True
-    )
-    longitude = models.DecimalField(
-        max_digits=9, decimal_places=6, null=True, blank=True
-    )
+    # Main Fields
+    mls_number = models.CharField(max_length=20, unique=True)
+    list_price = models.DecimalField(max_digits=12, decimal_places=2)
+    house_number = models.CharField(max_length=10, blank=True, null=True)
+    street_name = models.CharField(max_length=100, blank=True, null=True)
+    street_suffix = models.CharField(max_length=10, blank=True, null=True)
+    city = models.CharField(max_length=50, blank=True, null=True)
+    state = models.CharField(max_length=2, blank=True, null=True)
+    postal_code = models.CharField(max_length=10, blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
+    year_built = models.IntegerField(null=True, blank=True)
+    bedrooms = models.IntegerField(null=True, blank=True)
+    baths_full = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True)
+    baths_half = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True)
+    baths_three_quarter = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True)
+    building_area_total = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    # Additional Fields
+    public_remarks = models.TextField(blank=True, null=True)
+    private_remarks = models.TextField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
         if not self.latitude or not self.longitude:
@@ -38,7 +43,7 @@ class Property(models.Model):
             return None, None
 
     def __str__(self):
-        return f"{self.mls_number} - {self.street_name}, {self.city}"
+        return f'{self.street_name} {self.street_suffix}, {self.city}, {self.state} {self.postal_code}'
 
 
 class PropertyImage(models.Model):
