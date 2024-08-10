@@ -2,13 +2,16 @@
 {% load static %}
 {% block content %}
 <div id="home_page_container">
-    <div id="home_page_header_container">
+    {% comment %} <div id="home_page_header_container">
         <img
             id="home_page_banner_img"
             src="{% static 'images/bannerhouse.png' %}"
             alt="Banner House"
-        />
-
+        /> {% endcomment %}
+    <div id="home_page_banner_video">
+        <video autoplay muted loop>
+            <source src="{% static 'images/videobanner.mp4' %}" type="video/mp4">
+        </video>
         {% comment %}
         <section id="home_page_personalized_service">
             <div class="content">
@@ -55,7 +58,7 @@
             </div>
         </div>
 
-        
+
         <div id="expertise_section">
           <h1>Our Expertise</h1>
           <div class="expertise_container">
