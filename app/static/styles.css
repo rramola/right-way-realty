@@ -1,12 +1,11 @@
 body {
   background-color: #EAEEFB;
   padding: 0;
-  display: flex;
-  flex-direction: column;
   overflow-y: auto;
   margin: 0;
   height: 100vh;
   width: 100vw;
+  overflow-x: hidden;
 }
 
 /********************************** Navbar Styles **************************************************/
@@ -82,19 +81,13 @@ body {
 }
 
 /*******************************Home Page Styles******************* */
+
+#home_page_container {
+  overflow: hidden;
+}
+
 #home_page_properties_container {
   background-color: #EAEEFB;
-  /* display: flex; */
-  /* flex-direction: column;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
-    justify-items: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%; */
 }
 
 .property-list {
@@ -105,33 +98,25 @@ body {
   gap: 1rem;
   justify-items: center;
   align-items: center;
-  /* margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%; */
   margin: 0 auto;
 }
 
-/* #home_page_banner_image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-} */
 
-/* #home_page_banner_video {
-    min-width: 100%; 
-    min-height: 100%;
-    object-fit: fill;
-    object-position: center;
-    
-} */
+#home_page_banner_video {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+
+}
 
 #fillV {
   width: 100%;
   height: 100%;
   object-fit: fill;
   object-position: center;
+  width: 100%;
 }
 
 #home_page_properties_container>h1 {
@@ -139,6 +124,20 @@ body {
   color: #014235;
   display: flex;
   justify-content: center;
+}
+
+#home_page_banner_text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+#home_page_personalized_service {
+  text-align: center;
+}
+
+#home_page_the_right_way {
+  text-align: center;
 }
 
 .property_info {
