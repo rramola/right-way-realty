@@ -123,6 +123,29 @@ body {
   width: 100%;
 }
 
+#home_page_personalized_service .content {
+    opacity: 0;
+    transform: translateY(1rem); /* Slightly move down for a smoother effect */
+    transition: opacity 1s ease-out, transform 2s ease-out;
+}
+
+/* Fade-in effect */
+#home_page_personalized_service .content.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#home_page_the_right_way .content{
+    opacity: 0;
+    transform: translateY(1rem); /* Slightly move down for a smoother effect */
+    transition: opacity 3s ease-out, transform 5s ease-out;
+}
+
+#home_page_the_right_way .content.fade-in{
+    opacity: 1;
+    transform: translateY(0);
+}
+
 #fillV {
   width: 100%;
   height: 100%;
