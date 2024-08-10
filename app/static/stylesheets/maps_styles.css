@@ -1,0 +1,15 @@
+#container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  #property-list {
+    width: 30%;
+    padding: 10px;
+    overflow-y: scroll;
+  }
+  
+  #map {
+    width: 70%;
+    height: 100vh;
+  }

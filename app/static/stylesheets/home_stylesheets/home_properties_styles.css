@@ -1,0 +1,85 @@
+#home_page_properties_container h1 {
+    color: #014235;
+    display: flex;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: 600;
+    letter-spacing: .2rem;
+  }
+  
+  #home_page_properties_container {
+    background-color: #ffffff;
+  
+  }
+  
+  .property-list-wrapper {
+    overflow: hidden;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+  }
+  
+  .property-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  .property {
+    display: inline-block;
+    vertical-align: top;
+    flex-shrink: 0;
+    margin: 0 4rem;
+    text-align: center;
+  }
+  
+  .home_page_property_images {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+  }
+  
+  .home_page_property_images img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  
+  .property_info_header {
+    text-align: center;
+    font-family: sans-serif;
+    color: #2a7a3d;
+    font-weight: 400;
+  }
+  
+  
+  .property_info_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: sans-serif;
+    color: #d1c6a8;
+    font-size: 1rem;
+    line-height: 1px;
+  }
+  .property_info_content p {
+    margin: 1rem;
+  }
+
+
+  
+  

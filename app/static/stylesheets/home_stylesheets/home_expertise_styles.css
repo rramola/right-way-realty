@@ -1,0 +1,54 @@
+#expertise_page_break {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  #expertise_section {
+    text-align: center;
+    padding: 10%;
+    background-color: #0b3a2d;
+    color: #d1c6a8;
+    clip-path: polygon(0% 0%, 25% 0%, 50% 20%, 75% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  
+  #expertise_section h1 {
+    font-size: 3em;
+    font-family: 'Serif';
+    margin-bottom: 50px;
+  }
+  
+  .expertise_container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .expertise_box {
+    background-color: transparent;
+    border: 1px solid #d1c6a8;
+    padding: 20px;
+    width: 30%;
+    margin: 10px;
+    box-sizing: border-box;
+  
+  }
+  
+  .expertise_box h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .expertise_box p {
+    font-size: 1em;
+    margin-bottom: 20px;
+  }
+  
+  .book_now_button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2a7a3d;
+    color: #d1c6a8;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+  }

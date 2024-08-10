@@ -23,7 +23,7 @@
             <h1>PROPERTY SHOWCASE</h1>
             <div class="property-list-wrapper">
                 <div class="property-list">
-                    {% with properties|slice:":3" as properties_slice %}
+                    {% with properties|slice:"7:10" as properties_slice %}
                     {% for property in properties_slice %}
                     <div class="property">
                         {% if property.images.all %}
@@ -38,11 +38,11 @@
                         <div class="property_info">
                             {% comment %} <div class="property_info_header">
                                 <h2>{{ property.name|default:"No name available" }}</h2>
-                            </div> {% endcomment %}
+                            </div>  {% endcomment %}
                             <div class="property_info_content">
                                 <p>{{ property.city }}</p>
                                 <p>{{ property.street_name }}</p>
-                                <p>{{ property.description }}</p>
+                                {% comment %} <p>{{ property.description }}</p> {% endcomment %}
                                 <p>${{ property.price }}</p>
                             </div>
                         </div>
