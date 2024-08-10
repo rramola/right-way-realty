@@ -1,56 +1,133 @@
-{% extends "base_template.html" %} {% load static%} {%block content%}
+{% extends "base_template.html" %}
+{% load static %}
+{% block content %}
 <div id="home_page_container">
-  <div id="home_page_header_container">
-    <img
-      id="home_page_banner_img"
-      src="{% static 'images/bannerhouse.png' %}"
-      alt="Banner House"
-    />
-    {% comment %} <section id="home_page_personalized_service">
-      <div class="content">
-        <h1>Personalized Service</h1>
-        <p>We offer tailored solutions to meet your unique needs.</p>
-      </div>
-    </section>
+    <div id="home_page_header_container">
+        <img
+            id="home_page_banner_img"
+            src="{% static 'images/bannerhouse.png' %}"
+            alt="Banner House"
+        />
 
-    <!-- The Right Way Section -->
-    <section id="home_page_the_right_way">
-      <div class="content">
-        <h1>The Right Way</h1>
-        <p>Experience the difference with our exceptional service.</p>
-      </div>
-    </section> {% endcomment %}
-
-    <!--Property Preview Section -->
-<div id="home_page_properties_container">
-    <h1>Properties</h1>
-    <div class="property-list">
-      {% with properties|slice:":4" as properties_slice %} 
-      {% for property in properties_slice %}
-            <div class="property">
-                {% if property.images.all %}
-                <div class="images">
-                    {% for image in property.images.all %}
-                    <img src="{{ image.image.url }}" alt="Property Image" />
-                    {% endfor %}
-                </div>
-                {% else %}
-                <p>No images available.</p>
-                {% endif %}
-                <div class="property_info">
-                    <h2>{{ property.name|default:"No name available" }}</h2>
-                    <p>{{ property.city }}</p>
-                    <p>{{ property.street_name }}</p>
-                    <p>{{ property.description }}</p>
-                    <p>${{ property.price }}</p>
-                </div>
+        {% comment %}
+        <section id="home_page_personalized_service">
+            <div class="content">
+                <h1>Personalized Service</h1>
+                <p>We offer tailored solutions to meet your unique needs.</p>
             </div>
-        {% endfor %}
-        {% endwith %}
+        </section>
+
+        <!-- The Right Way Section -->
+        <section id="home_page_the_right_way">
+            <div class="content">
+                <h1>The Right Way</h1>
+                <p>Experience the difference with our exceptional service.</p>
+            </div>
+        </section>
+        {% endcomment %}
+
+        <!-- Property Preview Section -->
+        <div id="home_page_properties_container">
+            <h1>Properties</h1>
+            <div class="property-list">
+                {% with properties|slice:":3" as properties_slice %}
+                {% for property in properties_slice %}
+                <div class="property">
+                    {% if property.images.all %}
+                    <div class="images">
+                        {% for image in property.images.all %}
+                        <img src="{{ image.image.url }}" alt="Property Image" />
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <p>No images available.</p>
+                    {% endif %}
+                    <div class="property_info">
+                        <h2>{{ property.name|default:"No name available" }}</h2>
+                        <p>{{ property.city }}</p>
+                        <p>{{ property.street_name }}</p>
+                        <p>{{ property.description }}</p>
+                        <p>${{ property.price }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endwith %}
+            </div>
+        </div>
+
+        
+        <div id="expertise_section">
+          <h1>Our Expertise</h1>
+          <div class="expertise_container">
+              <div class="expertise_box">
+                  <h2>Home Valuation</h2>
+                  <p>Discover the true value of your home</p>
+                  <a href="#" class="book_now_button">Book Now</a>
+              </div>
+              <div class="expertise_box">
+                  <h2>Property Viewing</h2>
+                  <p>Explore your future home with us</p>
+                  <a href="#" class="book_now_button">Book Now</a>
+              </div>
+              <div class="expertise_box">
+                  <h2>Buyer Consultation</h2>
+                  <p>Your journey to homeownership starts here</p>
+                  <a href="#" class="book_now_button">Book Now</a>
+              </div>
+          </div>
+      </div>
+
+
+      <div id="agent_profile_section">
+        <div class="agent_profile_container">
+            <div class="agent_info">
+                <h1>April White</h1>
+                <p>
+                    With a passion for real estate and a deep commitment to her clients, April has built a reputation
+                    for delivering exceptional service and achieving outstanding results.
+                </p>
+                <p>
+                    Her expertise in the local market, combined with her aggressive negotiation skills and attention
+                    to detail, ensures that every client’s needs are met with the highest level of professionalism
+                    and care. April’s personalized approach and relentless drive have earned her numerous positive
+                    reviews and a loyal client base, making her a trusted and respected figure in the Oxford real
+                    estate community.
+                </p>
+            </div>
+            <div class="agent_image">
+                <img src="{% static 'images/aprilaboutme.png' %}" alt="April White">
+            </div>
+        </div>
+    </div>
+
+    <div id="testimonials_section">
+    <div class="testimonial_item">
+        <p class="quote">“</p>
+        <p class="testimonial_text">
+            April was an excellent agent & looked out for our best interest through the entire process
+            of purchasing our home. She stayed on top of all details and provided outstanding service.
+            April also ensured all aspects & details of the contract were fulfilled, leading us to a successful closing!
+            Every buyer needs an April representing them! Highly recommend!!!
+        </p>
+        <p class="author">Lane McCormack, Pontotoc</p>
+    </div>
+    <div class="testimonial_item">
+        <p class="quote">“</p>
+        <p class="testimonial_text">
+            "A great testimonial can boost your brand’s image. Click to edit and add your own."
+        </p>
+        <p class="author">Morgan James, New Albany</p>
+    </div>
+    <div class="testimonial_item">
+        <p class="quote">“</p>
+        <p class="testimonial_text">
+            “April is amazing!! When we moved to Oxford, she helped us find a rental home and later helped us find the perfect home to buy. She went above and beyond and the process went very smoothly.”
+        </p>
+        <p class="author">David Sullivan, Oxford</p>
     </div>
 </div>
   </div>
+    </div>
 </div>
-  <script src="{% static 'js/script.js' %}"></script>
-  {%endblock content%}
-</div>
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock content %}

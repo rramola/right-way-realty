@@ -99,17 +99,17 @@ body {
 
 .property-list{
     background-color: #EAEEFB;
-    display: flex;
     flex-direction: column;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
     justify-items: center;
     align-items: center;
-    margin: 0;
+    /* margin: 0;
     padding: 0;
     height: 100%;
-    width: 100%;
+    width: 100%; */
+    margin: 0 auto;
 }
 
 #home_page_properties_container > h1 {
@@ -127,8 +127,138 @@ body {
     
 }
 
+#expertise_section {
+  text-align: center;
+  padding: 6%;
+  background-color: #0b3a2d; 
+  color: #d1c6a8;
+}
+
+#expertise_section h1 {
+  font-size: 3em;
+  font-family: 'Serif'; 
+  margin-bottom: 50px;
+}
+
+.expertise_container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.expertise_box {
+  background-color: transparent;
+  border: 1px solid #d1c6a8;
+  padding: 20px;
+  width: 30%;
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+.expertise_box h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.expertise_box p {
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+.book_now_button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2a7a3d; 
+  color: #d1c6a8;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.book_now_button:hover {
+  background-color: #1e5a2a; 
+}
+
+#agent_profile_section {
+  padding: 50px;
+  background-color: #295943; 
+  color: #ffffff; 
+}
+
+.agent_profile_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.agent_info {
+  flex: 1;
+  padding-right: 50px;
+}
+
+.agent_info h1 {
+  font-size: 3em;
+  font-family: 'Serif';
+  margin-bottom: 20px;
+}
+
+.agent_info p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.agent_image {
+  flex: 0 1 40%;
+  text-align: center;
+}
+
+.agent_image img {
+  max-width: 100%;
+  border: 10px solid #eefbea; 
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); 
+}
+
 .property_info > h2 {
     font-size: 2rem;
+}
+
+#testimonials_section {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  background-color: #e5d9b9; /* Matches the background color */
+}
+
+.testimonial_item {
+  flex: 1;
+  margin: 20px;
+  padding: 20px;
+  background-color: #e5d9b9; /* Background color for each testimonial */
+  border-left: 5px solid #1b5e20; /* Green line on the left */
+}
+
+.testimonial_item .quote {
+  font-size: 50px;
+  color: #1b5e20;
+  margin: 0;
+}
+
+.testimonial_text {
+  font-size: 1.2em;
+  color: #344e41; /* Dark green text */
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+.author {
+  font-weight: bold;
+  font-size: 1em;
+  color: #344e41; /* Dark green text */
 }
 
 /**************************** Properties Page Styles *********************************************/
