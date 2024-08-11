@@ -9,6 +9,7 @@
   
   #home_page_properties_container {
     background-color: #ffffff;
+
   
   }
   
@@ -35,7 +36,6 @@
   }
   
   .property {
-    width: 100%;
     display: grid;
     grid-template-rows: 1fr 1fr;
     vertical-align: top;
@@ -104,7 +104,29 @@
 
   .home_page_property_images {
     display: flex;
-    width: 50%;
 
   }
+}
+
+
+@media (max-width: 750px) {
+  .property-list{
+    display: flex;
+    flex-direction: column;
+  }  
+  
+}
+
+@media (max-width: 650px) {
+  #home_page_properties_container h1{
+    font-size:1.4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .property-list{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: none;
+  }  
 }

@@ -14,7 +14,7 @@
   }
   
   .testimonial_item .quote {
-    font-size: 50px;
+    font-size: 3rem;
     color: #1b5e20;
     margin: 0;
   }
@@ -31,3 +31,42 @@
     font-size: 1em;
     color: #344e41;
   }
+
+
+
+
+@media (max-width: 900px) {
+  .testimonial_item .quote {
+    font-size: 2rem;
+  }
+    
+  .testimonial_text {
+    font-size: 1rem
+  }
+  
+}
+
+@media (max-width: 750px) {
+  #testimonials_section {
+    flex-direction: column;
+ 
+  }
+
+  .testimonial_item {
+    flex: 1;
+    margin: 20px;
+    padding: 20px;
+    background-color: #e5d9b9;
+    border-left: none;
+    border-bottom: 5px solid #1b5e20;
+  }
+  
+  .testimonial_item .quote {
+    font-size: 3rem;
+  }
+    
+  .testimonial_text {
+    font-size: 1.3rem
+  }
+  
+}

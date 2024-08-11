@@ -96,3 +96,10 @@
 }
 
 /* --------------------------------------------------------------- */
+
+
+@media (max-width: 650px) {
+    #home_page_personalized_service h1 {
+      font-size: 1.7rem;
+    }
+}

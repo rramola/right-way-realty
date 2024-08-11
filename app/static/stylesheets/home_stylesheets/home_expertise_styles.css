@@ -84,3 +84,15 @@
  padding-top: 4rem;
   }
 }
+
+
+@media (max-width: 750px) {
+  #expertise_container{
+    display: grid;
+    grid-auto-rows: 1fr 1fr 1fr;
+  }
+    .expertise_box{
+      width: 100%;
+    }
+}
+

@@ -1,7 +1,6 @@
 #navbar_container {
     background-color: #EAEEFB;
     margin: 0;
-    position: absolute;
     display: flex;
     height: 8%;
     top: 0;
@@ -89,7 +88,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: space-between;
-    position: fixed;
+    position: relative;
   }
 
   #hamburger_menu {
