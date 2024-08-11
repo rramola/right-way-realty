@@ -8,7 +8,7 @@
     padding: 10%;
     background-color: #0b3a2d;
     color: #d1c6a8;
-    clip-path: polygon(0% 0%, 25% 0%, 50% 20%, 75% 0%, 100% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(50% 10%, 70% 0, 100% 0, 100% 100%, 100% 100%, 100% 100%, 0% 100%, 0 100%, 0 0, 30% 0);
   }
   
   #expertise_section h1 {
@@ -24,6 +24,8 @@
   }
   
   .expertise_box {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
     background-color: transparent;
     border: 1px solid #d1c6a8;
     padding: 20px;
@@ -52,3 +54,33 @@
     border-radius: 5px;
     font-size: 1em;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* -------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+    
+@media (max-width: 900px) {
+  #expertise_section h1 {
+ padding-top: 4rem;
+  }
+}

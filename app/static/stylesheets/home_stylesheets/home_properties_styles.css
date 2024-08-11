@@ -15,7 +15,9 @@
   .property-list-wrapper {
     overflow: hidden;
     padding-top: 3rem;
-    padding-bottom: 2rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+
   }
   
   .property-list {
@@ -33,11 +35,12 @@
   }
   
   .property {
-    display: inline-block;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
     vertical-align: top;
     flex-shrink: 0;
-    margin: 0 4rem;
-    text-align: center;
+    text-align: center
   }
   
   .home_page_property_images {
@@ -73,8 +76,7 @@
     text-align: center;
     font-family: sans-serif;
     color: #d1c6a8;
-    font-size: 1rem;
-    line-height: 1px;
+    font-size:2.5rem;
   }
   .property_info_content p {
     margin: 1rem;
@@ -83,3 +85,26 @@
 
   
   
+
+
+  
+@media (max-width: 900px) {
+  #home_page_properties_container h1{
+    font-size: 2.4rem;
+  }
+
+  .property_info_content {
+    font-size: 1.5rem;
+  }
+
+  .property-list {
+    display: flex;
+
+  }
+
+  .home_page_property_images {
+    display: flex;
+    width: 50%;
+
+  }
+}
