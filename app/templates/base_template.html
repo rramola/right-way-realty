@@ -45,8 +45,27 @@
 
     {% endblock content %}
     
-    <div id="footer_container">
-        <p>Footer Text</p>
-    </div>
+    <body>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-left">
+                    <h1>Right-Way Realty</h2>
+                </div>
+                <div class="footer-right">
+                    <div class="footer-item">
+                        <img src="{% static 'images/mail-icon.png' %}" alt="Mail Icon" class="footer-icon">
+                        <p>april@right-wayrealty.com</p>
+                    </div>
+                    <div class="footer-item">
+                        <img src="{% static 'images/house-icon.png' %}" alt="House Icon" class="footer-icon">
+                        <p>2008 MS-30 Ste<br>102, Oxford, MS 38655</p>
+                    </div>
+                    <div class="footer-item">
+                        <img src="{% static 'images/phone-icon.png' %}" alt="Phone Icon" class="footer-icon">
+                        <p>(662) 801-6806</p>
+                    </div>
+                </div>
+            </div>
+        <footer>
 </body>
 </html>
