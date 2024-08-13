@@ -1,20 +1,13 @@
 {% extends "base_template.html" %} {% load static%} {%block content%}
 <div class="properties-container">
   {% for property in properties %}
-<<<<<<< HEAD
-  <div class="property">
-    <h2>{{ property.mls_number }}</h2>
-    <p>{{ property.description }}</p>
-    <p>Priceee: ${{ property.list_price }}</p>
-    <p>Location: {{ property.street_name }}, {{ property.city }}</p>
-=======
+
   <div class="property-card">
     <h2 class="property-title">{{ property.mls_number }}</h2>
     <p class="property-description">{{ property.description }}</p>
     <p class="property-price">Price: ${{ property.list_price }}</p>
     <p class="property-location">Location: {{ property.street_name }}, {{ property.city }}</p>
 
->>>>>>> 0e70f2561d887db40e2c52c4c34d452453bbd623
     {% comment %}
     <p class="property-latitude">Latitude: {{ property.latitude }}</p>
     <p class="property-longitude">Longitude: {{ property.longitude }}</p>
