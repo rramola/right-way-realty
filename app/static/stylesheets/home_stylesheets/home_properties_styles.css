@@ -15,16 +15,11 @@
 
 .property-list-wrapper {
   overflow: hidden;
-  padding-top: 3rem;
-  padding-left: 5rem;
-  padding-right: 5rem;
-
+  padding: 3rem;
 }
 
 .property-list {
-  display: flex;
   flex-wrap: wrap;
-  gap: 3rem;
   justify-content: center;
   background-color: #ffffff;
   display: grid;
@@ -36,21 +31,24 @@
 }
 
 .property {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
+  /* display: grid;
+  grid-template-rows: 1fr 1fr; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   vertical-align: top;
   flex-shrink: 0;
   text-align: center;
   border-left: 5px solid #1b5e20;
-  height: 80%;
-  padding-left: 2rem;
+  height: 100%;
+  width: 100%;
 }
 
 .home_page_property_images {
   position: relative;
-  width: 100%;
-  padding-top: 100%;
-  overflow: hidden;
+  width: 15rem;
+  height: 15rem;
 }
 
 .home_page_property_images img {
@@ -79,11 +77,28 @@
   text-align: center;
   font-family: sans-serif;
   color: #d1c6a8;
-  font-size:2.5rem;
+  font-size: 2.5rem;
 }
-/* .property_info_content p {
-  margin: 1rem;
-} */
+
+#home_property_city {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+#home_property_street {
+  font-size: 1.3rem;
+  margin: 0;
+
+}
+
+#home_property_price {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.home_property_info_content {
+  padding-top: .5rem;
+}
 
 
 
@@ -92,44 +107,52 @@
 
 
 @media (max-width: 900px) {
-#home_page_properties_container h1{
-  font-size: 2.4rem;
-}
+  #home_page_properties_container h1 {
+    font-size: 2.4rem;
+  }
 
-.property_info_content {
-  font-size: 1.5rem;
-}
+  .property_info_content {
+    font-size: 1.5rem;
+  }
 
-.property-list {
-  display: flex;
+  .property-list {
+    display: flex;
+    padding-left: 4rem;
+    padding-right: 4rem;
 
-}
+  }
 
-.home_page_property_images {
-  display: flex;
+  .home_page_property_images {
+    display: flex;
 
-}
+  }
+
+  .property {
+    border-left: none;
+    border-top: 5px solid #1b5e20;
+    padding-top: 3rem;
+  }
 }
 
 
 @media (max-width: 750px) {
-.property-list{
-  display: flex;
-  flex-direction: column;
-}  
+  .property-list {
+    display: flex;
+    flex-direction: column;
+  }
 
 }
 
 @media (max-width: 650px) {
-#home_page_properties_container h1{
-  font-size:1.4rem;
-}
+  #home_page_properties_container h1 {
+    font-size: 1.4rem;
+  }
 }
 
 @media (max-width: 600px) {
-.property-list{
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: none;
-}  
+  .property-list {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: none;
+  }
 }

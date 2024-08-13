@@ -40,10 +40,10 @@
                                 <h2>{{ property.name|default:"No name available" }}</h2>
                             </div>  {% endcomment %}
                             <div class="property_info_content">
-                                <p>{{ property.city }}</p>
-                                <p>{{ property.street_name }}</p>
+                                <p class="home_property_info_content" id="home_property_city">{{ property.city }}</p>
+                                <p class="home_property_info_content" id="home_property_street">{{ property.street_name }}</p>
                                 {% comment %} <p>{{ property.description }}</p> {% endcomment %}
-                                <p>${{ property.price }}</p>
+                                <p class="home_property_info_content" id="home_property_price">${{ property.price }}</p>
                             </div>
                         </div>
                     </div>
