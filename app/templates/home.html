@@ -23,7 +23,7 @@
             <h1>PROPERTY SHOWCASE</h1>
             <div class="property-list-wrapper">
                 <div class="property-list">
-                    {% with properties|slice:":3" as properties_slice %}
+                    {% with properties|slice:"7:10" as properties_slice %}
                     {% for property in properties_slice %}
                     <div class="property">
                         {% if property.images.all %}
@@ -38,11 +38,11 @@
                         <div class="property_info">
                             {% comment %} <div class="property_info_header">
                                 <h2>{{ property.name|default:"No name available" }}</h2>
-                            </div> {% endcomment %}
+                            </div>  {% endcomment %}
                             <div class="property_info_content">
                                 <p>{{ property.city }}</p>
                                 <p>{{ property.street_name }}</p>
-                                <p>{{ property.description }}</p>
+                                {% comment %} <p>{{ property.description }}</p> {% endcomment %}
                                 <p>${{ property.price }}</p>
                             </div>
                         </div>
@@ -73,25 +73,26 @@
           </div>
       </div>
 
-
-      <div id="agent_profile_section">
-        <div class="agent_profile_container">
-            <div class="agent_info">
-                <h1>April White</h1>
-                <p>
-                    With a passion for real estate and a deep commitment to her clients, April has built a reputation
-                    for delivering exceptional service and achieving outstanding results.
-                </p>
-                <p>
-                    Her expertise in the local market, combined with her aggressive negotiation skills and attention
-                    to detail, ensures that every client’s needs are met with the highest level of professionalism
-                    and care. April’s personalized approach and relentless drive have earned her numerous positive
-                    reviews and a loyal client base, making her a trusted and respected figure in the Oxford real
-                    estate community.
-                </p>
-            </div>
-            <div class="agent_image">
-                <img src="{% static 'images/aprilaboutme.png' %}" alt="April White">
+      <div id="agent_profile_section_container">
+        <div id="agent_profile_section">
+            <div class="agent_profile_container">
+                <div class="agent_info">
+                    <h1>April White</h1>
+                    <p>
+                        With a passion for real estate and a deep commitment to her clients, April has built a reputation
+                        for delivering exceptional service and achieving outstanding results.
+                    </p>
+                    <p>
+                        Her expertise in the local market, combined with her aggressive negotiation skills and attention
+                        to detail, ensures that every client’s needs are met with the highest level of professionalism
+                        and care. April’s personalized approach and relentless drive have earned her numerous positive
+                        reviews and a loyal client base, making her a trusted and respected figure in the Oxford real
+                        estate community.
+                    </p>
+                </div>
+                <div class="agent_image">
+                    <img src="{% static 'images/aprilaboutme.png' %}" alt="April White">
+                </div>
             </div>
         </div>
     </div>
@@ -100,12 +101,9 @@
     <div class="testimonial_item">
         <p class="quote">“</p>
         <p class="testimonial_text">
-            April was an excellent agent & looked out for our best interest through the entire process
-            of purchasing our home. She stayed on top of all details and provided outstanding service.
-            April also ensured all aspects & details of the contract were fulfilled, leading us to a successful closing!
-            Every buyer needs an April representing them! Highly recommend!!!
+            We have used Right-Wat Realty several times.   I highly recommend April and Terry for all your real estate needs.   They go above and beyond to take care of their customers needs.
         </p>
-        <p class="author">Lane McCormack, Pontotoc</p>
+        <p class="author">Mid-South Septic</p>
     </div>
     <div class="testimonial_item">
         <p class="quote">“</p>
@@ -121,6 +119,7 @@
         </p>
         <p class="author">David Sullivan, Oxford</p>
     </div>
+  </body>
 </div>
   </div>
     </div>
