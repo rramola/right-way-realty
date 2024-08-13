@@ -8,8 +8,7 @@
     left: 0;
     align-items: center;
     z-index: 1000;
-    border-bottom: 1px solid #EAEEFB;
-    opacity: 0.9;
+    border-bottom: 1px solid #EAEEFB;;
     padding-top: .5rem;
   }
   

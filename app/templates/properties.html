@@ -1,18 +1,21 @@
 {% extends "base_template.html" %} {% load static%} {%block content%}
-<div class="property-list">
+<div class="properties-container">
   {% for property in properties %}
-  <div class="property">
-    <h2>{{ property.mls_number }}</h2>
-    <p>{{ property.description }}</p>
-    <p>Price: ${{ property.list_price }}</p>
-    <p>Location: {{ property.street_name }}, {{ property.city }}</p>
+  <div class="property-card">
+    <h2 class="property-title">{{ property.mls_number }}</h2>
+    <p class="property-description">{{ property.description }}</p>
+    <p class="property-price">Price: ${{ property.list_price }}</p>
+    <p class="property-location">Location: {{ property.street_name }}, {{ property.city }}</p>
+
     {% comment %}
-    <p>Latitude: {{ property.latitude }}</p>
-    <p>Longitude: {{ property.longitude }}</p>
-    {% endcomment %} {% if property.images.all %}
+    <p class="property-latitude">Latitude: {{ property.latitude }}</p>
+    <p class="property-longitude">Longitude: {{ property.longitude }}</p>
+    {% endcomment %}
+
+    {% if property.images.all %}
     <div class="images">
       {% for image in property.images.all %}
-      <img src="{{ image.image.url }}" alt="Property Image" />
+      <img src="{{ image.image.url }}" alt="Property Image" class="property-image" />
       {% endfor %}
     </div>
     {% else %}
