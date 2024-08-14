@@ -10,7 +10,7 @@
       </h2>
       <p>Price: ${{ property.list_price }}</p>
       <p>Bedrooms: {{ property.bedrooms }}</p>
-      <p>Baths: {{ property.baths }}</p>
+      <p>Baths: {{ property.baths_full }}</p>
       <a
         href="#"
         onclick="moveToProperty({{ property.latitude }}, {{ property.longitude }})"
@@ -50,9 +50,12 @@
 
   async function initMap() {
     const { Map } = await google.maps.importLibrary("maps");
+    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
     map = new Map(document.getElementById("map"), {
       center: { lat: 34.366743, lng: -89.518652 },
       zoom: 12,
+      mapId: "9dd514aacb4d086b",  // Map ID
     });
 
     const properties = [
@@ -67,22 +70,24 @@
     ];
 
     properties.forEach(property => {
-      const marker = new google.maps.Marker({
-        position: { lat: property.lat, lng: property.lng },
-        map: map,
-        title: property.title
-      });
+      if (!isNaN(property.lat) && !isNaN(property.lng)) {
+        const marker = new AdvancedMarkerElement({
+          position: new google.maps.LatLng(property.lat, property.lng),
+          map: map,
+          title: property.title
+        });
 
-      const infoWindow = new google.maps.InfoWindow({
-        content: `<div>
-                   <h3>${property.title}</h3>
-                   <p>Price: $${property.price}</p>
-                 </div>`
-      });
+        const infoWindow = new google.maps.InfoWindow({
+          content: `<div class="map-popup">
+                     <h3>${property.title}</h3>
+                     <p>Price: $${property.price}</p>
+                   </div>`
+        });
 
-      marker.addListener("click", () => {
-        infoWindow.open(map, marker);
-      });
+        marker.addListener("click", () => {
+          infoWindow.open(map, marker);
+        });
+      }
     });
   }
 
