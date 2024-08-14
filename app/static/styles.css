@@ -29,7 +29,7 @@ button:hover {
 
 /* Footer Styles */
 footer {
-  background-color: #274e13;
+  background-color: #073528;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -49,6 +49,7 @@ footer {
   padding-bottom: 1.5rem;
   margin: 0;
   font-size: 2rem;
+  color: #d1c6a8;
 }
 
 .footer-right {
@@ -62,12 +63,16 @@ footer {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  color: #d1c6a8;
+}
+
+.footer-item i {
+  color: #2a7a3d;
 }
 
 .footer-icon {
   width: 20px;
   height: 20px;
-  color: aliceblue;
 }
 
 
