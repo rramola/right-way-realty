@@ -53,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
 // CAROUSEL
 const carouselSlide = document.getElementById('carouselSlide');
 const images = carouselSlide.getElementsByTagName('img');
