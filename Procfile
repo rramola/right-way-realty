@@ -1,0 +1,1 @@
+web: gunicorn right_way_realty.wsgi --log-file -
