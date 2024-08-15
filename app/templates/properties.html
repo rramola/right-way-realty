@@ -3,12 +3,17 @@
 {% block content %}
 <div class="property-listing">
     <!-- Main Image -->
-    <div class="property-image">
+    {% comment %} <div class="property-image">
         <img id="mainImage" src="{% static 'house/house1.jpg' %}" alt="House Image">
-    </div>
+    </div> {% endcomment %}
 
     <!-- Property Details -->
     <div class="property-details">
+      <div class="property-listing">
+        <!-- Main Image -->
+        <div class="property-image">
+            <img id="mainImage" src="{% static 'house/house1.jpg' %}" alt="House Image">
+        </div>
         <h1 class="property-title">Beautiful Family Home</h1>
         <p class="property-location">1234 Elm Street, Springfield, IL</p>
         <p class="property-price">$350,000</p>
