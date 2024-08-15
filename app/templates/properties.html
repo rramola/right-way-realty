@@ -1,31 +1,42 @@
-{% extends "base_template.html" %} {% load static%} {%block content%}
-<div class="properties-container">
-  {% for property in properties %}
-  <div class="property-card">
-    <h2 class="property-title">{{ property.mls_number }}</h2>
-    <p class="property-description">{{ property.description }}</p>
-    <p class="property-price">Price: ${{ property.list_price }}</p>
-    <p class="property-location">
-      Location: {{ property.street_name }}, {{ property.city }}
-    </p>
-
-    {% comment %}
-    <p class="property-latitude">Latitude: {{ property.latitude }}</p>
-    <p class="property-longitude">Longitude: {{ property.longitude }}</p>
-    {% endcomment %} {% if property.images.all %}
-    <div class="images">
-      {% for image in property.images.all %}
-      <img
-        src="{{ image.image.url }}"
-        alt="Property Image"
-        class="property-image"
-      />
-      {% endfor %}
+{% extends "base_template.html" %}
+{% load static %}
+{% block content %}
+<div class="property-listing">
+    <!-- Main Image -->
+    <div class="property-image">
+        <img id="mainImage" src="{% static 'house/house1.jpg' %}" alt="House Image">
     </div>
-    {% else %}
-    <p>No images available.</p>
-    {% endif %}
-  </div>
-  {% endfor %}
+
+    <!-- Property Details -->
+    <div class="property-details">
+        <h1 class="property-title">Beautiful Family Home</h1>
+        <p class="property-location">1234 Elm Street, Springfield, IL</p>
+        <p class="property-price">$350,000</p>
+        <p class="property-description">
+            This charming family home features 4 bedrooms, 3 bathrooms, and a spacious backyard.
+            Recently renovated with modern finishes, this home is move-in ready.
+        </p>
+        <div class="property-contact">
+            <p>Contact us at:</p>
+            <p>Email: info@rightwayrealty.com</p>
+            <p>Phone: (555) 123-4567</p>
+        </div>
+    </div>
+
+    <!-- Carousel -->
+    <div class="carousel-container">
+        <div class="carousel-slide" id="carouselSlide">
+            <img src="{% static 'house/house1.jpg' %}" alt="House Image 1" onclick="updateMainImage(this.src)">
+            <img src="{% static 'house/house2.jpg' %}" alt="House Image 2" onclick="updateMainImage(this.src)">
+            <img src="{% static 'house/house3.jpg' %}" alt="House Image 3" onclick="updateMainImage(this.src)">
+            <img src="{% static 'house/house4.jpg' %}" alt="House Image 4" onclick="updateMainImage(this.src)">
+            <img src="{% static 'house/house1.jpg' %}" alt="House Image 5" onclick="updateMainImage(this.src)">
+            <!-- Add more images as needed -->
+        </div>
+        <div class="carousel-buttons">
+            <button id="prevBtn" onclick="updateCarousel('prev')">&#10094;</button>
+            <button id="nextBtn" onclick="updateCarousel('next')">&#10095;</button>
+        </div>
+    </div>
 </div>
-{%endblock content%}
+{% endblock content %}
