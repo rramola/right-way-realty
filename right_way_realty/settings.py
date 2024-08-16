@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 
 # import environ
@@ -89,14 +90,19 @@ EMAIL_HOST_PASSWORD = "qmmt agec ghzl meip"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "d79qc1l6bm8jia",
+        "USER": "u2d1f9rbkdkkr0",
+        "PASSWORD": "pbb0999bc902f3ee93a5c8a0255d81b5627f720338934c7cdeaecd7dafc8d2098",
+        "HOST": "caij57unh724n3.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com",
+        "PORT": "5432",
     }
 }
 
-import dj_database_url
+
 
 
 # Password validation
