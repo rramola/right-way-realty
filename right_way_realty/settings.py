@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
-
 
 # import environ
 
@@ -28,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-$tp%#7shjbl-f*-74%xez$#2+&@c6^k*65d*w^!%bcvvq3n0!_"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -90,19 +88,12 @@ EMAIL_HOST_PASSWORD = "qmmt agec ghzl meip"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "d79qc1l6bm8jia",
-        "USER": "u2d1f9rbkdkkr0",
-        "PASSWORD": "pbb0999bc902f3ee93a5c8a0255d81b5627f720338934c7cdeaecd7dafc8d2098",
-        "HOST": "caij57unh724n3.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com",
-        "PORT": "5432",
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
-
 
 
 # Password validation
@@ -154,11 +145,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-STATICFILES_STORAGE =  'django.contrib.staticfiles.storage.StaticFilesStorage'
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
 
 # STATIC_URL = "app/static/"
 
