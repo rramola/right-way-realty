@@ -99,6 +99,15 @@
   #home_page_personalized_service h1 {
     font-size: 1.7rem;
   }
+  #home_page_banner_video {
+    width: auto;
+    height: 40rem;
+  }
+
+  #fillV {
+    object-fit: cover;
+
+  }
 }
 
 

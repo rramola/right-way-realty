@@ -70,6 +70,24 @@
 
   .agent_image {
     margin-bottom: 5rem;
+    border: none;
+    margin: 0;
+  }
+
+  .agent_info h1 {
+    font-size: 3rem;
+
+  }
+
+  
+  .agent_info p {
+
+    font-size: 1em;
+
+  }
+
+  #agent_profile_section{
+    clip-path: none;
   }
 
 

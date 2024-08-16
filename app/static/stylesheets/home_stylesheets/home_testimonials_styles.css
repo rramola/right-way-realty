@@ -72,3 +72,15 @@
   }
   
 }
+
+@media (max-width: 650px) {
+
+  .testimonial_item .quote {
+    font-size: 2rem;
+  }
+    
+  .testimonial_text {
+    font-size: 1rem
+  }
+  
+}
