@@ -16,6 +16,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  background-color: #155e49;
+  border-radius: 1.5rem;
 }
 
 #contact_us_header {
