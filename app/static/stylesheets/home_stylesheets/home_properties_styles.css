@@ -2,7 +2,7 @@
   color: #014235;
   display: flex;
   justify-content: center;
-  font-size: 5rem;
+  font-size:4rem;
   letter-spacing: .5rem;
   font-family: "Antic Didone";
   font-weight: 400;
@@ -47,7 +47,7 @@
 
 .home_page_property_images {
   position: relative;
-  width: 15rem;
+  width: 90%;
   height: 15rem;
 }
 
@@ -117,15 +117,20 @@
     font-size: 1.5rem;
   }
 
+  .property-list-wrapper {
+    padding: 0;
+
+  }
+
   .property-list {
     display: flex;
-    padding-left: 4rem;
-    padding-right: 4rem;
+    padding: 0;
 
   }
 
   .home_page_property_images {
     display: flex;
+    width: 90vw
 
   }
 
@@ -133,6 +138,24 @@
     border-left: none;
     border-top: 5px solid #1b5e20;
     padding-top: 3rem;
+    width: 90%;
+  }
+
+  .property-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .property-list-wrapper {
+    padding-bottom: 0;
+  }
+
+  .property{
+    height: 30rem;
+  }
+
+  .home_page_property_images{
+    height: 90%;
   }
 }
 
@@ -147,12 +170,21 @@
     padding-bottom: 0;
   }
 
+  .property{
+    height: 30rem;
+  }
+
+  .home_page_property_images{
+    height: 90%;
+  }
+
 }
 
 @media (max-width: 650px) {
   #home_page_properties_container h1 {
     font-size: 1.4rem;
   }
+
 }
 
 @media (max-width: 600px) {
