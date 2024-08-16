@@ -1,0 +1,66 @@
+#agent_profile_section {
+  padding: 50px;
+  background-color: #295943;
+  color: #ffffff;
+  clip-path: polygon(51% 0, 70% 0, 100% 0, 100% 100%, 70% 100%, 50% 88%, 30% 100%, 0 100%, 0 0, 30% 0);
+
+}
+
+.agent_profile_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+  grid-gap: 1rem;
+}
+
+.agent_info {
+  flex: 1;
+}
+
+.agent_info h1 {
+  font-size: 3em;
+  font-family: "Serif";
+  margin-bottom: 20px;
+}
+
+.agent_info p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.agent_image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.agent_image img {
+  width: 18rem;
+  border: 10px solid #eefbea;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+#agent_profile_section_container {
+  background-color: #e5d9b9;
+}
+
+
+
+@media (max-width: 750px) {
+  .agent_profile_container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .agent_image {
+    margin-bottom: 5rem;
+  }
+
+
+}

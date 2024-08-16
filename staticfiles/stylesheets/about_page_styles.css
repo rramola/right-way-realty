@@ -1,0 +1,28 @@
+.header {
+    padding: 2rem;
+  }
+  
+  .company-name {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .about_page_container {
+    background-color: #014235;
+    color: #eaeefb;
+    padding: 2rem;
+    width: 190%;
+    text-align: left;
+  }
+  
+  .about_page_container h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .about-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
