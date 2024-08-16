@@ -54,17 +54,17 @@
 
 #home_page_personalized_service {
   text-align: center;
-  color: #ffffff;
+  color: red;
   font-size: 3rem;
   text-shadow: 3px 5px 3px black;
   margin-top: 2rem;
 }
 
 
-#home_page_personalized_service h1 {
+/* #home_page_personalized_service h1 {
   font-weight: bold;
   letter-spacing: .2rem;
-}
+} */
 
 
 #home_page_the_right_way {
