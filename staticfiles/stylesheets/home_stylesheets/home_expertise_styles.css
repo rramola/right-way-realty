@@ -14,7 +14,9 @@
 
 #expertise_section h1 {
   font-size: 4rem;
-  font-family: 'Serif';
+  font-family: "Antic Didone";
+  font-weight: 400;
+  font-style: normal;
   margin-bottom: 50px;
   font-weight: bolder;
 }

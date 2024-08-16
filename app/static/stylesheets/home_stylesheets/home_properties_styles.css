@@ -2,9 +2,11 @@
   color: #014235;
   display: flex;
   justify-content: center;
-  font-size: 4rem;
-  font-weight: 600;
-  letter-spacing: .2rem;
+  font-size: 5rem;
+  letter-spacing: .5rem;
+  font-family: "Antic Didone";
+  font-weight: 400;
+  font-style: normal;
 }
 
 #home_page_properties_container {
@@ -31,8 +33,6 @@
 }
 
 .property {
-  /* display: grid;
-  grid-template-rows: 1fr 1fr; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,9 +64,11 @@
 
 .property_info_header {
   text-align: center;
-  font-family: sans-serif;
-  color: #2a7a3d;
+  font-family: "Antic Didone";
   font-weight: 400;
+  font-style: normal;
+  color: #2a7a3d;
+
 }
 
 
@@ -75,8 +77,10 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  font-family: sans-serif;
-  color: #d1c6a8;
+  font-family: "Albert Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #967b59;
   font-size: 2.5rem;
 }
 

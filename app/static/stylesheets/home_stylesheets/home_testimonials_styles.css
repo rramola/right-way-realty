@@ -20,10 +20,12 @@
   }
   
   .testimonial_text {
-    font-size: 1.2em;
-    color: #344e41;
+    font-size:1.3em;
+    color: #967b59;
     margin: 20px 0;
     line-height: 1.6;
+    font-family: "Albert Sans", sans-serif;
+    font-weight: 400;
   }
   
   .author {

@@ -13,6 +13,7 @@
 
 #home_page_banner_text {
   width: 100%;
+  
 }
 
 #home_page_personalized_service .content {
@@ -50,6 +51,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
+  
 }
 
 #home_page_personalized_service {
@@ -58,6 +60,7 @@
   font-size: 3rem;
   text-shadow: 3px 5px 3px black;
   margin-top: 2rem;
+  
 }
 
 
@@ -67,16 +70,28 @@
 } */
 
 
-#home_page_the_right_way {
+/* #home_page_the_right_way {
   text-align: center;
   color: #ffffff;
   font-size: 2rem;
   text-shadow: 3px 5px 3px black;
+} */
+
+#personalized_service_text{
+  text-align: center;
+  color: #ffffff;
+  font-size: 2rem;
+  text-shadow: 3px 5px 3px black;
+  font-family: "Antic Didone";
+  font-weight: 400;
+  font-style: normal;
 }
 
-#home_page_the_right_way h1 {
-  font-weight: lighter;
+#the_right_way_text{
   letter-spacing: .2rem;
+  font-family: "Antic Didone";
+  font-weight: 400;
+  font-style: normal;
 }
 
 

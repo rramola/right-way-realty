@@ -18,10 +18,15 @@
     <link rel="stylesheet" href="{% static "stylesheets\maps_styles.css" %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon"  href="{% static "images/favicon.ico" %}"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    {% comment %} <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=GFS+Didot&display=swap" rel="stylesheet">
-    <script src="{% static "scripts.js" %}"></script>   
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Antic+Didone&display=swap" rel="stylesheet"> {% endcomment %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Antic+Didone&display=swap" rel="stylesheet">
+
+<script src="{% static "scripts.js" %}"></script>   
 </head>
 <body>
 
@@ -60,7 +65,7 @@
                     <div class="footer-item">
                         {% comment %} <img src="{% static 'images/house-icon.png' %}" alt="House Icon" class="footer-icon"> {% endcomment %}
                         <i class="fa-solid fa-house"></i>
-                        <p>2008 MS-30 Ste<br>102, Oxford, MS 38655</p>
+                        <p>2008 MS-30 <br>Ste 102, Oxford, MS 38655</p>
                     </div>
                     <div class="footer-item">
                         {% comment %} <img src="{% static 'images/phone-icon.png' %}" alt="Phone Icon" class="footer-icon"> {% endcomment %}

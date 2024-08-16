@@ -5,18 +5,24 @@
 
 #expertise_section {
   text-align: center;
-  padding: 10%;
+  padding-top: 10%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 5%;
   background-color: #0b3a2d;
   color: #d1c6a8;
   clip-path: polygon(50% 10%, 70% 0, 100% 0, 100% 100%, 100% 100%, 100% 100%, 0% 100%, 0 100%, 0 0, 30% 0);
   margin-top: 4rem;
 }
 
-#expertise_section h1 {
-  font-size: 4rem;
-  font-family: 'Serif';
+#our_expertise_section_header {
+  font-family: "Antic Didone";
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: .5rem;
   margin-bottom: 50px;
-  font-weight: bolder;
+  font-size: 5rem;
+
 }
 
 .expertise_container {
@@ -41,15 +47,22 @@
   align-items: center;
 } 
 
-.expertise_box h2 {
+.expertise_box_header{
   font-size: 3rem;
   margin-bottom: 10px;
   margin-top: 0;
+  font-family: "Antic Didone";
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: underline 2px;
+  text-underline-offset:.4rem;
 }
-
-.expertise_box p {
+.expertise_box_text {
   font-size: 2rem;
   margin-bottom: 20px;
+  font-family: "Albert Sans", sans-serif;
+  font-weight: 100;
+  font-style: normal;
 }
 
 .book_now_button {

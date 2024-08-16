@@ -31,9 +31,6 @@ button:hover {
 footer {
   background-color: #073528;
   color: white;
-  /* display: flex;
-  justify-content: space-between;
-  align-items: center; */
   font-size: 1em;
   width: 100%;
 }
@@ -53,7 +50,10 @@ footer {
 }
 
 .footer-left{
-  margin-left: 4rem;
+  font-family: "Antic Didone";
+  font-weight: 100;
+  font-style: normal;
+  padding-left: 3rem;
 }
 
 .footer-right {
@@ -62,6 +62,11 @@ footer {
   grid-gap: 3rem;
   text-align: left;
   margin-right: 4rem;
+  font-weight: lighter;
+  letter-spacing: .1rem;
+  font-size:1rem;
+  font-family: sans-serif;
+  
 }
 
 .footer-item {
