@@ -1,4 +1,4 @@
-.property-card{
+.property-card {
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
@@ -9,26 +9,22 @@
   align-items: center;
 }
 
-.card{
+.card {
   background-color: #ffffff;
   border-radius: 8px;
   padding: 1rem;
-  /* box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); */
   overflow: hidden;
   transition: transform 0.2s;
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .property-card img {
-  width: 50%;
+  width: 60%;
   object-fit: cover;
   border-radius: 8px;
 }
-
-
 
 .property-carousel {
   position: relative;
@@ -51,21 +47,34 @@
 .carousel-container {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  width: calc(100% * 3); /* Adjust width to allow scrolling through multiple images */
 }
 
 .carousel-item {
-  min-width: 15%; /* Show 10 images at a time */
-  /* flex-shrink: 0; */
+  flex: 0 0 auto; /* Prevent shrinking and ensure items take up only their necessary space */
+  width: 20%; /* Adjust width to fit 5 items in the container */
+  padding: 5px; /* Add some padding to give space between images */
+  box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 .carousel-item img {
-  width: 30%;
+  width: 100%; /* Make the image take up the full width of the carousel item */
   height: auto;
   border-radius: 8px;
   cursor: pointer;
 }
-
+  
+/* .carousel-prev, .carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 1;
+} */
 
 .carousel-prev {
   left: 10px;
@@ -78,6 +87,7 @@
 .carousel-prev:hover, .carousel-next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
+
 
 
 
