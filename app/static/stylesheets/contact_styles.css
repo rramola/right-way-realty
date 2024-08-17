@@ -47,9 +47,6 @@
   padding-bottom: 2rem;
 }
 
-#contact_us_form_button_container {
-  margin-bottom: 1rem;
-}
 
 #contact_us_form_grouping {
   display: grid;
@@ -191,5 +188,11 @@
 
   .contact_us_form_group {
     margin-bottom: .5rem;
+  }
+}
+
+@media (max-width: 650px) {
+  #contact_us_form_button_container {
+    margin-bottom: 3rem;
   }
 }
