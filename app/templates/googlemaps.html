@@ -4,9 +4,11 @@
     {% if properties %} {% for property in properties %}
     <div class="property-item">
       <h2>
-        {{property.house_number}} {{property.street_name}}
-        {{property.street_suffix}}, {{property.city}}, {{property.state}}
-        {{property.postal_code}}
+        <a href="{% url 'property_detail' property.id %}">
+          {{property.house_number}} {{property.street_name}}
+          {{property.street_suffix}}, {{property.city}}, {{property.state}}
+          {{property.postal_code}}
+        </a>
       </h2>
       <p>Price: ${{ property.list_price }}</p>
       <p>Bedrooms: {{ property.bedrooms }}</p>

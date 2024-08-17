@@ -1,137 +1,78 @@
-{% extends "base_template.html" %}
-{% load static %}
-{% block content %}
+{% extends "base_template.html" %} {% load static %} {% block content %}
 
-<div class="property-page"> 
-<div class="property-card">
+<div class="property-page">
+  <div class="property-card">
     <div class="card">
-        <img id="mainImage" src="{% static 'house/house1.jpg' %}" class="card-img-top" alt="Main House Image">
-        <div class="card-body">
-            <h5 class="card-title">{{ property.title }}</h5>
-            <p class="card-text">{{ property.description }}</p>
-            <p class="card-text"><strong>Price:</strong> {{ property.price }}</p>
-            <p class="card-text"><strong>Location:</strong> {{ property.location }}</p>
-        </div>
-    </div>
-</div>
-
-<div class="carousel-card">
-    <div class="carousel-container">
-        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house2.jpg' %}')">
-            <img src="{% static 'house/house2.jpg' %}" alt="House Image 1">
-        </div>
-        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house3.jpg' %}')">
-            <img src="{% static 'house/house3.jpg' %}" alt="House Image 2">
-        </div>
-        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house4.jpg' %}')">
-            <img src="{% static 'house/house4.jpg' %}" alt="House Image 3">
-        </div>
-        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house5.jpg' %}')">
-            <img src="{% static 'house/house5.jpg' %}" alt="House Image 2">
-        </div>
-        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house4.jpg' %}')">
-            <img src="{% static 'house/house4.jpg' %}" alt="House Image 3">
-        </div>
-        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house6.jpg' %}')">
-            <img src="{% static 'house/house6.jpg' %}" alt="House Image 2">
-        </div>
-        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house7.jpg' %}')">
-            <img src="{% static 'house/house7.jpg' %}" alt="House Image 3">
-        </div>
-        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house8.jpg' %}')">
-            <img src="{% static 'house/house8.jpg' %}" alt="House Image 2">
-        </div>
-        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house9.jpg' %}')">
-            <img src="{% static 'house/house9.jpg' %}" alt="House Image 3">
-        </div>
-        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house10.jpg' %}')">
-            <img src="{% static 'house/house10.jpg' %}" alt="House Image 2">
-        </div>
-        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house11.jpg' %}')">
-            <img src="{% static 'house/house11.jpg' %}" alt="House Image 3">
-        </div>
-        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house12.jpg' %}')">
-            <img src="{% static 'house/house12.jpg' %}" alt="House Image 2">
-        </div>
-        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house13.jpg' %}')">
-            <img src="{% static 'house/house13.jpg' %}" alt="House Image 3">
-        </div>
-        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house14.jpg' %}')">
-            <img src="{% static 'house/house14.jpg' %}" alt="House Image 2">
-        </div>
-        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house15.jpg' %}')">
-            <img src="{% static 'house/house15.jpg' %}" alt="House Image 3">
-        </div>
-    </div>
-
-    <button class="carousel-prev" onclick="scrollCarousel(-1)">&#10094;</button>
-    <button class="carousel-next" onclick="scrollCarousel(1)">&#10095;</button>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{% comment %} <div class="property-listing"> {% endcomment %}
-    <!-- Main Image -->
-    {% comment %} <div class="property-image">
-        <img id="mainImage" src="{% static 'house/house1.jpg' %}" alt="House Image">
-    </div> {% endcomment %}
-
-    <!-- Property Details -->
-    {% comment %} <div class="property-details">
-      <div class="property-listing">
-        <!-- Main Image -->
-        <div class="property-image">
-            <img id="mainImage" src="{% static 'house/house1.jpg' %}" alt="House Image">
-        </div>
-        <h1 class="property-title">Beautiful Family Home</h1>
-        <p class="property-location">1234 Elm Street, Springfield, IL</p>
-        <p class="property-price">$350,000</p>
-        <p class="property-description">
-            This charming family home features 4 bedrooms, 3 bathrooms, and a spacious backyard.
-            Recently renovated with modern finishes, this home is move-in ready.
+      <img
+        id="mainImage"
+        src="{% static 'house/house1.jpg' %}"
+        class="card-img-top"
+        alt="Main House Image"
+      />
+      <div class="card-body">
+        <h5 class="card-title">
+          {{property.house_number}} {{property.street_name}}
+          {{property.street_suffix}}, {{property.city}}, {{property.state}}
+          {{property.postal_code}}
+        </h5>
+        <p class="card-text">{{ property.public_remarks }}</p>
+        <p class="card-text">
+          <strong>Price:</strong> {{ property.list_price }}
         </p>
-        <div class="property-contact">
-            <p>Contact us at:</p>
-            <p>Email: info@rightwayrealty.com</p>
-            <p>Phone: (555) 123-4567</p>
-        </div>
+        <p class="card-text"><strong>Beds:</strong> {{ property.bedrooms }}</p>
+        <p class="card-text">
+    <strong>Baths:</strong> 
+    {{ property.baths_full|floatformat:1|default:"0" }} + {{ property.baths_half|floatformat:1|default:"0" }} Half Baths
+</p>
+<p class="card-text">
+    <strong>Total Baths:</strong>
+    {{ property.baths_full|add:property.baths_half }}
+</p>
+      </div>
     </div>
 
-    <!-- Carousel -->
-    <div class="carousel-container">
-        <div class="carousel-slide" id="carouselSlide">
-            <img src="{% static 'house/house1.jpg' %}" alt="House Image 1" onclick="updateMainImage(this.src)">
-            <img src="{% static 'house/house2.jpg' %}" alt="House Image 2" onclick="updateMainImage(this.src)">
-            <img src="{% static 'house/house3.jpg' %}" alt="House Image 3" onclick="updateMainImage(this.src)">
-            <img src="{% static 'house/house4.jpg' %}" alt="House Image 4" onclick="updateMainImage(this.src)">
-            <img src="{% static 'house/house1.jpg' %}" alt="House Image 5" onclick="updateMainImage(this.src)">
-            <!-- Add more images as needed -->
+    <div class="carousel-card">
+      <div class="carousel-container">
+        <div
+          class="carousel-item"
+          onclick="changeMainImage('{% static 'house/house1.jpg' %}')"
+        >
+          <img src="{% static 'house/house1.jpg' %}" alt="House Image 1" />
         </div>
-        <div class="carousel-buttons">
-            <button id="prevBtn" onclick="updateCarousel('prev')">&#10094;</button>
-            <button id="nextBtn" onclick="updateCarousel('next')">&#10095;</button>
+        <div
+          class="carousel-item"
+          onclick="changeMainImage('{% static 'house/house2.jpg' %}')"
+        >
+          <img src="{% static 'house/house2.jpg' %}" alt="House Image 1" />
         </div>
+        <div
+          class="carousel-item"
+          onclick="changeMainImage('{% static 'house/house3.jpg' %}')"
+        >
+          <img src="{% static 'house/house3.jpg' %}" alt="House Image 2" />
+        </div>
+        <!-- Add more carousel here-->
+      </div>
+
+      <button class="carousel-prev" onclick="scrollCarousel(-1)">
+        &#10094;
+      </button>
+      <button class="carousel-next" onclick="scrollCarousel(1)">
+        &#10095;
+      </button>
     </div>
-</div> {% endcomment %}
-{% endblock content %}
+  </div>
+
+  <script>
+    function changeMainImage(imageUrl) {
+      document.getElementById("mainImage").src = imageUrl;
+    }
+
+    function scrollCarousel(direction) {
+      const container = document.querySelector(".carousel-container");
+      container.scrollLeft += direction * container.offsetWidth;
+    }
+  </script>
+
+  {% endblock content %}
+</div>

@@ -6,6 +6,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('property/<int:property_id>/', views.property_detail, name='property_detail'),
     path('properties/', views.property_list, name='property_list'),
     # path('add_property/', views.add_property, name='add_property'),
     path("home/", views.home_page, name="home"),
