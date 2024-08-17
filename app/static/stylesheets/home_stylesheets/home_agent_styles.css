@@ -1,7 +1,7 @@
 #agent_profile_section {
   padding: 50px;
   background-color: #295943;
-  color: #ffffff;
+  color: #EAEEFB;
   clip-path: polygon(51% 0, 70% 0, 100% 0, 100% 100%, 70% 100%, 50% 88%, 30% 100%, 0 100%, 0 0, 30% 0);
 
 }
@@ -11,10 +11,9 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-bottom: 5rem;
-  grid-gap: 1rem;
+  width: 100%;
+  margin-bottom: 7rem;
+  /* grid-gap: 1rem; */
 }
 
 .agent_info {
@@ -23,18 +22,18 @@
 }
 
 .agent_info h1 {
-  font-size: 5rem;
+  font-size: 6rem;
   font-family: "Antic Didone";
   font-weight: 400;
   font-style: normal;
   letter-spacing: .5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .agent_info p {
   font-family: "Albert Sans", sans-serif;
   font-weight: 200;
-  font-size: 1.5rem;
+  font-size:2rem;
   line-height: 1.6;
   margin-bottom: 20px;
   word-spacing: .5rem;
@@ -46,11 +45,13 @@
   align-items: center;
   border-left: solid #EAEEFB 1px;
   margin-left: 5rem;
+  height: -webkit-fill-available;
+  padding-left: 5rem;
 }
 
 .agent_image img {
-  width: 18rem;
-  border: 10px solid #eefbea;
+  width: 100%;
+  border: 10px solid #EAEEFB;
   border-radius: 50%;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 
@@ -71,7 +72,7 @@
 @media (max-width: 1000px) {
 
   .agent_info h1 {
-    font-size: 2.3rem;
+    font-size: 2.5rem;
   }
 
   .agent_image {
@@ -84,11 +85,25 @@
 
   .agent_info p {
 
-    font-size: .8rem;
+    font-size: 1rem;
 
   }
+  
 
 }
+
+@media (max-width: 900px) {
+  .agent_info h1 {
+    font-size: 2rem;
+  }
+
+  .agent_info p {
+
+    font-size:.8rem;
+
+  }
+}
+
 
 @media (max-width: 750px) {
   .agent_profile_container {
