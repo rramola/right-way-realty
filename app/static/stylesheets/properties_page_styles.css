@@ -5,6 +5,7 @@
   overflow: hidden;
   transition: transform 0.2s;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -16,14 +17,23 @@
   overflow: hidden;
   transition: transform 0.2s;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
 .property-card img {
-  width: 100%;
+  width: 50%;
   object-fit: cover;
   border-radius: 8px;
+}
+.grid-container {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  border: 2px solid #000000;
+  padding: 20px;
 }
 
 
