@@ -8,7 +8,7 @@
   width: 100vw;
   padding-top: 3rem;
   padding-bottom: 3rem;
-  
+
 }
 
 #contact_form_container {
@@ -30,7 +30,7 @@
   font-family: "Albert Sans", sans-serif;
   font-weight: 100;
   font-style: normal;
-  
+
 }
 
 #contact_us_form {
@@ -88,7 +88,7 @@
   outline: none;
   transition: border-color 0.3s ease;
   background-color: rgba(144, 141, 141, 0.637);
-  
+
 }
 
 #message {
@@ -108,7 +108,7 @@
 .contact_us_form_group input:focus,
 .contact_us_form_group textarea:focus {
   border-color: #014235;
-  border-width:3px;
+  border-width: 3px;
 }
 
 .form-error {
@@ -127,6 +127,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   color: #d1c6a8;
+
 }
 
 #contact_form_submit_button:hover {
@@ -155,6 +156,7 @@
     font-size: 2rem;
     margin-top: 1rem;
   }
+
   #contact_us_form_grouping {
     gap: 0;
     margin-bottom: .5rem;
