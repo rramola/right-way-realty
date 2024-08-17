@@ -1,14 +1,104 @@
 {% extends "base_template.html" %}
 {% load static %}
 {% block content %}
-<div class="property-listing">
+
+<div class="property-page"> 
+<div class="property-card">
+    <div class="card">
+        <img id="mainImage" src="{% static 'house/house1.jpg' %}" class="card-img-top" alt="Main House Image">
+        <div class="card-body">
+            <h5 class="card-title">{{ property.title }}</h5>
+            <p class="card-text">{{ property.description }}</p>
+            <p class="card-text"><strong>Price:</strong> {{ property.price }}</p>
+            <p class="card-text"><strong>Location:</strong> {{ property.location }}</p>
+        </div>
+    </div>
+</div>
+
+<div class="carousel-card">
+    <div class="carousel-container">
+        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house2.jpg' %}')">
+            <img src="{% static 'house/house2.jpg' %}" alt="House Image 1">
+        </div>
+        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house3.jpg' %}')">
+            <img src="{% static 'house/house3.jpg' %}" alt="House Image 2">
+        </div>
+        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house4.jpg' %}')">
+            <img src="{% static 'house/house4.jpg' %}" alt="House Image 3">
+        </div>
+        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house5.jpg' %}')">
+            <img src="{% static 'house/house5.jpg' %}" alt="House Image 2">
+        </div>
+        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house4.jpg' %}')">
+            <img src="{% static 'house/house4.jpg' %}" alt="House Image 3">
+        </div>
+        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house6.jpg' %}')">
+            <img src="{% static 'house/house6.jpg' %}" alt="House Image 2">
+        </div>
+        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house7.jpg' %}')">
+            <img src="{% static 'house/house7.jpg' %}" alt="House Image 3">
+        </div>
+        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house8.jpg' %}')">
+            <img src="{% static 'house/house8.jpg' %}" alt="House Image 2">
+        </div>
+        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house9.jpg' %}')">
+            <img src="{% static 'house/house9.jpg' %}" alt="House Image 3">
+        </div>
+        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house10.jpg' %}')">
+            <img src="{% static 'house/house10.jpg' %}" alt="House Image 2">
+        </div>
+        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house11.jpg' %}')">
+            <img src="{% static 'house/house11.jpg' %}" alt="House Image 3">
+        </div>
+        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house12.jpg' %}')">
+            <img src="{% static 'house/house12.jpg' %}" alt="House Image 2">
+        </div>
+        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house13.jpg' %}')">
+            <img src="{% static 'house/house13.jpg' %}" alt="House Image 3">
+        </div>
+        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house14.jpg' %}')">
+            <img src="{% static 'house/house14.jpg' %}" alt="House Image 2">
+        </div>
+        <div class="carousel-item" onclick="changeMainImage('{% static 'house/house15.jpg' %}')">
+            <img src="{% static 'house/house15.jpg' %}" alt="House Image 3">
+        </div>
+    </div>
+
+    <button class="carousel-prev" onclick="scrollCarousel(-1)">&#10094;</button>
+    <button class="carousel-next" onclick="scrollCarousel(1)">&#10095;</button>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} <div class="property-listing"> {% endcomment %}
     <!-- Main Image -->
     {% comment %} <div class="property-image">
         <img id="mainImage" src="{% static 'house/house1.jpg' %}" alt="House Image">
     </div> {% endcomment %}
 
     <!-- Property Details -->
-    <div class="property-details">
+    {% comment %} <div class="property-details">
       <div class="property-listing">
         <!-- Main Image -->
         <div class="property-image">
@@ -43,5 +133,5 @@
             <button id="nextBtn" onclick="updateCarousel('next')">&#10095;</button>
         </div>
     </div>
-</div>
+</div> {% endcomment %}
 {% endblock content %}

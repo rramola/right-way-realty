@@ -53,37 +53,77 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// CAROUSEL
-const carouselSlide = document.getElementById('carouselSlide');
-const images = carouselSlide.getElementsByTagName('img');
-const totalImages = images.length;
-let counter = 0;
+// // CAROUSEL
+// const carouselSlide = document.getElementById('carouselSlide');
+// const images = carouselSlide.getElementsByTagName('img');
+// const totalImages = images.length;
+// let counter = 0;
 
-document.getElementById('nextBtn').addEventListener('click', () => {
-    if (counter >= totalImages - 1) {
-        counter = 0;
-    } else {
-        counter++;
+// document.getElementById('nextBtn').addEventListener('click', () => {
+//     if (counter >= totalImages - 1) {
+//         counter = 0;
+//     } else {
+//         counter++;
+//     }
+//     updateCarousel();
+//     updateMainImage(images[counter].src);
+// });
+
+// document.getElementById('prevBtn').addEventListener('click', () => {
+//     if (counter <= 0) {
+//         counter = totalImages - 1;
+//     } else {
+//         counter--;
+//     }
+//     updateCarousel();
+//     updateMainImage(images[counter].src);
+// });
+
+// function updateCarousel() {
+//     const size = images[0].clientWidth;
+//     carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+// }
+
+// function updateMainImage(src) {
+//     document.getElementById('mainImage').src = src;
+// }
+
+
+let currentIndex = 0;
+const itemsToShow = 5;
+
+function scrollCarousel(direction) {
+    const container = document.querySelector('.carousel-container');
+    const items = document.querySelectorAll('.carousel-item');
+    const totalItems = items.length;
+
+    currentIndex += direction * itemsToShow;
+
+    if (currentIndex < 0) {
+        currentIndex = 0;
+    } else if (currentIndex >= totalItems) {
+        currentIndex = totalItems - itemsToShow;
     }
-    updateCarousel();
-    updateMainImage(images[counter].src);
-});
 
-document.getElementById('prevBtn').addEventListener('click', () => {
-    if (counter <= 0) {
-        counter = totalImages - 1;
-    } else {
-        counter--;
-    }
-    updateCarousel();
-    updateMainImage(images[counter].src);
-});
-
-function updateCarousel() {
-    const size = images[0].clientWidth;
-    carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+    const translateX = -currentIndex * 20; // Move by 20% for each image
+    container.style.transform = `translateX(${translateX}%)`;
 }
 
-function updateMainImage(src) {
-    document.getElementById('mainImage').src = src;
+function changeMainImage(newSrc) {
+    const mainImage = document.getElementById('mainImage');
+    mainImage.src = newSrc;
 }
+
+
+// function changeMainImage(newSrc) {
+//     const mainImage = document.getElementById('mainImage');
+    
+//     // Log the newSrc to ensure it’s correct
+//     console.log('Changing main image to:', newSrc);
+    
+//     if (mainImage) {
+//         mainImage.src = newSrc;
+//     } else {
+//         console.error('Main image element not found');
+//     }
+// }
