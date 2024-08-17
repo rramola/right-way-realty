@@ -16,7 +16,7 @@ footer {
   padding-bottom: 1.5rem;
   margin: 0;
   font-size: 1.8rem;
-  color: #d1c6a8;
+  color: #EAEEFB;
 }
 
 .footer-left {
@@ -52,7 +52,7 @@ footer {
 
 .footer_contact_link {
   text-underline-offset: .4rem;
-  color: #d1c6a8;
+  color: #EAEEFB;
   font-weight: 200;
 }
 
@@ -61,7 +61,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: #d1c6a8;
+  color: #EAEEFB;
   padding-right: 1rem;
   width: inherit;
   font-weight: 500;
@@ -210,16 +210,6 @@ footer {
     font-size: 2rem;
     padding-bottom: .5rem;
   }
-
-  /* .footer-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 4rem;
-    margin-right: 2rem;
-    padding: 0;
-    font-size: .8rem;
-  } */
 
   .footer_contact_text {
     margin: .5rem;

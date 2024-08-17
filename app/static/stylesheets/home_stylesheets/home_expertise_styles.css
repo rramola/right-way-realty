@@ -10,7 +10,7 @@
   padding-right: 1rem;
   padding-bottom: 5%;
   background-color: #0b3a2d;
-  color: #d1c6a8;
+  color: #EAEEFB;
   clip-path: polygon(50% 10%, 70% 0, 100% 0, 100% 100%, 100% 100%, 100% 100%, 0% 100%, 0 100%, 0 0, 30% 0);
 }
 
@@ -35,7 +35,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   background-color: transparent;
-  border: 1px solid #d1c6a8;
+  border: 1px solid #EAEEFB;
   padding: 20px;
   width: 30%;
   margin: 10px;
@@ -67,7 +67,7 @@
   display: inline-block;
   padding: 10px 20px;
   background-color: #2a7a3d;
-  color: #d1c6a8;
+  color: #EAEEFB;
   text-decoration: none;
   border-radius: 5px;
   font-size: 1em;

@@ -64,7 +64,7 @@
 .navbar_item>a:hover {
   color: black;
   transform: scale(1.2);
-  text-shadow: 0 0 5px #fff;
+  text-shadow: 0 0 5px #EAEEFB;
 }
 
 #hamburger_menu {
@@ -122,7 +122,7 @@
   }
 
   .navbar_item>a {
-    color: #fff;
+    color: #EAEEFB;
   }
 
   #navbar_items.show {
