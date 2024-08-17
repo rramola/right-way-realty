@@ -5,7 +5,8 @@
   justify-content: center;
   z-index: 1;
   width: 100vw;
-
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
   height: fit-content;
 }
 
@@ -13,7 +14,7 @@
   overflow: hidden;
   width: 85%;
   display: flex;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -22,12 +23,12 @@
   background-color: #155e49;
   border-radius: 2rem;
   height: 100%;
-  margin-bottom: 1rem;
+
 
 }
 
 #contact_us_header {
-  margin-top: 3rem;
+  margin-top: 0;
   font-size: 5rem;
   color: #EAEEFB;
   font-family: "Albert Sans", sans-serif;
@@ -43,9 +44,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-bottom: 2rem;
+  padding: 2rem;
 }
 
 
@@ -147,19 +146,12 @@
 
 @media (max-width: 750px) {
 
-  #contact_us_header {
-    font-size: 3.5rem;
-  }
-
   #contact_us_form_name_group {
     display: flex;
     flex-direction: column;
   }
 
-  #contact_form_container {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-  }
+
 
   .contact_us_form_group label {
     font-size: 1.1rem;
@@ -178,7 +170,7 @@
   }
 
   #contact_us_header {
-    font-size: 2rem;
+    font-size: 4rem;
     margin-top: 1rem;
   }
 
@@ -192,8 +184,23 @@
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 500px) {
+  
+  #contact_us_header {
+    font-size: 3rem;
+
+  }
+
   #contact_us_form_button_container {
     margin-bottom: 3rem;
   }
+}
+
+@media (max-width:360px) {
+  
+  #contact_us_header {
+    font-size: 2rem;
+
+  }
+
 }
