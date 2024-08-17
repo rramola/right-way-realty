@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from .models import *
 from .forms import *
@@ -29,6 +29,10 @@ def property_list(request):
 def googlemaps_view(request):
     properties = Property.objects.all()
     return render(request, "googlemaps.html", {"properties": properties})
+
+def property_detail(request, property_id):
+    property = get_object_or_404(Property, id=property_id)
+    return render(request, 'properties.html', {'property': property})
 
 
 def contact_page(request):
