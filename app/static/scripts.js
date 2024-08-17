@@ -147,3 +147,59 @@ function changeMainImage(newSrc) {
 //         console.error('Main image element not found');
 //     }
 // }
+
+
+// ////////////////////////////// GOOGLE MAPS JAVA SCRIPT FOR FILTERING //////////////////////////////////
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Toggle filter visibility
+    document.getElementById('filter-button').addEventListener('click', function() {
+        const filters = document.getElementById('filters');
+        if (filters.classList.contains('filters-visible')) {
+            filters.classList.remove('filters-visible');
+            this.textContent = 'Show Filters';
+        } else {
+            filters.classList.add('filters-visible');
+            this.textContent = 'Hide Filters';
+        }
+    });
+
+    // Apply filters and hide filter options
+    window.applyFilters = function() {
+        const minPrice = parseFloat(document.getElementById('min-price').value) || 0;
+        const maxPrice = parseFloat(document.getElementById('max-price').value) || Infinity;
+        const minBeds = parseInt(document.getElementById('min-beds').value) || 0;
+        const minBaths = parseFloat(document.getElementById('min-baths').value) || 0;
+
+        const propertyItems = document.querySelectorAll('.property-item');
+
+        propertyItems.forEach(item => {
+            const price = parseFloat(item.getAttribute('data-price'));
+            const beds = parseInt(item.getAttribute('data-beds'));
+            const fullBaths = parseFloat(item.getAttribute('data-full-baths'));
+            const halfBaths = parseFloat(item.getAttribute('data-half-baths'));
+
+            let baths = 0;
+            if (halfBaths > 1) {
+                baths = fullBaths + (halfBaths / 2);
+            } else if (halfBaths > 0) {
+                baths = fullBaths + (halfBaths / 2);
+            } else {
+                baths = fullBaths;
+            }
+
+            if (price >= minPrice && price <= maxPrice &&
+                beds >= minBeds &&
+                baths >= minBaths) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        // Hide filters after applying
+        document.getElementById('filters').classList.remove('filters-visible');
+        document.getElementById('filter-button').textContent = 'Show Filters';
+    };
+});

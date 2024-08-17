@@ -20,19 +20,42 @@ def about_page(request):
     context = {}
     return render(request, "about.html", context)
 
-
-def property_list(request):
-    properties = Property.objects.all()
-    return render(request, "properties.html", {"properties": properties})
-
-
 def googlemaps_view(request):
     properties = Property.objects.all()
+    
+    for property in properties:
+        full_baths = float(property.baths_full or 0)
+        half_baths = float(property.baths_half or 0)
+
+        if half_baths > 1:
+            property.baths_info = f"{full_baths} Full, {half_baths} Half Baths"
+        elif half_baths > 0:
+            total_baths = full_baths + (half_baths / 2)
+            property.baths_info = f"{total_baths:.1f}"
+        else:
+            property.baths_info = f"{full_baths:.1f}"
+    
     return render(request, "googlemaps.html", {"properties": properties})
 
 def property_detail(request, property_id):
     property = get_object_or_404(Property, id=property_id)
-    return render(request, 'properties.html', {'property': property})
+
+    full_baths = float(property.baths_full or 0)
+    half_baths = float(property.baths_half or 0)
+
+    if half_baths > 1:
+        baths_info = f"{full_baths} Full, {half_baths} Half Baths"
+    elif half_baths > 0:
+        total_baths = full_baths + (half_baths / 2)
+        baths_info = f"{total_baths:.1f}"
+    else:
+        baths_info = f"{full_baths:.1f}"
+
+    context = {
+        'property': property,
+        'baths_info': baths_info,
+    }
+    return render(request, 'properties.html', context)
 
 
 def contact_page(request):

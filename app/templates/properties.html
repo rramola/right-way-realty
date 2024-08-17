@@ -20,14 +20,7 @@
           <strong>Price:</strong> {{ property.list_price }}
         </p>
         <p class="card-text"><strong>Beds:</strong> {{ property.bedrooms }}</p>
-        <p class="card-text">
-    <strong>Baths:</strong> 
-    {{ property.baths_full|floatformat:1|default:"0" }} + {{ property.baths_half|floatformat:1|default:"0" }} Half Baths
-</p>
-<p class="card-text">
-    <strong>Total Baths:</strong>
-    {{ property.baths_full|add:property.baths_half }}
-</p>
+        <p class="card-text"><strong>Baths:</strong> {{ baths_info }}</p>
       </div>
     </div>
 
@@ -43,13 +36,13 @@
           class="carousel-item"
           onclick="changeMainImage('{% static 'house/house2.jpg' %}')"
         >
-          <img src="{% static 'house/house2.jpg' %}" alt="House Image 1" />
+          <img src="{% static 'house/house2.jpg' %}" alt="House Image 2" />
         </div>
         <div
           class="carousel-item"
           onclick="changeMainImage('{% static 'house/house3.jpg' %}')"
         >
-          <img src="{% static 'house/house3.jpg' %}" alt="House Image 2" />
+          <img src="{% static 'house/house3.jpg' %}" alt="House Image 3" />
         </div>
         <!-- Add more carousel here-->
       </div>

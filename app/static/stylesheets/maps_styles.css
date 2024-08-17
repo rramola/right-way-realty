@@ -11,6 +11,7 @@
   background-color: #34495e;
   color: #ecf0f1;
   border-right: 2px solid #ecf0f1;
+  position: relative;
 }
 
 .property-item {
@@ -53,4 +54,69 @@
 
 .map-popup p {
   color: #0c0d0d;
+}
+
+#filter-button {
+  background-color: #00bfa5;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+#filters {
+  background-color: #3c4d63;
+  padding: 15px;
+  border-radius: 10px;
+  display: none; /* Hidden by default */
+}
+
+#filters.filters-visible {
+  display: block; /* Show when active */
+}
+
+#filters h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #00bfa5;
+}
+
+#filters label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ecf0f1;
+}
+
+#filters input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ecf0f1;
+  border-radius: 5px;
+}
+
+#filters button {
+  padding: 10px 15px;
+  background-color: #00bfa5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+#filters button:hover {
+  background-color: #009a8a;
+}
+
+#filters {
+  display: none;
+}
+
+.filters-visible {
+  display: block;
 }
