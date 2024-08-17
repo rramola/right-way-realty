@@ -10,23 +10,6 @@ body {
 
 
 
-/****************************************** Button Styles ************************************/
-button {
-  width: 100%;
-  padding: 12px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
 /* Footer Styles */
 footer {
   background-color: #073528;
@@ -87,10 +70,7 @@ footer {
   width: 20px;
   height: 20px;
 }
-/* 
-.footer_contact_text{
-  margin: 0;
-} */
+
 
 @media (max-width: 1250px) {
   .footer-left h1 {
@@ -142,7 +122,6 @@ footer {
   }
 
 }
-
 
 
 @media (max-width: 450px) {
