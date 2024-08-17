@@ -15,7 +15,7 @@
     margin: 20px;
     padding: 20px;
     background-color: #e5d9b9;
-    border-left: 2px solid #1b5e20;
+    border-left:1px solid #1b5e20;
   }
   
   .testimonial_item .quote {
@@ -58,8 +58,6 @@
     flex-direction: column;
     height: auto;
     margin-top: 0;
-
- 
   }
 
   .testimonial_item {
@@ -68,7 +66,7 @@
     padding: 20px;
     background-color: #e5d9b9;
     border-left: none;
-    border-bottom: 5px solid #1b5e20;
+    border-bottom:1px solid #1b5e20;
   }
   
   .testimonial_item .quote {
