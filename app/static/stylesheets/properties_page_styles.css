@@ -1,10 +1,11 @@
 .property-card {
   background-color: #ffffff;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.2s;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -15,16 +16,41 @@
   padding: 1rem;
   overflow: hidden;
   transition: transform 0.2s;
-  display: flex;
+  /* display: flex;
+  flex-direction: row; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3rem;
   justify-content: center;
   align-items: center;
 }
 
 .property-card img {
-  width: 60%;
+  /* width: 50%; */
   object-fit: cover;
   border-radius: 8px;
+  height: 100%;
+  width: 100%;
 }
+
+.card-body {
+  height: 100%;
+  margin-right: 5rem;
+}
+
+.grid-container {
+  /* width: 40%; */
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  border: 2px solid #000000;
+  padding: 20px;
+}
+
+.card-text{
+  border-top: ;
+}
+
 
 .property-carousel {
   position: relative;
@@ -36,7 +62,7 @@
 
 .carousel-card {
   position: relative;
-  width: 100%;
+  /* width: 100%; */
   overflow: hidden;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -50,31 +76,22 @@
 }
 
 .carousel-item {
-  flex: 0 0 auto; /* Prevent shrinking and ensure items take up only their necessary space */
-  width: 20%; /* Adjust width to fit 5 items in the container */
-  padding: 5px; /* Add some padding to give space between images */
-  box-sizing: border-box; /* Ensure padding is included in width */
+  flex: 0 0 auto;
+  width: 20%;
+  padding: 5px;
+  box-sizing: border-box;
 }
 
+
+
 .carousel-item img {
-  width: 100%; /* Make the image take up the full width of the carousel item */
+  width: 100%;
   height: auto;
   border-radius: 8px;
   cursor: pointer;
 }
-  
-/* .carousel-prev, .carousel-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 1;
-} */
+
+
 
 .carousel-prev {
   left: 10px;
@@ -84,7 +101,8 @@
   right: 10px;
 }
 
-.carousel-prev:hover, .carousel-next:hover {
+.carousel-prev:hover,
+.carousel-next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
