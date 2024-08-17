@@ -1,43 +1,52 @@
 #testimonials_section {
-    display: flex;
-    justify-content: space-between;
-    height: 30rem;
-    margin-top: 3rem;
-    padding-bottom: 3rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-bottom: 3rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  gap: 20px;
 
 
-  }
-  
-  .testimonial_item {
-    flex: 1;
-    margin: 20px;
-    padding: 20px;
-    background-color: #e5d9b9;
-    border-left:1px solid #1b5e20;
-  }
-  
-  .testimonial_item .quote {
-    font-size: 3rem;
-    color: #1b5e20;
-    margin: 0;
-  }
-  
-  .testimonial_text {
-    font-size:1.3em;
-    color: #967b59;
-    margin: 20px 0;
-    line-height: 1.6;
-    font-family: "Albert Sans", sans-serif;
-    font-weight: 400;
-  }
-  
-  .author {
-    font-weight: bold;
-    font-size: 1em;
-    color: #344e41;
-  }
+}
+
+.testimonial_item {
+  flex: 1;
+  margin: 20px;
+  padding: 20px;
+  border-left: 1px solid #1b5e20;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* .testimonial_item .quote {
+  font-size: 3rem;
+  color: #1b5e20;
+  margin: 0;
+} */
+
+.testimonial_text {
+  font-size: 1.3em;
+  color: #1b5e20;
+  margin: 20px 0;
+  line-height: 1.6;
+  font-family: "Albert Sans", sans-serif;
+  font-weight: 400;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.author {
+  font-weight: bold;
+  font-size: 1em;
+  color: #344e41;
+  margin-top: auto;
+}
 
 
 
@@ -46,12 +55,13 @@
   .testimonial_item .quote {
     font-size: 2rem;
   }
-    
+
   .testimonial_text {
     font-size: 1rem
   }
-  
+
 }
+
 
 @media (max-width: 750px) {
   #testimonials_section {
@@ -64,19 +74,18 @@
     flex: 1;
     margin: 20px;
     padding: 20px;
-    background-color: #e5d9b9;
     border-left: none;
-    border-bottom:1px solid #1b5e20;
+    border-bottom: 1px solid #1b5e20;
   }
-  
+
   .testimonial_item .quote {
     font-size: 3rem;
   }
-    
+
   .testimonial_text {
-    font-size: 1.3rem
+    font-size: 1.3rem -webkit-line-clamp: 4;
   }
-  
+
 }
 
 @media (max-width: 650px) {
@@ -84,9 +93,10 @@
   .testimonial_item .quote {
     font-size: 2rem;
   }
-    
+
   .testimonial_text {
-    font-size: 1rem
+    font-size: 1rem;
+    -webkit-line-clamp: 3;
   }
-  
+
 }

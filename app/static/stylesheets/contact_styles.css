@@ -1,5 +1,4 @@
 #contact_page_container {
-  background-color: #014235;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +7,7 @@
   width: 100vw;
   padding-top: 3rem;
   padding-bottom: 3rem;
-  height: 100%;
+  height: fit-content;
 
 }
 
@@ -16,6 +15,7 @@
   overflow: hidden;
   width: 70%;
   display: flex;
+  padding-bottom: 2rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -27,7 +27,7 @@
 
 #contact_us_header {
   margin-top: 3rem;
-  font-size: 3rem;
+  font-size: 5rem;
   color: #dddddd;
   font-family: "Albert Sans", sans-serif;
   font-weight: 100;
@@ -76,6 +76,7 @@
   font-family: "Antic Didone";
   font-weight: 400;
   font-style: normal;
+  font-size: 1.5rem;
 }
 
 .contact_us_form_group input,
@@ -84,12 +85,12 @@
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 16px;
-  color: #cbecc6;
+  color: #155e49;
   width: 100%;
   box-sizing: border-box;
   outline: none;
   transition: border-color 0.3s ease;
-  background-color: rgba(144, 141, 141, 0.637);
+  background-color: #EAEEFB;
 
 }
 
@@ -100,11 +101,11 @@
 }
 
 .contact_us_form_group input::placeholder {
-  color: #dad8b1;
+  color: #155e49;
 }
 
 .contact_us_form_group textarea::placeholder {
-  color: #dad8b1;
+  color: #155e49;
 }
 
 .contact_us_form_group input:focus,
@@ -143,9 +144,23 @@
 
 
 @media (max-width: 750px) {
+
+  #contact_us_header {
+    font-size: 3.5rem;
+  }
+
   #contact_us_form_name_group {
     display: flex;
     flex-direction: column;
+  }
+
+  #contact_form_container {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .contact_us_form_group label {
+    font-size: 1.1rem;
   }
 
 }
@@ -154,6 +169,12 @@
 /* ------------------------------------------------ */
 
 @media (max-width: 650px) {
+
+  #contact_form_container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   #contact_us_header {
     font-size: 2rem;
     margin-top: 1rem;
@@ -168,59 +189,3 @@
     margin-bottom: .5rem;
   }
 }
-
-
-
-/* ------------------------------------------------ */
-
-/* 
-@media (min-width: 600px) {
-  #contact_us_form_button_container {
-    display: flex;
-    justify-content: center;
-  }
-
-  #contact_form_submit_button {
-    width: 30%;
-  }
-}
- */
-
-
-
-/* ------------------------------------------------ */
-
-/* 
-@media (min-width: 1000px) {
-  #contact_us_form_button_container {
-    display: flex;
-    justify-content: center;
-  }
-
-  #contact_form_submit_button {
-    width: 30%;
-  }
-} */
-
-
-
-/* ------------------------------------------------ */
-
-/* 
-@media (min-height: 799px) {
-
-  #contact_page_container {
-    height: 100%;
-  }
-} */
-
-
-/* ------------------------------------------------ */
-
-/* 
-@media (min-height: 1100px) {
-  #contact_form_container {
-    height: 70%;
-    width: 70%;
-  }
-} */

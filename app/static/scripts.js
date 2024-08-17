@@ -22,11 +22,14 @@ document.addEventListener('click', function(event) {
     }
 });
 
+
 ///////////////////////////////
 
 
 
 document.addEventListener("DOMContentLoaded", function () {
+    
+    // const video = document.querySelector('video').playbackRate = 0.5;
     const sections = document.querySelectorAll("section");
 
     const options = {
