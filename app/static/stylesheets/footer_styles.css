@@ -37,8 +37,13 @@ footer {
     font-family: sans-serif;
     font-family: "Albert Sans", sans-serif;
     font-weight: 100;
-    font-style: normal;
-    
+    font-style: normal;    
+  }
+
+  .footer_contact_link{
+    text-underline-offset:.4rem;
+    color: #d1c6a8;
+    font-weight: 200;
   }
   
   .footer-item {
