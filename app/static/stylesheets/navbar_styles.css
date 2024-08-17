@@ -8,7 +8,7 @@
   left: 0;
   align-items: center;
   z-index: 1000;
-  border-bottom: 1px solid #EAEEFB;
+  /* border-bottom:3px solid #2a7a3d; */
   padding-bottom: .5rem;
   padding-top: .5rem;
 }
