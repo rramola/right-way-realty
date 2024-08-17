@@ -76,12 +76,6 @@
 
 
 
-
-
-
-
-
-
   @media (max-width: 650px) {
   #navbar_container {
     display: grid;
@@ -93,7 +87,7 @@
   #hamburger_menu {
     display: flex;
     justify-content: right;
-    margin-right: 1rem;
+    margin-right: 2rem;
   }
 
   #navbar_items {

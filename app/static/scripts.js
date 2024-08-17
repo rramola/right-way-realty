@@ -1,3 +1,6 @@
+
+//// MOBILE NAVBAR ///////
+
 function toggleNavbar() {
     var navbarItems = document.getElementById('navbar_items');
     if (navbarItems.classList.contains('show')) {
@@ -8,6 +11,20 @@ function toggleNavbar() {
         navbarItems.classList.add('show');
     }
 }
+
+document.addEventListener('click', function(event) {
+    var navbarItems = document.getElementById('navbar_items');
+    var hamburgerMenu = document.getElementById('hamburger_menu');
+
+    if (!navbarItems.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+        navbarItems.classList.remove('show');
+        navbarItems.classList.add('hide');
+    }
+});
+
+///////////////////////////////
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll("section");
