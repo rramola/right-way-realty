@@ -1,6 +1,11 @@
 #testimonials_section {
     display: flex;
     justify-content: space-between;
+    height: 30rem;
+    margin-top: 3rem;
+    padding-bottom: 3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
 
 
   }
@@ -10,7 +15,7 @@
     margin: 20px;
     padding: 20px;
     background-color: #e5d9b9;
-    border-left: 5px solid #1b5e20;
+    border-left: 2px solid #1b5e20;
   }
   
   .testimonial_item .quote {
@@ -51,6 +56,9 @@
 @media (max-width: 750px) {
   #testimonials_section {
     flex-direction: column;
+    height: auto;
+    margin-top: 0;
+
  
   }
 

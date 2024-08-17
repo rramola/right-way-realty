@@ -34,7 +34,7 @@
 .agent_info p {
   font-family: "Albert Sans", sans-serif;
   font-weight: 200;
-  font-size: 1.2em;
+  font-size: 1.5rem;
   line-height: 1.6;
   margin-bottom: 20px;
   word-spacing: .5rem;
@@ -60,18 +60,53 @@
   background-color: #e5d9b9;
 }
 
+@media (max-width: 1500px) {
+  .agent_info h1 {
+    font-size: 4rem;
+  }
 
+  .agent_info p {
+    font-size: 1rem;
+  }
+}
+
+
+
+@media (max-width: 1000px) {
+
+  .agent_info h1 {
+    font-size:2.3rem;
+  }
+
+  .agent_image{
+        padding-left: 3rem;
+  }
+
+  .agent_profile_container {
+    grid-gap: 0;
+  }
+
+  .agent_info p {
+
+    font-size:.8rem;
+
+  }
+
+}
 
 @media (max-width: 750px) {
   .agent_profile_container {
     display: flex;
     flex-direction: column;
+    row-gap: 3rem;
+    margin-bottom: 1rem;
   }
 
   .agent_image {
     margin-bottom: 5rem;
     border: none;
     margin: 0;
+    padding-left: 0;
   }
 
   .agent_info h1 {

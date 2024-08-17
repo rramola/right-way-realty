@@ -1,23 +1,37 @@
 #home_page_properties_container h1 {
   color: #014235;
-  display: flex;
-  justify-content: center;
-  font-size:4rem;
-  letter-spacing: .5rem;
+  text-align: center;
   font-family: "Antic Didone";
   font-weight: 400;
   font-style: normal;
+  letter-spacing: .5rem;
+  margin-bottom: 50px;
+  font-size: 5rem;
 }
 
 #home_page_properties_container {
   background-color:#e5d9b9;
+  height: 45rem;
 
+}
 
+#property_showcase_text{
+  text-align: center;
+  font-family: "Antic Didone";
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: .5rem;
+  margin-bottom: 50px;
+  font-size: 5rem;
 }
 
 .property-list-wrapper {
   overflow: hidden;
-  padding: 3rem;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 5rem;
+  height: -webkit-fill-available;
 }
 
 .property-list {
@@ -30,6 +44,7 @@
   justify-items: center;
   align-items: center;
   margin: 0 auto;
+  height: 100%;
 }
 
 .property {
@@ -40,15 +55,15 @@
   vertical-align: top;
   flex-shrink: 0;
   text-align: center;
-  border-left: 5px solid #1b5e20;
+  border-left: 2px solid #1b5e20;
   height: 100%;
   width: 100%;
 }
 
 .home_page_property_images {
   position: relative;
-  width: 90%;
-  height: 15rem;
+  width: 80%;
+  height: 80%;
 }
 
 .home_page_property_images img {
@@ -106,13 +121,40 @@
 
 
 
+@media (max-width: 1500px) {
+  .property-list{
+    height: 80%;
+  } 
+
+  .property-list-wrapper{
+    height: inherit;
+  }
+  
+}
+
+
+
+@media (max-width: 1250px) {
+  .property-list{
+    height: 70%;
+  } 
+
+  .property-list-wrapper{
+    height: inherit;
+  }
+  
+}
+
 
 
 @media (max-width: 900px) {
   #home_page_properties_container h1 {
-    font-size: 2.4rem;
+    font-size: 2.4rem
   }
 
+  #home_page_properties_container{
+    height: auto;
+  }
   .property_info_content {
     font-size: 1.5rem;
   }
@@ -123,14 +165,13 @@
   }
 
   .property-list {
-    display: flex;
-    padding: 0;
-
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .home_page_property_images {
     display: flex;
-    width: 90vw
+    width: 100%;
 
   }
 
@@ -141,11 +182,7 @@
     width: 90%;
   }
 
-  .property-list {
-    display: flex;
-    flex-direction: column;
-  }
-
+ 
   .property-list-wrapper {
     padding-bottom: 0;
   }
@@ -161,6 +198,9 @@
 
 
 @media (max-width: 750px) {
+  #home_page_properties_container h1 {
+    margin-bottom: 2rem;
+  }
   .property-list {
     display: flex;
     flex-direction: column;
@@ -182,16 +222,19 @@
 
 @media (max-width: 650px) {
   #home_page_properties_container h1 {
-    font-size: 1.4rem;
+    font-size:3rem;
+    letter-spacing: .2rem;
   }
 
 }
 
 @media (max-width: 600px) {
+  #home_page_properties_container{
+    height: auto;
+  }
   .property-list {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: none;
+    display: flex;
+    flex-direction: column;
   }
 
   .property_info {
