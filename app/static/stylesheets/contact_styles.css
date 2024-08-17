@@ -120,7 +120,7 @@
 #contact_form_submit_button {
   width: 100%;
   padding: 12px;
-  background-color: #007bff;
+  background-color: #2a7a3d;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -130,7 +130,7 @@
 }
 
 #contact_form_submit_button:hover {
-  background-color: #0056b3;
+  background-color: #155e49;
 }
 
 
