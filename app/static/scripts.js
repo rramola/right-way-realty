@@ -203,3 +203,15 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('filter-button').textContent = 'Show Filters';
     };
 });
+
+
+
+
+
+
+
+
+
+
+
+
