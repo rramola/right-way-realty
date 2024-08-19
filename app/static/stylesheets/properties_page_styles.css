@@ -40,6 +40,10 @@
 .card-body {
   height: 100%;
   margin-right: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .grid-container {
@@ -49,6 +53,48 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   border: 2px solid #000000;
   padding: 20px;
+}
+
+.property-price {
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.property-address {
+  font-size: 1.8rem;
+  color: #555;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.property-status {
+  font-size: 1.3rem;
+  color: #888;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.property-details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.property-detail-item {
+  text-align: center;
+}
+
+.property-detail-item strong {
+  display: block;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+.property-detail-item span {
+  font-size: 12px;
+  color: #666;
 }
 
 .card-text {

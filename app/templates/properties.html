@@ -10,18 +10,35 @@
         alt="Main House Image"
       />
       <div class="card-body">
-        <h5 class="card-title">
-          {{property.house_number}} {{property.street_name}}
-          {{property.street_suffix}}, {{property.city}}, {{property.state}}
-          {{property.postal_code}}
+        <h5 class="property-address">
+            {{property.house_number}} {{property.street_name}} {{property.street_suffix}},
+            {{property.city}}, {{property.state}} {{property.postal_code}}
         </h5>
-        <p class="card-text">{{ property.public_remarks }}</p>
-        <p class="card-text">
-          <strong>Price:</strong> {{ property.list_price }}
-        </p>
-        <p class="card-text"><strong>Beds:</strong> {{ property.bedrooms }}</p>
-        <p class="card-text"><strong>Baths:</strong> {{ baths_info }}</p>
-      </div>
+        <div class="property-status">
+            <span>FOR SALE</span> | <span>SINGLE FAMILY HOME</span> | <span>ACTIVE UNDER CONTRACT</span>
+        </div>
+        <div class="property-details-grid">
+          <div class="property-detail-item">
+            <strong>${{ property.list_price }}</strong>
+            <span>Price</span>
+        </div>
+            <div class="property-detail-item">
+                <strong>{{ property.bedrooms }}</strong>
+                <span>Beds</span>
+            </div>
+            <div class="property-detail-item">
+                <strong>{{ baths_info }}</strong>
+                <span>Full Baths</span>
+            </div>
+            <div class="property-detail-item">
+                <strong>{{ property.building_area_total }}</strong>
+                <span>SqFt</span>
+            </div>
+            <div class="property-detail-item">
+                <strong>{{ property.year_built }}</strong>
+                <span>Built</span>
+            </div>
+        </div>
     </div>
 
     <div class="carousel-card">
