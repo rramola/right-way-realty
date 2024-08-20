@@ -104,6 +104,46 @@
 }
 
 
+.property-features {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.property-features h5 {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.features-grid {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.feature-item {
+  margin-bottom: 10px;
+}
+
+.feature-item strong {
+  display: block;
+  font-size: 1.2rem;
+  color: #000;
+  margin-bottom: 5px;
+}
+
+.feature-item p {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+}
+
+
+
 .property-carousel {
   position: relative;
   width: 100%;
