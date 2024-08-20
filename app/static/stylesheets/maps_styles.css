@@ -16,16 +16,24 @@
   grid-row: 1;
   padding-left: 20px;
   padding-right: 20px;
+
 }
+
+#property-list::-webkit-scrollbar {
+  display: none;
+  
+}
+
 #property-list {
-  /* width: 30%; */
-  padding: 20px;
+  padding-left: 20px;
   overflow-y: scroll;
   background-color: #EAEEFB;
   color: #ecf0f1;
   border-right: 2px solid #ecf0f1;
   position: relative;
   grid-row: 2;
+  padding-right: 20px;
+
 }
 
 .property-item {
@@ -149,6 +157,7 @@
   margin: 0;
 }
 
+
 #filter-button {
   background-color: #0b3a2d;
   font-family: "Albert Sans", sans-serif;
@@ -160,6 +169,7 @@
   cursor: pointer;
   width: 100%;
   text-align: center;
+  
 }
 
 #filters {
