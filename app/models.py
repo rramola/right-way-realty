@@ -21,6 +21,7 @@ class Property(models.Model):
     baths_half = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True)
     baths_three_quarter = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True)
     building_area_total = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    property_subtype = models.CharField(max_length=100, blank=True, null=True)
     # Additional Fields
     public_remarks = models.TextField(blank=True, null=True)
     private_remarks = models.TextField(blank=True, null=True)

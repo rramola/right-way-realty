@@ -1,7 +1,7 @@
-# app/management/commands/fetch_properties.py
 from django.core.management.base import BaseCommand
 from app.models import Property
 from app.flexmls import FlexmlsAPI
+import pprint
 
 class Command(BaseCommand):
     help = 'Fetches properties from the Flexmls API and saves them to the database.'
@@ -12,10 +12,20 @@ class Command(BaseCommand):
         api = FlexmlsAPI(access_token)
         
         try:
+            # Fetch data from the Flexmls API
             properties_data = api.get_properties(endpoint='listings')
             
+            # # Pretty print the entire API response 
+            # pp = pprint.PrettyPrinter(indent=2)
+            # pp.pprint(properties_data)
+            
+            # Get the Results
             results = properties_data.get('D', {}).get('Results', [])
             
+            # if results:
+            #     pp.pprint(results[0])  # Print the first property data
+
+            # Loop through the properties and save to the database
             for property_data in results:
                 standard_fields = property_data.get('StandardFields', {})
                 
@@ -51,6 +61,7 @@ class Command(BaseCommand):
                         'building_area_total': convert_to_decimal(replace_placeholder(standard_fields.get('BuildingAreaTotal'))),
                         'public_remarks': replace_placeholder(standard_fields.get('PublicRemarks')),
                         'private_remarks': replace_placeholder(standard_fields.get('PrivateRemarks')),
+                        'property_subtype': replace_placeholder(standard_fields.get('PropertySubType')),
                     }
                 )
                 

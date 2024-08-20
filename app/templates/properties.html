@@ -1,4 +1,4 @@
-{% extends "base_template.html" %} {% load static %} {% block content %}
+{% extends "base_template.html" %} {% load static %} {% load humanize %} {% block content %}
 
 <div class="property-page">
   <div class="property-card">
@@ -15,11 +15,11 @@
             {{property.city}}, {{property.state}} {{property.postal_code}}
         </h5>
         <div class="property-status">
-            <span>FOR SALE</span> | <span>SINGLE FAMILY HOME</span> | <span>ACTIVE UNDER CONTRACT</span>
+            <span>FOR SALE</span> | <span>{{property.property_subtype}}</span> | <span>ACTIVE UNDER CONTRACT</span>
         </div>
         <div class="property-details-grid">
           <div class="property-detail-item">
-            <strong>${{ property.list_price }}</strong>
+            <strong>${{ property.list_price|floatformat:0|intcomma }}</strong>
             <span>Price</span>
         </div>
             <div class="property-detail-item">
@@ -28,7 +28,7 @@
             </div>
             <div class="property-detail-item">
                 <strong>{{ baths_info }}</strong>
-                <span>Full Baths</span>
+                <span>Baths</span>
             </div>
             <div class="property-detail-item">
                 <strong>{{ property.building_area_total }}</strong>

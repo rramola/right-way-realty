@@ -1,5 +1,5 @@
 {% extends "base_template.html" %}
-{% load static %}
+{% load static %} {% load humanize %}
 {% block content %}
 <div id="home_page_container">
     <div id="home_page_banner_video">
@@ -40,10 +40,11 @@
                                 <h2>{{ property.name|default:"No name available" }}</h2>
                             </div>  {% endcomment %}
                             <div class="property_info_content">
-                                <p class="home_property_info_content" id="home_property_city">{{ property.city }}</p>
-                                <p class="home_property_info_content" id="home_property_street">{{ property.street_name }}</p>
+                                <p class="home_property_info_content" id="home_property_city">{{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }},
+                                    {{ property.city }}, {{ property.state }} {{ property.postal_code }}</p>
+                                <p class="home_property_info_content" id="home_property_street"> Beds: {{ property.bedrooms}} | Baths: {{ property.baths_info }} | Price: ${{ property.list_price|floatformat:0|intcomma }}</p>
                                 {% comment %} <p>{{ property.description }}</p> {% endcomment %}
-                                <p class="home_property_info_content" id="home_property_price">${{ property.price }}</p>
+                                {% comment %} <p class="home_property_info_content" id="home_property_price">${{ property.list_price }}</p> {% endcomment %}
                             </div>
                         </div>
                     </div>

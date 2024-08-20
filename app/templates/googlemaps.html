@@ -1,4 +1,4 @@
-{% extends "base_template.html" %} {% load static %} {% block content %}
+{% extends "base_template.html" %} {% load static %} {% load humanize %} {% block content %}
 <div id="container">
 
   <div id="map"></div>
@@ -40,7 +40,7 @@
           {{ property.city }}, {{ property.state }} {{ property.postal_code }}
         </a>
       </h2>
-      <p>Price: ${{ property.list_price }}</p>
+      <p>Price: ${{ property.list_price|floatformat:0|intcomma }}</p>
       <p>Bedrooms: {{ property.bedrooms }}</p>
       <p>Baths: {{ property.baths_info }}</p>
       <a id="move_to_property_link" href="#" onclick="moveToProperty({{ property.latitude }}, {{ property.longitude }})">View on Map</a>
@@ -106,12 +106,14 @@
           map: map,
           title: property.title
         });
+
+        const formattedPrice = formatPriceWithCommas(property.price);
         
         const infoWindowContent = `
         <div class="map-popup">
           <h3 class="popup-title">${property.title}</h3>
-          <p class="popup-price">Price: $${property.price}</p>
-          <img src="${property.imageUrl}" alt="Property Image" class="popup-image"/>
+          <p class="popup-price">Price: $${formattedPrice}</p>
+          <img src="${{property.imageUrl}}" alt="Property Image" class="popup-image"/>
           <p class="popup-description">${property.description}</p>
         </div>
       `;

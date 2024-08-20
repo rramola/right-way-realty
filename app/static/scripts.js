@@ -204,6 +204,10 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 });
 
+// Get commas in infowindow on maps for price, REGEX is dumb
+function formatPriceWithCommas(price) {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
 
 
 
