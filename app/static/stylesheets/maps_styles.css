@@ -43,6 +43,12 @@
   border-radius: 10px;
 }
 
+.property-item:hover {
+  background-color: #0b3a2d;
+  transform: scale(1.04);
+  transition: .3s;
+}
+
 .property-item h2 {
   font-size: 18px;
   margin-bottom: 10px;
@@ -170,6 +176,12 @@
   width: 100%;
   text-align: center;
   
+}
+
+#filter-button:hover {
+  background-color: #0d4a3b;
+  transform: scale(1.05);
+  transition: .3s;
 }
 
 #filters {
