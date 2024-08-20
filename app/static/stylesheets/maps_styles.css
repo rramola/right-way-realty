@@ -29,7 +29,7 @@
 }
 
 .property-item {
-  background-color: #073528;
+  background-color: #073528be;
   padding: 15px;
   margin-top: 1rem;
   border-radius: 10px;
@@ -150,7 +150,7 @@
 }
 
 #filter-button {
-  background-color: #2a7a3d;
+  background-color: #0b3a2d;
   font-family: "Albert Sans", sans-serif;
   font-size: 1.5rem;
   color: #EAEEFB;
