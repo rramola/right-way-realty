@@ -1,6 +1,8 @@
 {% extends "base_template.html" %} {% load static %} {% block content %}
 <div id="container">
-  <div id="property-list">
+
+  <div id="map"></div>
+  <div id ="filters_container">
     <div id="filter_button_container">
       <button id="filter-button">Show Filters</button>
     </div>
@@ -22,6 +24,8 @@
         <button type="button" onclick="applyFilters()">Apply Filters</button>
       </form>
     </div>
+  </div>
+  <div id="property-list">
 
     {% if properties %}
     {% for property in properties %}
@@ -46,8 +50,8 @@
     <p>No properties available.</p>
     {% endif %}
   </div>
-
-<div id="map"></div>
+{% comment %} 
+<div id="map"></div> {% endcomment %}
 </div>
 
 <script>
