@@ -1,5 +1,5 @@
 #agent_profile_section {
-  padding: 50px;
+  padding: 2.5rem;
   background-color: #295943;
   color: #EAEEFB;
   clip-path: polygon(51% 0, 70% 0, 100% 0, 100% 100%, 70% 100%, 50% 88%, 30% 100%, 0 100%, 0 0, 30% 0);
@@ -125,7 +125,7 @@
     margin-bottom: 1rem;
   }
 
-  .agent_image {
+  #agen .agent_image {
     margin-bottom: 5rem;
     border: none;
     margin: 0;
