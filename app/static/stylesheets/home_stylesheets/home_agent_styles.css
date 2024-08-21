@@ -135,6 +135,7 @@
   .agent_info h1 {
     font-size: 3rem;
     text-align: center;
+    margin-top: 0;
   }
 
   .agent_info p {
