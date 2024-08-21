@@ -1,5 +1,5 @@
 #agent_profile_section {
-  padding: 2.5rem;
+  padding: 50px;
   background-color: #295943;
   color: #EAEEFB;
   clip-path: polygon(51% 0, 70% 0, 100% 0, 100% 100%, 70% 100%, 50% 88%, 30% 100%, 0 100%, 0 0, 30% 0);
@@ -16,9 +16,9 @@
   /* grid-gap: 1rem; */
 }
 
-.agent_info {
+/* .agent_info {
   flex: 1;
-}
+} */
 
 .agent_info h1 {
   font-size: 4.5rem;
@@ -125,7 +125,7 @@
     margin-bottom: 1rem;
   }
 
-  #agen .agent_image {
+  .agent_image {
     margin-bottom: 5rem;
     border: none;
     margin: 0;
@@ -144,6 +144,7 @@
 
   #agent_profile_section {
     clip-path: none;
+    padding: 0;
   }
 
 
