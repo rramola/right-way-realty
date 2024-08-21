@@ -18,7 +18,6 @@
 
 .agent_info {
   flex: 1;
-
 }
 
 .agent_info h1 {
@@ -123,7 +122,7 @@
   .agent_profile_container {
     display: flex;
     flex-direction: column-reverse;
-    row-gap: 3rem;
+
     margin-bottom: 1rem;
   }
 
