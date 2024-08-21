@@ -2,7 +2,7 @@
   color: #014235;
   text-align: center;
   font-family: "Antic Didone";
-  font-weight: 400;
+  font-weight:500;
   font-style: normal;
   letter-spacing: .5rem;
   margin-bottom: 50px;
@@ -98,6 +98,9 @@
   font-size: 2.5rem;
 }
 
+.home_info_content_labels{
+  font-weight:700;
+}
 
 .property_info_content a:hover {
   text-decoration: underline;

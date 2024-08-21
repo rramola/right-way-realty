@@ -40,9 +40,9 @@
           {{ property.city }}, {{ property.state }} {{ property.postal_code }}
         </a>
       </h2>
-      <p>Price: ${{ property.list_price|floatformat:0|intcomma }}</p>
-      <p>Bedrooms: {{ property.bedrooms }}</p>
-      <p>Baths: {{ property.baths_info }}</p>
+      <p><span class="home_info_content_labels">Price: </span>${{ property.list_price|floatformat:0|intcomma }}</p>
+      <p><span class="home_info_content_labels">Bedrooms: </span>{{ property.bedrooms }}</p>
+      <p><span class="home_info_content_labels">Baths: </span>{{ property.baths_info }}</p>
       <a id="move_to_property_link" href="#" onclick="moveToProperty({{ property.latitude }}, {{ property.longitude }})">View on Map</a>
     </div>
     {% endfor %}

@@ -43,8 +43,10 @@
                             <div class="property_info_content">
                                 <a href="{% url 'property_detail' property.id %}" class="home_property_info_content" id="home_property_city">
                                     {{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }},
-                                    {{ property.city }}, {{ property.state }} <br>{{ property.postal_code }}</a>
-                                <p class="home_property_info_content" id="home_property_street"> Beds: {{ property.bedrooms}} | Baths: {{ property.baths_info }} | Price: ${{ property.list_price|floatformat:0|intcomma }}</p>
+                                    <br>{{ property.city }}, {{ property.state }} {{ property.postal_code }}</a>
+                                <p class="home_property_info_content" id="home_property_street"> <span class="home_info_content_labels">Beds:</span> {{ property.bedrooms}}  
+                                    | <span class="home_info_content_labels">Baths:</span> {{ property.baths_info }}  
+                                    |   <span class="home_info_content_labels">Price:</span> ${{ property.list_price|floatformat:0|intcomma }}</p>
                                 {% comment %} <p>{{ property.description }}</p> {% endcomment %}
                                 {% comment %} <p class="home_property_info_content" id="home_property_price">${{ property.list_price }}</p> {% endcomment %}
                             </div>
@@ -106,24 +108,28 @@
         </div>
     </div>
 
-    <div id="testimonials_section">
-        <div class="testimonial_item">
-            <p class="testimonial_text">
-                We have used Right-Way-Realty several times.   I highly recommend April and Terry for all your real estate needs.   They go above and beyond to take care of their customers needs.
-            </p>
-            <p class="author">Mid-South Septic</p>
-        </div>
-        <div class="testimonial_item">
-            <p class="testimonial_text">
-                "A great testimonial can boost your brand’s image. Click to edit and add your own."
-            </p>
-            <p class="author">Morgan James, New Albany</p>
-        </div>
-        <div class="testimonial_item">
-            <p class="testimonial_text">
-                “April is amazing!! When we moved to Oxford, she helped us find a rental home and later helped us find the perfect home to buy. She went above and beyond and the process went very smoothly.”
-            </p>
-            <p class="author">David Sullivan, Oxford</p>
+    <div id="testimonials_container">
+        <div id="testimonials_header"><p>CLIENT TESTIMONIALS</></div>
+        <div id="testimonials_section">
+            <div class="testimonial_item">
+                <p class="testimonial_text">
+                    "We have used Right-Way-Realty several times.   I highly recommend April and Terry for all your real estate needs.   
+                    They go above and beyond to take care of their customers needs."
+                </p>
+                <p class="author">Mid-South Septic</p>
+            </div>
+            <div class="testimonial_item">
+                <p class="testimonial_text">
+                    "A great testimonial can boost your brand’s image. Click to edit and add your own."
+                </p>
+                <p class="author">Morgan James, New Albany</p>
+            </div>
+            <div class="testimonial_item">
+                <p class="testimonial_text">
+                    “April is amazing!! When we moved to Oxford, she helped us find a rental home and later helped us find the perfect home to buy. She went above and beyond and the process went very smoothly.”
+                </p>
+                <p class="author">David Sullivan, Oxford</p>
+            </div>
         </div>
     </div>
 </div>
