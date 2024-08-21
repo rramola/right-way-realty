@@ -16,9 +16,9 @@
   /* grid-gap: 1rem; */
 }
 
-/* .agent_info {
+.agent_info {
   flex: 1;
-} */
+}
 
 .agent_info h1 {
   font-size: 4.5rem;
