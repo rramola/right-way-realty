@@ -3,6 +3,7 @@
 {% block content %}
 <div id="home_page_container">
     <div id="home_page_banner_video">
+        <img src="{% static 'images/oxford1.jpg' %}" alt="Oxford Image" id="home_page_banner_image">
         <video id = "fillV" autoplay muted loop>
             <source src="{% static 'images/videobanner.mp4' %}" type="video/mp4">
         </video>
@@ -40,8 +41,9 @@
                                 <h2>{{ property.name|default:"No name available" }}</h2>
                             </div>  {% endcomment %}
                             <div class="property_info_content">
-                                <p class="home_property_info_content" id="home_property_city">{{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }},
-                                    {{ property.city }}, {{ property.state }} {{ property.postal_code }}</p>
+                                <a href="{% url 'property_detail' property.id %}" class="home_property_info_content" id="home_property_city">
+                                    {{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }},
+                                    {{ property.city }}, {{ property.state }} <br>{{ property.postal_code }}</a>
                                 <p class="home_property_info_content" id="home_property_street"> Beds: {{ property.bedrooms}} | Baths: {{ property.baths_info }} | Price: ${{ property.list_price|floatformat:0|intcomma }}</p>
                                 {% comment %} <p>{{ property.description }}</p> {% endcomment %}
                                 {% comment %} <p class="home_property_info_content" id="home_property_price">${{ property.list_price }}</p> {% endcomment %}
@@ -84,15 +86,21 @@
                         for delivering exceptional service and achieving outstanding results.
                     </p>
                     <p>
-                        Her expertise in the local market, combined with her aggressive negotiation skills and attention
+                        {% comment %} Her expertise in the local market, combined with her aggressive negotiation skills and attention
                         to detail, ensures that every client’s needs are met with the highest level of professionalism
                         and care. April’s personalized approach and relentless drive have earned her numerous positive
+                        reviews and a loyal client base, making her a trusted and respected figure in the Oxford real
+                        estate community. {% endcomment %}
+                        April is also a licensed residential contractor, having developed the BayRidge Rentals subdivision and managing over 
+                        70 rental properties. Known for her honesty, integrity, and deep knowledge of the local market, she offers 
+                        expert guidance on every aspect of buying a home, from property selection to move-in and beyond. April’s personalized approach 
+                        and relentless drive have earned her numerous positive
                         reviews and a loyal client base, making her a trusted and respected figure in the Oxford real
                         estate community.
                     </p>
                 </div>
                 <div class="agent_image">
-                    <img src="{% static 'images/aprilaboutme.png' %}" alt="April White">
+                    <img src="{% static 'images/image0.jpeg' %}" alt="April White">
                 </div>
             </div>
         </div>

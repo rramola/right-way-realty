@@ -98,11 +98,21 @@
   font-size: 2.5rem;
 }
 
+
+.property_info_content a:hover {
+  text-decoration: underline;
+}
+
 #home_property_city {
   font-size: 1.5rem;
   margin: 0;
   color: #1b5e20;
   font-weight: 500;
+  text-decoration: none;
+}
+
+#home_property_city:hover {
+  text-decoration: underline;
 }
 
 #home_property_street {
@@ -117,7 +127,7 @@
 }
 
 .home_property_info_content {
-  padding-top: .5rem;
+  padding-top: 1rem;
 }
 
 

@@ -2,6 +2,9 @@
   overflow: hidden;
 }
 
+#home_page_banner_image {
+  display: none;
+}
 
 #home_page_banner_video {
   display: inline-flex;
@@ -112,8 +115,22 @@
 
   #fillV {
     object-fit: cover;
+    display: none;
 
   }
+
+  #home_page_banner_image {
+    display: block;
+  }
+
+  #home_page_banner_video {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+  }
+
 }
 
 @media (max-width: 500px) {
@@ -124,11 +141,11 @@
 }
 
 
-@media (max-width: 450px) {
+/* @media (max-width: 450px) {
   #home_page_banner_video {
     width: auto;
   }
-}
+} */
 
 @media (max-width: 400px) {
   #home_page_personalized_service {
