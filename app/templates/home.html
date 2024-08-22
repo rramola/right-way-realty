@@ -30,7 +30,7 @@
                         {% if property.images.all %}
                         <div class="home_page_property_images">
                             {% for image in property.images.all %}
-                            <img src="{{ image.image.url }}" alt="Property Image" />
+                            <img src="{{ image.image.url }}" alt="Property Image" id="home_property_image"/>
                             {% endfor %}
                         </div>
                         {% else %}

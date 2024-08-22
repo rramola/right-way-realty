@@ -85,6 +85,11 @@
 
 }
 
+#home_property_image:hover{
+  transform: scale(1.05);
+  transition: .3s ease-in-out;
+}
+
 
 .property_info_content {
   display: flex;
