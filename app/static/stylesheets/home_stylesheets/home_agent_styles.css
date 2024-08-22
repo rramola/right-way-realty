@@ -1,5 +1,5 @@
 #agent_profile_section {
-  padding: 50px;
+  padding: 3rem;
   background-color: #295943;
   color: #EAEEFB;
   clip-path: polygon(51% 0, 70% 0, 100% 0, 100% 100%, 70% 100%, 50% 88%, 30% 100%, 0 100%, 0 0, 30% 0);
@@ -152,9 +152,30 @@
 
 @media (max-width: 450px) {
 
+  #agent_profile_section{
+    padding-top: 1rem;
+    padding-bottom: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .agent_profile_container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr;
+    padding: 0;
+  }
+
+  .agent_info{
+    grid-row: 2;
+    height: 100%;
+  }
+
 
   .agent_info h1 {
     font-size: 2rem;
+
+    margin-top: 0;
 
 
   }
