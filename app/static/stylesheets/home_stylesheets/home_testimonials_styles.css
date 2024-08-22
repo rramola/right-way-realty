@@ -55,10 +55,11 @@
 }
 
 .author {
-  font-weight: bold;
+  font-weight:800;
   font-size: 1em;
   color: #344e41;
   margin-top: auto;
+  font-family: "Albert Sans", sans-serif;
 }
 
 
