@@ -1,13 +1,17 @@
-{% extends "base_template.html" %} {% load static%} {%block content%}
+{% extends "base_template.html" %}
+{% load static %}
+{% block content %}
 <div class="about_page_container">
   <div class="header">
-      <h1 class="company-name">RIGHT-WAY REALTY</h1>
+      <h1 class="company-name">About Us</h1>
   </div>
-  <div class="about-us-image">
-      <img src="{% static 'images/rwrstore.png' %}" alt="About Us Image">
+  <div class="aboutIMG">
+      <img src="{% static 'images/aboutUS.png' %}" alt="About Us Image">
   </div>
-  <h2>About Us</h2>
+  
   <div class="about-us-content">
+    <div class="about-us-text">
+      <h2>Our Company</h2>
       <p>
           At Right-Way Realty, we believe that finding your dream home or the perfect property investment should be an enjoyable and rewarding experience. Founded in Oxford, Mississippi, we have been serving the local community with dedication, transparency, and integrity for over a decade.
       </p>
@@ -20,7 +24,11 @@
       <p>
           Our mission is to make the real estate process as smooth and stress-free as possible. We take the time to listen to your goals, understand your needs, and work tirelessly to help you achieve them.
       </p>
+    </div>
+
+    <div class="about-us-image">
+      <img src="{% static 'images/rwrstore.png' %}" alt="Right-Way Realty Store">
+    </div>
   </div>
 </div>
-
-{%endblock content%}
+{% endblock content %}
