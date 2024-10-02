@@ -28,6 +28,7 @@ urlpatterns = [
     path("", home_page, name="home"),
     path("contact/", contact_page, name="contact"),
     path("about/", about_page, name="about"),
+    path("about/Oxford/", oxford_page, name="oxford"),
 ]
 
 if settings.DEBUG:

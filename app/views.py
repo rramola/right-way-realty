@@ -34,6 +34,10 @@ def about_page(request):
     context = {}
     return render(request, "about.html", context)
 
+def oxford_page(request):
+    context = {}
+    return render(request, "oxford.html", context)
+
 def googlemaps_view(request):
     properties = Property.objects.all()
     
