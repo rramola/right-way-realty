@@ -1,6 +1,7 @@
 import requests
 from django.core.management.base import BaseCommand
-from .models import NavicaProperty
+from navica import NavicaAPI
+from models import NavicaProperty
 import os
 
 
@@ -8,19 +9,15 @@ class Command(BaseCommand):
     help = 'Fetch data from the external API and populate the database'
 
     def fetch_navica_data_from_api(self):
-        api_url = "https://navapi.navicamls.net/api/v2/nav98/listings?"
         token = os.getenv("0d56bf44bf5c56b3e3c645c5804e4337")
         if not token:
             self.stdout.write(self.style.ERROR('API token is not set in environment variables'))
             return
-        headers = {
-            'Authorization': f'Bearer {token}'
-        }
+        api = NavicaAPI(token)
 
-        response = requests.get(api_url, headers=headers)
-        if response.status_code == 200:
-            listings = response.json()
-            properties = listings['bundle']
+        try:
+            listing_data = api.get_properties(endpoint='listings')   
+            properties = listing_data['bundle']
             for listing in properties:
                 NavicaProperty.objects.update_or_create(
                     SourceSystemKey = listing["SourceSystemKey"],
@@ -39,6 +36,5 @@ class Command(BaseCommand):
                     }
                 )
             self.stdout.write(self.style.SUCCESS('Successfully populated the database'))
-        else:
-            self.stdout.write(self.style.ERROR('Failed to fetch data from the API'))
-
+        except Exception as e:
+            self.stdout.write(self.style.ERROR(f'Failed to fetch data: {e}'))
