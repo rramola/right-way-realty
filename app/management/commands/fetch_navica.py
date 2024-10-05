@@ -1,15 +1,15 @@
 import requests
 from django.core.management.base import BaseCommand
-from navica import NavicaAPI
-from models import NavicaProperty
+from app.navica import NavicaAPI
+from app.models import NavicaProperty
 import os
 
 
 class Command(BaseCommand):
     help = 'Fetch data from the external API and populate the database'
 
-    def fetch_navica_data_from_api(self):
-        token = os.getenv("0d56bf44bf5c56b3e3c645c5804e4337")
+    def handle(self, *args, **kwargs):
+        token = "0d56bf44bf5c56b3e3c645c5804e4337"
         if not token:
             self.stdout.write(self.style.ERROR('API token is not set in environment variables'))
             return
