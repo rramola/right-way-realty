@@ -1,6 +1,7 @@
 import requests
 import os
 
+
 class NavicaAPI:
     BASE_URL = "https://navapi.navicamls.net/api/v2/nav98/"
     def __init__(self, access_token):
@@ -8,9 +9,12 @@ class NavicaAPI:
 
     def get_properties(self, endpoint='listings', params={}):
         headers = {
-            "Authorization": f"Bearer {self.access_token}"
+            "Authorization": f"Bearer {self.access_token}",
+            "prefer": "maxpagesize=2000",
+
+
         }
-        response = requests.get(f"{self.BASE_URL}/{endpoint}", headers=headers, params=params)
+        response = requests.get(f"{self.BASE_URL}/{endpoint}/replication?", headers=headers, params=params)
         if response.status_code == 200:
             return response.json()
         else:
