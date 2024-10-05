@@ -74,6 +74,15 @@ TEMPLATES = [
     },
 ]
 
+#Celery  tasks
+CELERY_BROKER_URL = 'redis://localhost:6379/0' 
+CELERY_BEAT_SCHEDULE = {
+    'fetch-navica-data-every-10-minutes': {
+        'task': 'app.tasks.fetch_navica_data_task',
+        'schedule': 600.0, 
+    },
+}
+
 WSGI_APPLICATION = "right_way_realty.wsgi.application"
 
 # Email

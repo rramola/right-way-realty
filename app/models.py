@@ -55,3 +55,17 @@ class PropertyImage(models.Model):
 
     def __str__(self):
         return f"Image for {self.property.mls_number}"
+
+class NavicaProperty(models.Model):
+    BedroomsTotal = models.IntegerField(blank=True, null=True)
+    GarageYN = models.BooleanField(blank=True, null=True)
+    Longitude = models.FloatField(blank=True, null=True)
+    Latitude = models.FloatField(blank=True, null=True)
+    PublicRemarks = models.CharField(max_length=10000, blank=True, null=True)
+    CountyOrParish = models.CharField(max_length=10000, blank=True, null=True)
+    BathroomsTotalDecimal = models.FloatField(blank=True, null=True)
+    ListPrice = models.IntegerField(blank=True, null=True)
+    UnparsedAddress = models.CharField(max_length=10000, blank=True, null=True)
+    YearBuilt = models.IntegerField(blank=True, null=True)
+    SourceSystemKey = models.CharField(max_length=10000, unique=True)
+    HighSchoolDistrict = models.CharField(max_length=10000, blank=True, null=True)
