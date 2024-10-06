@@ -2,9 +2,6 @@
 {% load static %}
 {% block content %}
 <div class="about_page_container">
-  <div class="header">
-      <h1 class="company-name">About Us</h1>
-  </div>
   <div class="aboutIMG">
       <img src="{% static 'images/aboutUS.png' %}" alt="About Us Image">
   </div>
@@ -30,5 +27,38 @@
       <img src="{% static 'images/rwrstore.png' %}" alt="Right-Way Realty Store">
     </div>
   </div>
+
+  <!-- Our Team Section -->
+  <div class="our-team-section">
+    <h2>Our Team</h2>
+    <p>
+      Meet Terry, a Lafayette County native, and April, his partner, both of whom bring a wealth of experience to Right-Way Realty. Terry is an expert in land management, and April specializes in client relations, making them a dynamic duo in the real estate world.
+    </p>
+
+    <div class="team-portraits">
+      <div class="portrait" onclick="toggleDescription('terry-desc')">
+        <img src="{% static 'images/TerryWhite.png' %}" alt="Terry Portrait">
+        <p>Terry White</p>
+      </div>
+      <div class="portrait" onclick="toggleDescription('april-desc')">
+        <img src="{% static 'images/aprilaboutme.png' %}" alt="April Portrait">
+        <p>April White</p>
+      </div>
+    </div>
+
+    <div class="team-description" id="terry-desc">
+      <p><strong>Terry White:</strong> Terry has over 15 years of experience in land management and real estate, making him an invaluable part of our team.</p>
+    </div>
+    
+    <div class="team-description" id="april-desc">
+      <p><strong>April White:</strong> April specializes in client relations and ensures that every client is supported throughout the real estate process.</p>
+    </div>
 </div>
+
+
+  </div>
+</div>
+
+
+
 {% endblock content %}

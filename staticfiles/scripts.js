@@ -87,3 +87,20 @@ function updateCarousel() {
 function updateMainImage(src) {
     document.getElementById('mainImage').src = src;
 }
+
+// TEAMS PAGE
+
+function toggleDescription(id) {
+    var desc = document.getElementById(id);
+    var allDescriptions = document.querySelectorAll('.team-description');
+
+    allDescriptions.forEach(function(description) {
+        description.style.display = 'none';
+    });
+
+    if (desc.style.display === 'none' || desc.style.display === '') {
+        desc.style.display = 'block';
+    } else {
+        desc.style.display = 'none';
+    }
+}
