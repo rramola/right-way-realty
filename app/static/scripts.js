@@ -225,6 +225,31 @@ function formatPriceWithCommas(price) {
     }
 }
 
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Function to add the 'visible' class to portraits when they are in the viewport
+function handleScroll() {
+    const portraits = document.querySelectorAll('.portrait');
+    portraits.forEach(function(portrait) {
+        if (isElementInViewport(portrait)) {
+            portrait.classList.add('visible');
+        }
+    });
+}
+
+// Listen for scroll events
+window.addEventListener('scroll', handleScroll);
+
+// Initial check when the page loads
+window.addEventListener('load', handleScroll);
 
 
 
