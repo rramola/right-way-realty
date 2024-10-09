@@ -39,6 +39,7 @@
     <div class="property-item"
       data-price="{{ property.list_price }}"
       data-beds="{{ property.bedrooms }}"
+      data-total-baths="{{ property.baths_total|default:"0"}}"
       data-full-baths="{{ property.baths_full|default:"0" }}"
       data-half-baths="{{ property.baths_half|default:"0" }}">
       <h2>

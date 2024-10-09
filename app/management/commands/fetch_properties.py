@@ -55,7 +55,7 @@ class Command(BaseCommand):
                         'longitude': convert_to_decimal(replace_placeholder(standard_fields.get('Longitude'))),
                         'year_built': convert_to_decimal(replace_placeholder(standard_fields.get('YearBuilt'))),
                         'bedrooms': convert_to_decimal(replace_placeholder(standard_fields.get('BedsTotal'))),
-                        'baths_full': convert_to_decimal(replace_placeholder(standard_fields.get('BathsFull'))),
+                        'baths_full': convert_to_decimal(replace_placeholder(standard_fields.get('BatroomsFull'))),
                         'baths_half': convert_to_decimal(replace_placeholder(standard_fields.get('BathsHalf'))),
                         'baths_three_quarter': convert_to_decimal(replace_placeholder(standard_fields.get('BathsThreeQuarter'))),
                         'building_area_total': convert_to_decimal(replace_placeholder(standard_fields.get('BuildingAreaTotal'))),
