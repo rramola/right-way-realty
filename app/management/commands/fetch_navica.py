@@ -1,7 +1,7 @@
 import requests
 from django.core.management.base import BaseCommand
 from app.navica import NavicaAPI
-from app.models import Property
+from app.models import Property, PropertyImage
 import os
 import pprint
 
@@ -26,14 +26,14 @@ class Command(BaseCommand):
         api = NavicaAPI(token)
 
         try:
-            listing_data = api.get_properties(endpoint='listings')   
-            pp = pprint.PrettyPrinter(indent=2)
-
+            listing_data = api.get_properties(endpoint='listings')  
             
             data = listing_data['bundle']
         
             for listing in data:
-                Property.objects.update_or_create(
+                images = listing['Media']
+
+                property_obj, created = Property.objects.update_or_create(
                     mls_number = listing["ListingId"],
                       defaults={
                         'list_price': convert_to_decimal(replace_placeholder(listing.get('ListPrice'))),
@@ -58,6 +58,19 @@ class Command(BaseCommand):
                         'property_subtype': replace_placeholder(listing.get('PropertySubType')),
                     }
                 )
+
+                for image in images:
+                    PropertyImage.objects.update_or_create(
+                    property=property_obj,
+                    media_id=replace_placeholder(image.get('MediaObjectID')),
+                    defaults={
+                    'url': replace_placeholder(image.get('MediaURL')),
+                    'category': replace_placeholder(image.get('MediaCategory')),
+                    }
+                )
+
+
+
             self.stdout.write(self.style.SUCCESS('Successfully populated the database'))
         except Exception as e:
             self.stdout.write(self.style.ERROR(f'Failed to fetch data: {e}'))

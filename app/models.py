@@ -52,21 +52,13 @@ class PropertyImage(models.Model):
     property = models.ForeignKey(
         Property, related_name="images", on_delete=models.CASCADE
     )
-    image = models.ImageField(upload_to="property_images/")
+    media_id = models.CharField(max_length=50, blank=True, null=True)
+    url = models.URLField(max_length=200, blank=True, null=True)
+    category = models.CharField(max_length=50, blank=True, null=True)
+    media_id = models.CharField(max_length=50, blank=True, null=True)
+   
+    # image = models.ImageField(upload_to="property_images/")
+
 
     def __str__(self):
-        return f"Image for {self.property.mls_number}"
-
-class NavicaProperty(models.Model):
-    BedroomsTotal = models.IntegerField(blank=True, null=True)
-    GarageYN = models.BooleanField(blank=True, null=True)
-    Longitude = models.FloatField(blank=True, null=True)
-    Latitude = models.FloatField(blank=True, null=True)
-    PublicRemarks = models.CharField(max_length=10000, blank=True, null=True)
-    CountyOrParish = models.CharField(max_length=10000, blank=True, null=True)
-    BathroomsTotalDecimal = models.FloatField(blank=True, null=True)
-    ListPrice = models.IntegerField(blank=True, null=True)
-    UnparsedAddress = models.CharField(max_length=10000, blank=True, null=True)
-    YearBuilt = models.IntegerField(blank=True, null=True)
-    SourceSystemKey = models.CharField(max_length=10000, unique=True)
-    HighSchoolDistrict = models.CharField(max_length=10000, blank=True, null=True)
+        return f"Image for {self.listing.mls_number}"
