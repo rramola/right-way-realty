@@ -167,11 +167,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Apply filters and hide filter options
     window.applyFilters = function() {
+        const mlsId = document.getElementById('mls-listing-id').value;
+        const locate = document.getElementById('location').value;
         const minPrice = parseFloat(document.getElementById('min-price').value) || 0;
         const maxPrice = parseFloat(document.getElementById('max-price').value) || Infinity;
         const minBeds = parseInt(document.getElementById('min-beds').value) || 0;
         const minBaths = parseFloat(document.getElementById('min-baths').value) || 0;
-
         const propertyItems = document.querySelectorAll('.property-item');
 
         propertyItems.forEach(item => {
@@ -179,6 +180,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const beds = parseInt(item.getAttribute('data-beds'));
             const fullBaths = parseFloat(item.getAttribute('data-full-baths'));
             const halfBaths = parseFloat(item.getAttribute('data-half-baths'));
+            const location = item.getAttribute('data-location')
+            const mlsNumber = item.getAttribute('data-mls-number');
 
             let baths = 0;
             if (halfBaths > 1) {
@@ -188,12 +191,14 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 baths = fullBaths;
             }
-
-            if (price >= minPrice && price <= maxPrice &&
+        
+            if ((price >= minPrice && price <= maxPrice &&
                 beds >= minBeds &&
-                baths >= minBaths) {
+                baths >= minBaths && 
+                location.toUpperCase() == locate.toUpperCase()) ||
+                (location.toUpperCase() == locate.toUpperCase()) || mlsId == mlsNumber ){
                 item.style.display = 'block';
-            } else {
+            }else {
                 item.style.display = 'none';
             }
         });

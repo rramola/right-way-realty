@@ -16,6 +16,13 @@
     <div id="filters">
       <h3>Filters</h3>
       <form id="filter-form">
+        <label for="mls-listing-number">MLS Number</label>
+        <input = type="textbox" id="mls-listing-id" name="mls-listing-id">
+
+        <label for="location">Location</label>
+        <input type="textbox" id="location" name="location">
+
+
         <label for="min-price">Min Price:</label>
         <input type="number" id="min-price" name="min-price" step="0.01">
 
@@ -41,7 +48,9 @@
       data-beds="{{ property.bedrooms }}"
       data-total-baths="{{ property.baths_total|default:"0"}}"
       data-full-baths="{{ property.baths_full|default:"0" }}"
-      data-half-baths="{{ property.baths_half|default:"0" }}">
+      data-half-baths="{{ property.baths_half|default:"0" }}"
+      data-location="{{property.city}}"
+      data-mls-number="{{property.mls_number}}">
       <h2>
         <a href="{% url 'property_detail' property.id %}">
           {{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }},
