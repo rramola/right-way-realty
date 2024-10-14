@@ -44,7 +44,7 @@ def oxford_page(request):
 
 def googlemaps_view(request):
     try:
-        properties = Property.objects.all()
+        properties = Property.objects.all().iterator(chunk_size=100)
 
         for property in properties:
             full_baths = float(property.baths_full or 0)
