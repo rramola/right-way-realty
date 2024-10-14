@@ -20,16 +20,18 @@ class Command(BaseCommand):
                 return float(value)
             except (ValueError, TypeError):
                 return None
+            
         if not token:
             self.stdout.write(self.style.ERROR('API token is not set in environment variables'))
             return
         api = NavicaAPI(token)
 
         try:
-            listing_data = api.get_properties(endpoint='listings')  
-            
+            listing_data = api.get_properties(endpoint='listings') 
             data = listing_data['bundle']
-        
+            fetched_ids = {listing["ListingId"] for listing in data}
+
+
             for listing in data:
                 images = listing['Media']
 
@@ -68,7 +70,14 @@ class Command(BaseCommand):
                     'category': replace_placeholder(image.get('MediaCategory')),
                     }
                 )
+                    
+            existing_properties = set(Property.objects.values_list('mls_number', flat=True))
+            properties_to_delete = existing_properties - fetched_ids
 
+            if properties_to_delete:
+                Property.objects.filter(mls_number__in=properties_to_delete).delete()
+                PropertyImage.objects.filter(property__mls_number__in=properties_to_delete).delete()
+                self.stdout.write(self.style.SUCCESS(f'Deleted {len(properties_to_delete)} properties from the database.'))
 
 
             self.stdout.write(self.style.SUCCESS('Successfully populated the database'))

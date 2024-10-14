@@ -6,34 +6,32 @@ from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponseBadRequest
 from django.conf import settings
 from django.urls import reverse
-from django.db import transaction
-from django.db import connections
+
 
 # from populate_dummy_data import *
-def ensure_connection():
-    if not connections['default'].is_usable():
-        connections['default'].connect()
-
-@transaction.atomic
 def home_page(request):
-    ensure_connection()
-    properties = Property.objects.all()
 
-    for property in properties:
-        full_baths = float(property.baths_full or 0)
-        half_baths = float(property.baths_half or 0)
+    try:
+        properties = Property.objects.all().iterator(chunk_size=100)
 
-        if half_baths > 1:
-            property.baths_info = f"{full_baths} Full, {half_baths} Half Baths"
-        elif half_baths > 0:
-            total_baths = full_baths + (half_baths / 2)
-            property.baths_info = f"{total_baths:.1f}"
-        else:
-            property.baths_info = f"{full_baths:.1f}"
+        for property in properties:
+            full_baths = float(property.baths_full or 0)
+            half_baths = float(property.baths_half or 0)
 
-            
-    context = {"properties": properties}
-    return render(request, "home.html", context)
+            if half_baths > 1:
+                property.baths_info = f"{full_baths} Full, {half_baths} Half Baths"
+            elif half_baths > 0:
+                total_baths = full_baths + (half_baths / 2)
+                property.baths_info = f"{total_baths:.1f}"
+            else:
+                property.baths_info = f"{full_baths:.1f}"
+
+                
+        context = {"properties": properties}
+        return render(request, "home.html", context)
+    except DatabaseError as e:
+        print(f"Database error occured: {e}")
+
 
 
 def about_page(request):
@@ -44,9 +42,7 @@ def oxford_page(request):
     context = {}
     return render(request, "oxford.html", context)
 
-@transaction.atomic
 def googlemaps_view(request):
-    ensure_connection()
     properties = Property.objects.all()
 
     for property in properties:
@@ -64,9 +60,7 @@ def googlemaps_view(request):
     
     return render(request, "googlemaps.html", {"properties": properties})
 
-@transaction.atomic
 def property_detail(request, property_id):
-    ensure_connection()
     property = get_object_or_404(Property, id=property_id)
     images = PropertyImage.objects.filter(property_id=property_id)
     full_baths = float(property.baths_full or 0)
