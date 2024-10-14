@@ -165,41 +165,97 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    window.resetFilters = function() { 
+        const mlsId = document.getElementById('mls-listing-id');
+        const locate = document.getElementById('location');
+        const minPrice = document.getElementById('min-price');
+        const maxPrice = document.getElementById('max-price');
+        const minBeds = document.getElementById('min-beds');
+        const minBaths = document.getElementById('min-baths');
+        const propertyItems = document.querySelectorAll('.property-item');
+
+        propertyItems.forEach(item => { 
+            item.style.display = 'block';
+        })
+
+        document.getElementById('filters').classList.remove('filters-visible');
+        mlsId.value = null;
+        locate.value = null;
+        minPrice.value = null;
+        maxPrice.value = null;
+        minBeds.value = null;
+        minBaths.value = null;
+        document.getElementById('filter-button').textContent = 'Show Filters';
+    };
+
     // Apply filters and hide filter options
     window.applyFilters = function() {
-        const mlsId = document.getElementById('mls-listing-id').value;
-        const locate = document.getElementById('location').value;
-        const minPrice = parseFloat(document.getElementById('min-price').value) || 0;
+        const mlsId = document.getElementById('mls-listing-id').value || null;
+        const locate = document.getElementById('location').value || null;;
+        const minPrice = parseFloat(document.getElementById('min-price').value)|| 0;
         const maxPrice = parseFloat(document.getElementById('max-price').value) || Infinity;
-        const minBeds = parseInt(document.getElementById('min-beds').value) || 0;
-        const minBaths = parseFloat(document.getElementById('min-baths').value) || 0;
-        const propertyItems = document.querySelectorAll('.property-item');
+        const minBeds = parseInt(document.getElementById('min-beds').value)|| null;
+        const minBaths = parseFloat(document.getElementById('min-baths').value)|| null;
+        const propertyItems = document.querySelectorAll('.property-item')|| null;
 
         propertyItems.forEach(item => {
             const price = parseFloat(item.getAttribute('data-price'));
             const beds = parseInt(item.getAttribute('data-beds'));
             const fullBaths = parseFloat(item.getAttribute('data-full-baths'));
             const halfBaths = parseFloat(item.getAttribute('data-half-baths'));
-            const location = item.getAttribute('data-location')
+            const location = item.getAttribute('data-location');
             const mlsNumber = item.getAttribute('data-mls-number');
 
-            let baths = 0;
-            if (halfBaths > 1) {
-                baths = fullBaths + (halfBaths / 2);
-            } else if (halfBaths > 0) {
-                baths = fullBaths + (halfBaths / 2);
-            } else {
-                baths = fullBaths;
+            let baths = fullBaths +(halfBaths / 2);
+          
+            let priceFlag = true;
+            let bedsFlag = true;
+            let bathsFlag = true;
+            let locationFlag = true;
+            let mlsFlag = true;
+            let mlschecked = false;
+
+            if (mlsId != null){
+                mlschecked = true;
             }
-        
-            if ((price >= minPrice && price <= maxPrice &&
-                beds >= minBeds &&
-                baths >= minBaths && 
-                location.toUpperCase() == locate.toUpperCase()) ||
-                (location.toUpperCase() == locate.toUpperCase()) || mlsId == mlsNumber ){
-                item.style.display = 'block';
-            }else {
-                item.style.display = 'none';
+
+            if (mlschecked == true){
+                if (mlsId != mlsNumber){
+                    mlsFlag = false;
+                }
+                priceFlag =false;
+                bedsFlag = false;
+                bathsFlag = false;
+                locationFlag = false;
+                if (mlsFlag == true){
+                    item.style.display = 'block';
+                }else{
+                    item.style.display = 'none';
+                };
+            }else if(mlschecked == false){
+                
+                if (locate != null && location.toUpperCase() != locate.toUpperCase()) {
+                    locationFlag = false;
+                }
+            
+                if (price < minPrice || price > maxPrice){
+                    priceFlag = false;
+                }
+
+                if (beds != null && beds < minBeds){
+                    bedsFlag = false;
+                }
+
+                if (baths != null && baths < minBaths){
+                    bathsFlag = false;
+                }
+                
+                if (priceFlag == true && locationFlag == true && bedsFlag == true && bathsFlag == true){
+                    item.style.display = 'block';
+                }else{
+                    item.style.display = 'none';
+                };
+
             }
         });
 
