@@ -10,9 +10,9 @@ from django.urls import reverse
 
 # from populate_dummy_data import *
 def home_page(request):
-
     try:
         properties = Property.objects.all().iterator(chunk_size=100)
+        property_list = []
 
         for property in properties:
             full_baths = float(property.baths_full or 0)
@@ -25,15 +25,13 @@ def home_page(request):
                 property.baths_info = f"{total_baths:.1f}"
             else:
                 property.baths_info = f"{full_baths:.1f}"
-
+            property_list.append(property)
+        
+        return render(request, "home.html", {"properties": property_list})
+    except Exception as e:
+        return HttpResponseBadRequest(f"Invalid request: {str(e)}")
                 
-        context = {"properties": properties}
-        return render(request, "home.html", context)
-    
-    except DatabaseError as e:
-        print(f"Database error occured: {e}")
-        return HttpResponse("Database error occurred: {}".format(str(e)))
-    
+
 
 def about_page(request):
     context = {}
@@ -46,7 +44,7 @@ def oxford_page(request):
 def googlemaps_view(request):
     try:
         properties = Property.objects.all().iterator(chunk_size=100)
-
+        property_list = []
         for property in properties:
             full_baths = float(property.baths_full or 0)
             half_baths = float(property.baths_half or 0)
@@ -59,38 +57,33 @@ def googlemaps_view(request):
             #     property.baths_info = f"{total_baths:.1f}"
             # else:
             #     property.baths_info = f"{full_baths:.1f}"
+            property_list.append(property)
         
-        return render(request, "googlemaps.html", {"properties": properties})
-       
-    except DatabaseError as e:
-        print(f"Database error occured: {e}")
-        return HttpResponse("Database error occurred: {}".format(str(e)))
-
+        return render(request, "googlemaps.html", {"properties": property_list})
+    except Exception as e:
+        return HttpResponseBadRequest(f"Invalid request: {str(e)}")
+        
 def property_detail(request, property_id):
-    try:
-        property = get_object_or_404(Property, id=property_id)
-        images = PropertyImage.objects.filter(property_id=property_id)
-        full_baths = float(property.baths_full or 0)
-        half_baths = float(property.baths_half or 0)
-        baths_total = float(property.baths_total or 0)
-        baths_info = baths_total
-        # if half_baths > 1:
-        #     baths_info = f"{full_baths} Full, {half_baths} Half Baths"
-        # elif half_baths > 0:
-        #     total_baths = full_baths + (half_baths / 2)
-        #     baths_info = f"{total_baths:.1f}"
-        # else:
-        #     baths_info = f"{full_baths:.1f}"
+    property = get_object_or_404(Property, id=property_id)
+    images = PropertyImage.objects.filter(property_id=property_id)
+    full_baths = float(property.baths_full or 0)
+    half_baths = float(property.baths_half or 0)
+    baths_total = float(property.baths_total or 0)
+    baths_info = baths_total
+    # if half_baths > 1:
+    #     baths_info = f"{full_baths} Full, {half_baths} Half Baths"
+    # elif half_baths > 0:
+    #     total_baths = full_baths + (half_baths / 2)
+    #     baths_info = f"{total_baths:.1f}"
+    # else:
+    #     baths_info = f"{full_baths:.1f}"
 
-        context = {
-            'property': property,
-            'baths_info': baths_info,
-            'images': images
-        }
-        return render(request, 'properties.html', context)
-    except DatabaseError as e:
-        return HttpResponse("Database error occurred: {}".format(str(e)))
-
+    context = {
+        'property': property,
+        'baths_info': baths_info,
+        'images': images
+    }
+    return render(request, 'properties.html', context)
 
 
 def contact_page(request):
