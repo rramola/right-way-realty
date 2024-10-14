@@ -29,10 +29,11 @@ def home_page(request):
                 
         context = {"properties": properties}
         return render(request, "home.html", context)
+    
     except DatabaseError as e:
         print(f"Database error occured: {e}")
-
-
+        return HttpResponse("Database error occurred: {}".format(str(e)))
+    
 
 def about_page(request):
     context = {}
@@ -60,9 +61,10 @@ def googlemaps_view(request):
             #     property.baths_info = f"{full_baths:.1f}"
         
         return render(request, "googlemaps.html", {"properties": properties})
+       
     except DatabaseError as e:
         print(f"Database error occured: {e}")
-
+        return HttpResponse("Database error occurred: {}".format(str(e)))
 
 def property_detail(request, property_id):
     try:
@@ -87,7 +89,7 @@ def property_detail(request, property_id):
         }
         return render(request, 'properties.html', context)
     except DatabaseError as e:
-        print(f"Database error occured: {e}")
+        return HttpResponse("Database error occurred: {}".format(str(e)))
 
 
 
