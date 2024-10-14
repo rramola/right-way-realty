@@ -6,11 +6,17 @@ from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponseBadRequest
 from django.conf import settings
 from django.urls import reverse
+from django.db import transaction
+from django.db import connections
 
 # from populate_dummy_data import *
+def ensure_connection():
+    if not connections['default'].is_usable():
+        connections['default'].connect()
 
-
+@transaction.atomic
 def home_page(request):
+    ensure_connection()
     properties = Property.objects.all()
 
     for property in properties:
@@ -38,7 +44,9 @@ def oxford_page(request):
     context = {}
     return render(request, "oxford.html", context)
 
+@transaction.atomic
 def googlemaps_view(request):
+    ensure_connection()
     properties = Property.objects.all()
 
     for property in properties:
@@ -56,7 +64,9 @@ def googlemaps_view(request):
     
     return render(request, "googlemaps.html", {"properties": properties})
 
+@transaction.atomic
 def property_detail(request, property_id):
+    ensure_connection()
     property = get_object_or_404(Property, id=property_id)
     images = PropertyImage.objects.filter(property_id=property_id)
     full_baths = float(property.baths_full or 0)
