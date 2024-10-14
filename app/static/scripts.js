@@ -207,7 +207,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const mlsNumber = item.getAttribute('data-mls-number');
 
             let baths = fullBaths +(halfBaths / 2);
-          
             let priceFlag = true;
             let bedsFlag = true;
             let bathsFlag = true;
@@ -269,7 +268,6 @@ document.addEventListener('DOMContentLoaded', function () {
 function formatPriceWithCommas(price) {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
-
 
   function toggleDescription(id) {
     var desc = document.getElementById(id);

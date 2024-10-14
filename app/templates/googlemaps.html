@@ -1,12 +1,4 @@
 {% extends "base_template.html" %} {% load static %} {% load humanize %} {% block content %}
-{% comment %} <div id="property_search_bar">
-  <div id="search_bar_left_column_container">
-    <p>hello</p>
-  </div>
-  <div id="search_bar_right_column_container">
-    <input type="textbox" placeholder="hello">
-  </div>
-</div> {% endcomment %}
 <div id="container">
   <div id="map"></div>
   <div id ="filters_container">
@@ -17,7 +9,7 @@
       <h3>Filters</h3>
       <form id="filter-form">
         <label for="mls-listing-number">MLS Number</label>
-        <input = type="textbox" id="mls-listing-id" name="mls-listing-id">
+        <input type="textbox" id="mls-listing-id" name="mls-listing-id">
 
         <label for="location">Location</label>
         <input type="textbox" id="location" name="location">
@@ -95,7 +87,7 @@
   });
 
   let map;
-
+  let windowsOpen = [];
   async function initMap() {
     const { Map } = await google.maps.importLibrary("maps");
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
@@ -125,8 +117,8 @@
           title: property.title
         });
 
-        const formattedPrice = formatPriceWithCommas(property.price);
-        
+        const formattedPrice = "{{ property.list_price|floatformat:0|intcomma }}";    
+            
         const infoWindowContent = `
         <div class="map-popup">
           <h3 class="popup-title">${property.title}</h3>
@@ -137,21 +129,15 @@
       const infoWindow = new google.maps.InfoWindow({
         content: infoWindowContent
         }); 
-        const windowsOpen = [];
-        google.maps.event.addListener(marker,"click", () => {
-          if(!marker.open){
-            infoWindow.open(map, marker);
-            marker.open = true;
-            windowsOpen.push(marker);
-          }
-          else{
-            infoWindow.close();
-            marker.open = false;
 
-          }
+        google.maps.event.addListener(marker,"click", () => {
+          windowsOpen.forEach(openWindow => openWindow.close());
+            infoWindow.open(map, marker);
+            windowsOpen.push(infoWindow);
+
           google.maps.event.addListener(map, 'click',() =>{
             infoWindow.close();
-            marker.open = false;
+            windowsOpen = windowsOpen.filter(win => win !== infoWindow);
           });
         });    
       };
