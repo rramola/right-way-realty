@@ -58,7 +58,7 @@ def googlemaps_view(request):
 
 def property_detail(request, property_id):
     property = get_object_or_404(Property, id=property_id)
-
+    images = PropertyImage.objects.filter(property_id=property_id)
     full_baths = float(property.baths_full or 0)
     half_baths = float(property.baths_half or 0)
     baths_total = float(property.baths_total or 0)
@@ -74,6 +74,7 @@ def property_detail(request, property_id):
     context = {
         'property': property,
         'baths_info': baths_info,
+        'images': images
     }
     return render(request, 'properties.html', context)
 
