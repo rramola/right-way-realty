@@ -46,7 +46,7 @@
       data-mls-number="{{property.mls_number}}">
       <h2>
         <a href="{% url 'property_detail' property.id %}">
-          {{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }},
+          {{ property.house_number }} {{ property.street_name }},
           {{ property.city }}, {{ property.state }} {{ property.postal_code }}
         </a>
       </h2>
@@ -103,7 +103,7 @@
       {
         lat: parseFloat("{{ property.latitude }}"),
         lng: parseFloat("{{ property.longitude }}"),
-        title: "{{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }}, {{ property.city }}, {{ property.state }}",
+        title: "{{ property.house_number }} {{ property.street_name }}, {{ property.city }}, {{ property.state }}",
         price: "{{ property.list_price }}"
       },
       {% endfor %}
@@ -117,7 +117,7 @@
           title: property.title
         });
 
-        const formattedPrice = "{{ property.list_price|floatformat:0|intcomma }}";    
+        const formattedPrice = formatPriceWithCommas(property.price);
             
         const infoWindowContent = `
         <div class="map-popup">
