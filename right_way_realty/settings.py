@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # import environ
 
@@ -98,13 +99,27 @@ EMAIL_HOST_PASSWORD = "qmmt agec ghzl meip"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'right-way-realty',  # Name of your local database
+        'USER': 'postgres',  # PostgreSQL username
+        'PASSWORD': 'admin',  # PostgreSQL password
+        'HOST': 'localhost',
+        'PORT': '5432',  # Default PostgreSQL port
     }
 }
 
+if 'HEROKU' in os.environ:
+    DATABASES['default'] = dj_database_url.config(default=os.environ['postgres://ufffrdilmdrd4v:p222e9d6f3b11fff1458e2b96e933c0d6c6cbff6eca818d7434c11f8b3dfd0a93@cd1goc44htrmfn.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d212e6j0gdrt09'])
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
