@@ -6,6 +6,7 @@ class Property(models.Model):
     # Main Fields
     mls_number = models.CharField(max_length=20, unique=True)
     list_price = models.DecimalField(max_digits=12, decimal_places=2)
+    subdivision_name = models.CharField(max_length=50, blank=True, null=True)
     house_number = models.CharField(max_length=10, blank=True, null=True)
     street_name = models.CharField(max_length=100, blank=True, null=True)
     street_suffix = models.CharField(max_length=10, blank=True, null=True)
@@ -17,15 +18,32 @@ class Property(models.Model):
     longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
     year_built = models.IntegerField(null=True, blank=True)
     bedrooms = models.IntegerField(null=True, blank=True)
-    baths_full = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True)
-    baths_half = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True)
+    baths_full = models.IntegerField(null=True, blank=True)
+    baths_half = models.IntegerField(null=True, blank=True)
     baths_total = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True)
-    baths_three_quarter = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True)
+    baths_three_quarter = models.IntegerField(null=True, blank=True)
     building_area_total = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
     property_subtype = models.CharField(max_length=100, blank=True, null=True)
+    property_type = models.CharField(max_length=50, blank=True, null=True)
     # Additional Fields
     public_remarks = models.TextField(blank=True, null=True)
     private_remarks = models.TextField(blank=True, null=True)
+    appliances = models.JSONField(blank=True, null=True)
+    building_features = models.JSONField(blank=True, null=True)
+    carport = models.BooleanField(blank=True, null=True)
+    construction_materials = models.JSONField(blank=True, null=True)
+    cooling = models.JSONField(blank=True, null=True)
+    county = models.CharField(max_length=50, blank=True, null=True)
+    highschool_district = models.CharField(max_length=50, blank=True, null=True)
+    interior_features = models.JSONField(blank=True, null=True)
+    laundry_features = models.JSONField(blank=True, null=True)
+    levels = models.JSONField(blank=True, null=True)
+    middle_junior_school_district = models.CharField(max_length=50, blank=True, null=True)
+    mls_status = models.CharField(max_length=50, blank=True, null=True)
+    roof = models.JSONField(blank=True, null=True)
+    sewer = models.JSONField(blank=True, null=True)
+    water_source = models.JSONField(blank=True, null=True)
+    
 
     def save(self, *args, **kwargs):
         if not self.latitude or not self.longitude:

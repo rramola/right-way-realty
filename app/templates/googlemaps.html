@@ -28,7 +28,6 @@
         <input type="number" id="min-baths" name="min-baths" step="0.1">
 
         <button type="button" onclick="applyFilters()">Apply Filters</button>
-        <button type="button" onclick="resetFilters()">Reset Filters</button>
       </form>
     </div>
   </div>
@@ -51,8 +50,9 @@
         </a>
       </h2>
       <p><span class="home_info_content_labels">Price: </span>${{ property.list_price|floatformat:0|intcomma }}</p>
-      <p><span class="home_info_content_labels">Bedrooms: </span>{{ property.bedrooms }}</p>
-      <p><span class="home_info_content_labels">Baths: </span>{{ property.baths_info }}</p>
+      {% if property.bedrooms != nonce %} <p><span class="home_info_content_labels">Bedrooms: </span>{{ property.bedrooms }}</p>{% endif %}
+
+      {% if property.baths_total != None %}<p><span class="home_info_content_labels">Baths: </span>{{ property.baths_total }}</p>{% endif %}
       <a id="move_to_property_link" href="#" onclick="moveToProperty({{ property.latitude }}, {{ property.longitude }})">View on Map</a>
     </div>
     {% endfor %}

@@ -61,18 +61,9 @@ def googlemaps_view(request):
         except Exception as inner_e:
             print(f"Error retrieving properties again: {inner_e}")
 
-    for property in properties:
-        full_baths = float(property.baths_full or 0)
-        half_baths = float(property.baths_half or 0)
-        baths_total = float(property.baths_total or 0)
-        property.baths_info = baths_total
-        # if half_baths > 1:
-        #     property.baths_info = f"{full_baths} Full, {half_baths} Half Baths"
-        # elif half_baths > 0:
-        #     total_baths = full_baths + (half_baths / 2)
-        #     property.baths_info = f"{total_baths:.1f}"
-        # else:
-        #     property.baths_info = f"{full_baths:.1f}"
+
+       
+
         property_list.append(property)
     
     return render(request, "googlemaps.html", {"properties": property_list})
@@ -84,18 +75,11 @@ def property_detail(request, property_id):
     full_baths = float(property.baths_full or 0)
     half_baths = float(property.baths_half or 0)
     baths_total = float(property.baths_total or 0)
-    baths_info = baths_total
-    # if half_baths > 1:
-    #     baths_info = f"{full_baths} Full, {half_baths} Half Baths"
-    # elif half_baths > 0:
-    #     total_baths = full_baths + (half_baths / 2)
-    #     baths_info = f"{total_baths:.1f}"
-    # else:
-    #     baths_info = f"{full_baths:.1f}"
+
 
     context = {
         'property': property,
-        'baths_info': baths_info,
+        'baths_info': baths_total,
         'images': images
     }
     return render(request, 'properties.html', context)
