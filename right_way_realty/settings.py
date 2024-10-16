@@ -109,7 +109,7 @@ EMAIL_HOST_PASSWORD = "qmmt agec ghzl meip"
 
 if 'HEROKU' in os.environ:
     DATABASES = {'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL', 'postgres://ufffrdilmdrd4v:p222e9d6f3b11fff1458e2b96e933c0d6c6cbff6eca818d7434c11f8b3dfd0a93@cd1goc44htrmfn.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d212e6j0gdrt0')
+        default=os.environ.get('DATABASE_URL', 'postgres://ufffrdilmdrd4v:p222e9d6f3b11fff1458e2b96e933c0d6c6cbff6eca818d7434c11f8b3dfd0a93@cd1goc44htrmfn.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d212e6j0gdrt09')
     )
     }
 
