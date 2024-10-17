@@ -44,10 +44,14 @@
       data-location="{{property.city}}"
       data-mls-number="{{property.mls_number}}">
       <h2>
-        <a href="{% url 'property_detail' property.id %}">
-          {{ property.house_number }} {{ property.street_name }},
-          {{ property.city }}, {{ property.state }} {{ property.postal_code }}
-        </a>
+        {% if property.id %}
+          <a href="{% url 'property_detail' property.id %}">
+            {{ property.house_number }} {{ property.street_name }},
+            {{ property.city }}, {{ property.state }} {{ property.postal_code }}
+          </a>
+        {% else %}
+          <span>Invalid Property</span>
+        {% endif %}
       </h2>
       <p><span class="home_info_content_labels">Price: </span>${{ property.list_price|floatformat:0|intcomma }}</p>
       {% if property.bedrooms != nonce %} <p><span class="home_info_content_labels">Bedrooms: </span>{{ property.bedrooms }}</p>{% endif %}
