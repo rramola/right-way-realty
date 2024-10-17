@@ -18,7 +18,7 @@
             {{property.city}}, {{property.state}} {{property.postal_code}}
         </h5>
         <div class="property-status">
-            <span>FOR SALE</span> | <span>{{property.property_subtype}}</span> | <span>ACTIVE UNDER CONTRACT</span>
+            <span>MLS# {{property.mls_number}}</span> | <span>Property Type: {{property.property_subtype}}</span> | <span>Status: {{property.mls_status}}</span>
         </div>
         <div class="property-details-grid">
           <div class="property-detail-item">
@@ -30,7 +30,7 @@
                 <span>Beds</span>
             </div>
             <div class="property-detail-item">
-                <strong>{{ baths_info }}</strong>
+                <strong>{{ property.baths_total }}</strong>
                 <span>Baths</span>
             </div>
             <div class="property-detail-item">
@@ -41,13 +41,28 @@
                 <strong>{{ property.year_built }}</strong>
                 <span>Built</span>
             </div>
+            <div class="property-detail-item">
+              <strong>
+                <div id="property-highschool-detail" class='property-school-detail'>{{property.highschool_district }}</div>
+                <div id="property-middleschool-detail" class='property-school-detail'>{{property.middle_junior_school_district }}</div></strong>
+              <span>Schools</span>
+            </div>
         </div>
+        <div class="property-features">
+          <h5>Description</h5>
+          <div class="features-grid">
+              <div class="feature-item">
+                  <span>{{property.description}}</span>
+              </div>
+          </div>
         <div class="property-features">
           <h5>Features</h5>
           <div class="features-grid">
               <div class="feature-item">
                   <strong>Appliances</strong>
-                  <p>Dishwasher, Disposal</p>
+                  {% for appliance in property.appliances  %}
+                  {{appliance}}{% endfor %}
+                  {% for item in property.laundry_features  %}{{item}}{% endfor %}
               </div>
               <div class="feature-item">
                   <strong>Flooring</strong>
@@ -60,6 +75,11 @@
               <div class="feature-item">
                   <strong>Parking</strong>
                   <p>Extended Garage</p>
+              </div>
+              <div class="feature-item">
+                <strong>Schools</strong>
+                  <div id="property-highschool-detail" class='property-school-detail'>High School: {{property.highschool_district }}</div>
+                  <div id="property-middleschool-detail" class='property-school-detail'>Middle School: {{property.middle_junior_school_district }}</div>
               </div>
           </div>
       </div>
@@ -80,16 +100,114 @@
         {% endif %}
 
       </div>
-
-      {% comment %} <button class="carousel-prev" onclick="scrollCarousel(-1)">
-        &#10094;
-      </button>
-      <button class="carousel-next" onclick="scrollCarousel(1)">
-        &#10095;
-      </button> {% endcomment %}
     </div>
   </div>
 
+
+
+
+
+  <div id="additional_properties_container">
+    <div class="card-body">
+      <h5>Comunity</h5>
+      <div class="property-detail-item"><span>Address: 
+          {{property.house_number}} {{property.street_name}} {{property.street_suffix}},
+          {{property.city}}, {{property.state}} {{property.postal_code}}</span>
+      </div>
+      <div class="property-detail-item">
+          <span>County: {{property.county}}</span>
+      </div>
+      <div class="property-detail-item">
+        <span>City: {{property.city}}</span>
+      </div>
+      <div class="property-detail-item">
+        <div id="property-highschool-detail" class='property-school-detail'><span>Schools : </span><span>{{property.highschool_district }} | <span>{{property.middle_junior_school_district }}</span></div></span>
+      </div>
+      <div class="property-detail-item">
+        <span>Zip: {{property.postal_code}}</span>
+      </div>
+      <div class="property-detail-item">
+        <span>HOA: </span>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <h5>Features / Amenities</h5>
+      <div class="features-grid">
+        <div class="feature-item">
+            <strong>Appliances</strong>
+            {% for appliance in property.appliances  %}
+            {{appliance}}{% endfor %}
+            {% for item in property.laundry_features  %}{{item}}{% endfor %}
+        </div>
+        <div class="feature-item">
+          <strong>Features</strong>
+          {% for item in property.building_features  %}{{item}}{% endfor %}
+        </div>
+        <div class="feature-item">
+          <strong>Cooling</strong>
+          {% for item in property.cooling  %}{{item}}{% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <h5>Architecture</h5>
+      <div class="features-grid">
+        <div class="feature-item">
+            <span>Bedrooms: {{property.bedrooms}}</span>
+        </div>
+        <div class="feature-item">
+          <span>Bathrooms: {{property.bathrooms_total}}</span>
+      </div>
+      <div class="feature-item">
+        <span>Year Built: {{property.year_built}}</span>
+      </div>
+      <div class="feature-item">
+        {% for item in property.construction_materials %}
+        <span>Exterior: {{item}}</span>
+        {% endfor %}
+      </div>
+      <div class="feature-item">
+        {% for item in property.construction_materials %}
+        <span>Windows: </span>
+        {% endfor %}
+      </div>
+      <div class="feature-item">
+        {% for item in property.construction_materials %}
+        <span>Roof: </span>
+        {% endfor %}
+      </div>
+      <div class="feature-item">
+        {% for item in property.construction_materials %}
+        <span>Foundation: </span>
+        {% endfor %}
+      </div>
+      <div class="feature-item">
+        {% for item in property.construction_materials %}
+        <span>Garage / Carport: </span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="card-body">
+      <h5>Property Features</h5>
+      <div class="features-grid">
+        <div class="feature-item">
+            <span>Lot Size: </span>
+        </div>
+        <div class="feature-item">
+          <span>Water: </span>
+        </div>
+        <div class="feature-item">
+          <span>Sewer: </span>
+        </div>
+        <div class="feature-item">
+          <span>Zoning: </span>
+        </div>
+      </div>
+    </div>
+  </div>
   <script>
     function changeMainImage(imageUrl) {
       document.getElementById("mainImage").src = imageUrl;

@@ -118,8 +118,8 @@ else:
         'default':{
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'right-way-realty',  # Name of your local database
-            'USER': 'postgres',  # PostgreSQL username
-            'PASSWORD': 'admin',  # PostgreSQL password
+            'USER': 'right-way-admin',  # PostgreSQL username
+            'PASSWORD': 'P+Di#7s3',  # PostgreSQL password
             'HOST': 'localhost',
             'PORT': '5432',  # Default PostgreSQL port
         }
