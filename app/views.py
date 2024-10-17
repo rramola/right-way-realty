@@ -60,11 +60,10 @@ def googlemaps_view(request):
             property_list = list(properties)  # Convert the iterator to a list
         except Exception as inner_e:
             print(f"Error retrieving properties again: {inner_e}")
-        property_list.append(property)
-    valid_property_list = [property for property in property_list if property.id]
 
+        property_list.append(property)
     
-    return render(request, "googlemaps.html", {"properties": valid_property_list})
+    return render(request, "googlemaps.html", {"properties": property_list})
 
     
 def property_detail(request, property_id):
