@@ -20,9 +20,11 @@ class Property(models.Model):
     bedrooms = models.IntegerField(null=True, blank=True)
     baths_full = models.IntegerField(null=True, blank=True)
     baths_half = models.IntegerField(null=True, blank=True)
+    baths_total_integer = models.IntegerField(null=True, blank=True)
     baths_total = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True)
     baths_three_quarter = models.IntegerField(null=True, blank=True)
     building_area_total = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    car_port_spaces = models.CharField(null=True, blank=True)
     property_subtype = models.CharField(max_length=100, blank=True, null=True)
     property_type = models.CharField(max_length=50, blank=True, null=True)
     # Additional Fields
@@ -43,6 +45,26 @@ class Property(models.Model):
     roof = models.JSONField(blank=True, null=True)
     sewer = models.JSONField(blank=True, null=True)
     water_source = models.JSONField(blank=True, null=True)
+    days_on_market = models.IntegerField(null=True, blank=True)
+    electric = models.JSONField(blank=True, null=True)
+    exterior_features = models.JSONField(blank=True, null=True)
+    fireplace_yes_no = models.BooleanField(blank=True, null=True)
+    fireplace_features = models.JSONField(blank=True, null=True)
+    flooring = models.JSONField(blank=True, null=True)
+    foundation_details = models.JSONField(blank=True, null=True)
+    garage_spaces = models.IntegerField(null=True, blank=True)
+    garage_yes_no = models.BooleanField(blank=True, null=True)
+    heating = models.JSONField(blank=True, null=True)
+    heating_yes_no = models.BooleanField(blank=True, null=True)
+    lot_size_acres = models.IntegerField(blank=True, null=True)
+    parking_features = models.JSONField(blank=True, null=True)
+    patio_porch_features = models.JSONField(blank=True, null=True)
+    pool_features = models.JSONField(blank=True, null=True)
+    pool_private_yes_no = models.BooleanField(blank=True, null=True)
+    road_surface_type = models.JSONField(blank=True, null=True)
+    zoning = models.CharField(max_length=50, blank=True, null=True)
+    zoning_description = models.CharField(max_length=50, blank=True, null=True)
+
     
 
     def save(self, *args, **kwargs):
