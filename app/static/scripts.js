@@ -72,81 +72,67 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+let currentSlide = 0;
+const itemsPerPage = 3; // Number of images to show per view
 
-// // CAROUSEL
-// const carouselSlide = document.getElementById('carouselSlide');
-// const images = carouselSlide.getElementsByTagName('img');
-// const totalImages = images.length;
-// let counter = 0;
+function moveCarousel(direction) {
+    const items = document.querySelectorAll('.grid-item');
+    const totalSlides = Math.ceil(items.length / itemsPerPage); // Total number of slides based on items per page
 
-// document.getElementById('nextBtn').addEventListener('click', () => {
-//     if (counter >= totalImages - 1) {
-//         counter = 0;
-//     } else {
-//         counter++;
-//     }
-//     updateCarousel();
-//     updateMainImage(images[counter].src);
-// });
+    // Update the current slide index
+    currentSlide += direction;
 
-// document.getElementById('prevBtn').addEventListener('click', () => {
-//     if (counter <= 0) {
-//         counter = totalImages - 1;
-//     } else {
-//         counter--;
-//     }
-//     updateCarousel();
-//     updateMainImage(images[counter].src);
-// });
-
-// function updateCarousel() {
-//     const size = images[0].clientWidth;
-//     carouselSlide.style.transform = `translateX(${-size * counter}px)`;
-// }
-
-// function updateMainImage(src) {
-//     document.getElementById('mainImage').src = src;
-// }
-
-
-let currentIndex = 0;
-const itemsToShow = 5;
-
-function scrollCarousel(direction) {
-    const container = document.querySelector('.carousel-container');
-    const items = document.querySelectorAll('.carousel-item');
-    const totalItems = items.length;
-
-    currentIndex += direction * itemsToShow;
-
-    if (currentIndex < 0) {
-        currentIndex = 0;
-    } else if (currentIndex >= totalItems) {
-        currentIndex = totalItems - itemsToShow;
+    // Loop the carousel
+    if (currentSlide < 0) {
+        currentSlide = 0; // Prevent going to negative slide index
+    } else if (currentSlide >= totalSlides) {
+        currentSlide = totalSlides - 1; // Prevent going beyond the last slide
     }
 
-    const translateX = -currentIndex * 20; // Move by 20% for each image
-    container.style.transform = `translateX(${translateX}%)`;
+    // Move the carousel
+    const carouselInner = document.querySelector('.carousel-inner');
+    const offset = -currentSlide * (itemsPerPage * (100 / itemsPerPage)); // Calculate offset based on itemsPerPage
+    carouselInner.style.transform = `translateX(${offset}%)`;
 }
 
-function changeMainImage(newSrc) {
-    const mainImage = document.getElementById('mainImage');
-    mainImage.src = newSrc;
+function calculateMortgage(loanAmount, interestRate, loanTerm) {
+    const monthlyRate = interestRate / 100 / 12; // Monthly interest rate
+    const totalMonths = loanTerm * 12; // Total loan term in months
+
+    const monthlyPayment = (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -totalMonths));
+
+    return monthlyPayment;
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('mortgage-form');
 
-// function changeMainImage(newSrc) {
-//     const mainImage = document.getElementById('mainImage');
-    
-//     // Log the newSrc to ensure it’s correct
-//     console.log('Changing main image to:', newSrc);
-    
-//     if (mainImage) {
-//         mainImage.src = newSrc;
-//     } else {
-//         console.error('Main image element not found');
-//     }
-// }
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const loanAmount = parseFloat(document.getElementById('loanAmount').value);
+            const downPaymentPercentage = parseFloat(document.getElementById('downPaymentPercentage').value);
+            const interestRate = parseFloat(document.getElementById('interestRate').value);
+            const loanTerm = parseInt(document.getElementById('loanTerm').value);
+
+            // Calculate the actual loan amount after the down payment
+            const downPaymentAmount = loanAmount * (downPaymentPercentage / 100);
+            const effectiveLoanAmount = loanAmount - downPaymentAmount;
+
+            const monthlyPayment = calculateMortgage(effectiveLoanAmount, interestRate, loanTerm);
+            
+            if (!isNaN(monthlyPayment) && (monthlyPayment !== Infinity) && (monthlyPayment > 0)) {
+                document.getElementById('monthlyPayment').innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
+            } else {
+                document.getElementById('monthlyPayment').innerText = 'Please enter valid values';
+            }
+        });
+    }
+});
+
+
+
 
 
 // ////////////////////////////// GOOGLE MAPS JAVA SCRIPT FOR FILTERING //////////////////////////////////

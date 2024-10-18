@@ -53,6 +53,7 @@
           <span>Invalid Property</span>
         {% endif %}
       </h2>
+
       <p><span class="home_info_content_labels">Price: </span>${{ property.list_price|floatformat:0|intcomma }}</p>
       {% if property.bedrooms != nonce %} <p><span class="home_info_content_labels">Bedrooms: </span>{{ property.bedrooms }}</p>{% endif %}
 
@@ -64,8 +65,6 @@
     <p>No properties available.</p>
     {% endif %}
   </div>
-{% comment %} 
-<div id="map"></div> {% endcomment %}
 </div>
 
 <script>
@@ -130,16 +129,16 @@
         </div>
       `;
 
-      const infoWindow = new google.maps.InfoWindow({
-        content: infoWindowContent
+        const infoWindow = new google.maps.InfoWindow({
+          content: infoWindowContent
         }); 
 
         google.maps.event.addListener(marker,"click", () => {
           windowsOpen.forEach(openWindow => openWindow.close());
-            infoWindow.open(map, marker);
-            windowsOpen.push(infoWindow);
+          infoWindow.open(map, marker);
+          windowsOpen.push(infoWindow);
 
-          google.maps.event.addListener(map, 'click',() =>{
+          google.maps.event.addListener(map, 'click', () => {
             infoWindow.close();
             windowsOpen = windowsOpen.filter(win => win !== infoWindow);
           });
@@ -148,8 +147,8 @@
     });
   }
 
-
   initMap();
+
 
   function moveToProperty(lat, lng) {
     map.setCenter({ lat: lat, lng: lng });

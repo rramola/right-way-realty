@@ -1,215 +1,231 @@
-{% extends "base_template.html" %} {% load static %} {% load humanize %} {% block content %}
+{% extends "base_template.html" %}
+{% load static %}
+{% load humanize %}
+{% block content %}
 
 <div class="property-page">
-  <div class="property-card">
-    <div class="card">
-      <img
-        id="mainImage"
-        {% if images %}
-          src = "{{ images.first.url }}"
-        {% endif %}
-        src=""
-        class="card-img-top"
-        alt="Main House Image"
-      />
-      <div class="card-body">
-        <h5 class="property-address">
-            {{property.house_number}} {{property.street_name}} {{property.street_suffix}},
-            {{property.city}}, {{property.state}} {{property.postal_code}}
-        </h5>
-        <div class="property-status">
-            <span>MLS# {{property.mls_number}}</span> | <span>Property Type: {{property.property_subtype}}</span> | <span>Status: {{property.mls_status}}</span>
-        </div>
-        <div class="property-details-grid">
-          <div class="property-detail-item">
-            <strong>${{ property.list_price|floatformat:0|intcomma }}</strong>
-            <span>Price</span>
-        </div>
-            <div class="property-detail-item">
+  <div id="property-page-cards-container">
+    <div class="property-card">
+      <div class="card">
+        <!-- Main Property Image -->
+        <img
+          id="mainImage"
+          {% if images %}
+            src="{{ images.first.url }}"
+          {% else %}
+            src="{% static 'default_image.jpg' %}"
+          {% endif %}
+          class="card-img-top"
+          alt="Main House Image"
+        />
+
+        <!-- Property Overview -->
+        <div class="card-body">
+          <h5 class="property-address">
+            {{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }},
+            {{ property.city }}, {{ property.state }} {{ property.postal_code }}
+          </h5>
+          <div id="property-overview-container">
+            <div class="property-status">
+              <span>MLS# {{ property.mls_number }}</span> |
+              <span>Property Type: {{ property.property_subtype }}</span> |
+              <span>Status: {{ property.mls_status }}</span>
+            </div>
+            <div class="property-details-grid">
+              <div class="property-detail-item">
+                <strong>${{ property.list_price|floatformat:0|intcomma }}</strong>
+                <span>Price</span>
+              </div>
+              <div class="property-detail-item">
                 <strong>{{ property.bedrooms }}</strong>
                 <span>Beds</span>
-            </div>
-            <div class="property-detail-item">
+              </div>
+              <div class="property-detail-item">
                 <strong>{{ property.baths_total }}</strong>
                 <span>Baths</span>
-            </div>
-            <div class="property-detail-item">
-                <strong>{{ property.building_area_total }}</strong>
+              </div>
+              <div class="property-detail-item">
+                <strong>{{ property.building_area_total|intcomma }}</strong>
                 <span>SqFt</span>
-            </div>
-            <div class="property-detail-item">
+              </div>
+              <div class="property-detail-item">
                 <strong>{{ property.year_built }}</strong>
                 <span>Built</span>
+              </div>
+              <div class="property-detail-item">
+                <strong>{{ property.highschool_district }}</strong>
+                <span>Schools</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Property Description -->
+          <div id="property-description-container">
+            <div id="property-description">{{ property.description }}</div>
+          </div>
+        </div>
+        
+      <!-- Image Carousel -->
+      
+      <div class="carousel-card">
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="grid-container">
+                        {% if images %}
+                            {% for image in images %}
+                                <div class="grid-item" onclick="changeMainImage('{{ image.url }}')">
+                                    <img src="{{ image.url }}" alt="House Image" />
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>No additional images available.</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <button class="carousel-control prev" onclick="moveCarousel(-1)">&#10094;</button>
+                <button class="carousel-control next" onclick="moveCarousel(1)">&#10095;</button>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="second-card">
+    <!-- Additional Property Details -->
+      <div id="additional_property_details_container">
+        <div class="card-body">
+          <h5>Community</h5>
+          <div class="additional-features">
+            <div class="property-detail-item">
+              <span><h3>Address: </h3>{{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }}, {{ property.city }}, {{ property.state }} {{ property.postal_code }}</span>
             </div>
             <div class="property-detail-item">
-              <strong>
-                <div id="property-highschool-detail" class='property-school-detail'>{{property.highschool_district }}</div>
-                <div id="property-middleschool-detail" class='property-school-detail'>{{property.middle_junior_school_district }}</div></strong>
-              <span>Schools</span>
+              <span><h3>County: </h3>{{ property.county }}</span>
+            </div>
+            <div class="property-detail-item">
+              <span><h3>City: </h3>{{ property.city }}</span>
+            </div>
+            <div class="property-detail-item">
+              <div id="property-highschool-detail" class="property-school-detail"><span>Schools: </span>{{ property.highschool_district }} | {{ property.middle_junior_school_district }}</div>
+            </div>
+            <div class="property-detail-item">
+              <span><h3>Zip: </h3>{{ property.postal_code }}</span>
+            </div>
+            <div class="property-detail-item">
+              <span><h3>HOA: </h3>{{ property.hoa_fee }}</span>
             </div>
           </div>
-        <div class="property-features">
-          <h5>Features</h5>
-          <div class="features-grid">
-              <div class="feature-item">
-                  <strong>Appliances</strong>
-                  {% for appliance in property.appliances  %}
-                  {{appliance}}{% endfor %}
-                  {% for item in property.laundry_features  %}{{item}}{% endfor %}
-              </div>
-              <div class="feature-item">
-                  <strong>Flooring</strong>
-                  <p>Tile, Wood</p>
-              </div>
-              <div class="feature-item">
-                  <strong>General Features</strong>
-                  <p>Heat</p>
-              </div>
-              <div class="feature-item">
-                  <strong>Parking</strong>
-                  <p>Extended Garage</p>
-              </div>
-              <div class="feature-item">
-                <strong>Schools</strong>
-                  <div id="property-highschool-detail" class='property-school-detail'>High School: {{property.highschool_district }}</div>
-                  <div id="property-middleschool-detail" class='property-school-detail'>Middle School: {{property.middle_junior_school_district }}</div>
-              </div>
+        </div>
+
+      <!-- Features / Amenities -->
+        <div class="card-body">
+          <h5>Features / Amenities</h5>
+          <div class="additional-features">
+            <div class="feature-item">
+              <strong>Appliances:</strong>
+              {% for appliance in property.appliances.all %}
+                <span>{{ appliance }}</span>{% if not forloop.last %}, {% endif %}
+              {% endfor %}
+            </div>
+            <div class="feature-item">
+              <strong>Cooling:</strong>
+              {% for cooling in property.cooling.all %}
+                <span>{{ cooling }}</span>{% if not forloop.last %}, {% endif %}
+              {% endfor %}
+            </div>
+            <div class="feature-item">
+              <strong>Heating:</strong>
+              {% for heating in property.heating.all %}
+                <span>{{ heating }}</span>{% if not forloop.last %}, {% endif %}
+              {% endfor %}
+            </div>
           </div>
+        </div>
+
+      <!-- Architecture -->
+        <div class="card-body">
+          <h5>Architecture</h5>
+          <div class="additional-features">
+            <div class="feature-item">
+              <h3>Bedrooms:</h3> {{ property.bedrooms }}
+            </div>
+            <div class="feature-item">
+              <h3>Bathrooms:</h3> {{ property.baths_total }}
+            </div>
+            <div class="feature-item">
+              <h3>Year Built:</h3> {{ property.year_built }}
+            </div>
+            <div class="feature-item">
+              <h3>Exterior:</h3> {{ property.construction_materials|join:", " }}
+            </div>
+            <div class="feature-item">
+              <h3>Windows:</h3> {{ property.window_features|join:", " }}
+            </div>
+            <div class="feature-item">
+              <h3>Roof:</h3> {{ property.roof }}
+            </div>
+            <div class="feature-item">
+              <h3>Foundation:</h3> {{ property.foundation }}
+            </div>
+            <div class="feature-item">
+              <h3>Garage / Carport:</h3> {{ property.garage_spaces }} car garage
+            </div>
+          </div>
+        </div>
+
+      <!-- Property Features -->
+        <div class="card-body">
+          <h5>Property Features</h5>
+          <div class="additional-features">
+            <div class="feature-item">
+              <span>Lot Size:</span> {{ property.lot_size }}
+            </div>
+            <div class="feature-item">
+              <span>Water:</span> {{ property.water_source }}
+            </div>
+            <div class="feature-item">
+              <span>Sewer:</span> {{ property.sewer }}
+            </div>
+            <div class="feature-item">
+              <span>Zoning:</span> {{ property.zoning }}
+            </div>
+          </div>
+        </div>
       </div>
-      
     </div>
-    
-    <div class="carousel-card">
-      <div class="carousel-container">
-        {% if images %}
-          {% for image in images  %}
-           <div
-            class="carousel-item"
-            onclick="changeMainImage('{{image.url}}')"
-          >
-            <img src="{{image.url}}" alt="House Image" />
-          </div> 
-          {% endfor %}
-        {% endif %}
+
+      <div id="additional_property_details_container">
+        <div class="mortgage-calculator">
+          <h5>Mortgage Calculator</h5>
+          <form id="mortgage-form">
+              <div class="form-group">
+                  <label for="loanAmount">Loan Amount ($):</label>
+                  <input type="number" id="loanAmount" placeholder="Enter loan amount" required>
+              </div>
+              <div class="form-group">
+                  <label for="downPaymentPercentage">Down Payment (%):</label>
+                  <input type="number" id="downPaymentPercentage" placeholder="Enter down payment percentage" step="0.01" required>
+              </div>
+              <div class="form-group">
+                  <label for="interestRate">Interest Rate (%):</label>
+                  <input type="number" id="interestRate" placeholder="Enter interest rate" step="0.01" required>
+              </div>
+              <div class="form-group">
+                  <label for="loanTerm">Loan Term (years):</label>
+                  <input type="number" id="loanTerm" placeholder="Enter loan term" required>
+              </div>
+              <button type="submit">Calculate</button>
+          </form>
+          <div id="monthlyPayment" class="result"></div>
       </div>
     </div>
+
   </div>
-
-
-
-
-
-  <div id="additional_property_details_container">
-    <div class="card-body">
-      <h5>Comunity</h5>
-      <div class="property-detail-item"><span>Address: 
-          {{property.house_number}} {{property.street_name}} {{property.street_suffix}},
-          {{property.city}}, {{property.state}} {{property.postal_code}}</span>
-      </div>
-      <div class="property-detail-item">
-          <span>County: {{property.county}}</span>
-      </div>
-      <div class="property-detail-item">
-        <span>City: {{property.city}}</span>
-      </div>
-      <div class="property-detail-item">
-        <div id="property-highschool-detail" class='property-school-detail'><span>Schools : </span><span>{{property.highschool_district }} | <span>{{property.middle_junior_school_district }}</span></div></span>
-      </div>
-      <div class="property-detail-item">
-        <span>Zip: {{property.postal_code}}</span>
-      </div>
-      <div class="property-detail-item">
-        <span>HOA: </span>
-      </div>
-    </div>
-
-    <div class="card-body">
-      <h5>Features / Amenities</h5>
-      <div class="features-grid">
-        <div class="feature-item">
-            <strong>Appliances</strong>
-            {% for appliance in property.appliances  %}
-            {{appliance}}{% endfor %}
-            {% for item in property.laundry_features  %}{{item}}{% endfor %}
-        </div>
-        <div class="feature-item">
-          <strong>Features</strong>
-          {% for item in property.building_features  %}{{item}}{% endfor %}
-        </div>
-        <div class="feature-item">
-          <strong>Cooling</strong>
-          {% for item in property.cooling  %}{{item}}{% endfor %}
-        </div>
-      </div>
-    </div>
-
-    <div class="card-body">
-      <h5>Architecture</h5>
-      <div class="features-grid">
-        <div class="feature-item">
-            <span>Bedrooms: {{property.bedrooms}}</span>
-        </div>
-        <div class="feature-item">
-          <span>Bathrooms: {{property.bathrooms_total}}</span>
-      </div>
-      <div class="feature-item">
-        <span>Year Built: {{property.year_built}}</span>
-      </div>
-      <div class="feature-item">
-        {% for item in property.construction_materials %}
-        <span>Exterior: {{item}}</span>
-        {% endfor %}
-      </div>
-      <div class="feature-item">
-        {% for item in property.construction_materials %}
-        <span>Windows: </span>
-        {% endfor %}
-      </div>
-      <div class="feature-item">
-        {% for item in property.construction_materials %}
-        <span>Roof: </span>
-        {% endfor %}
-      </div>
-      <div class="feature-item">
-        {% for item in property.construction_materials %}
-        <span>Foundation: </span>
-        {% endfor %}
-      </div>
-      <div class="feature-item">
-        {% for item in property.construction_materials %}
-        <span>Garage / Carport: </span>
-        {% endfor %}
-      </div>
-    </div>
-
-    <div class="card-body">
-      <h5>Property Features</h5>
-      <div class="features-grid">
-        <div class="feature-item">
-            <span>Lot Size: </span>
-        </div>
-        <div class="feature-item">
-          <span>Water: </span>
-        </div>
-        <div class="feature-item">
-          <span>Sewer: </span>
-        </div>
-        <div class="feature-item">
-          <span>Zoning: </span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script>
-    function changeMainImage(imageUrl) {
-      document.getElementById("mainImage").src = imageUrl;
-    }
-
-    function scrollCarousel(direction) {
-      const container = document.querySelector(".carousel-container");
-      container.scrollLeft += direction * container.offsetWidth;
-    }
-  </script>
-
-  {% endblock content %}
 </div>
+
+<script>
+  function changeMainImage(imageUrl) {
+    document.getElementById("mainImage").src = imageUrl;
+  }
+</script>
+
+{% endblock content %}
