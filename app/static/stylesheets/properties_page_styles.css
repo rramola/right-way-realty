@@ -261,9 +261,35 @@ button:hover {
   font-size: 1.2em;
 }
 
+@media (max-width: 1000px) {
+  .property-card {
+    grid-template-columns: 1fr;
+  }
+  .grid-item img{
+    height: 130px;
+  }
+  
+  .card-image-top{
+    padding: 20px;
+  }
+
+  .second-card{
+    margin-top: 1rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .card-body{
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+}
+
 /* Mobile Styles */
 @media (max-width: 768px) {
   .property-card {
+    display: flex;
     flex-direction: column;
   }
 
@@ -279,6 +305,10 @@ button:hover {
   .additional-features {
     grid-template-columns: 1fr;
   }
+  .carousel-control {
+    font-size: 14px;
+    padding: 5px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -290,15 +320,5 @@ button:hover {
     flex: 0 1 100%;
   }
 
-  .property-page {
-    padding: 10px;
-  }
 }
 
-/* Hide buttons on smaller screens */
-@media (max-width: 768px) {
-  .carousel-control {
-    font-size: 14px;
-    padding: 5px;
-  }
-}
