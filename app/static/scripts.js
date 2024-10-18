@@ -25,8 +25,6 @@ document.addEventListener('click', function(event) {
 
 ///////////////////////////////
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
     
     // const video = document.querySelector('video').playbackRate = 0.5;
@@ -72,6 +70,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+////////////////////// CARTOUSEL //////////////////////////////////////
+
 let currentSlide = 0;
 const itemsPerPage = 3; // Number of images to show per view
 
@@ -95,6 +95,9 @@ function moveCarousel(direction) {
     carouselInner.style.transform = `translateX(${offset}%)`;
 }
 
+
+
+////////////////////// MORTGAGE CALCULATOR ///////////////////////////////
 function calculateMortgage(loanAmount, interestRate, loanTerm) {
     const monthlyRate = interestRate / 100 / 12; // Monthly interest rate
     const totalMonths = loanTerm * 12; // Total loan term in months
@@ -133,10 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-
 // ////////////////////////////// GOOGLE MAPS JAVA SCRIPT FOR FILTERING //////////////////////////////////
-
 
 document.addEventListener('DOMContentLoaded', function () {
     // Toggle filter visibility
