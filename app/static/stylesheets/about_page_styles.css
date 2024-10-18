@@ -137,8 +137,14 @@
 }
 
 
+/* OXFORD */
 
-
+#oxford_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 .intro-section h2 {
   text-align: center;
@@ -228,6 +234,17 @@
   text-align: center;
 }
 
+.key-features h2{
+  text-align: center;
+  font-size: 3em;
+  color: #EAEEFB;
+}
+
+.explore-oxford h2{
+  text-align: center;
+  font-size: 3em;
+  color: #EAEEFB;
+}
 
 .feature img {
   width: 50px;
