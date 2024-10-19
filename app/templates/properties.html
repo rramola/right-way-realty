@@ -202,16 +202,16 @@
               
             </div>
             <div class="property-detail-item">
-              <h3>Features:</h3> 
-                {% for item in property.interior_features %}
+              <h3>Laundry:</h3> 
+                {% for item in property.laundry_features %}
                   {{ item }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                     N/A
                 {% endfor %} 
             </div>
             <div class="property-detail-item">
-              <h3>Laundry:</h3> 
-                {% for item in property.laundry_features %}
+              <h3>Additional Features:</h3> 
+                {% for item in property.interior_features %}
                   {{ item }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                     N/A
