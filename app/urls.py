@@ -12,7 +12,8 @@ urlpatterns = [
     # re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
     # re_path(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),
     path("maps/", views.googlemaps_view, name="googlemaps"),
-    path("contact/", views.contact_page, name="contact")
+    path("contact/", views.contact_page, name="contact"),
+    path('rental_list/', views.rental_list, name='rental_list')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
