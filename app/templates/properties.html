@@ -7,8 +7,18 @@
   <div id="property-page-cards-container">
     <div class="property-card">
       <div class="card" id="main-property-card">
+        <h5 class="property-address">
+          {{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }},
+          {{ property.city }}, {{ property.state }} {{ property.postal_code }}
+        </h5>
+        <div class="property-status">
+          <span><span class = 'property-overview-header'>MLS#</span> {{ property.mls_number }}</span> |
+          <span><span class = 'property-overview-header'>Property Type: </span>{{ property.property_subtype }}</span> |
+          <span><span class = 'property-overview-header'>Status: </span>{{ property.mls_status }}</span>
+        </div>
+        
         <!-- Main Property Image -->
-        <img
+        {% comment %} <img
           id="mainImage"
           {% if images %}
             src="{{ images.first.url }}"
@@ -17,17 +27,36 @@
           {% endif %}
           class="card-img-top"
           alt="Main House Image"
-        />
+        /> {% endcomment %}
+        <div class="carousel-container">
+          <div class="carousel">
+              <div class="carousel-inner">
+                <div class="grid-container">
+                  {% if images %}
+                      {% for image in images %}
+                          <div class="grid-item">
+                              <img src="{{ image.url }}" alt="House Image" id="mainImage" class="card-img-top" />
+                          </div>
+                      {% endfor %}
+                  {% else %}
+                      <p>No additional images available.</p>
+                  {% endif %}
+                </div>
+              </div>
+              <button class="carousel-control-main prev" onclick="moveCarousel(-1)">&#10094;</button>
+              <button class="carousel-control-main next" onclick="moveCarousel(1)">&#10095;</button>
+          </div>
+        </div>
         
         <!-- Image Carousel -->
-        {% comment %} <div class="carousel-card">
+        <div class="carousel-card">
           <div class="carousel-container">
               <div class="carousel">
-                  <div class="carousel-inner">
+                  <div class="carousel-inner-scroll">
                       <div class="grid-container">
                           {% if images %}
                               {% for image in images %}
-                                  <div class="grid-item" onclick="changeMainImage('{{ image.url }}')">
+                                  <div class="grid-item-scroll" onclick="changeMainImage('{{ image.url }}')">
                                       <img src="{{ image.url }}" alt="House Image" />
                                   </div>
                               {% endfor %}
@@ -36,24 +65,16 @@
                           {% endif %}
                       </div>
                   </div>
-                  <button class="carousel-control prev" onclick="moveCarousel(-1)">&#10094;</button>
-                  <button class="carousel-control next" onclick="moveCarousel(1)">&#10095;</button>
+                  <button class="carousel-control-scroll prev" onclick="moveCarouselSlider(-1)">&#10094;</button>
+                  <button class="carousel-control-scroll next" onclick="moveCarouselSlider(1)">&#10095;</button>
               </div>
             </div>
-        </div> {% endcomment %}
+        </div>
 
         <!-- Property Overview -->
         <div class="card-body">
-          <h5 class="property-address">
-            {{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }},
-            {{ property.city }}, {{ property.state }} {{ property.postal_code }}
-          </h5>
           <div id="property-overview-container">
-            <div class="property-status">
-              <span><span class = 'property-overview-header'>MLS#</span> {{ property.mls_number }}</span> |
-              <span><span class = 'property-overview-header'>Property Type: </span>{{ property.property_subtype }}</span> |
-              <span><span class = 'property-overview-header'>Status: </span>{{ property.mls_status }}</span>
-            </div>
+            <h3>Overview:</h3>
             <div class="property-details-grid">
               <div class="property-detail-item">
                 <h3>${{ property.list_price|floatformat:0|intcomma }}</h3>
@@ -83,6 +104,7 @@
           </div>
 
           <!-- Property Description -->
+          <h3>Description:</h3>
           <div id="property-description-container">
             <div id="property-description">{{ property.description }}</div>
           </div>
@@ -381,10 +403,6 @@
   </div>
 </div>
 
-<script>
-  function changeMainImage(imageUrl) {
-    document.getElementById("mainImage").src = imageUrl;
-  }
-</script>
+
 
 {% endblock content %}

@@ -70,10 +70,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-////////////////////// CARTOUSEL //////////////////////////////////////
+////////////////////// CAROUSEL //////////////////////////////////////
 
 let currentSlide = 0;
-const itemsPerPage = 3; // Number of images to show per view
+const itemsPerPage = 1 // Number of images to show per view
 
 function moveCarousel(direction) {
     const items = document.querySelectorAll('.grid-item');
@@ -84,9 +84,9 @@ function moveCarousel(direction) {
 
     // Loop the carousel
     if (currentSlide < 0) {
-        currentSlide = 0; // Prevent going to negative slide index
-    } else if (currentSlide >= totalSlides) {
-        currentSlide = totalSlides - 1; // Prevent going beyond the last slide
+        currentSlide = totalSlides -1; // Prevent going to negative slide index
+    } else if (currentSlide >=totalSlides) {
+        currentSlide = 0; // Prevent going beyond the last slide
     }
 
     // Move the carousel
@@ -95,6 +95,33 @@ function moveCarousel(direction) {
     carouselInner.style.transform = `translateX(${offset}%)`;
 }
 
+
+let currentCarouselSlide = currentSlide;
+const carouselItemsPerPage = 5// Number of images to show per view
+
+function moveCarouselSlider(direction) {
+    const items = document.querySelectorAll('.grid-item-scroll');
+    const totalSlides = Math.ceil(items.length / carouselItemsPerPage); // Total number of slides based on items per page
+
+    // Update the current slide index
+    currentCarouselSlide += direction;
+
+    // Loop the carousel
+    if (currentCarouselSlide < 0) {
+        currentCarouselSlide = totalSlides -1; // Prevent going to negative slide index
+    } else if (currentCarouselSlide >= totalSlides) {
+        currentCarouselSlide = 0; // Prevent going beyond the last slide
+    }
+
+    // Move the carousel
+    const carouselInner = document.querySelector('.carousel-inner-scroll');
+    const offset = -currentCarouselSlide * (carouselItemsPerPage * (100 / carouselItemsPerPage)); // Calculate offset based on itemsPerPage
+    carouselInner.style.transform = `translateX(${offset}%)`;
+}
+
+function changeMainImage(imageUrl) {
+    document.getElementById("mainImage").src = imageUrl;
+  }
 
 
 ////////////////////// MORTGAGE CALCULATOR ///////////////////////////////
