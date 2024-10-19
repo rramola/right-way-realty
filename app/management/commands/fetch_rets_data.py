@@ -1,7 +1,8 @@
-import os
 from django.core.management.base import BaseCommand
 from rets import Session
 from app.models import Property
+from decimal import Decimal
+
 
 class Command(BaseCommand):
     help = 'Fetches and stores property data from the Flexmls RETS API.'
@@ -21,52 +22,57 @@ class Command(BaseCommand):
 
                 # Fetch resource metadata
                 resources = session.get_resource_metadata(resource='Property')
-                self.stdout.write(self.style.SUCCESS(f'Resources metadata fetched: {resources}'))
 
                 # Fetch class metadata for the Property resource
                 class_metadata = session.get_class_metadata(resource='Property')
                 self.stdout.write(self.style.SUCCESS(f'Class metadata fetched: {class_metadata}'))
-
+                
                 # Fetch table metadata for the Residential class
                 table_metadata = session.get_table_metadata(resource='Property', resource_class="A")
-                self.stdout.write(self.style.SUCCESS(f'Table metadata fetched: {table_metadata}'))
 
-                # Define a DMQL query to fetch property data (e.g., all active properties)
-                dmql_query = "(Status=A)"
+                # Define a DMQL query to fetch active property data
+                dmql_query = "(LIST_15=A)"  # Ensure 'A' corresponds to active listings
 
                 # Fetch property data using the DMQL query
-                properties = session.search('Property', resource_class='A', dmql_query=dmql_query)
+                properties = list(session.search('Property', resource_class='A', dmql_query=dmql_query))
+
+                # Check if properties were fetched
+                if not properties:
+                    self.stdout.write(self.style.WARNING('No properties found for the given query'))
+                else:
+                    self.stdout.write(self.style.SUCCESS(f'Found {len(properties)} properties'))
 
                 # Store fetched properties into the database
                 for prop in properties:
-                    # Create or update the property record
-                    Property.objects.update_or_create(
-                        mls_number=prop['MLS'],
-                        defaults={
-                            'list_price': prop.get('Price'),
-                            'bedrooms': prop.get('Bedrooms'),
-                            'baths_full': prop.get('BathsFull'),
-                            'baths_half': prop.get('BathsHalf'), 
-                            'house_number': prop.get('Address').split()[0] if prop.get('Address') else None,
-                            'street_name': ' '.join(prop.get('Address').split()[1:-1]) if prop.get('Address') else None,
-                            'street_suffix': prop.get('Address').split()[-1] if prop.get('Address') else None,
-                            'city': prop.get('City'),
-                            'state': prop.get('State'),
-                            'postal_code': prop.get('PostalCode'),
-                            'year_built': prop.get('YearBuilt'),
-                            'public_remarks': prop.get('PublicRemarks'),
-                            'private_remarks': prop.get('PrivateRemarks'),
-                            'latitude': prop.get('Latitude'),
-                            'longitude': prop.get('Longitude'),
-                            'building_area_total': prop.get('BuildingAreaTotal'),
-                            'property_subtype': prop.get('PropertySubtype'),
-                            # Add other fields as necessary
-                        }
-                    )
-                self.stdout.write(self.style.SUCCESS('Successfully fetched and stored property data'))
-
-            else:
-                self.stdout.write(self.style.ERROR('Login to RETS failed'))
-
+                    try:
+                        # Create or update Property instance
+                        property_instance, created = Property.objects.update_or_create(
+                            mls_number=prop['MLSNumber'],  # Adjust based on your actual property field
+                            defaults={
+                                'list_price': Decimal(prop['ListPrice']) if prop['ListPrice'] else None,
+                                'subdivision_name': prop.get('SubdivisionName', ''),
+                                'house_number': prop.get('HouseNumber', ''),
+                                'street_name': prop.get('StreetName', ''),
+                                'street_suffix': prop.get('StreetSuffix', ''),
+                                'city': prop.get('City', ''),
+                                'state': prop.get('State', ''),
+                                'postal_code': prop.get('PostalCode', ''),
+                                'description': prop.get('Description', ''),
+                                'latitude': prop.get('Latitude', None),
+                                'longitude': prop.get('Longitude', None),
+                                'year_built': prop.get('YearBuilt', None),
+                                'bedrooms': prop.get('Bedrooms', None),
+                                'baths_full': prop.get('BathsFull', None),
+                                'baths_half': prop.get('BathsHalf', None),
+                                'baths_total_integer': prop.get('BathsTotalInteger', None),
+                                'baths_total': prop.get('BathsTotal', None),
+                                'carport': bool(prop.get('Carport', False)),
+                                # Add more fields as needed
+                            }
+                        )
+                        self.stdout.write(self.style.SUCCESS(f"{'Created' if created else 'Updated'} property: {property_instance.mls_number}"))
+                    except Exception as e:
+                        self.stdout.write(self.style.ERROR(f"Error processing property: {e}"))
+                        
         except Exception as e:
-            self.stdout
+            self.stdout.write(self.style.ERROR(f"Error logging in or fetching data: {e}"))

@@ -103,3 +103,30 @@ class PropertyImage(models.Model):
 
     def __str__(self):
         return f"Image for {self.listing.mls_number}"
+    
+
+
+
+class Rental(models.Model):
+    street_name = models.CharField(max_length=20, blank=True, null=True)
+    city = models.CharField(max_length=20, blank=True, null=True)
+    state = models.CharField(max_length=20, blank=True, null=True)
+    postal_code = models.CharField(max_length=20, blank=True, null=True)
+    rental_price = models.DecimalField(max_digits=12, decimal_places=2)
+    available_from = models.DateField()
+    school = models.TextField(blank=True, null=True)
+    bedrooms = models.IntegerField(null=True, blank=True)
+    baths = models.IntegerField(null=True, blank=True)
+    deposit_amount = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    fenced_yard = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return f'Rental of {self.street_name} for ${self.rental_price}'
+
+class RentalImage(models.Model):
+    rental = models.ForeignKey(Rental, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='rental_images/')  # Change the upload path as needed
+    
+    def __str__(self):
+        return f'Image for rental at {self.rental.street_name}, {self.rental.city}'
+

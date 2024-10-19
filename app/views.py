@@ -7,6 +7,8 @@ from django.http import HttpResponseBadRequest
 from django.conf import settings
 from django.urls import reverse
 from django.db import connection
+from datetime import date
+
 
 # from populate_dummy_data import *
 def home_page(request):
@@ -108,3 +110,9 @@ def contact_page(request):
         form = ContactForm()
 
     return render(request, "contact.html", {"form": form})
+
+
+
+def rental_list(request):
+    rentals = Rental.objects.all()
+    return render(request, 'rental_list.html', {'rentals': rentals})

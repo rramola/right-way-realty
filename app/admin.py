@@ -1,17 +1,26 @@
 from django.contrib import admin
-from .models import Property, PropertyImage
+from .models import *
 
-class PropertyImageInline(admin.TabularInline):
-    model = PropertyImage
-    extra = 1
+class RentalImageInline(admin.TabularInline):
+    model = RentalImage
+    extra = 1  # Number of empty forms to display
 
-class PropertyAdmin(admin.ModelAdmin):
+class RentalAdmin(admin.ModelAdmin):
     list_display = (
-        'mls_number', 'list_price', 'house_number', 'street_name', 
-        'street_suffix', 'city', 'state', 'postal_code', 'bedrooms', 
-        'baths_full', 'baths_half', 'baths_three_quarter', 'building_area_total'
+        'street_name',
+        'city',
+        'state',
+        'postal_code',
+        'rental_price',
+        'available_from',
+        'bedrooms',
+        'baths',
+        'fenced_yard',
     )
-    inlines = [PropertyImageInline]
+    search_fields = ('street_name', 'city', 'state', 'postal_code', 'rental_price')
+    list_filter = ('bedrooms', 'baths', 'fenced_yard')
+    ordering = ('-available_from',)
+    inlines = [RentalImageInline]  # Include images inline in the rental admin form
 
-admin.site.register(Property, PropertyAdmin)
-admin.site.register(PropertyImage)
+admin.site.register(Rental, RentalAdmin)
+

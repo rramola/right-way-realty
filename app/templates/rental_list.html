@@ -1,0 +1,27 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+<h1>Available Rentals</h1>
+<ul>
+    {% for rental in rentals %}
+        <li>
+            <strong>{{ rental.street_name }}, {{ rental.city }}, {{ rental.state }} {{ rental.postal_code }}</strong><br>
+            Price: ${{ rental.rental_price }}<br>
+            Bedrooms: {{ rental.bedrooms }}<br>
+            Baths: {{ rental.baths }}<br>
+            Available from: {{ rental.available_from }}<br>
+            School: {{ rental.school }}<br>
+            Fenced Yard: {{ rental.fenced_yard|yesno:"Yes,No" }}<br>
+            
+            <!-- Display rental images -->
+            {% for image in rental.images.all %}
+                <img src="{{ image.image.url }}" alt="Image of {{ rental.street_name }}" style="max-width: 200px; max-height: 150px;"><br>
+            {% empty %}
+                <p>No images available for this rental.</p>
+            {% endfor %}
+        </li>
+    {% empty %}
+        <li>No rentals available at this time.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
