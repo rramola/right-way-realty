@@ -55,7 +55,7 @@ class Property(models.Model):
     garage_yes_no = models.BooleanField(blank=True, null=True)
     heating = models.JSONField(blank=True, null=True)
     heating_yes_no = models.BooleanField(blank=True, null=True)
-    lot_size_acres = models.IntegerField(blank=True, null=True)
+    lot_size_acres = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
     mls_area = models.CharField(max_length=50, blank=True, null=True)
     parking_features = models.JSONField(blank=True, null=True)
     patio_porch_features = models.JSONField(blank=True, null=True)
@@ -65,6 +65,10 @@ class Property(models.Model):
     zoning = models.CharField(max_length=50, blank=True, null=True)
     zoning_description = models.CharField(max_length=50, blank=True, null=True)
     address_is_displayed = models.BooleanField(blank=True, null=True)
+    other_structures = models.JSONField(blank=True, null=True)
+    price_change_timestamp = models.TimeField(blank=True, null=True)
+    property_subtype = models.CharField(max_length=50, blank=True, null=True)
+    virtual_tour_url = models.URLField(blank=True, null=True)
 
     
 

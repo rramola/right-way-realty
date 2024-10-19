@@ -33,28 +33,28 @@
             </div>
             <div class="property-details-grid">
               <div class="property-detail-item">
-                <strong>${{ property.list_price|floatformat:0|intcomma }}</strong>
-                <span>Price</span>
+                <h3>${{ property.list_price|floatformat:0|intcomma }}</h3>
+                <span id="overview-detail-title">Price</span>
               </div>
               <div class="property-detail-item">
-                <strong>{{ property.bedrooms }}</strong>
-                <span>Beds</span>
+                <h3>{{ property.bedrooms }}</h3>
+                <span id="overview-detail-title">Beds</span>
               </div>
               <div class="property-detail-item">
-                <strong>{{ property.baths_total }}</strong>
-                <span>Baths</span>
+                <h3>{{ property.baths_total }}</h3>
+                <span id="overview-detail-title">Baths</span>
               </div>
               <div class="property-detail-item">
-                <strong>{{ property.building_area_total|intcomma }}</strong>
-                <span>SqFt</span>
+                <h3>{{ property.building_area_total|intcomma }}</h3>
+                <span id="overview-detail-title">SqFt</span>
               </div>
               <div class="property-detail-item">
-                <strong>{{ property.year_built }}</strong>
-                <span>Built</span>
+                <h3>{{ property.year_built }}</h3>
+                <span id="overview-detail-title">Built</span>
               </div>
               <div class="property-detail-item">
-                <strong>{{ property.highschool_district }}</strong>
-                <span>Schools</span>
+                <h3>{{ property.highschool_district }}</h3>
+                <span id="overview-detail-title">Schools</span>
               </div>
             </div>
           </div>
@@ -91,110 +91,183 @@
     </div>
     <div class="second-card">
       
-    <!-- Additional Property Details -->
+      <!-- Additional Property Details -->
       <div id="additional_property_details_container">
         <div class="card-body">
-          <h3>Community</h3>
-          <div class="additional-features">
-            <div class="property-detail-item">
+          <h3>Community:</h3>
+          {% comment %} <div class="community-details-grid">
+            <div class="property-detail-item" id="address-detail-item">
+              <span>Address</span>
               <strong>{{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }},
                 {{ property.city }}, {{ property.state }} {{ property.postal_code }}</strong>
-              <span>Address</span>
             </div>
             <div class="property-detail-item">
-              <strong>{{ property.mls_area }}</strong>
               <span>Area</span>
+              <strong>{{ property.mls_area }}</strong>
             </div>
             <div class="property-detail-item">
-              <strong>{{ property.city }}</strong>
               <span>City</span>
+              <strong>{{ property.city }}</strong>
             </div>
             <div class="property-detail-item">
-              <strong>{{ property.county}}</strong>
               <span>County</span>
+              <strong>{{ property.county}}</strong>
             </div>
             <div class="property-detail-item">
-              <strong>{{ property.highschool_district }}</strong>
               <span>Schools</span>
+              <strong>{{ property.highschool_district }}</strong>
             </div>
             <div class="property-detail-item">
-              <strong>{{ property.postal_code}}</strong>
               <span>Zip</span>
+              <strong>{{ property.postal_code}}</strong>
+
+            </div>
+          </div> {% endcomment %}
+
+          <div class="community-details-grid">
+            <div class="property-detail-item" id="address-detail-item">
+              <h3>Address:</h3>
+              <span>{{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }},
+                {{ property.city }}, {{ property.state }} {{ property.postal_code }}</span>
+            </div>
+            <div class="property-detail-item">
+              <h3>Area:</h3>
+              <span>{{ property.mls_area }}</span>
+              {% comment %} <span>Area</span> {% endcomment %}
+            </div>
+            <div class="property-detail-item">
+              <h3>City:</h3>
+              <span>{{ property.city }}</span>
+              {% comment %} <span>City</span> {% endcomment %}
+            </div>
+            <div class="property-detail-item">
+              <h3>County:</h3>
+              <span>{{ property.county}}</span>
+              {% comment %} <span>County</span> {% endcomment %}
+            </div>
+            <div class="property-detail-item">
+              <h3>Neighborhood:</h3>
+              <span>
+                {% if property.subdivision_name != "None"  %}{{ property.subdivision_name}}{% endif %}
+                {% if property.subdivision_name == "None"  %}N/A{% endif %}
+              </span>
+              {% comment %} <span>County</span> {% endcomment %}
+            </div>
+            <div class="property-detail-item">
+              <h3>Schools:</h3>
+              <span>{{ property.highschool_district }}</span>
+              {% comment %} <span>Schools</span> {% endcomment %}
+            </div>
+            <div class="property-detail-item">
+              <strong>Zip:</strong>
+              <span>{{ property.postal_code}}</span>
+              {% comment %} <span>Zip</span> {% endcomment %}
             </div>
           </div>
         </div>
 
-      <!-- Features / Amenities -->
+        <!-- Property Features -->
         <div class="card-body">
-          <h3>Features / Amenities</h3>
+          <h3>Property Features:</h3>
+          <div class="additional-features">
+            <div class="property-detail-item">
+              <h3>Lot Size:</h3> 
+              <span id="property-lot-detail-item">{{ property.lot_size_acres }} Acres</span>
+            </div>
+            <div class="property-detail-item">
+              <h3>Water:</h3> 
+                {% for item in property.water_source %}
+                <span>{{ item }}{% if not forloop.last %},</span>{% endif %}
+              {% endfor %} 
+            </div>
+            <div class="property-detail-item">
+              <h3>Sewer:</h3> 
+              {% for item in property.sewer %}
+                <span>{{ item }}{% if not forloop.last %},</span>{% endif %}
+              {% endfor %} 
+            </div>
+            <div class="property-detail-item">
+              <h3>Zoning:</h3> 
+              <span>{{ property.zoning_description }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Convenience -->
+        <div class="card-body">
+          <h3>Convenience Features:</h3>
           <div class="additional-features">
             <div class="property-detail-item">
               <h3>Appliances: </h3>
               {% for appliance in property.appliances%}
-                <span id='appliance'>{{ appliance }}</span>{% if not forloop.last %},{% endif %}
+                <span id='appliance-item'>{{ appliance }}{% if not forloop.last %},</span>{% endif %}
               {% endfor %}
             </div>
-            <div class="property-detail-item">
+            <div class="property-detail-item" id="cooling-detail-item">
               <h3>Cooling: </h3>
               {% for cooling in property.cooling %}
-                <span>{{ cooling }}</span>{% if not forloop.last %}, {% endif %}
+                <span>{{ cooling }}{% if not forloop.last %},</span>{% endif %}
               {% endfor %}
             </div>
             <div class="property-detail-item">
                 <h3>Heating: </h3>
               {% for heating in property.heating %}
-                <span>{{ heating }}</span>{% if not forloop.last %}, {% endif %}
+                <span>{{ heating }}{% if not forloop.last %},</span>{% endif %}
               {% endfor %}
             </div>
           </div>
         </div>
 
-      <!-- Architecture -->
+        <!-- Architecture -->
         <div class="card-body">
-          <h3>Architecture</h3>
+          <h3>Architecture:</h3>
           <div class="additional-features">
             <div class="property-detail-item">
-              <h3>Bedrooms:</h3> {{ property.bedrooms }}
+              <h3>Bedrooms:</h3> 
+              {{ property.bedrooms }}
             </div>
             <div class="property-detail-item">
-              <h3>Bathrooms:</h3> {{ property.baths_total }}
+              <h3>Bathrooms:</h3> 
+              {{ property.baths_total }}
             </div>
             <div class="property-detail-item">
-              <h3>Year Built:</h3> {{ property.year_built }}
+              <h3>Year Built:</h3> 
+              {{ property.year_built }}
             </div>
             <div class="property-detail-item">
-              <h3>Exterior:</h3> {{ property.construction_materials|join:", " }}
+              <h3>Exterior:</h3> 
+              <span>{{ property.construction_materials|join:", " }}</span>
             </div>
             <div class="property-detail-item">
-              <h3>Windows:</h3> {{ property.window_features|join:", " }}
+              <h3>Roof:</h3>
+              {% for item in property.roof  %}
+                <span>{{ item }}{% if not forloop.last %},</span>{% endif %}
+              {% endfor %}      
             </div>
             <div class="property-detail-item">
-              <h3>Roof:</h3> {{ property.roof }}
+              <h3>Foundation:</h3> 
+              {% for item in property.foundation_details %}
+                <span>{{ item }}{% if not forloop.last %},</span>{% endif %}
+              {% endfor %} 
             </div>
             <div class="property-detail-item">
-              <h3>Foundation:</h3> {{ property.foundation }}
-            </div>
-            <div class="property-detail-item">
-              <h3>Garage / Carport:</h3> {{ property.garage_spaces }} car garage
+              <h3>Garage / Carport:</h3> 
+              <span>{{ property.garage_spaces }} car garage</span>
             </div>
           </div>
         </div>
 
-      <!-- Property Features -->
+
+      <!-- Interior Features -->
+        
         <div class="card-body">
-          <h5>Property Features</h5>
+          <h3>Interior Features:</h3>
           <div class="additional-features">
             <div class="property-detail-item">
-              <span>Lot Size:</span> {{ property.lot_size }}
-            </div>
-            <div class="property-detail-item">
-              <span>Water:</span> {{ property.water_source }}
-            </div>
-            <div class="property-detail-itemm">
-              <span>Sewer:</span> {{ property.sewer }}
-            </div>
-            <div class="property-detail-item">
-              <span>Zoning:</span> {{ property.zoning }}
+              <h3>Flooring:</h3> 
+                {% for item in property.flooring %}
+                <span>{{ item }}{% if not forloop.last %},</span>{% endif %}
+              {% endfor %} 
             </div>
           </div>
         </div>

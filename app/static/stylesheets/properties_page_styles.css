@@ -149,18 +149,32 @@ h3, h5 {
   text-align: center;
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+
+
 }
 
 .property-detail-item strong {
   display: block;
   font-size: 1.2em;
   color: var(--dark-green);
+  margin-bottom: .5em;
 }
 
 .property-detail-item span {
   font-size: 1.1;
   color: var(--text-light);
+  text-decoration: underline;
 }
+#overview-detail-title{
+  text-decoration: none;
+  font-style: italic;
+}
+
+
+
 
 /* Property Description */
 #property-description-container {
@@ -187,11 +201,33 @@ h3, h5 {
   margin-top: 15px;
 }
 
+.community-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  margin-top: 15px;
+}
+
+#address-detail-item{
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#cooling-detail-item{
+  height: max-content;
+}
+#appliance-item{
+  margin-bottom: .3em;
+}
 .feature-item {
   background-color: var(--light-blue);
   padding: 10px;
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#property-lot-detail-item{
+  text-decoration: none;
 }
 
 
@@ -279,6 +315,10 @@ button:hover {
   .card-body{
     padding-left: 0;
     padding-right: 0;
+  }
+  #address-detail-item{
+    grid-column-start: 1;
+    grid-column-end: 1;
   }
 
 }
