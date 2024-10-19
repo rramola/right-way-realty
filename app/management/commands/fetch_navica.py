@@ -99,9 +99,11 @@ class Command(BaseCommand):
                         'zoning_description': replace_placeholder(listing.get('ZoningDescription')),
                         'address_is_displayed': replace_placeholder(listing.get('InternetAddressDisplayYN')),              
                         'other_structures': replace_placeholder(listing.get('OtherStructures')),
-                        'price_change_timestamp': replace_placeholder(listing.get('PriceChangeTimestamp')),
                         'property_subtype': replace_placeholder(listing.get('PropertySubType')),
                         'virtual_tour_url': replace_placeholder(listing.get('VirtualTourURLUnbranded')),
+                        'modification_timestamp': replace_placeholder(listing.get('VirtualTourURLUnbranded')),
+                        'original_entry_timestamp': replace_placeholder(listing.get('OriginalEntryTimestamp')),
+                        'price_change_timestamp': replace_placeholder(listing.get('PriceChangeTimestamp')),
                     }
                 )
 

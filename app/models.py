@@ -66,7 +66,9 @@ class Property(models.Model):
     zoning_description = models.CharField(max_length=50, blank=True, null=True)
     address_is_displayed = models.BooleanField(blank=True, null=True)
     other_structures = models.JSONField(blank=True, null=True)
-    price_change_timestamp = models.TimeField(blank=True, null=True)
+    price_change_timestamp = models.CharField(blank=True, null=True)
+    original_entry_timestamp = models.CharField(blank=True, null=True)
+    modification_timestamp = models.CharField(blank=True, null=True)
     property_subtype = models.CharField(max_length=50, blank=True, null=True)
     virtual_tour_url = models.URLField(blank=True, null=True)
 
