@@ -158,7 +158,7 @@ h3, h5 {
 }
 
 .property-detail-item span {
-  font-size: 0.9em;
+  font-size: 1.1;
   color: var(--text-light);
 }
 
@@ -194,11 +194,8 @@ h3, h5 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.feature-item h3 {
-  font-size: 1.1em;
-  margin-bottom: 5px;
-  color: var(--green);
-}
+
+
 
 /* Button Styles */
 button {

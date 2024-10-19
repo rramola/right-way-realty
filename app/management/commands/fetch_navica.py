@@ -89,6 +89,7 @@ class Command(BaseCommand):
                         'heating': replace_placeholder(listing.get('Heating')),
                         'heating_yes_no': replace_placeholder(listing.get('HeatingYN')),
                         'lot_size_acres': replace_placeholder(listing.get('LotSizeAcres')),
+                        'mls_area': replace_placeholder(listing.get('MLSAreaMajor')),
                         'parking_features': replace_placeholder(listing.get('ParkingFeatures')),
                         'patio_porch_features': replace_placeholder(listing.get('PatioAndPorchFeatures')),
                         'pool_features': replace_placeholder(listing.get('PoolFeatures')),

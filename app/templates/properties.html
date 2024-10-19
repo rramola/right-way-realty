@@ -90,51 +90,59 @@
       </div>
     </div>
     <div class="second-card">
+      
     <!-- Additional Property Details -->
       <div id="additional_property_details_container">
         <div class="card-body">
-          <h5>Community</h5>
+          <h3>Community</h3>
           <div class="additional-features">
             <div class="property-detail-item">
-              <span><h3>Address: </h3>{{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }}, {{ property.city }}, {{ property.state }} {{ property.postal_code }}</span>
+              <strong>{{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }},
+                {{ property.city }}, {{ property.state }} {{ property.postal_code }}</strong>
+              <span>Address</span>
             </div>
             <div class="property-detail-item">
-              <span><h3>County: </h3>{{ property.county }}</span>
+              <strong>{{ property.mls_area }}</strong>
+              <span>Area</span>
             </div>
             <div class="property-detail-item">
-              <span><h3>City: </h3>{{ property.city }}</span>
+              <strong>{{ property.city }}</strong>
+              <span>City</span>
             </div>
             <div class="property-detail-item">
-              <div id="property-highschool-detail" class="property-school-detail"><span>Schools: </span>{{ property.highschool_district }} | {{ property.middle_junior_school_district }}</div>
+              <strong>{{ property.county}}</strong>
+              <span>County</span>
             </div>
             <div class="property-detail-item">
-              <span><h3>Zip: </h3>{{ property.postal_code }}</span>
+              <strong>{{ property.highschool_district }}</strong>
+              <span>Schools</span>
             </div>
             <div class="property-detail-item">
-              <span><h3>HOA: </h3>{{ property.hoa_fee }}</span>
+              <strong>{{ property.postal_code}}</strong>
+              <span>Zip</span>
             </div>
           </div>
         </div>
 
       <!-- Features / Amenities -->
         <div class="card-body">
-          <h5>Features / Amenities</h5>
+          <h3>Features / Amenities</h3>
           <div class="additional-features">
-            <div class="feature-item">
-              <strong>Appliances:</strong>
-              {% for appliance in property.appliances.all %}
-                <span>{{ appliance }}</span>{% if not forloop.last %}, {% endif %}
+            <div class="property-detail-item">
+              <h3>Appliances: </h3>
+              {% for appliance in property.appliances%}
+                <span id='appliance'>{{ appliance }}</span>{% if not forloop.last %},{% endif %}
               {% endfor %}
             </div>
-            <div class="feature-item">
-              <strong>Cooling:</strong>
-              {% for cooling in property.cooling.all %}
+            <div class="property-detail-item">
+              <h3>Cooling: </h3>
+              {% for cooling in property.cooling %}
                 <span>{{ cooling }}</span>{% if not forloop.last %}, {% endif %}
               {% endfor %}
             </div>
-            <div class="feature-item">
-              <strong>Heating:</strong>
-              {% for heating in property.heating.all %}
+            <div class="property-detail-item">
+                <h3>Heating: </h3>
+              {% for heating in property.heating %}
                 <span>{{ heating }}</span>{% if not forloop.last %}, {% endif %}
               {% endfor %}
             </div>
@@ -143,30 +151,30 @@
 
       <!-- Architecture -->
         <div class="card-body">
-          <h5>Architecture</h5>
+          <h3>Architecture</h3>
           <div class="additional-features">
-            <div class="feature-item">
+            <div class="property-detail-item">
               <h3>Bedrooms:</h3> {{ property.bedrooms }}
             </div>
-            <div class="feature-item">
+            <div class="property-detail-item">
               <h3>Bathrooms:</h3> {{ property.baths_total }}
             </div>
-            <div class="feature-item">
+            <div class="property-detail-item">
               <h3>Year Built:</h3> {{ property.year_built }}
             </div>
-            <div class="feature-item">
+            <div class="property-detail-item">
               <h3>Exterior:</h3> {{ property.construction_materials|join:", " }}
             </div>
-            <div class="feature-item">
+            <div class="property-detail-item">
               <h3>Windows:</h3> {{ property.window_features|join:", " }}
             </div>
-            <div class="feature-item">
+            <div class="property-detail-item">
               <h3>Roof:</h3> {{ property.roof }}
             </div>
-            <div class="feature-item">
+            <div class="property-detail-item">
               <h3>Foundation:</h3> {{ property.foundation }}
             </div>
-            <div class="feature-item">
+            <div class="property-detail-item">
               <h3>Garage / Carport:</h3> {{ property.garage_spaces }} car garage
             </div>
           </div>
@@ -176,16 +184,16 @@
         <div class="card-body">
           <h5>Property Features</h5>
           <div class="additional-features">
-            <div class="feature-item">
+            <div class="property-detail-item">
               <span>Lot Size:</span> {{ property.lot_size }}
             </div>
-            <div class="feature-item">
+            <div class="property-detail-item">
               <span>Water:</span> {{ property.water_source }}
             </div>
-            <div class="feature-item">
+            <div class="property-detail-itemm">
               <span>Sewer:</span> {{ property.sewer }}
             </div>
-            <div class="feature-item">
+            <div class="property-detail-item">
               <span>Zoning:</span> {{ property.zoning }}
             </div>
           </div>

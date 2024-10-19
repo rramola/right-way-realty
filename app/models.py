@@ -57,6 +57,7 @@ class Property(models.Model):
     heating = models.JSONField(blank=True, null=True)
     heating_yes_no = models.BooleanField(blank=True, null=True)
     lot_size_acres = models.IntegerField(blank=True, null=True)
+    area = models.CharField(max_length=50, blank=True, null=True)
     parking_features = models.JSONField(blank=True, null=True)
     patio_porch_features = models.JSONField(blank=True, null=True)
     pool_features = models.JSONField(blank=True, null=True)
