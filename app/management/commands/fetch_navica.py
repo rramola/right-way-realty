@@ -97,8 +97,7 @@ class Command(BaseCommand):
                         'road_surface_type': replace_placeholder(listing.get('RoadSurfaceType')),
                         'zoning': replace_placeholder(listing.get('Zoning')),
                         'zoning_description': replace_placeholder(listing.get('ZoningDescription')),
-
-                        
+                        'address_is_displayed': replace_placeholder(listing.get('InternetAddressDisplayYN')),              
                     }
                 )
 

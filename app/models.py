@@ -27,7 +27,6 @@ class Property(models.Model):
     car_port_spaces = models.CharField(null=True, blank=True)
     property_subtype = models.CharField(max_length=100, blank=True, null=True)
     property_type = models.CharField(max_length=50, blank=True, null=True)
-    # Additional Fields
     public_remarks = models.TextField(blank=True, null=True)
     private_remarks = models.TextField(blank=True, null=True)
     appliances = models.JSONField(blank=True, null=True)
@@ -65,6 +64,7 @@ class Property(models.Model):
     road_surface_type = models.JSONField(blank=True, null=True)
     zoning = models.CharField(max_length=50, blank=True, null=True)
     zoning_description = models.CharField(max_length=50, blank=True, null=True)
+    address_is_displayed = models.BooleanField(blank=True, null=True)
 
     
 
