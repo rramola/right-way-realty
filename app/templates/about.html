@@ -35,33 +35,34 @@
   <!-- Our Team Section -->
   <div class="our-team-section">
     <h2>Our Team</h2>
-    <p>
+    {% comment %} <p>
       Terry and April, a husband-and-wife team with over 30 years of marriage, combine their extensive expertise in real estate. As a licensed Realtor and licensed Broker, respectively, they bring a unique blend of knowledge and experience to every transaction. Together, they offer comprehensive guidance in home, land, and commercial property purchases, ensuring clients receive the best possible buying experience.
-    </p>
+    </p> {% endcomment %}
 
     <div class="team-portraits">
-      <div class="portrait" onclick="toggleDescription('terry-desc')">
-        <img src="{% static 'images/TerryWhite.png' %}" alt="Terry Portrait">
-        <p>Terry White</p>
-      </div>
       <div class="portrait" onclick="toggleDescription('april-desc')">
         <img src="{% static 'images/aprilaboutme.png' %}" alt="April Portrait">
         <p>April White</p>
       </div>
+      <div class="portrait" onclick="toggleDescription('terry-desc')">
+        <img src="{% static 'images/TerryWhite.png' %}" alt="Terry Portrait">
+        <p>Terry White</p>
+      </div>
     </div>
 
     <div class="team-descriptions">
-    <div class="team-description" id="terry-desc">
-      <p>Terry, a lifelong resident of Lafayette County, is a proud graduate of Lafayette High School and the Mississippi Realtor Institute. With over 15 years of experience in the timber industry, he has honed his skills in operating a wide range of machinery. 
-      <p>Terry owns and operates White Oak Ridge LLC, specializing in excavating, land clearing, and constructing ponds and lakes, with several successful projects completed for clients in the Oxford area.
-
-        His extensive knowledge in land management and development, coupled with his experience as a licensed Mississippi Realtor, makes him an invaluable asset to the team.</p>
-      <p>Terry also oversees the construction crew, ensuring that projects are executed with precision and expertise. When not working, Terry enjoys fishing at Pickwick Lake with April, balancing hard work with quality time.</p>
-    </div>
     <div class="team-description" id="april-desc">
       <p>April White, born and raised in Yalobusha County, has been a resident of Lafayette County/Oxford, MS for over 31 years. With an in-depth knowledge of the area, April is passionate about real estate and approaches each day with enthusiasm for her work. A licensed real estate broker and owner of Right-Way Realty, she is committed to maintaining the company as a family-run business.</p>
       <p>April’s expertise goes beyond just selling homes—she offers comprehensive guidance on property selection, lending, repairs, closing, and even post-sale services. Known for her extensive network of trusted professionals, she ensures that her clients' needs are met at every step of the homeownership journey.</p>
       <p>As a licensed Mississippi residential contractor, April developed the BayRidge Rentals subdivision and currently manages over 70 rental properties. A graduate of the Mississippi Realtor Institute, April’s values of hard work, honesty, and integrity drive her commitment to doing things the "Right Way."</p>
+    </div>
+    <div class="team-description" id="terry-desc">
+        <p>Terry, a lifelong resident of Lafayette County, is a proud graduate of Lafayette High School and the Mississippi Realtor Institute. With over 15 years of experience in the timber industry, he has honed his skills in operating a wide range of machinery. 
+        <p>Terry owns and operates White Oak Ridge LLC, specializing in excavating, land clearing, and constructing ponds and lakes, with several successful projects completed for clients in the Oxford area.
+          His extensive knowledge in land management and development, coupled with his experience as a licensed Mississippi Realtor, makes him an invaluable asset to the team.</p>
+        <p>Terry also oversees the construction crew, ensuring that projects are executed with precision and expertise. When not working, Terry enjoys fishing at Pickwick Lake with April, balancing hard work with quality time.</p>
+      </div>
+      
 
     {% comment %} <div class="team-description" id="terry-desc">
       <p><strong>Terry White:</strong> Terry has over 15 years of experience in land management and real estate, making him an invaluable part of our team.</p>
