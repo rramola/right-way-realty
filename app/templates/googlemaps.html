@@ -49,7 +49,7 @@
                 <h2>{{ property.house_number }} {{ property.street_name }}, {{ property.city }}, {{ property.state }} {{ property.postal_code }}</h2>
                 <div class="property-details">
                   <h3>${{ property.list_price|floatformat:0|intcomma }}</h3>
-                  <p>{{ property.bedrooms }} Beds | {{ property.baths_total }} Baths | {{ property.sq_ft }} Sq. Ft.</p>
+                  <p>{{ property.bedrooms }} Beds &nbsp; | &nbsp; {{ property.baths_total }} Baths &nbsp; | &nbsp; {{ property.building_area_total }} Sq. Ft.</p>
                   <p>{{ property.property_type }}</p>
                   <p class="agent-info">{{ property.agent_name }}</p>
                   <a id="move_to_property_link" href="#" onclick="moveToProperty({{ property.latitude }}, {{ property.longitude }})">View on Map</a>
@@ -212,18 +212,26 @@
       .then(data => {
         if (data.properties.length > 0) {
           data.properties.forEach(property => {
+            // Format the price with commas
+            const formattedPrice = parseFloat(property.list_price).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+            // Ensure baths and beds are correctly displayed (null checks)
+            const beds = property.bedrooms || 'N/A';
+            const baths = property.baths_total || 'N/A';
+            const sqFt = property.building_area_total ? `${property.building_area_total.toLocaleString()} Sq. Ft.` : 'N/A';
+
+            // Create property item HTML
             const propertyItem = `
               <a href="/property/${property.id}" class="property-link">
                 <div class="property-item">
                   <div class="property-image">
                     <img src="${property.image_url}" alt="Property Image">
                   </div>
-                  <h2>${property.house_number} ${property.street_name}, ${property.city}, ${property.state} ${property.postal_code}</h2>
+                  <h2>${property.house_number || ''} ${property.street_name}, ${property.city}, ${property.state} ${property.postal_code}</h2>
                   <div class="property-details">
-                    <h3>$${property.list_price}</h3>
-                    <p>${property.bedrooms} Beds | ${property.baths_full} Baths | ${property.sq_ft} Sq. Ft.</p>
-                    <p>${property.property_type}</p>
-                    <p class="agent-info">${property.agent_name}</p>
+                    <h3>${formattedPrice}</h3>  <!-- Display formatted price -->
+                    <p>${beds} Beds &nbsp; | &nbsp; ${baths} Baths &nbsp; | &nbsp; ${sqFt}</p>  <!-- Beds, Baths, and Sq. Ft. -->
+                    <p>${property.property_type || 'N/A'}</p>
+                    <p class="agent-info">${property.agent_name || 'N/A'}</p>
                     <a id="move_to_property_link" href="#" onclick="moveToProperty(${property.latitude}, ${property.longitude})">View on Map</a>
                   </div>
                 </div>
@@ -231,8 +239,10 @@
             `;
             propertyList.insertAdjacentHTML('beforeend', propertyItem);
           });
+          // Update the offset
           propertyList.setAttribute('data-offset', offset);
         } else {
+          // Hide "Load More" button if no more properties
           document.getElementById('load-more').style.display = 'none';
         }
       })
@@ -240,6 +250,7 @@
         console.error('Error fetching more properties:', error);
       });
   }
+
 </script>
 
 {% endblock %}
