@@ -99,12 +99,12 @@
   color: #333;
   margin-left: 20%;
   margin-right: 20%;
-  line-height: 3rem;
+  line-height: 2.3rem;
 }
 
 .team-portraits {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   gap: 2rem;
 }
 
@@ -136,7 +136,28 @@
   border: 3px solid #0b3a2d;
 }
 
+.team-descriptions {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem;
+}
+
 .team-description {
+  width: 45%;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+.team-description p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.8;
+}
+/* .team-description {
   display: none;
   margin-top: 1rem;
   font-size: 1.1rem;
@@ -159,7 +180,7 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   width: 60%;
   margin: 0 auto;
-}
+} */
 .portrait p {
   margin-top: 0.5rem;
   font-size: 1.2rem;
