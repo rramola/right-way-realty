@@ -7,74 +7,157 @@
   /* background-color: #155e49;
   border-color: #014235;
   background-color: #2a7a3d; */
-  background-color: #EAEEFB;
+  background: linear-gradient(to bottom, #EAEEFB, #225538);
   /* background-color: #073528; */
-
+  contain: content;
 }
 
 #filters_container {
   grid-row: 1;
   padding-left: 20px;
   padding-right: 20px;
-
 }
 
-#property-list::-webkit-scrollbar {
+/* PROPERTIES */
+#property-list-wrapper {
+  width: 100%;
+  margin-top: 20px;
+  overflow: auto;
+  }
+
+#property-list-wrapper::-webkit-scrollbar {
   display: none;
-  
+
 }
-
-#property-list {
-  padding-left: 20px;
-  overflow-y: scroll;
-  background-color: #EAEEFB;
-  color: #ecf0f1;
-  border-right: 2px solid #ecf0f1;
-  position: relative;
-  grid-row: 2;
-  padding-right: 20px;
-
+#property-list-wrapper {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;  
 }
 
 .property-item {
-  background-color: #073528be;
-  padding: 15px;
-  margin-top: 1rem;
-  border-radius: 10px;
-}
-
-.property-item:hover {
-  background-color: #0b3a2d;
-  transform: scale(1.04);
-  transition: .3s;
+  display: none;
 }
 
 .property-item h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #00bfa5;
-}
-
-.property-item p {
-  font-size: 1rem;
-  margin-bottom: 5px;
-  font-family: "Antic Didone";
-}
-
-.property-item a {
-  color: #EAEEFB;
-  font-family: "Antic Didone";
-  font-weight:600;
-  font-size: 1.4rem;
-  letter-spacing: 2px;
-  text-decoration: none;
-}
-
-#move_to_property_link{
-  font-size: 1rem;
+  font-size: 1.5rem;
   display: flex;
-  justify-content: right;
+  justify-content: center;
+  padding-left: 1rem;
+}
+
+.property-details h2{
+  padding: 1rem;
+  font-family: "Antic Didone";
+  font-size: 2rem;
+  color: black;
+  margin: 0;
+  padding-bottom: 1rem;
+}
+
+.property-details h3{
+  display: flex;
+  justify-content: center;
+}
+
+.property-details p{
+  display: flex;
+  justify-content: center;
+}
+
+.property-item {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 400px;
+  margin: 1rem auto;
+  transition: transform 0.3s;
+  width: 95%;
+
+
+}
+
+.property-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 8px #0b3a2d;
+}
+
+#property-list {
+  contain: content;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.property-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+#pagination-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+#prev-button, #next-button {
+  padding: 10px 15px;
+  background-color: #0b3a2d;
   font-family: "Albert Sans", sans-serif;
+  font-size: 1rem;
+  color: #EAEEFB;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#prev-button:hover, #next-button:hover {
+  background-color: #1e8d1e;
+}
+
+.carousel-indicators {
+  text-align: center;
+  margin-top: -30px;
+  position: relative;
+}
+
+.property-details {
+  padding: 15px;
+  font-family: Arial, sans-serif;
+}
+
+.property-details h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+}
+
+.property-details p {
+  margin: 5px 0;
+  color: #333;
+}
+
+.property-details p.agent-info {
+  color: gray;
+  font-size: 12px;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* Add dot indicators styling */
+.carousel-indicators span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 2px;
+  cursor: pointer;
+}
+
+.carousel-indicators span.active {
+  background-color: #717171;
 }
 
 .property-item a:hover {

@@ -326,5 +326,47 @@ window.addEventListener('load', handleScroll);
 
 
 
+let currentPage = 0;
+const propertiesPerPage = 3;
 
+document.addEventListener('DOMContentLoaded', () => {
+  showProperties(currentPage);
+
+  document.getElementById('next-button').addEventListener('click', nextPage);
+  document.getElementById('prev-button').addEventListener('click', prevPage);
+});
+
+function showProperties(page) {
+  const allProperties = document.querySelectorAll('.property-item');
+  const totalPages = Math.ceil(allProperties.length / propertiesPerPage);
+  
+  allProperties.forEach((property, index) => {
+    if (index >= page * propertiesPerPage && index < (page + 1) * propertiesPerPage) {
+      property.style.display = 'block'; // Show the properties for the current page
+    } else {
+      property.style.display = 'none'; // Hide the rest
+    }
+  });
+
+  // Disable buttons at the edges
+  document.getElementById('prev-button').disabled = page === 0;
+  document.getElementById('next-button').disabled = page >= totalPages - 1;
+}
+
+function nextPage() {
+  const allProperties = document.querySelectorAll('.property-item');
+  const totalPages = Math.ceil(allProperties.length / propertiesPerPage);
+  
+  if (currentPage < totalPages - 1) {
+    currentPage++;
+    showProperties(currentPage);
+  }
+}
+
+function prevPage() {
+  if (currentPage > 0) {
+    currentPage--;
+    showProperties(currentPage);
+  }
+}
 

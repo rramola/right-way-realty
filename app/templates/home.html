@@ -30,7 +30,9 @@
                         {% if property.images.all %}
                         <div class="home_page_property_images">
                             {% for image in property.images.all %}
-                            <img src="{{ image.image.url }}" alt="Property Image" id="home_property_image"/>
+                            {% if forloop.first %}
+                                <img src="{{ image.url }}" alt="Property Image" id="home_property_image"/>
+                            {% endif %}
                             {% endfor %}
                         </div>
                         {% else %}
@@ -66,9 +68,9 @@
                   <a href="{% url 'contact'%}" class="book_now_button">Book Now</a>
               </div>
               <div class="expertise_box">
-                  <h2 class="expertise_box_header">Property Viewing</h2>
-                  <p class="expertise_box_text">Explore your future home with us</p>
-                  <a href="{% url 'contact'%}" class="book_now_button">Book Now</a>
+                  <h2 class="expertise_box_header">Filter Near You</h2>
+                  <p class="expertise_box_text">See available listings in your area</p>
+                  <a href="{% url 'contact'%}" class="book_now_button">Filter Now</a>
               </div>
               <div class="expertise_box">
                   <h2 class="expertise_box_header">Buyer Consultation</h2>

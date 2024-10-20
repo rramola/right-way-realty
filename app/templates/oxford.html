@@ -8,17 +8,23 @@
     <p>Oxford, Mississippi is a town rich in history, known for its Southern charm, beautiful landscapes, and strong sense of community. Whether you’re here to visit or stay, Oxford has something for everyone.</p>
     <div class="three-columns">
         <div class="about_card">
+            <a href="https://olemiss.edu/" target="_blank">
             <img src="{% static 'images/olemiss.jpg' %}" alt="University of Mississippi">
+            </a>
             <h3>University of Mississippi</h3>
             <p>A world-class institution with a strong academic reputation and beautiful campus.</p>
         </div>
         <div class="about_card">
+            <a href="https://visitoxfordms.com/about-oxford/the-square/" target="_blank">
             <img src="{% static 'images/square.jpg' %}" alt="Oxford Downtown">
+            </a>
             <h3>The Square</h3>
             <p>The heart of Oxford, offering dining, shopping, and entertainment for all ages.</p>
         </div>
         <div class="about_card">
+            <a href="https://oxfordms.com/live-in-oxford/things-to-do/festivals-and-events/" target="_blank">
             <img src="{% static 'images/southern-culture.jpg' %}" alt="Southern Culture">
+            </a>
             <h3>Southern Culture</h3>
             <p>From food to festivals, experience true Southern hospitality and vibrant culture.</p>
         </div>
@@ -27,14 +33,16 @@
 
 
 <section class="why-oxford">
-    <h2>Why Live in Oxford?</h2>
-    <p>Oxford is the perfect blend of small-town charm and modern convenience. Here's why people love living here:</p>
+    {% comment %} <h2>Why Live in Oxford?</h2>
+    <p>Oxford is the perfect blend of small-town charm and modern convenience. Here's why people love living here:</p> {% endcomment %}
     <div class="features-grid">
+        {% comment %} <a class="feature-link" href="https://visitoxfordms.com/" target="_blank"> {% endcomment %}
         <div class="feature">
             <img src="{% static 'images/education-icon.png' %}" alt="Education Icon">
             <h3>Top-Tier Education</h3>
             <p>Home to the University of Mississippi and excellent public schools.</p>
         </div>
+        {% comment %} </a> {% endcomment %}
         <div class="feature">
             <img src="{% static 'images/culture-icon.png' %}" alt="Culture Icon">
             <h3>Rich Culture</h3>
@@ -54,7 +62,7 @@
 </section>
 
 
-<section class="key-features">
+{% comment %} <section class="key-features">
     <h2>Experience Modern Southern Living</h2>
     <div class="three-columns">
         <div class="about_card">
@@ -63,11 +71,13 @@
             <p>Enjoy a lifestyle that offers the best of both worlds—tradition and modernity.</p>
         </div>
         <div class="about_card">
+            <a href="https://visitoxfordms.com/trip-idea-the-foodie-type/" target="_blank">
             <img src="{% static 'images/nightlife.jpg' %}" alt="Nightlife">
+            </a>
             <h3>Nightlife & Dining</h3>
             <p>Oxford offers a vibrant nightlife and some of the best dining experiences in the South.</p>
         </div>
     </div>
-</section>
+</section> {% endcomment %}
 
 {% endblock content %}

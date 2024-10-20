@@ -1,6 +1,36 @@
 .about_page_container{
   background-color: #0b3a2d;
 }
+
+#about_us_banner_text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 3px 5px 3px black;
+  letter-spacing: .5rem;
+  font-family: "Albert Sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: #fff;
+  text-align: center;
+  font-size: 5rem;
+}
+
+#about_oxford_banner_text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 3px 5px 3px black;
+  letter-spacing: .5rem;
+  font-family: "Albert Sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: #fff;
+  text-align: center;
+  font-size: 5rem;
+}
 .about-us-content {
   display: flex;
   justify-content: space-between;
@@ -150,11 +180,11 @@
   text-align: center;
   padding: 20px;
   font-size: 4em;
-  color: #EAEEFB;
+  color: rgb(55, 54, 54);
 }
 .intro-section, .why-oxford, .key-features, .testimonials, .explore-oxford {
   padding: 50px 20px;
-  background-color: #014235;
+  background-color: #f4f4f4;
   margin: 20px 0;
 }
 
@@ -163,7 +193,13 @@
 }
 .about_card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 12px #295943;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px #295943;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .intro-section p{
@@ -173,13 +209,13 @@
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
-  color: #EAEEFB;
+  color: #000000;
 }
 
 .why-oxford h2{
   text-align: center;
   font-size: 3em;
-  color: #EAEEFB;
+  color: #0b3a2d;
 }
 
 .why-oxford p{
@@ -192,11 +228,16 @@
 }
 .three-columns .about_card {
   width: 30%;
-  background-color: #295943;
+  background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.three-columns .about_card:hover {
+  box-shadow: 0 8px 12px #295943;
+}
+
 .about_card img {
   width: 100%;
   height: 50%;
@@ -206,7 +247,7 @@
   display: flex;
   justify-content: center;
   margin-top: 10px;
-  color: #EAEEFB;
+  color: #295943;
   font-size: 2em;
 }
 .why-oxford .features-grid {
@@ -217,17 +258,27 @@
   margin-left: 15%;
   margin-right: 15%;
 }
+.feature-link {
+  display: block;
+  text-decoration: none; 
+  color: inherit; 
+}
+
+
+.feature * {
+  pointer-events: none; 
+}
 
 .features-grid .feature:hover {
   transform: translateY(-10px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 12px #295943;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .features-grid .feature {
   width: 45%;
   padding: 20px;
-  background-color: #295943;
+  background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
   margin-bottom: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -237,7 +288,7 @@
 .key-features h2{
   text-align: center;
   font-size: 3em;
-  color: #EAEEFB;
+  color: #295943;
 }
 
 .explore-oxford h2{
