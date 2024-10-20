@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect, JsonResponse
 from .models import *
 from .forms import *
 from django.core.mail import send_mail, BadHeaderError
@@ -116,3 +116,33 @@ def contact_page(request):
 def rental_list(request):
     rentals = Rental.objects.all()
     return render(request, 'rental_list.html', {'rentals': rentals})
+
+def load_more_properties(request):
+    offset = int(request.GET.get('offset', 0))
+    limit = int(request.GET.get('limit', 2))
+    properties = Property.objects.all()[offset:offset + limit]
+
+    property_list = []
+    for property in properties:
+        property_list.append({
+            'id': property.id,
+            'house_number': property.house_number,
+            'street_name': property.street_name,
+            'city': property.city,
+            'state': property.state,
+            'postal_code': property.postal_code,
+            'list_price': property.list_price,
+            'bedrooms': property.bedrooms,
+            'baths_total': property.baths_total,
+            'building_area_total': property.building_area_total,
+            'property_type': property.property_type,
+            'image_url': property.images.first().url if property.images.exists() else '',
+            'latitude': property.latitude,
+            'longitude': property.longitude,
+        })
+
+    return JsonResponse({'properties': property_list})
+
+
+
+

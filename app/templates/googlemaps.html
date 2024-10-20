@@ -31,39 +31,37 @@
           </div>
         </div>
         <div id="property-list-wrapper">
-          <div id="property-list">
+          <div id="property-list" data-limit="2" data-offset="0">
             {% if properties %}
             {% for property in properties|slice:":2" %}
             <a href="{% url 'property_detail' property.id %}" class="property-link">
-            <div class="property-item"
-        data-price="{{ property.list_price }}"
-        data-beds="{{ property.bedrooms }}"
-        data-total-baths="{{ property.baths_total|default:"0"}}"
-        data-full-baths="{{ property.baths_full|default:"0" }}"
-        data-half-baths="{{ property.baths_half|default:"0" }}"
-        data-location="{{property.city}}"
-        data-mls-number="{{property.mls_number}}">
-        <div class="property-image">
-          <img src="{{ property.images.first.url}}" alt="Property Image">
-        </div>
-      </a>
-        <h2>
-          {% if property.id %}
-              {{ property.house_number }} {{ property.street_name }},
-              {{ property.city }}, {{ property.state }} {{ property.postal_code }}
-          {% else %}
-            <span>Invalid Property</span>
-          {% endif %}
-        </h2>
-        
-        <div class="property-details">
-          <h3>${{ property.list_price|floatformat:0|intcomma }}</h3>
-          <p>{{ property.bedrooms }} Beds &nbsp; | &nbsp; {{ property.baths_total }} Baths &nbsp; | &nbsp; {{ property.sq_ft }} Sq. Ft.</p>
-          <p>{{ property.house_number }} {{ property.street_name }}, {{ property.city }}, {{ property.state }} {{ property.postal_code }}</p>
-          <p>{{ property.property_type }}</p>
-          <p class="agent-info">{{ property.agent_name }}</p>
-          <p>{% if property.baths_total != None %}<p><span class="home_info_content_labels">Baths: </span>{{ property.baths_total }}</p>{% endif %}
-          <a id="move_to_property_link" href="#" onclick="moveToProperty({{ property.latitude }}, {{ property.longitude }})">View on Map</a>
+              <div class="property-item"
+                   data-price="{{ property.list_price }}"
+                   data-beds="{{ property.bedrooms }}"
+                   data-total-baths="{{ property.baths_total|default:"0"}}"
+                   data-full-baths="{{ property.baths_full|default:"0" }}"
+                   data-half-baths="{{ property.baths_half|default:"0" }}"
+                   data-location="{{property.city}}"
+                   data-mls-number="{{property.mls_number}}">
+                <div class="property-image">
+                  <img src="{{ property.images.first.url }}" alt="Property Image">
+                </div>
+                <h2>{{ property.house_number }} {{ property.street_name }}, {{ property.city }}, {{ property.state }} {{ property.postal_code }}</h2>
+                <div class="property-details">
+                  <h3>${{ property.list_price|floatformat:0|intcomma }}</h3>
+                  <p>{{ property.bedrooms }} Beds | {{ property.baths_total }} Baths | {{ property.sq_ft }} Sq. Ft.</p>
+                  <p>{{ property.property_type }}</p>
+                  <p class="agent-info">{{ property.agent_name }}</p>
+                  <a id="move_to_property_link" href="#" onclick="moveToProperty({{ property.latitude }}, {{ property.longitude }})">View on Map</a>
+                </div>
+              </div>
+            </a>
+            {% endfor %}
+            {% else %}
+            <p>No properties available.</p>
+            {% endif %}
+          </div>
+          <button id="load-more" onclick="loadMoreProperties()">Show More Properties</button>
         </div>
         {% comment %} <p><span class="home_info_content_labels">Price: </span>${{ property.list_price|floatformat:0|intcomma }}</p>
       {% if property.bedrooms != nonce %} <p><span class="home_info_content_labels">Bedrooms: </span>{{ property.bedrooms }}</p>{% endif %}
@@ -72,12 +70,12 @@
       <a id="move_to_property_link" href="#" onclick="moveToProperty({{ property.latitude }}, {{ property.longitude }})">View on Map</a> {% endcomment %}
     
 
-            </div>
+            {% comment %} </div>
             {% endfor %}
             {% else %}
             <p>No properties available.</p>
             {% endif %}
-          </div>
+          </div> {% endcomment %}
 
   {% comment %} <p><span class="home_info_content_labels">Price: </span>${{ property.list_price|floatformat:0|intcomma }}</p>
       {% if property.bedrooms != nonce %} <p><span class="home_info_content_labels">Bedrooms: </span>{{ property.bedrooms }}</p>{% endif %}
@@ -202,6 +200,45 @@
   function moveToProperty(lat, lng) {
     map.setCenter({ lat: lat, lng: lng });
     map.setZoom(15);
+  }
+
+  function loadMoreProperties() {
+    const propertyList = document.getElementById('property-list');
+    const limit = parseInt(propertyList.getAttribute('data-limit'));
+    const offset = parseInt(propertyList.getAttribute('data-offset')) + limit;
+  
+    fetch(`/load-more-properties?offset=${offset}&limit=${limit}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.properties.length > 0) {
+          data.properties.forEach(property => {
+            const propertyItem = `
+              <a href="/property/${property.id}" class="property-link">
+                <div class="property-item">
+                  <div class="property-image">
+                    <img src="${property.image_url}" alt="Property Image">
+                  </div>
+                  <h2>${property.house_number} ${property.street_name}, ${property.city}, ${property.state} ${property.postal_code}</h2>
+                  <div class="property-details">
+                    <h3>$${property.list_price}</h3>
+                    <p>${property.bedrooms} Beds | ${property.baths_full} Baths | ${property.sq_ft} Sq. Ft.</p>
+                    <p>${property.property_type}</p>
+                    <p class="agent-info">${property.agent_name}</p>
+                    <a id="move_to_property_link" href="#" onclick="moveToProperty(${property.latitude}, ${property.longitude})">View on Map</a>
+                  </div>
+                </div>
+              </a>
+            `;
+            propertyList.insertAdjacentHTML('beforeend', propertyItem);
+          });
+          propertyList.setAttribute('data-offset', offset);
+        } else {
+          document.getElementById('load-more').style.display = 'none';
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching more properties:', error);
+      });
   }
 </script>
 
