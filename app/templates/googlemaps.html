@@ -71,6 +71,7 @@
       {% if property.baths_total != None %}<p><span class="home_info_content_labels">Baths: </span>{{ property.baths_total }}</p>{% endif %}
       <a id="move_to_property_link" href="#" onclick="moveToProperty({{ property.latitude }}, {{ property.longitude }})">View on Map</a> {% endcomment %}
     
+
             </div>
             {% endfor %}
             {% else %}
@@ -142,7 +143,7 @@
     map = new Map(document.getElementById("map"), {
       center: { lat: 34.366743, lng: -89.518652 },
       zoom: 12,
-      mapId: "9dd514aacb4d086b",  // Map ID
+      mapId: "9dd514aacb4d086b",  // Your Map ID
     });
 
     const properties = [
@@ -151,7 +152,7 @@
         lat: parseFloat("{{ property.latitude }}"),
         lng: parseFloat("{{ property.longitude }}"),
         title: "{{ property.house_number }} {{ property.street_name }}, {{ property.city }}, {{ property.state }}",
-        price: "{{ property.list_price }}",
+        price: "{{ property.list_price|floatformat:0|intcomma }}",
         url: "{% url 'property_detail' property.id %}"
       },
       {% endfor %}
@@ -159,26 +160,29 @@
 
     properties.forEach(property => {
       if (!isNaN(property.lat) && !isNaN(property.lng)) {
+        // Create custom div marker showing price
+        const priceMarkerDiv = document.createElement('div');
+        priceMarkerDiv.className = 'price-marker';
+        priceMarkerDiv.innerHTML = `$${property.price}`;
+        
         const marker = new AdvancedMarkerElement({
           position: new google.maps.LatLng(property.lat, property.lng),
           map: map,
-          title: property.title
+          content: priceMarkerDiv,  // Using the custom price div as the marker content
         });
 
-        const formattedPrice = formatPriceWithCommas(property.price);
-            
         const infoWindowContent = `
         <div class="map-popup">
           <h3 class="popup-title"><a href="${property.url}">${property.title}</a></h3>
-          <p class="popup-price">Price: $${formattedPrice}</p>
+          <p class="popup-price">Price: $${property.price}</p>
         </div>
-      `;
+        `;
 
         const infoWindow = new google.maps.InfoWindow({
           content: infoWindowContent
-        }); 
+        });
 
-        google.maps.event.addListener(marker,"click", () => {
+        marker.addListener("click", () => {
           windowsOpen.forEach(openWindow => openWindow.close());
           infoWindow.open(map, marker);
           windowsOpen.push(infoWindow);
@@ -187,8 +191,8 @@
             infoWindow.close();
             windowsOpen = windowsOpen.filter(win => win !== infoWindow);
           });
-        });    
-      };
+        });
+      }
     });
   }
 
