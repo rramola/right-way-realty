@@ -8,14 +8,9 @@
     <div class="property-card">
       <div class="card" id="main-property-card">
         <h5 class="property-address">
-          {{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }},
+          {{ property.house_number }} {{ property.street_name }},
           {{ property.city }}, {{ property.state }} {{ property.postal_code }}
         </h5>
-        <div class="property-status">
-          <span><span class = 'property-overview-header'>MLS#</span> {{ property.mls_number }}</span> |
-          <span><span class = 'property-overview-header'>Property Type: </span>{{ property.property_subtype }}</span> |
-          <span><span class = 'property-overview-header'>Status: </span>{{ property.mls_status }}</span>
-        </div>
         
         <!-- Main Property Image -->
         {% comment %} <img
@@ -47,9 +42,14 @@
               <button class="carousel-control-main next" onclick="moveCarousel(1)">&#10095;</button>
           </div>
         </div>
+        <div class="property-status">
+          <span><span class = 'property-overview-header'>MLS#</span> {{ property.mls_number }}</span> |
+          <span><span class = 'property-overview-header'>Property Type: </span>{{ property.property_subtype }}</span> |
+          <span><span class = 'property-overview-header'>Status: </span>{{ property.mls_status }}</span>
+        </div>
         
         <!-- Image Carousel -->
-        <div class="carousel-card">
+        <!-- <div class="carousel-card">
           <div class="carousel-container">
               <div class="carousel">
                   <div class="carousel-inner-scroll">
@@ -69,7 +69,7 @@
                   <button class="carousel-control-scroll next" onclick="moveCarouselSlider(1)">&#10095;</button>
               </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Property Overview -->
         <div class="card-body">
@@ -109,10 +109,10 @@
             <div id="property-description">{{ property.description }}</div>
           </div>
         </div>     
-    </div>
+    <!-- </div> --> 
     
     <!-- Second Card -->
-    <div class="second-card">
+    <!-- <div class="second-card"> -->
       <!-- Additional Property Details -->
       <div id="additional_property_details_container">
         <div class="card-body">
@@ -376,7 +376,7 @@
       </div>
     </div>
 
-    <div id="mortgage-calculator-container">
+    <!-- <div id="mortgage-calculator-container">
       <div class="mortgage-calculator">
         <h5>Mortgage Calculator</h5>
         <form id="mortgage-form">
@@ -400,7 +400,7 @@
         </form>
         <div id="monthlyPayment" class="result"></div>
     </div>
-  </div>
+  </div> -->
 </div>
 
 
