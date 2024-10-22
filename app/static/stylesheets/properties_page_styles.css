@@ -53,14 +53,9 @@
   }
 
   /* Property Image Styles */
-  .main-image-container{
-    width: 50%;
-  }
 
   .card-img-top {
     width: 100%;
-    height: auto;
-    max-height: 400px;
     object-fit: cover;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
@@ -196,6 +191,10 @@
     #overview-header{
       margin-left: 3rem;
     }
+    .card-img-top {
+    height: auto;
+    max-height: 400px;
+  }
 
       #description-header{
       margin-left: 3rem;
