@@ -74,7 +74,11 @@
         <div class="card-body">
           <h3 class="collapsible" onclick="toggleCollapse(this)">Location:</h3>
           <div class="content">
-              <h3>Address:</h3>
+             <div class="property-detail-item">
+                <h3>Address:</h3>
+                {{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }},
+                {{ property.city }}, {{ property.state }} {{ property.postal_code }}
+             </div>
               <div class="property-detail-item">
                 <h3>Area:</h3>
                 <span>{{ property.mls_area }}</span>
@@ -119,7 +123,6 @@
         <div class="card-body">
           <h3 class="collapsible" onclick="toggleCollapse(this)">Interior:</h3>
           <div class="content">
-            <div class="additional-features">
               <div class="property-detail-item" id="detail-item-grid-span">
                 <h3>Appliances:</h3>
                 {% for appliance in property.appliances %}
@@ -180,7 +183,6 @@
                   {% endfor %} 
 
               </div>
-            </div>
           </div>
         </div>
 
@@ -188,7 +190,6 @@
         <div class="card-body">
           <h3 class="collapsible" onclick="toggleCollapse(this)">Exterior / Lot:</h3>
           <div class="content">
-            <div class="additional-features">
               <div class="property-detail-item">
                 <h3>Additional Structures:</h3> 
                   {% for item in property.other_structures %}
@@ -268,7 +269,6 @@
                       N/A
                   {% endfor %} 
               </div>
-            </div>
           </div>
         </div>
         <!-- Architecture -->
@@ -312,12 +312,10 @@
           </div>
         </div>
 
-      <!-- Interior Features -->
-        <!-- Mortgage Calculator -->
+      <!-- Utilities Features -->
         <div class="card-body">
           <h3 class="collapsible" onclick="toggleCollapse(this)">Utilities:</h3>
           <div class="content">
-            <div class="additional-features">
               <div class="property-detail-item" id="cooling-detail-item">
                 <h3>Cooling: </h3>
                 {% for cooling in property.cooling %}
@@ -358,7 +356,6 @@
                       N/A
                 {% endfor %} 
               </div>
-            </div>
           </div>
         </div>
       </div>
