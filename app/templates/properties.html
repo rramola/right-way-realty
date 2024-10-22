@@ -144,8 +144,6 @@
           <div class="content">
             <div class="additional-features">
               <div class="property-detail-item" id="detail-item-grid-span">
-                <h3>Appliances: </h3>
-                {% for appliance in property.appliances%}
                 <h3>Appliances:</h3>
                 {% for appliance in property.appliances %}
                   {{ appliance }}{% if not forloop.last %}, {% endif %}
@@ -178,13 +176,7 @@
                     {{ item }}{% if not forloop.last %}, {% endif %}
                     {%empty%}
                       N/A
-                  {% endfor %} 
-                <h3>Flooring:</h3>
-                {% for item in property.flooring %}
-                  {{ item }}{% if not forloop.last %}, {% endif %}
-                  {% empty %} 
-                    N/A 
-                {% endfor %}
+                  {% endfor %}
               </div>
               <div class="property-detail-item">
                 <h3>Fireplace:</h3>
@@ -193,12 +185,6 @@
                     {%empty%}
                       None
                   {% endfor %} 
-                
-                {% for item in property.fireplace_features %}
-                  {{ item }}{% if not forloop.last %}, {% endif %}
-                  {% empty %} 
-                    None 
-                {% endfor %}
               </div>
               <div class="property-detail-item">
                 <h3>Laundry:</h3> 
@@ -206,13 +192,7 @@
                     {{ item }}{% if not forloop.last %}, {% endif %}
                     {%empty%}
                       N/A
-                  {% endfor %} 
-                <h3>Laundry:</h3>
-                {% for item in property.laundry_features %}
-                  {{ item }}{% if not forloop.last %}, {% endif %}
-                  {% empty %} 
-                    N/A 
-                {% endfor %}
+                  {% endfor %}
               </div>
               <div class="property-detail-item">
                 <h3>Additional Features:</h3> 
@@ -221,12 +201,7 @@
                     {%empty%}
                       N/A
                   {% endfor %} 
-                <h3>Additional Features:</h3>
-                {% for item in property.interior_features %}
-                  {{ item }}{% if not forloop.last %}, {% endif %}
-                  {% empty %} 
-                      N/A 
-                {% endfor %}
+
               </div>
             </div>
           </div>
@@ -245,12 +220,7 @@
                     {%empty%}
                       N/A
                   {% endfor %} 
-                <h3>Additional Structures:</h3>
-                {% for item in property.other_structures %}
-                  {{ item }}{% if not forloop.last %}, {% endif %}
-                  {% empty %} 
-                    N/A 
-                {% endfor %}
+
               </div>
               <div class="property-detail-item">
                 <h3>Garage / Carport:</h3> 
