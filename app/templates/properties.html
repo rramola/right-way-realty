@@ -182,7 +182,9 @@
                 <h3>Flooring:</h3>
                 {% for item in property.flooring %}
                   {{ item }}{% if not forloop.last %}, {% endif %}
-                {% empty %} N/A {% endfor %}
+                  {% empty %} 
+                    N/A 
+                {% endfor %}
               </div>
               <div class="property-detail-item">
                 <h3>Fireplace:</h3>
@@ -194,7 +196,9 @@
                 
                 {% for item in property.fireplace_features %}
                   {{ item }}{% if not forloop.last %}, {% endif %}
-                {% empty %} None {% endfor %}
+                  {% empty %} 
+                    None 
+                {% endfor %}
               </div>
               <div class="property-detail-item">
                 <h3>Laundry:</h3> 
@@ -206,7 +210,9 @@
                 <h3>Laundry:</h3>
                 {% for item in property.laundry_features %}
                   {{ item }}{% if not forloop.last %}, {% endif %}
-                {% empty %} N/A {% endfor %}
+                  {% empty %} 
+                    N/A 
+                {% endfor %}
               </div>
               <div class="property-detail-item">
                 <h3>Additional Features:</h3> 
@@ -218,7 +224,9 @@
                 <h3>Additional Features:</h3>
                 {% for item in property.interior_features %}
                   {{ item }}{% if not forloop.last %}, {% endif %}
-                {% empty %} N/A {% endfor %}
+                  {% empty %} 
+                      N/A 
+                {% endfor %}
               </div>
             </div>
           </div>
@@ -240,7 +248,9 @@
                 <h3>Additional Structures:</h3>
                 {% for item in property.other_structures %}
                   {{ item }}{% if not forloop.last %}, {% endif %}
-                {% empty %} N/A {% endfor %}
+                  {% empty %} 
+                    N/A 
+                {% endfor %}
               </div>
               <div class="property-detail-item">
                 <h3>Garage / Carport:</h3> 
@@ -289,6 +299,10 @@
               <div class="property-detail-item">
                 <h3>Road Surface:</h3> 
                 {% for item in property.road_surface_type %}
+                 {{ item }}{% if not forloop.last %}, {% endif %}
+                  {%empty%}
+                      N/A
+                {% endfor %} 
                 <h3>Roofing:</h3>
                 {% for item in property.roofing %}
                   {{ item }}{% if not forloop.last %}, {% endif %}
@@ -299,7 +313,6 @@
               <div class="property-detail-item">
                 <h3>Zoning:</h3> 
                 <span>{{ property.zoning_description }}</span>
-                {% empty %} N/A {% endfor %}
               </div>
               <div class="property-detail-item">
                 <h3>Notes:</h3> 
