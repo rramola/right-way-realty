@@ -150,6 +150,7 @@
     grid-template-columns: 1fr 1fr;
     justify-content: space-between;
     position: relative;
+    overflow-x: visible;
   }
 
   #hamburger_menu {
