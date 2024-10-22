@@ -43,6 +43,33 @@
   color: #fff; */
 }
 
+.jump-links {
+  position: fixed;
+  right: 2rem;
+  top: 90%;
+  transform: translateY(-50%);
+  background-color: #0b3a2d;
+  padding: .7rem;
+  border-radius: 8px;
+  border: white 2px solid;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.jump-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+
+
+.jump-links a:hover {
+  text-decoration: underline;
+  text-shadow: 0 0 5px #fff;
+}
 .team-section {
   flex-direction: row-reverse;
 }
