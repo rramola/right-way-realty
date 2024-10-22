@@ -12,22 +12,23 @@
           {{ property.city }}, {{ property.state }} {{ property.postal_code }}
         </h5>
 
-        <!-- Main Property Image Gallery -->
-        <div class="carousel-container">
-          <div class="carousel">
-            <div class="carousel-inner">
-              {% if images %}
-                {% for image in images %}
-                  <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                    <img src="{{ image.url }}" alt="Image of {{ property.house_number }} {{ property.street_name }}" class="card-img-top" />
-                  </div>
-                {% endfor %}
-              {% else %}
-                <p>No additional images available.</p>
-              {% endif %}
-            </div>
-            <button class="carousel-control prev" onclick="moveCarousel(-1)">&#10094;</button>
-            <button class="carousel-control next" onclick="moveCarousel(1)">&#10095;</button>
+        <!-- Main Property Image -->
+        <div class="main-image-container">
+          <img id="main-image" src="{% if images %}{{ images.0.url }}{% else %}{% static 'default-image.jpg' %}{% endif %}" alt="Image of {{ property.house_number }} {{ property.street_name }}" class="card-img-top" />
+        </div>
+
+        <!-- Thumbnail Carousel -->
+        <div class="thumbnail-carousel">
+          <div class="carousel-inner">
+            {% if images %}
+              {% for image in images %}
+                <div class="carousel-item" onclick="changeMainImage('{{ image.url }}')">
+                  <img src="{{ image.url }}" alt="Thumbnail of {{ property.house_number }} {{ property.street_name }}" class="thumbnail" />
+                </div>
+              {% endfor %}
+            {% else %}
+              <p>No additional images available.</p>
+            {% endif %}
           </div>
         </div>
 
@@ -268,6 +269,10 @@ function calculateMortgage() {
   } else {
     document.getElementById('mortgage-result').innerText = 'Please enter valid values.';
   }
+}
+
+function changeMainImage(imageUrl) {
+  document.getElementById('main-image').src = imageUrl;
 }
 
 function toggleCollapse(element) {
