@@ -50,6 +50,10 @@
   }
 
   /* Property Image Styles */
+  .main-image-container{
+    width: 50%;
+  }
+
   .card-img-top {
     width: 100%;
     height: auto;
@@ -63,6 +67,7 @@
     justify-content: center;
     overflow-x: auto;
     padding: 10px 0;
+    width: 50%;
   }
 
   .thumbnail {
@@ -148,7 +153,17 @@
   font-size: 1.2em;
 }
 
+
+
   /* Mobile Styles */
+  @media (max-width: 1000px) {
+    .main-image-container{
+      width: auto;
+    }
+    .thumbnail-carousel {
+    width: auto;
+  }
+  }
   @media (max-width: 768px) {
     .property-details-grid {
       grid-template-columns: repeat(2, 1fr);
