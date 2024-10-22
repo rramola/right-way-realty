@@ -115,6 +115,10 @@
     margin-bottom: 30px;
   }
 
+  #description-header{
+    margin-left: 3rem;
+  }
+
   .property-detail-item {
     background-color: var(--light-blue);
     padding: 10px;
@@ -179,11 +183,23 @@
     .property-card{
       margin-left: 0;
       margin-right: 0;
-
+    }
     #mortgage-calculator-container{
     margin-left: 0;
     margin-right: 0;
     }
+
+      #overiew-header{
+      margin-left: 3rem;
+    }
+
+      #description-header{
+      margin-left: 3rem;
+    }
+
+    .description-content{
+      padding-left:18px;
+      padding-right: 18PX
   }
 
   @media (max-width: 480px) {
