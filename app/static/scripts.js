@@ -370,3 +370,20 @@ function prevPage() {
   }
 }
 
+
+
+// Property detail collapsible functions
+
+function toggleCollapse(element) {
+    const content = element.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  }
+  
+  // Optional: Hide collapsible content by default
+  document.querySelectorAll('.content').forEach(content => {
+    content.style.display = "none";
+  });
