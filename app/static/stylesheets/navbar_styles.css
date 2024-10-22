@@ -10,6 +10,7 @@
   z-index: 1000;
   padding-bottom: .5rem;
   padding-top: .5rem;
+  overflow-x: hidden;
 }
 
 

@@ -215,45 +215,82 @@
 }
 
 /* CALENDAR */
-.calendar-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  gap: 2rem;
-  background: linear-gradient(to right, #ce1127, #14213D);
-  color: #fff;
+
+.responsive-calendar {
+  max-width: 100%;
+  min-width: 300px; /* Ensures the calendar doesn't shrink too much */
+  position: relative; /* Key to fixing the positioning issue */
+  padding-bottom: 56.25%; /* Aspect ratio of 16:9 */
+  height: 0;
+  overflow: hidden;
+}
+
+.responsive-calendar iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100%; 
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+  grid-gap: 20px; /* Gap between the grid items */
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .calendar-section h2 {
-  font-size: 2.2rem;
-  color: #fff;
-  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 2em;
+  color: white;
+  text-shadow: 3px 5px 3px black;
+  background: linear-gradient(to right, #CE1126, #14213D);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 1rem;
+
 }
 
 
 /* OXFORD */
 
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #oxford_image {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
-  display: block;
+}
+
+.intro-section {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #f4f4f4;
 }
 
 .intro-section h2 {
-  text-align: center;
-  padding: 20px;
-  font-size: 4em;
-  color: rgb(55, 54, 54);
+  font-size: 2.5em;
+  color: #374046;
+  margin-bottom: 20px;
 }
-.intro-section, .why-oxford, .key-features, .testimonials, .explore-oxford {
+
+.intro-section p {
+  font-size: 1.2em;
+  margin: 0 auto;
+  max-width: 800px;
+  color: #333;
+}
+/* .intro-section, .why-oxford, .key-features, .testimonials, .explore-oxford {
   padding: 50px 20px;
   background-color: #f4f4f4;
   margin: 20px 0;
-}
+} */
 
 .intro-section h3{
   color:black;  
@@ -272,12 +309,12 @@
 .intro-section p{
   font-size: 1.5em;
 }
-.intro-section p, .why-oxford p, .key-features p {
+/* .intro-section p, .why-oxford p, .key-features p {
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
   color: #000000;
-}
+} */
 
 .why-oxford h2{
   text-align: center;
@@ -290,8 +327,9 @@
 }
 .three-columns {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .three-columns .about_card {
   width: 30%;
@@ -299,6 +337,16 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about_card {
+  flex-basis: 30%;
+  background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .three-columns .about_card:hover {
@@ -311,26 +359,29 @@
   border-radius: 8px;
 }
 .about_card h3 {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
+  font-size: 1.8em;
   color: #295943;
-  font-size: 2em;
+  margin-top: 15px;
 }
+
+
 .why-oxford .features-grid {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  margin-left: 15%;
-  margin-right: 15%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* flex-wrap: wrap; */
 }
+
 .feature-link {
   display: block;
   text-decoration: none; 
   color: inherit; 
 }
 
+.why-oxford {
+  padding: 50px 20px;
+  margin-top: 30px;
+  text-align: center;
+}
 
 .feature * {
   pointer-events: none; 
@@ -343,8 +394,6 @@
 }
 
 .features-grid .feature {
-  width: 45%;
-  padding: 20px;
   background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
   margin-bottom: 20px;
   border-radius: 8px;
@@ -374,3 +423,83 @@
   border: none;
 }
 
+/* MEDIA QUERIES */
+@media (max-width: 1300px){
+  .about_card, .feature {
+    flex-basis: 45%;
+  }
+}
+
+@media (max-width: 1199px) {
+  .three-columns {
+      flex-direction: row;
+      align-items: center;
+  }
+
+  .about_card{
+      flex-basis: 50%;
+      margin-bottom: 20px;
+      margin: 0 auto; 
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+
+  .intro-section h2 {
+      font-size: 2.2em;
+  }
+
+  .why-oxford h2 {
+      font-size: 2.2em;
+  }
+}
+
+@media (max-width: 850px) {
+
+
+
+}
+@media (max-width: 768px) and (max-width: 1200px) {
+  .three-columns .about_card  {
+      flex-direction: column;
+      align-items: center;
+
+  }
+
+  .about_card  {
+      flex-basis: 100%;
+      margin-bottom: 20px;
+  }
+
+  .intro-section h2 {
+      font-size: 2em;
+  }
+
+  .why-oxford h2 {
+      font-size: 2em;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr; /* One column on smaller screens */
+  }
+
+  .intro-section p, .why-oxford p, .key-features p {
+    font-size: 1.2em;
+  }
+
+  
+
+}
+@media (max-width: 400px){
+  .features-grid {
+    grid-template-columns: 1fr; /* One column on smaller screens */
+  }
+}
+
+@media (min-width: 1201px) {
+  .features-grid {
+      grid-template-columns: repeat(2, 1fr); /* Ensure 2 equal columns on larger screens */
+  }
+}
