@@ -191,7 +191,6 @@
                     {%empty%}
                       N/A
                   {% endfor %} 
-
               </div>
               <div class="property-detail-item">
                 <h3>Garage / Carport:</h3> 
@@ -199,18 +198,11 @@
                 {% if property.carport == true %}{{property.car_port_spaces}} Space Car Port{% endif %}
                 {% if property.carport != true and property.garage_yes_no != true %}N/A{% endif %}
               </div>     
-                <h3>Garage / Carport:</h3>
-                {% if property.garage_yes_no %}{{ property.garage_spaces }} Car Garage{% endif %}
-                {% if property.carport %}{{ property.car_port_spaces }} Space Car Port{% endif %}
-                {% if not property.carport and not property.garage_yes_no %}N/A{% endif %}
-              </div>
               <div class="property-detail-item">
-                <h3>Lot Size:</h3> 
                 <h3>Lot Size:</h3>
                 <span id="property-lot-detail-item">{{ property.lot_size_acres }} Acres</span>
               </div>
               <div class="property-detail-item">
-                <h3>Patio / Porch:</h3> 
                 <h3>Patio / Porch:</h3>
                 {% for item in property.patio_porch_features %}
                   {{ item }}{% if not forloop.last %}, {% endif %}
@@ -219,7 +211,6 @@
                 {% endfor %} 
               </div>
               <div class="property-detail-item">
-                <h3>Parking Features:</h3> 
                 <h3>Parking Features:</h3>
                 {% for item in property.parking_features %}
                   {{ item }}{% if not forloop.last %}, {% endif %}
@@ -228,7 +219,6 @@
                 {% endfor %} 
               </div>      
               <div class="property-detail-item">
-                <h3>Pool:</h3> 
                 <h3>Pool:</h3>
                 {% for item in property.pool_features %}
                   {{ item }}{% if not forloop.last %}, {% endif %}
@@ -244,6 +234,8 @@
                   {%empty%}
                       N/A
                 {% endfor %} 
+              </div>
+              <div class="property-detail-item">
                 <h3>Roofing:</h3>
                 {% for item in property.roofing %}
                   {{ item }}{% if not forloop.last %}, {% endif %}
