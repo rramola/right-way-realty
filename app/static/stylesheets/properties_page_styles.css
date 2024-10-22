@@ -43,6 +43,8 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
+    margin-left: 5rem;
+    margin-right: 30rem;
   }
 
   #main-property-card {
@@ -120,6 +122,11 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
+  .mortgage-calculator-container {
+  margin-left: 5rem;
+  margin-right: 30rem;
+}
+
   .mortgage-calculator {
   background-color: var(--light-blue);
   padding: 20px;
@@ -167,6 +174,14 @@
   @media (max-width: 768px) {
     .property-details-grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+    .property-card{
+      margin-left: 0;
+      margin-right: 0;
+
+    .mortgage-calculator-container{
+    margin-left: 0;
+    margin-right: 0;
     }
   }
 
