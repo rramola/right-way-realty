@@ -84,3 +84,96 @@
   font-size: 14px;
   margin-bottom: 20px;
 }
+
+.mortgage-calculator {
+  background-color: var(--light-blue);
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+.mortgage-calculator h5 {
+  margin-bottom: 15px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .carousel-container{
+  .collapsible {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    font-size: 15px;
+  }
+  .property-card {
+    display: flex;
+    flex-direction: column;
+  .active, .collapsible:hover {
+    background-color: #ccc;
+  }
+
+  .carousel-card {
+    margin-left: 0;
+    margin-top: 20px;
+  .content {
+    display: none;
+    padding: 0 18px;
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
+
+  .property-details-grid {
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .carousel-control {
+    font-size: 14px;
+    padding: 5px;
+  .property-detail-item {
+    background-color: var(--light-blue);
+    padding: 10px;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 480px) {
+  .property-details-grid {
+    grid-template-columns: 1fr;
+  .mortgage-calculator {
+    background-color: var(--light-blue);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+
+  .carousel-item {
+    flex: 0 1 100%;
+  .result {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+
+}
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .property-details-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .property-details-grid {
+      grid-template-columns: 1fr;
+    }
+  }
