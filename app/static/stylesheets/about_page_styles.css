@@ -187,6 +187,25 @@
   color: #333;
 }
 
+/* CALENDAR */
+.calendar-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  gap: 2rem;
+  background: linear-gradient(to right, #ce1127, #14213D);
+  color: #fff;
+}
+
+.calendar-section h2 {
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
 
 /* OXFORD */
 
