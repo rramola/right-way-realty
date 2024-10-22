@@ -43,6 +43,33 @@
   color: #fff; */
 }
 
+.jump-links {
+  position: fixed;
+  right: 2rem;
+  top: 90%;
+  transform: translateY(-50%);
+  background-color: #0b3a2d;
+  padding: .7rem;
+  border-radius: 8px;
+  border: white 2px solid;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.jump-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+
+
+.jump-links a:hover {
+  text-decoration: underline;
+  text-shadow: 0 0 5px #fff;
+}
 .team-section {
   flex-direction: row-reverse;
 }
@@ -185,6 +212,25 @@
   margin-top: 0.5rem;
   font-size: 1.2rem;
   color: #333;
+}
+
+/* CALENDAR */
+.calendar-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  gap: 2rem;
+  background: linear-gradient(to right, #ce1127, #14213D);
+  color: #fff;
+}
+
+.calendar-section h2 {
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 1rem;
 }
 
 

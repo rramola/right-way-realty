@@ -89,6 +89,7 @@
   max-height: 80vh;
   overflow-y: auto;
 }
+
 .property-image img {
   width: 100%;
   height: 200px;
@@ -163,6 +164,20 @@
 .property-item a:hover {
   text-decoration: underline;
 }
+
+.property-link {
+  color: inherit; /* Keep the text color the same as the parent element */
+  text-decoration: none; /* Remove the underline from the link */
+}
+
+.property-link:visited,
+.property-link:hover,
+.property-link:active,
+.property-link:focus {
+  color: inherit; /* Keep the same color on all link states */
+  text-decoration: none; /* Ensure the underline stays removed */
+}
+
 
 #map {
   /* width: 70%; */
