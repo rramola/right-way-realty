@@ -24,7 +24,7 @@
   .property-address {
     font-size: 1.3em;
     margin: 5px;
-    margin-top: 5rem;
+    margin-top: 2rem;
   }
 
   .property-page {
@@ -85,7 +85,7 @@
   }
   .thumbnail-carousel {
     display: flex;
-    justify-content: center;
+    column-gap: 5px;
     overflow-x: auto;
     padding: 10px 0;
   }
