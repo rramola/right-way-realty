@@ -204,7 +204,7 @@
               <div class="property-detail-item">
                 <h3>Patio / Porch:</h3>
                 <span>{% for item in property.patio_porch_features %}
-                  <span>{{ item }}{% if not forloop.last %}, {% endif %}
+                  {{ item }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                       N/A
                 {% endfor %} </span>
