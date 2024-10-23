@@ -135,7 +135,6 @@
     display: none;
     padding: 0 18px;
     overflow: hidden;
-    background-color: #f1f1f1;
   }
 
   .property-details-grid {
@@ -156,11 +155,14 @@
   }
 
   .property-detail-item {
-    background-color: var(--light-blue);
+/*     background-color: var(--light-blue); */
     padding: 10px;
     text-align: center;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/*     border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    display: flex;
+    align-items: baseline;
+    justify-content: space-evenly;
   }
 
   #mortgage-calculator-container {
