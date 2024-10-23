@@ -43,7 +43,6 @@
     flex-direction: column;
     margin-bottom: 30px;
     margin-left: 5rem;
-    margin-right: 30rem;
     padding: 5px;
   }
 
@@ -51,11 +50,17 @@
     height: max-content;
   }
 
-  /* Property Image Styles */
+  .properties-details-card{
+    margin-right: 10rem;
+  }
   
   
 
 /* Property Image Styles */
+
+#property-card-image-container{
+  width: 50%;
+}
 .main-image-container {
   position: relative; /* Positioning for absolute children */
   width: 100%; /* Full width */
@@ -270,6 +275,9 @@
   }
   }
   @media (max-width: 768px) {
+    #property-card-image-container{
+    width: 100%;
+    }
     .property-details-grid {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -285,6 +293,10 @@
     height: auto;
     max-height: 400px;
     }
+    .properties-details-card{
+      margin-right: 0;
+    }
+  
 
 
   }
