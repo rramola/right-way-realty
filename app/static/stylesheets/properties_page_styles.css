@@ -10,13 +10,6 @@
 }
 
  /* General Styles */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: var(--light-bg);
-    margin: 0;
-    padding: 0;
-  }
-
   h3, h5 {
     color: var(--dark-green);
   }
