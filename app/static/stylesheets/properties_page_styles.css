@@ -93,7 +93,6 @@
   .thumbnail {
     width: 80px;
     height: auto;
-    margin: 0 5px;
     cursor: pointer;
     transition: transform 0.2s;
   }
