@@ -98,7 +98,6 @@ p {
 
   .bio-overlay {
         position: absolute;
-        top: 0;
         left: 0;
         right: 0;
         bottom: 0;
@@ -118,21 +117,17 @@ p {
         color: white;
         font-size: 16px;
         border-radius: 5px;
-        z-index: 1; /* Ensure button is on top */
+        z-index: 1;
     }
 
     .bio-full.expanded {
-        display: block; /* Show full bio */
-    }
-
-    .bio-content.expanded {
-        max-height: none; /* Allow full height when expanded */
+        max-height: none; 
+        display: block;
     }
 
     .bio-overlay.hidden {
-        opacity: 0; /* Hide overlay when expanded */
-        pointer-events: none; /* Prevent interaction when hidden */
-    }
+        opacity: 0; 
+        pointer-events: none; 
 
 .cta-container {
   text-align: center;
