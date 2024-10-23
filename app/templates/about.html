@@ -79,9 +79,10 @@
 <script>
     document.querySelectorAll('.see-more').forEach(button => {
         button.addEventListener('click', () => {
-            const bioFull = button.closest('.bio').querySelector('.bio-full');
-            const bioContent = button.closest('.bio').querySelector('.bio-content');
-            const overlay = button.closest('.bio').querySelector('.bio-overlay');
+            const bio = button.closest('.bio');
+            const bioFull = bio.querySelector('.bio-full');
+            const bioContent = bio.querySelector('.bio-content');
+            const overlay = bio.querySelector('.bio-overlay');
 
             if (bioFull.style.display === "block") {
                 bioFull.style.display = "none";
