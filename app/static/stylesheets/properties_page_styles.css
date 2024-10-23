@@ -24,6 +24,10 @@
     background-color: var(--white);
   }
 
+  .property-status{
+    margin: 5px;
+  }
+
   .property-status h3 {
     font-weight: 700;
     font-style: italic;
@@ -31,6 +35,7 @@
 
   .property-overview-header {
     font-weight: 700;
+    margin-left: 5px;
   }
 
   .property-card {
@@ -138,7 +143,11 @@
   }
 
   #description-header{
-    margin-left: 3rem;
+    margin-left: 5px;
+  }
+
+  #description-content{
+    margin: 5px;
   }
 
   .property-detail-item {
@@ -187,8 +196,6 @@
   font-size: 1.2em;
 }
 
-
-
   /* Mobile Styles */
   @media (max-width: 1000px) {
     .main-image-container{
@@ -216,22 +223,9 @@
     margin-left: 0;
     margin-right: 0;
     }
-
-    #overview-header{
-      margin-left: 3rem;
-    }
     .card-img-top {
     height: auto;
     max-height: 400px;
-  }
-
-      #description-header{
-      margin-left: 3rem;
-    }
-
-    .description-content{
-      padding-left:18px;
-      padding-right: 18PX
   }
 
   @media (max-width: 480px) {
