@@ -142,7 +142,7 @@
     text-align: left; /* Align text to the left */
     display: flex;
     align-items: baseline;
-    justify-content: flex-start; /* Align items to the left */
+    column-gap: 3rem;
     margin-bottom: 15px; /* Add space between items */
   }
 
@@ -164,16 +164,6 @@
     text-align: left;
   }
 
-  .property-detail-item {
-/*     background-color: var(--light-blue); */
-    padding: 10px;
-    text-align: center;
-/*     border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
-    display: flex;
-    align-items: baseline;
-    justify-content: space-evenly;
-  }
 
   #mortgage-calculator-container {
   margin-left: 5rem;
