@@ -4,7 +4,6 @@
 
 <div class="about-us">
     <h1>About Us</h1>
-    {% comment %} <h2>Realty Done Right!</h2> {% endcomment %}
 
     <div class="about-content">
         <img src="{% static 'images/rwraboutlogo.png' %}" alt="rwrstore" class="about-rwr">
@@ -22,7 +21,7 @@
 
     <h2>Our Team</h2>
 
-<div class="team-section">
+    <div class="about-container">
         <div class="team-member">
             <img src="{% static 'images/april.jpg' %}" alt="April's Photo">
             <h3>April White</h3>
@@ -32,12 +31,14 @@
                     <p>April White was born and raised in Yalobusha County, just south of Lafayette County, where she has lived for 31 years...</p>
                 </div>
                 <div class="bio-overlay"><button class="see-more">Read More</button></div>
-                <div class="bio-full">
-                    <p>As the owner of Right-Way Realty and licensed real estate broker, she is passionate about real estate and committed to providing exceptional service. April is known for her detailed knowledge of the area and her ability to guide clients through every aspect of the home buying process, from property selection to closing. Her favorite quote, “Money don’t sleep & neither does April White when there are clients to care for,” reflects her dedication. She also offers post-sale support, with an extensive network of trusted professionals to meet homeowners' needs. Additionally, April is a licensed residential contractor and has developed the BayRidge Rentals subdivision, currently managing over 70 rental properties. She believes in hard work, honesty, integrity, and doing things the right way, and is a graduate of the MS Realtor Institute.</p>
+                <div class="bio-full" style="display: none;">
+                    <p>As the owner of Right-Way Realty and licensed real estate broker, she is passionate about real estate and committed to providing exceptional service...</p>
                 </div>
             </div>
         </div>
-@@ -40,40 +43,46 @@
+
+        <div class="team-member">
+            <img src="{% static 'images/terry.jpg' %}" alt="Terry's Photo">
             <h3>Terry White</h3>
             <p>Co-Founder</p>
             <div class="bio">
@@ -45,8 +46,8 @@
                     <p>Terry White, a lifelong resident of Lafayette County, is a graduate of Lafayette High School and a licensed Mississippi Realtor...</p>
                 </div>
                 <div class="bio-overlay"><button class="see-more">Read More</button></div>
-                <div class="bio-full">
-                    <p>He brings over 15 years of experience in the timber industry, where he expertly managed machinery. Terry owns White Oak Ridge LLC, specializing in excavating, land clearing, and constructing ponds and lakes, having built multiple projects for local residents. His education and experience in land management and development make him a valuable asset in the real estate process. Terry believes in hard work and balances his professional life with leisure time at Pickwick Lake, fishing with April.</p>
+                <div class="bio-full" style="display: none;">
+                    <p>He brings over 15 years of experience in the timber industry, where he expertly managed machinery...</p>
                 </div>
             </div>
         </div>
@@ -58,8 +59,8 @@
                     <p>Married for over 30 years, Terry and April White form a dedicated real estate team...</p>
                 </div>
                 <div class="bio-overlay"><button class="see-more">Read More</button></div>
-                <div class="bio-full">
-                    <p>Together, they offer a comprehensive range of expertise, ensuring clients receive the best home, land, or commercial buying experience possible. Their commitment to hard work and integrity, along with their diverse skill sets, makes them a trusted choice for anyone seeking real estate guidance. With both being graduates of the MS Realtor Institute and licensed professionals, they are equipped to handle every aspect of the real estate journey for their clients.</p>
+                <div class="bio-full" style="display: none;">
+                    <p>Together, they offer a comprehensive range of expertise, ensuring clients receive the best home, land, or commercial buying experience possible...</p>
                 </div>
             </div>
         </div>
@@ -70,9 +71,7 @@
     </div>
 
     <div class="section-divider"></div>
-
 </div>
-
 
 <script>
     document.querySelectorAll('.see-more').forEach(button => {
@@ -85,16 +84,14 @@
             if (bioFull.style.display === "block") {
                 bioFull.style.display = "none";
                 bioContent.classList.remove('expanded');
-                overlay.classList.remove('hidden');
-                button.textContent = "See More";
+                overlay.style.display = 'flex';
+                button.textContent = "Read More";
             } else {
                 bioFull.style.display = "block";
                 bioContent.classList.add('expanded');
-                overlay.classList.add('hidden');
+                overlay.style.display = 'none';
                 button.textContent = "See Less";
             }
         });
     });
 </script>
-
-{% endblock %}
