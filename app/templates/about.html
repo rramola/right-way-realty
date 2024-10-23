@@ -31,7 +31,7 @@
                 <div class="bio-content">
                     <p>April White was born and raised in Yalobusha County, just south of Lafayette County, where she has lived for 31 years...</p>
                 </div>
-                <button class="see-more">See More</button>
+                <div class="bio-overlay"><button class="see-more">See More</button></div>
                 <div class="bio-full">
                     <p>As the owner of Right-Way Realty and licensed real estate broker, she is passionate about real estate and committed to providing exceptional service. April is known for her detailed knowledge of the area and her ability to guide clients through every aspect of the home buying process, from property selection to closing...</p>
                 </div>
@@ -46,7 +46,7 @@
                 <div class="bio-content">
                     <p>Terry White, a lifelong resident of Lafayette County, is a graduate of Lafayette High School and a licensed Mississippi Realtor...</p>
                 </div>
-                <button class="see-more">See More</button>
+                <div class="bio-overlay"><button class="see-more">See More</button></div>
                 <div class="bio-full">
                     <p>He brings over 15 years of experience in the timber industry, where he expertly managed machinery. Terry owns White Oak Ridge LLC, specializing in excavating, land clearing, and constructing ponds and lakes...</p>
                 </div>
@@ -59,7 +59,7 @@
                 <div class="bio-content">
                     <p>Married for over 30 years, Terry and April White form a dedicated real estate team...</p>
                 </div>
-                <button class="see-more">See More</button>
+                <div class="bio-overlay"><button class="see-more">See More</button></div>
                 <div class="bio-full">
                     <p>Together, they offer a comprehensive range of expertise, ensuring clients receive the best home, land, or commercial buying experience possible...</p>
                 </div>
@@ -79,12 +79,19 @@
 <script>
     document.querySelectorAll('.see-more').forEach(button => {
         button.addEventListener('click', () => {
-            const bioFull = button.nextElementSibling;
+            const bioFull = button.closest('.bio').querySelector('.bio-full');
+            const bioContent = button.closest('.bio').querySelector('.bio-content');
+            const overlay = button.closest('.bio').querySelector('.bio-overlay');
+
             if (bioFull.style.display === "block") {
                 bioFull.style.display = "none";
+                bioContent.classList.remove('expanded');
+                overlay.classList.remove('hidden');
                 button.textContent = "See More";
             } else {
                 bioFull.style.display = "block";
+                bioContent.classList.add('expanded');
+                overlay.classList.add('hidden');
                 button.textContent = "See Less";
             }
         });
