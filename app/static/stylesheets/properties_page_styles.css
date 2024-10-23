@@ -54,7 +54,7 @@
 
   /* Property Image Styles */
   .image-arrow {
-    background: none;
+    background: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
     border: none;
     font-size: 2rem;
     cursor: pointer;
@@ -71,13 +71,18 @@
   #next-image {
     right: 10px;
   }
-
-  .card-img-top {
-    width: 100%;
-    object-fit: cover;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  .main-image-container {
+    position: relative; /* Set relative positioning for absolute children */
+    max-height: 600px; /* Set a max height for clarity */
+    overflow: hidden; /* Hide overflow to maintain image clarity */
   }
-
+ .card-img-top {
+  width: 100%;
+  height: auto; /* Ensure height is auto to maintain aspect ratio */
+  max-height: 100%; /* Ensure it doesn't exceed the container */
+  object-fit: cover;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
   .thumbnail-carousel {
     display: flex;
     justify-content: center;
