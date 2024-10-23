@@ -174,12 +174,6 @@
     text-align: left;
   }
 
-
-  #mortgage-calculator-container {
-  margin-left: 5rem;
-  margin-right: 30rem;
-}
-
   .mortgage-calculator {
   background-color: var(--light-blue);
   padding: 20px;
