@@ -13,8 +13,8 @@ footer {
 
 .footer-left h1 {
   padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  margin: 0;
+  /* padding-bottom: 1.5rem; */
+  /* margin: 0; */
   font-size: 1.8rem;
   color: #EAEEFB;
 }

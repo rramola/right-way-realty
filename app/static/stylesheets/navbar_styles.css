@@ -10,7 +10,7 @@
   z-index: 1000;
   padding-bottom: .5rem;
   padding-top: .5rem;
-  overflow-x: hidden;
+  overflow-x: visible;
 }
 
 
@@ -34,7 +34,7 @@
 
 .dropbtn {
   font-size: 1.2rem;
-  color: #fff;
+  color: green;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -44,22 +44,23 @@
 
 .dropbtn:hover {
   background-color: #444;
-  border-radius: 5px; 
+  border-radius: 5px;
 }
 
 .dropdown {
   position: relative;
-  display: inline-block;
 }
 
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #333;
-  min-width: 160px; 
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); 
-  z-index: 1;
+  background-color:#0b3a2d;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  border-radius: 5px;
+  left: 0; /* Ensure it aligns with the left side of the "About" button */
 }
 
 
@@ -72,11 +73,21 @@
 }
 
 .dropdown-content a:hover {
-  background-color: #555
+  background-color: #555;
+  border-radius: 5px;
 }
 
-.navbar_item.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content {
   display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 #logo {
@@ -197,4 +208,51 @@
   #navbar_items.show {
     display: flex;
   }
+
+  .dropdown-content {
+    position: relative; /* Make it relative to the parent on mobile */
+    background-color: #014235; /* Match mobile navbar background */
+    width: 100%; /* Take up full width of container */
+    left: 0; /* Align with "About" button */
+    top: 0; /* Ensure no top offset */
+    display: none; /* Default hidden on mobile */
+  }
+  .dropdown-content a {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #2a7a3d; /* Match mobile design */
+    color: #EAEEFB;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #0b3a2d;
+    color: white;
+  }
+
+  .navbar_item.dropdown .dropdown-content.show {
+    display: block;
+  }
+
+  /* Mobile-specific dropdown button behavior */
+  .dropdown:hover .dropdown-content {
+    display: none; /* Disable hover behavior on mobile */
+  }
+
+
+  /* Display dropdown when clicked */
+  .dropbtn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropbtn:after {
+    content: '\25BC'; /* Arrow down icon */
+    float: right;
+    padding-right: 10px;
+  }
+
+  .navbar_item.dropdown .dropdown-content.show {
+    display: block; /* Show the dropdown when clicked */
+  }
+
 }

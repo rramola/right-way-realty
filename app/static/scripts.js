@@ -389,4 +389,16 @@ function toggleCollapse(element) {
   });
 
 
-  
+function toggleDropdown() {
+    const dropdownContent = document.querySelector('.dropdown-content');
+    if (dropdownContent.classList.contains('show')) {
+        dropdownContent.classList.remove('show');
+    } else {
+        dropdownContent.classList.add('show');
+    }
+}
+
+document.querySelector('.dropbtn').addEventListener('click', function (e) {
+    e.preventDefault();
+    toggleDropdown();
+});

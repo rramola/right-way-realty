@@ -39,7 +39,7 @@
             <div class="navbar_item"><a href="{% url 'home'%}">Home</a></div>
             {% comment %} <div class="navbar_item"><a href="{% url 'properties'%}">Properties</a></div> {% endcomment %}
             <div class="navbar_item dropdown">
-                <a href="#" class="dropbtn">About</a>
+                <button class="dropbtn" onclick="toggleDropdown()">About</button>
                 <div class="dropdown-content">
                     <a href="{% url 'about' %}">About Us</a>
                     <a href="{% url 'oxford' %}">About Oxford</a>
