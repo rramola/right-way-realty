@@ -11,9 +11,11 @@
     </h5>
 
     <!-- Main Property Image -->
-    <div class="main-image-container">
-      <img id="main-image" src="{% if images %}{{ images.0.url }}{% else %}{% static 'default-image.jpg' %}{% endif %}" alt="Image of {{ property.house_number }} {{ property.street_name }}" class="card-img-top" />
-    </div>
+<div class="main-image-container">
+  <button id="prev-image" class="image-arrow" onclick="changeImage(-1)">&#9664;</button>
+  <img id="main-image" src="{% if images %}{{ images.0.url }}{% else %}{% static 'default-image.jpg' %}{% endif %}" alt="Image of {{ property.house_number }} {{ property.street_name }}" class="card-img-top" />
+  <button id="next-image" class="image-arrow" onclick="changeImage(1)">&#9654;</button>
+</div>
 
     <!-- Thumbnail Carousel -->
     <div class="thumbnail-carousel">
@@ -378,6 +380,24 @@
 </div>
 
 <script>
+
+let currentImageIndex = 0;
+const images = [{% for image in images %}'{{ image.url }}'{% if not forloop.last %}, {% endif %}{% endfor %}];
+
+function changeImage(direction) {
+  currentImageIndex += direction;
+  
+  // Loop around if the index is out of bounds
+  if (currentImageIndex < 0) {
+    currentImageIndex = images.length - 1;
+  } else if (currentImageIndex >= images.length) {
+    currentImageIndex = 0;
+  }
+
+  // Update the main image
+  document.getElementById('main-image').src = images[currentImageIndex];
+}
+
 // Change the main image when a thumbnail is clicked
 function changeMainImage(imageUrl) {
   document.getElementById('main-image').src = imageUrl;
