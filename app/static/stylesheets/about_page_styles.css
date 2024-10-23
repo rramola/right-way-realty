@@ -75,12 +75,41 @@ p {
   font-size: 1.5em;
 }
 
-.bio {
+/* .bio {
   margin-top: 15px;
   font-size: 1.1em;
   color: #666;
   text-align: left; 
   padding: 10px 20px; 
+}
+ */
+.bio {
+    position: relative;
+    margin-top: 15px;
+}
+
+.bio-content {
+    max-height: 60px; /* Show only part of the bio */
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.bio-full {
+    display: none; /* Hidden by default */
+}
+
+.bio button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #295943;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.bio button:hover {
+    background-color: #0b3a2d;
 }
 
 .cta-container {
