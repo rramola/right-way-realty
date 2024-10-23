@@ -92,38 +92,28 @@
               <div class="property-detail-item">
                 <h3>Area:</h3>
                 <span>{{ property.mls_area }}</span>
-                {% comment %} <span>Area</span> {% endcomment %}
               </div>
               <div class="property-detail-item">
                 <h3>City:</h3>
                 <span>{{ property.city }}</span>
-                {% comment %} <span>City</span> {% endcomment %}
               </div>
               <div class="property-detail-item">
                 <h3>County:</h3>
                 <span>{{ property.county}}</span>
-                {% comment %} <span>County</span> {% endcomment %}
-                <span>{{ property.county }}</span>
               </div>
               <div class="property-detail-item">
                 <h3>Subdivision:</h3>
                 <span>
-                  {% if property.subdivision_name != "None"  %}{{ property.subdivision_name}}{% endif %}
-                  {% if property.subdivision_name == "None"  %}N/A{% endif %}
                   {% if property.subdivision_name != "None" %}{{ property.subdivision_name }}{% else %}N/A{% endif %}
                 </span>
-                {% comment %} <span>County</span> {% endcomment %}
               </div>
               <div class="property-detail-item">
                 <h3>Schools:</h3>
                 <span>{{ property.highschool_district }}</span>
-                {% comment %} <span>Schools</span> {% endcomment %}
               </div>
               <div class="property-detail-item">
                 <strong>Zip:</strong>
                 <span>{{ property.postal_code}}</span>
-                {% comment %} <span>Zip</span> {% endcomment %}
-                <span>{{ property.postal_code }}</span>
               </div>
             </div>
           </div>
