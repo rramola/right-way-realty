@@ -341,6 +341,7 @@
     </div>
 
     <!-- Mortgage Calculator -->
+  <div id="forms-container">
     <div id="mortgage-calculator-container">
       <div class="mortgage-calculator">
         <h5>Mortgage Calculator</h5>
@@ -367,7 +368,68 @@
       </div>
     </div> 
   </div>
-</div>
+  <div id="contact_form_container">
+      <form method="POST" action="{% url 'contact' %}" id="contact_us_form">
+        <h2 id="contact_us_header">Contact Us</h2>
+        {% csrf_token %}
+        <div id="contact_us_form_grouping">
+          <div id="contact_us_form_name_group">
+            <div class="contact_us_form_group">
+              <label for="{{ form.first_name.id_for_label }}">First Name</label>
+              {{ form.first_name }}
+            </div>
+            <div class="contact_us_form_group">
+                <label for="{{ form.last_name.id_for_label }}">Last Name</label>
+                {{ form.last_name }}
+                {% if form.first_name.errors %}
+                <div class="form-error">
+                    {{ form.first_name.errors|striptags }}
+                    {% if form.last_name.errors %}
+                    <div class="form-error">
+                        {{ form.last_name.errors|striptags }}
+                    </div>
+                {% endif %}
+                </div>
+            {% endif %}
+            </div>
+          </div>
+  
+          <div class="contact_us_form_group">
+              <label for="{{ form.phone_number.id_for_label }}">Phone Number</label>
+              {{ form.phone_number }}
+              {% if form.phone_number.errors %}
+              <div class="form-error">
+                  {{ form.phone_number.errors|striptags }}
+              </div>
+          {% endif %}
+          </div>
+          <div class="contact_us_form_group">
+              <label for="{{ form.email.id_for_label }}">Email</label>
+              {{ form.email }}
+              {% if form.email.errors %}
+                  <div class="form-error">
+                      {{ form.email.errors|striptags }}
+                  </div>
+              {% endif %}
+          </div>
+          <div class="contact_us_form_group">
+              <label for="{{ form.message.id_for_label }}">Message</label>
+              {{ form.message }}
+              {% if form.message.errors %}
+                  <div class="form-error">
+                      {{ form.message.errors|striptags }}
+                  </div>
+              {% endif %}
+          </div>
+          <div id="contact_us_form_button_container">
+              <button type="submit" id="contact_form_submit_button">
+                  Send Message
+              </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 
 <script>
 
