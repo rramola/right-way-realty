@@ -387,3 +387,6 @@ function toggleCollapse(element) {
   document.querySelectorAll('.content').forEach(content => {
     content.style.display = "none";
   });
+
+
+  

@@ -1,86 +1,53 @@
 {% extends "base_template.html" %}
 {% load static %}
 {% block content %}
-<div class="about_page_container">
-  <div class="aboutIMG">
-      <img src="{% static 'images/aboutUS.png' %}" alt="About Us Image">
-  </div>
-  <div id="about_us_banner_text">
-      <p id="personalized_service_text">About US</p>
-  </div>
 
-  <!-- Navigation Links -->
-  <div class="jump-links">
-    <a href="#navigation">Navigation</a>
-    <a href="#our-company">Our Company</a> 
-    <a href="#our-team">Our Team</a> 
+<div class="about-us">
+    <h1>About Us</h1>
+    {% comment %} <h2>Realty Done Right!</h2> {% endcomment %}
 
-  </div>
-
-  <div class="about-us-content">
-    <div class="about-us-text" id="our-company">
-      <h2>Our Company</h2>
-      <p>
-          At Right-Way Realty, we believe that finding your dream home or the perfect property investment should be an enjoyable and rewarding experience. Founded in Oxford, Mississippi, we have been serving the local community with dedication, transparency, and integrity for over a decade.
-      </p>
-      <p>
-          Our team of experienced real estate professionals is committed to providing personalized service tailored to your unique needs. Whether you are buying, selling, or renting, we are here to guide you every step of the way.
-      </p>
-      <p>
-          We pride ourselves on our deep knowledge of the Oxford market and our ability to match clients with properties that perfectly suit their needs. From charming homes to commercial investments, we have a diverse portfolio of properties to explore.
-      </p>
-      <p>
-          Our mission is to make the real estate process as smooth and stress-free as possible. We take the time to listen to your goals, understand your needs, and work tirelessly to help you achieve them.
-      </p>
+    <div class="about-content">
+        <img src="{% static 'images/rwraboutlogo.png' %}" alt="rwrstore" class="about-rwr">
+        <div class="about-text">
+            <p>
+                At Right-Way Realty, we believe that finding your dream home or the perfect property investment should be an enjoyable and rewarding experience. Founded in Oxford, Mississippi, we have been serving the local community with dedication, transparency, and integrity for over a decade.
+            </p>
+            <p>
+                Our team of experienced real estate professionals is committed to providing personalized service tailored to your unique needs. Whether you are buying, selling, or renting, we are here to guide you every step of the way.
+            </p>
+        </div>
     </div>
 
-    <div class="about-us-image">
-      <img src="{% static 'images/rwrstore.png' %}" alt="Right-Way Realty Store">
-    </div>
-  </div>
+    <div class="section-divider"></div>
 
-  <!-- Our Team Section -->
-  <div class="our-team-section" id="our-team">
     <h2>Our Team</h2>
-    {% comment %} <p>
-      Terry and April, a husband-and-wife team with over 30 years of marriage, combine their extensive expertise in real estate. As a licensed Realtor and licensed Broker, respectively, they bring a unique blend of knowledge and experience to every transaction. Together, they offer comprehensive guidance in home, land, and commercial property purchases, ensuring clients receive the best possible buying experience.
-    </p> {% endcomment %}
 
-    <div class="team-portraits">
-      <div class="portrait" onclick="toggleDescription('april-desc')">
-        <img src="{% static 'images/aprilaboutme.png' %}" alt="April Portrait">
-        <p>April White</p>
-      </div>
-      <div class="portrait" onclick="toggleDescription('terry-desc')">
-        <img src="{% static 'images/TerryWhite.png' %}" alt="Terry Portrait">
-        <p>Terry White</p>
-      </div>
+    <div class="team-section">
+        <div class="team-member">
+            <img src="{% static 'images/april.jpg' %}" alt="April's Photo">
+            <h3>April White</h3>
+            <p>Founder & Lead Agent</p>
+            <div class="bio">
+                <p>April White, born and raised in Yalobusha County, has been a resident of Lafayette County/Oxford, MS for over 31 years. With an in-depth knowledge of the area, April is passionate about real estate and approaches each day with enthusiasm for her work. A licensed real estate broker and owner of Right-Way Realty, she is committed to maintaining the company as a family-run business.</p>
+            </div>
+        </div>
+
+        <div class="team-member">
+            <img src="{% static 'images/TerryWhite.png' %}" alt="Terry's Photo">
+            <h3>Terry White</h3>
+            <p>Co-Founder</p>
+            <div class="bio">
+                <p>Terry, a lifelong resident of Lafayette County, is a proud graduate of Lafayette High School and the Mississippi Realtor Institute. With over 15 years of experience in the timber industry, he has honed his skills in operating a wide range of machinery.</p>
+            </div>
+        </div>
     </div>
 
-    <div class="team-descriptions">
-    <div class="team-description" id="april-desc">
-      <p>April White, born and raised in Yalobusha County, has been a resident of Lafayette County/Oxford, MS for over 31 years. With an in-depth knowledge of the area, April is passionate about real estate and approaches each day with enthusiasm for her work. A licensed real estate broker and owner of Right-Way Realty, she is committed to maintaining the company as a family-run business.</p>
-      <p>April’s expertise goes beyond just selling homes—she offers comprehensive guidance on property selection, lending, repairs, closing, and even post-sale services. Known for her extensive network of trusted professionals, she ensures that her clients' needs are met at every step of the homeownership journey.</p>
-      <p>As a licensed Mississippi residential contractor, April developed the BayRidge Rentals subdivision and currently manages over 70 rental properties. A graduate of the Mississippi Realtor Institute, April’s values of hard work, honesty, and integrity drive her commitment to doing things the "Right Way."</p>
+    <div class="cta-container">
+        <a href="/contact" class="cta-button">Contact Us</a>
     </div>
-    <div class="team-description" id="terry-desc">
-        <p>Terry, a lifelong resident of Lafayette County, is a proud graduate of Lafayette High School and the Mississippi Realtor Institute. With over 15 years of experience in the timber industry, he has honed his skills in operating a wide range of machinery. 
-        <p>Terry owns and operates White Oak Ridge LLC, specializing in excavating, land clearing, and constructing ponds and lakes, with several successful projects completed for clients in the Oxford area.
-          His extensive knowledge in land management and development, coupled with his experience as a licensed Mississippi Realtor, makes him an invaluable asset to the team.</p>
-        <p>Terry also oversees the construction crew, ensuring that projects are executed with precision and expertise. When not working, Terry enjoys fishing at Pickwick Lake with April, balancing hard work with quality time.</p>
-    </div>
-    
 
-    {% comment %} <div class="team-description" id="terry-desc">
-      <p><strong>Terry White:</strong> Terry has over 15 years of experience in land management and real estate, making him an invaluable part of our team.</p>
-    </div>
-    
-    <div class="team-description" id="april-desc">
-      <p><strong>April White:</strong> April specializes in client relations and ensures that every client is supported throughout the real estate process.</p>
-    </div> {% endcomment %}
-</div>
+    <div class="section-divider"></div>
+
 </div>
 
-
-
-{% endblock content %}
+{% endblock %}
