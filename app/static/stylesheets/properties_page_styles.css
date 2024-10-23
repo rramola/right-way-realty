@@ -53,6 +53,24 @@
   }
 
   /* Property Image Styles */
+  .image-arrow {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10; /* Ensure they are above the image */
+  }
+  
+  #prev-image {
+    left: 10px;
+  }
+  
+  #next-image {
+    right: 10px;
+  }
 
   .card-img-top {
     width: 100%;
