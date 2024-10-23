@@ -43,6 +43,9 @@ p {
 
 .about-text {
   width: 55%; 
+  text-align: left;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 /* Team Section */
@@ -86,6 +89,9 @@ p {
 .bio {
     position: relative;
     margin-top: 15px;
+    text-align: left;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .bio-content {
