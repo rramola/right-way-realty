@@ -201,7 +201,7 @@
   border-radius: 4px;
 }
 
-#contact_form_container {
+/* #contact_form_container {
   overflow: hidden;
   width: 85%;
   display: flex;
@@ -328,7 +328,7 @@
 #contact_form_submit_button:hover {
   background-color: #1e8d1e;
 }
-
+ */
 
 
 /* ------------------------------------------------ */
