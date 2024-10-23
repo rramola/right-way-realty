@@ -74,12 +74,36 @@ def property_detail(request, property_id):
     full_baths = float(property.baths_full or 0)
     half_baths = float(property.baths_half or 0)
     baths_total = float(property.baths_total or 0)
+     
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            first_name = form.cleaned_data["first_name"]
+            last_name = form.cleaned_data["last_name"]
+            phone_number = form.cleaned_data["phone_number"]
+            email = form.cleaned_data["email"]
+            message = form.cleaned_data["message"]
 
+            recipient_list = ["ramolaryan@gmail.com"]
+            try:
+                send_mail(
+                    subject=f"Contact Form Submission from {first_name} {last_name}",
+                    message=f"Message from {first_name} {last_name} ({phone_number}, {email}):\n\n{message}",
+                    from_email=email,
+                    recipient_list=recipient_list,
+                )
+            except BadHeaderError:
+                return HttpResponseBadRequest("Invalid header found.")
+
+            return render(request, "home.html")
+    else:
+        form = ContactForm()
 
     context = {
         'property': property,
         'baths_info': baths_total,
-        'images': images
+        'images': images,
+        'form': form,
     }
     return render(request, 'properties.html', context)
 
