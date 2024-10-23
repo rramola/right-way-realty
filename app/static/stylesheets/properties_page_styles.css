@@ -183,6 +183,12 @@
     text-align: left;
   }
 
+  .forms-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: var(--light-blue);
+}
+
   .mortgage-calculator {
   background-color: var(--light-blue);
   padding: 20px;
