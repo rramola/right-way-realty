@@ -154,6 +154,7 @@
 
   .property-detail-item span{
     text-align: left;
+    padding-left: 2rem;
   }
 
   .property-details-grid {
