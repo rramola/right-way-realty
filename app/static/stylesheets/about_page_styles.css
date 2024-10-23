@@ -83,6 +83,19 @@ p {
   padding: 10px 20px; 
 }
 
+  .bio-content {
+        max-height: 60px; 
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    .bio-full {
+        display: none; 
+    }
+    .see-more {
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
 .cta-container {
   text-align: center;
 }
