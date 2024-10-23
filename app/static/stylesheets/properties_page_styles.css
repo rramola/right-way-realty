@@ -53,36 +53,44 @@
   }
 
   /* Property Image Styles */
-  .image-arrow {
-    background: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10; /* Ensure they are above the image */
-  }
   
-  #prev-image {
-    left: 10px;
-  }
   
-  #next-image {
-    right: 10px;
-  }
-  .main-image-container {
-    position: relative; /* Set relative positioning for absolute children */
-    max-height: 600px; /* Set a max height for clarity */
-    overflow: hidden; /* Hide overflow to maintain image clarity */
-  }
- .card-img-top {
-  width: 100%;
-  height: auto; /* Ensure height is auto to maintain aspect ratio */
-  max-height: 100%; /* Ensure it doesn't exceed the container */
-  object-fit: cover;
+
+/* Property Image Styles */
+.main-image-container {
+  position: relative; /* Positioning for absolute children */
+  width: 100%; /* Full width */
+  max-width: 800px; /* Set a maximum width */
+  height: 400px; /* Fixed height for consistency */
+  overflow: hidden; /* Hide overflow */
+}
+
+.card-img-top {
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  object-fit: cover; /* Cover ensures aspect ratio is maintained */
+  object-position: center; /* Center the image */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  }
+}
+
+.image-arrow {
+  background: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10; /* Ensure they are above the image */
+}
+
+#prev-image {
+  left: 10px;
+}
+
+#next-image {
+  right: 10px;
+}
   .thumbnail-carousel {
     display: flex;
     column-gap: 5px;
