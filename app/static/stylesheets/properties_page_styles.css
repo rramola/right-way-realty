@@ -137,10 +137,19 @@
     overflow: hidden;
   }
 
+  .property-detail-item{
+    padding: 10px;
+    text-align: left; /* Align text to the left */
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start; /* Align items to the left */
+    margin-bottom: 15px; /* Add space between items */
+  }
+
   .property-details-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
+    grid-gap: 15px;
     margin-top: 15px;
     margin-bottom: 30px;
   }
@@ -152,6 +161,7 @@
   .description-content{
     margin-left: 5px;
     margin-right: 5px;
+    text-align: left;
   }
 
   .property-detail-item {
