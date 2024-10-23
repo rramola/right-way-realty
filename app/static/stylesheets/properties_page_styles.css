@@ -138,14 +138,13 @@
   }
 
   .property-detail-item{
-    padding: 10px;
-    text-align: left; /* Align text to the left */
+    text-align: left; 
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 2fr;
     align-items: baseline;
     column-gap: 3rem;
-    margin-bottom: 15px; /* Add space between items */
+
   }
 
   .property-detail-item h3{
