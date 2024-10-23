@@ -372,32 +372,7 @@
     max-height: 400px;
     }
 
-    #contact_us_form_name_group {
-    display: flex;
-    flex-direction: column;
-    }
 
-    .contact_us_form_group label {
-    font-size: 1.1rem;
-    }
-    #contact_form_container {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  #contact_us_header {
-    font-size: 4rem;
-    margin-top: 1rem;
-  }
-
-  #contact_us_form_grouping {
-    gap: 0;
-    margin-bottom: .5rem;
-  }
-
-  .contact_us_form_group {
-    margin-bottom: .5rem;
-  }
   }
   @media (max-width: 480px) {
     .property-details-grid {
