@@ -122,8 +122,8 @@
           <h3 class="collapsible" onclick="toggleCollapse(this)"><p>Interior:</p><p id="collapsible-icon">+</p></h3>
           <div class="content">
               <div class="property-detail-item" id="detail-item-grid-span">
-                <span><h3>Appliances:</h3>
-                {% for appliance in property.appliances %}
+                <h3>Appliances:</h3>
+                <span>{% for appliance in property.appliances %}
                   {{ appliance }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                     N/A
@@ -144,19 +144,19 @@
               </div>
               <div class="property-detail-item">
                 <h3>Flooring:</h3> 
-                  {% for item in property.flooring %}
-                    <span>{{ item }}{% if not forloop.last %}, </span>{% endif %}
+                  <span>{% for item in property.flooring %}
+                    {{ item }}{% if not forloop.last %}, {% endif %}
                     {%empty%}
                       N/A
-                  {% endfor %}
+                  {% endfor %}</span>
               </div>
               <div class="property-detail-item">
                 <h3>Fireplace:</h3>
-                  {% for item in property.fireplace_features %}
-                    <span>{{ item }}{% if not forloop.last %}, </span>{% endif %}
+                  <span>{% for item in property.fireplace_features %}
+                    {{ item }}{% if not forloop.last %}, {% endif %}
                     {%empty%}
                       None
-                  {% endfor %} 
+                  {% endfor %}</span>
               </div>
               <div class="property-detail-item">
                 <h3>Laundry:</h3> 
@@ -168,11 +168,11 @@
               </div>
               <div class="property-detail-item">
                 <h3>Additional Features:</h3> 
-                  {% for item in property.interior_features %}
-                    <span>{{ item }}{% if not forloop.last %}, </span>{% endif %}
+                  <span>{% for item in property.interior_features %}
+                    {{ item }}{% if not forloop.last %}, {% endif %}
                     {%empty%}
                       N/A
-                  {% endfor %} 
+                  {% endfor %}</span>
               </div>
           </div>
         </div>
@@ -201,36 +201,36 @@
               </div>
               <div class="property-detail-item">
                 <h3>Patio / Porch:</h3>
-                {% for item in property.patio_porch_features %}
-                  <span>{{ item }}{% if not forloop.last %}, </span>{% endif %}
+                <span>{% for item in property.patio_porch_features %}
+                  <span>{{ item }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                       N/A
-                {% endfor %} 
+                {% endfor %} </span>
               </div>
               <div class="property-detail-item">
                 <h3>Parking Features:</h3>
-                {% for item in property.parking_features %}
-                  <span>{{ item }}{% if not forloop.last %}, </span>{% endif %}
+                 <span>{% for item in property.parking_features %}
+                  {{ item }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                       N/A
-                {% endfor %} 
+                {% endfor %} </span>
               </div>      
               <div class="property-detail-item">
                 <h3>Pool:</h3>
-                {% for item in property.pool_features %}
-                  <span>{{ item }}{% if not forloop.last %}, </span>{% endif %}
+                <span>{% for item in property.pool_features %}
+                  {{ item }}{% if not forloop.last %}, {% endif %}
                   {% empty%}
                     None
-                {% endfor %} 
+                {% endfor %} </span>
 
               </div>
               <div class="property-detail-item">
                 <h3>Road Surface:</h3> 
-                {% for item in property.road_surface_type %}
-                 <span>{{ item }}{% if not forloop.last %}, </span>{% endif %}
+                <span>{% for item in property.road_surface_type %}
+                 {{ item }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                       N/A
-                {% endfor %} 
+                {% endfor %} </span>
               </div>
               <div class="property-detail-item">
                 <h3>Roofing:</h3>
@@ -246,11 +246,11 @@
               </div>
               <div class="property-detail-item">
                 <h3>Notes:</h3> 
-                  {% for item in property.exterior_features %}
+                  <span>{% for item in property.exterior_features %}
                     {{ item }}{% if not forloop.last %}, {% endif %}
                     {% empty%}
                       N/A
-                  {% endfor %} 
+                  {% endfor %} </span>
               </div>
           </div>
         </div>
@@ -265,27 +265,27 @@
               </div>
               <div class="property-detail-item">
                 <h3>Exterior:</h3> 
-                  {% for item in property.construction_materials %}
-                    <span>{{ item }}{% if not forloop.last %}, </span>{% endif %}
+                   <span>{% for item in property.construction_materials %}
+                    {{ item }}{% if not forloop.last %}, {% endif %}
                     {%empty%}
                       N/A
-                  {% endfor %} 
+                  {% endfor %} </span>
               </div>
               <div class="property-detail-item">
                 <h3>Roof:</h3>
-                {% for item in property.roof  %}
-                  <span>{{ item }}{% if not forloop.last %},</span>{% endif %}
+                <span>{% for item in property.roof  %}
+                  {{ item }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                       N/A
-                {% endfor %}      
+                {% endfor %}</span>     
               </div>
               <div class="property-detail-item">
                 <h3>Foundation:</h3> 
-                {% for item in property.foundation_details %}
-                  <span>{{ item }}{% if not forloop.last %},</span>{% endif %}
+                <span>{% for item in property.foundation_details %}
+                  {{ item }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                       N/A
-                {% endfor %} 
+                {% endfor %} </span>
               </div>
             </div>
           </div>
@@ -297,11 +297,11 @@
           <div class="content">
               <div class="property-detail-item" id="cooling-detail-item">
                 <h3>Cooling: </h3>
-                {% for cooling in property.cooling %}
-                  <span>{{ cooling }}{% if not forloop.last %},</span>{% endif %}
+                <span>{% for cooling in property.cooling %}
+                  {{ cooling }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                       N/A
-                {% endfor %}
+                {% endfor %}</span>
               </div>
               <div class="property-detail-item">
                   <h3>Heating: </h3>
@@ -313,27 +313,27 @@
               </div>
               <div class="property-detail-item">
                 <h3>Water:</h3> 
-                  {% for item in property.water_source %}
-                  <span>{{ item }}{% if not forloop.last %},</span>{% endif %}
+                  <span>{% for item in property.water_source %}
+                  {{ item }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                       N/A
-                {% endfor %} 
+                {% endfor %} </span>
               </div>
               <div class="property-detail-item">
                 <h3>Sewer:</h3> 
-                {% for item in property.sewer %}
-                  <span>{{ item }}{% if not forloop.last %},</span>{% endif %}
+                <span>{% for item in property.sewer %}
+                  {{ item }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                       N/A
-                {% endfor %} 
+                {% endfor %} </span>
               </div>
               <div class="property-detail-item">
                 <h3>Electric:</h3> 
-                {% for item in property.electric %}
-                  <span>{{ item }}{% if not forloop.last %},</span>{% endif %}
+                <span>{% for item in property.electric %}
+                  {{ item }}{% if not forloop.last %},{% endif %}
                   {%empty%}
                       N/A
-                {% endfor %} 
+                {% endfor %} </span>
               </div>
           </div>
         </div>
