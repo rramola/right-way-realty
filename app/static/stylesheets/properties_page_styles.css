@@ -58,7 +58,7 @@
 
 /* Property Image Styles */
 
-#property-card-image-container{
+#property-card-images-container{
   width: 50%;
 }
 .main-image-container {
@@ -140,6 +140,10 @@
     display: none;
     padding: 0 18px;
     overflow: hidden;
+  }
+  
+  .property-details-card{
+    margin-right: 10rem;
   }
 
   .property-detail-item{
@@ -293,7 +297,7 @@
     height: auto;
     max-height: 400px;
     }
-    .properties-details-card{
+    .property-details-card{
       margin-right: 0;
     }
   
