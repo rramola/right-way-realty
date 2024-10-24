@@ -471,6 +471,12 @@ document.getElementById('mortgage-calculator-form').addEventListener('submit', f
   const monthlyPayment = (loanAmount * interestRate) / (1 - Math.pow(1 + interestRate, -loanTerm));
   document.getElementById('calculation-result').innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
 });
+
+document.getElementById('properties-contact').addEventListener('click', function() {
+  let contactForm = document.getElementById('contactForm');
+  contactForm.style.display = (content.style.display === "block") ? "none" : "block";
+}
+  
 </script>
 
 {% endblock %}
