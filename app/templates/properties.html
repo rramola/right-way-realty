@@ -344,7 +344,7 @@
 
     <!-- Mortgage Calculator -->
   <div id="forms-container">
-    <div id="mortgage-calculator-container">
+    <div id="mortgage-calculator-container" id="mortgage-calculator">
       <div class="mortgage-calculator">
         <h5>Mortgage Calculator</h5>
         <form id="mortgage-form">
@@ -427,7 +427,7 @@
       <button type="submit" id="contact_form_submit_button" class="form-button">Send Message</button>
     </form>
   </div>
-    <button type="submit" id="properties-calculate" class="properties-popout-button">calculate</button>
+    <button type="submit" id="properties-calculate" class="properties-popout-button" onclick="displayMortgageCalculator()">calculate</button>
     <button type="submit" id="properties-contact" class="properties-popout-button" onclick="displayContactForm()">contact</button>
 </div>
 
@@ -475,6 +475,11 @@ document.getElementById('mortgage-calculator-form').addEventListener('submit', f
 function displayContactForm(){
   let contact = document.getElementById('contactForm');
   contact.style.display = (contact.style.display === "block") ? "none" : "block";
+}
+
+function displayMortgageCalculator(){
+  let calculate = document.getElementById('mortgage-calculator');
+  calculate.style.display = (calculate.style.display === "block") ? "none" : "block";
 }
   
 </script>
