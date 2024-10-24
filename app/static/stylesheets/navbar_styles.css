@@ -53,19 +53,6 @@
   text-align: center;
 }
 
-.navbar_item a {
-  font-family: sans-serif;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  color: #2a7a3d;
-  text-decoration: none;
-  padding: 1rem;
-  font-size: 1.1rem;
-  font-weight: lighter;
-  letter-spacing: .1rem;
-}
-
 
 .dropbtn {
   font-size: 1.1rem;
