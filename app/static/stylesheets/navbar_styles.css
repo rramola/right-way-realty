@@ -103,6 +103,17 @@
   display: block;
 }
 
+.properties-popout-button{
+    position: fixed;
+    right: 0;
+}
+#properties-calculate{
+  top:50%
+}
+#properties-contact{
+  top:40%
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
