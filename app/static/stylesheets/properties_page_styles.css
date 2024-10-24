@@ -231,6 +231,13 @@
   margin-top: 20px;
 }
 
+#contactForm{
+  display:none;
+  position: fixed;
+  top: 40%;
+  right: 0;
+}
+
 .contact-form h5 {
   margin-bottom: 15px;
 }
