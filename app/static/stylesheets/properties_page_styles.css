@@ -286,6 +286,16 @@
   background-color: var(--darker-blue); 
 }
 
+.properties-popout-button{
+    position: fixed;
+    right: 0;
+}
+  #properties-calculate{
+    top:20%
+  }
+  #properties-contact{
+    top:15%
+  }
 
   /* Mobile Styles */
   @media (max-width: 1000px) {
