@@ -428,7 +428,7 @@
     </form>
   </div>
     <button type="submit" id="properties-calculate" class="properties-popout-button">calculate</button>
-    <button type="submit" id="properties-contact" class="properties-popout-button">contact</button>
+    <button type="submit" id="properties-contact" class="properties-popout-button" onclick="displayContactForm"()>contact</button>
 </div>
 
 <script>
@@ -472,9 +472,9 @@ document.getElementById('mortgage-calculator-form').addEventListener('submit', f
   document.getElementById('calculation-result').innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
 });
 
-document.getElementById('properties-contact').addEventListener('click', function() {
-  let contactForm = document.getElementById('contactForm');
-  contactForm.style.display = (content.style.display === "block") ? "none" : "block";
+function displayContactForm(){
+  let contact = document.getElementById('contactForm');
+  contact.style.display = (content.style.display === "block") ? "none" : "block";
 }
   
 </script>
