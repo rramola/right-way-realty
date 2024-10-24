@@ -343,10 +343,11 @@
     #mortgage-calculator-container{
     display:block;
     position: initial;
-  }
+    }
 
-  
-
+    .properties-popout-button{
+    display: none;
+    }
 
   }
   @media (max-width: 480px) {
