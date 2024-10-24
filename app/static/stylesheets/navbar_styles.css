@@ -28,7 +28,6 @@
   font-family: sans-serif;
   display: flex;
   justify-content: center;
-  width: 100%;
   color: #2a7a3d;
   text-decoration: none;
   padding: 1rem;
@@ -43,6 +42,7 @@
   color: black;
   transform: scale(1.2);
   text-shadow: 0 0 5px #EAEEFB;
+  border-radius: 5px; 
 }
 
 
@@ -66,9 +66,6 @@
   letter-spacing: .1rem;
 }
 
-.navbar_item a:hover {
-  border-radius: 5px; 
-}
 
 .dropbtn {
   font-size: 1.1rem;
@@ -149,12 +146,6 @@
   opacity: 1;
 }
 
-
-.navbar_item>a:hover {
-  color: black;
-  transform: scale(1.2);
-  text-shadow: 0 0 5px #EAEEFB;
-}
 
 #hamburger_menu {
   display: none;
