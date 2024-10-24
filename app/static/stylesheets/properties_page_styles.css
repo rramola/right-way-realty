@@ -232,6 +232,11 @@
   font-size: 1.2em;
 }
 
+#contactUsForm{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 .contact-form {
   background-color: var(--light-blue);
   padding: 20px;
@@ -245,6 +250,11 @@
   position: fixed;
   top: 10%;
   right: 0;
+}
+
+#memssageGroup{
+  grid-column-start: 1;
+  grid-column-end: 1;
 }
 
 .contact-form h5 {
@@ -348,6 +358,10 @@
     .properties-popout-button{
     display: none;
     }
+
+    #contactUsForm{
+    display: block;
+}
 
   }
   @media (max-width: 480px) {
