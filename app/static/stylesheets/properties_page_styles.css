@@ -191,6 +191,14 @@
     background-color: var(--light-blue);
 }
 
+#mortgage-calculator-container{
+  display:none;
+  position: fixed;
+  top: 10%;
+  right: 0;
+}
+
+
   .mortgage-calculator {
   background-color: var(--light-blue);
   padding: 20px;
@@ -227,14 +235,15 @@
 .contact-form {
   background-color: var(--light-blue);
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 8px;position: fixed;
+    right: 0;
   margin-top: 20px;
 }
 
 #contactForm{
   display:none;
   position: fixed;
-  top: 7%;
+  top: 10%;
   right: 0;
 }
 
@@ -315,6 +324,17 @@
     .property-details-card{
       margin-right: 0;
     }
+
+    #contactForm{
+    display:block;
+    position: initial;
+    }
+
+    #mortgage-calculator-container{
+    display:block;
+    position: initial;
+  }
+
   
 
 
