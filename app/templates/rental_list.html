@@ -1,14 +1,22 @@
 {% extends "base_template.html" %}
 
 {% block content %}
+
 <h1>Available Rentals</h1>
 <div class="rental-container">
     {% for rental in rentals %}
         <div class="rental-card">
-            <div class="rental-image-container">
-                <!-- Display rental images -->
-                {% if rental.images.first %}
-                    <img src="{{ rental.images.first.image.url }}" alt="Image of {{ rental.street_name }}" class="rental-image">
+            <div class="rental-image-carousel-container">
+                <!-- Display rental images as a carousel -->
+                {% if rental.images.all %}
+                    <div class="rental-image-carousel" id="carousel-{{ forloop.counter0 }}">
+                        {% for image in rental.images.all %}
+                            <img src="{{ image.image.url }}" alt="Image of {{ rental.street_name }}" class="rental-image">
+                        {% endfor %}
+                    </div>
+                    <!-- Navigation buttons -->
+                    <button class="carousel-prev" onclick="moveSlide({{ forloop.counter0 }}, -1)">&#10094;</button>
+                    <button class="carousel-next" onclick="moveSlide({{ forloop.counter0 }}, 1)">&#10095;</button>
                 {% else %}
                     <p>No images available for this rental.</p>
                 {% endif %}

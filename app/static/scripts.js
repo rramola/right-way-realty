@@ -402,3 +402,50 @@ document.querySelector('.dropbtn').addEventListener('click', function (e) {
     e.preventDefault();
     toggleDropdown();
 });
+
+
+// RENTAL SCROLLING FUNCTIONALITY
+
+// Declare the slideIndices array in the global scope so it can be accessed in all functions
+let slideIndices = [];
+
+// Ensure DOM is fully loaded before running the script
+document.addEventListener('DOMContentLoaded', function() {
+    const carousels = document.querySelectorAll('.rental-image-carousel');
+    
+    // Initialize the slideIndices array and show the first image for each carousel
+    carousels.forEach((carousel, index) => {
+        slideIndices[index] = 0;  // Set initial index for each carousel
+        showSlide(index, slideIndices[index]);  // Show the first image in each carousel
+    });
+});
+
+// Function to show the slide based on carousel index and slide index
+function showSlide(carouselIndex, slideIndex) {
+    const carousels = document.querySelectorAll('.rental-image-carousel');
+    const carousel = carousels[carouselIndex];  // Get the correct carousel
+    const slides = carousel.querySelectorAll('img');  // Get all images in the carousel
+    const totalSlides = slides.length;
+
+    // Wrap around if the slideIndex is out of bounds
+    if (slideIndex >= totalSlides) {
+        slideIndices[carouselIndex] = 0;
+    } else if (slideIndex < 0) {
+        slideIndices[carouselIndex] = totalSlides - 1;
+    } else {
+        slideIndices[carouselIndex] = slideIndex;
+    }
+
+    // Hide all slides and show only the current slide
+    slides.forEach((slide) => {
+        slide.style.opacity = '0';
+        slide.style.zIndex = '-1';
+    });
+    slides[slideIndices[carouselIndex]].style.opacity = '1';
+    slides[slideIndices[carouselIndex]].style.zIndex = '1';
+}
+
+// Function to move to the next or previous slide
+function moveSlide(carouselIndex, step) {
+    showSlide(carouselIndex, slideIndices[carouselIndex] + step);
+}
