@@ -223,7 +223,10 @@
   position: fixed;
   top: 10%;
   right: 0;
-  margin-right: 2rem;
+  margin-right: 1%;
+  background: rgb(124, 194, 182);
+  z-index: 1001;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px;
 }
 
 
@@ -279,7 +282,10 @@
   position: fixed;
   top: 10%;
   right: 0;
-  margin-right: 2rem;
+  margin-right: 1%;
+  background: rgb(124, 194, 182);
+  z-index: 1001;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px;
 }
 
 #messageGroup{
@@ -329,13 +335,16 @@
 .properties-popout-button{
     position: fixed;
     right: 0;
-  margin-right:2rem;
+    margin-right: 2%;
+    z-index: 10002;
+    font-size: 2.5rem;
+    color: var(--dark-green);
 }
   #properties-calculate{
-    top:20%
+    top: 13%;
   }
   #properties-contact{
-    top:15%
+    top:6%
   }
 
   /* Mobile Styles */
