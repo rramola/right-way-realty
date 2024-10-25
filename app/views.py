@@ -144,5 +144,56 @@ def load_more_properties(request):
     return JsonResponse({'properties': property_list})
 
 
+def filter_properties(request):
+    mls_id = request.GET.get('mls_listing_id', '').strip()
+    location_filter = request.GET.get('location', '').strip()
+    min_price = request.GET.get('min_price', 0)
+    max_price = request.GET.get('max_price', float('inf'))
+    min_beds = request.GET.get('min_beds', 0)
+    min_baths = request.GET.get('min_baths', 0)
+
+    # Query properties based on filters
+    properties = Property.objects.all()
+
+    if mls_id:
+        properties = properties.filter(mls_number=mls_id)
+
+    if location_filter:
+        properties = properties.filter(city__icontains=location_filter)
+
+    if min_price:
+        properties = properties.filter(list_price__gte=min_price)
+
+    if max_price:
+        properties = properties.filter(list_price__lte=max_price)
+
+    if min_beds:
+        properties = properties.filter(bedrooms__gte=min_beds)
+
+    if min_baths:
+        properties = properties.filter(baths_total__gte=min_baths)
+
+    property_data = []
+    for property in properties:
+        property_data.append({
+            'id': property.id,
+            'latitude': property.latitude,
+            'longitude': property.longitude,
+            'house_number': property.house_number,
+            'street_name': property.street_name,
+            'city': property.city,
+            'state': property.state,
+            'postal_code': property.postal_code,
+            'list_price': property.list_price,
+            'bedrooms': property.bedrooms,
+            'baths_total': property.baths_total,
+            'building_area_total': property.building_area_total,
+            'property_type': property.property_type,
+            'image_url': property.images.first().url if property.images.exists() else '',
+        })
+
+    return JsonResponse({'properties': property_data})
+
+
 
 

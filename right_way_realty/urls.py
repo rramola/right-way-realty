@@ -29,7 +29,8 @@ urlpatterns = [
     path("contact/", contact_page, name="contact"),
     path("about/", about_page, name="about"),
     path("about/Oxford/", oxford_page, name="oxford"),
-    path('load-more-properties/', load_more_properties, name='load_more_properties')
+    path('load-more-properties/', load_more_properties, name='load_more_properties'),
+    path('filter-properties/', filter_properties, name='filter_properties')
 ]
 
 if settings.DEBUG:

@@ -167,115 +167,119 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
     // Toggle filter visibility
-    document.getElementById('filter-button').addEventListener('click', function() {
+    document.getElementById('filter-button').addEventListener('click', function () {
         const filters = document.getElementById('filters');
-        if (filters.classList.contains('filters-visible')) {
-            filters.classList.remove('filters-visible');
-            this.textContent = 'Show Filters';
-        } else {
-            filters.classList.add('filters-visible');
-            this.textContent = 'Hide Filters';
-        }
+        filters.classList.toggle('filters-visible');
+        this.textContent = filters.classList.contains('filters-visible') ? 'Hide Filters' : 'Show Filters';
     });
 
-    window.resetFilters = function() { 
-        const mlsId = document.getElementById('mls-listing-id');
-        const locate = document.getElementById('location');
-        const minPrice = document.getElementById('min-price');
-        const maxPrice = document.getElementById('max-price');
-        const minBeds = document.getElementById('min-beds');
-        const minBaths = document.getElementById('min-baths');
-        const propertyItems = document.querySelectorAll('.property-item');
+    window.applyFilters = function () {
+        const mlsId = document.getElementById('mls-listing-id').value.trim();
+        const location = document.getElementById('location').value.trim();
+        const minPrice = document.getElementById('min-price').value.trim();
+        const maxPrice = document.getElementById('max-price').value.trim();
+        const minBeds = document.getElementById('min-beds').value.trim();
+        const minBaths = document.getElementById('min-baths').value.trim();
 
-        propertyItems.forEach(item => { 
-            item.style.display = 'block';
-        })
+        // Send AJAX request
+        const url = `/filter-properties?mls_listing_id=${mlsId}&location=${location}&min_price=${minPrice}&max_price=${maxPrice}&min_beds=${minBeds}&min_baths=${minBaths}`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const propertyList = document.getElementById('property-list');
+                propertyList.innerHTML = '';  // Clear current list
 
-        document.getElementById('filters').classList.remove('filters-visible');
-        mlsId.value = null;
-        locate.value = null;
-        minPrice.value = null;
-        maxPrice.value = null;
-        minBeds.value = null;
-        minBaths.value = null;
-        document.getElementById('filter-button').textContent = 'Show Filters';
+                // Update property list
+                data.properties.forEach(property => {
+                    const formattedPrice = parseFloat(property.list_price).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+                    const beds = property.bedrooms || 'N/A';
+                    const baths = property.baths_total || 'N/A';
+                    const sqFt = property.building_area_total ? `${property.building_area_total.toLocaleString()} Sq. Ft.` : 'N/A';
+
+                    const propertyItem = `
+                        <a href="/property/${property.id}" class="property-link">
+                            <div class="property-item">
+                                <div class="property-image">
+                                    <img src="${property.image_url}" alt="Property Image">
+                                </div>
+                                <h2>${property.house_number || ''} ${property.street_name}, ${property.city}, ${property.state} ${property.postal_code}</h2>
+                                <div class="property-details">
+                                    <h3>${formattedPrice}</h3>
+                                    <p>${beds} Beds &nbsp; | &nbsp; ${baths} Baths &nbsp; | &nbsp; ${sqFt}</p>
+                                    <p>${property.property_type || 'N/A'}</p>
+                                    <p class="agent-info">${property.agent_name || 'N/A'}</p>
+                                    <a href="#" onclick="moveToProperty(${property.latitude}, ${property.longitude})">View on Map</a>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                    propertyList.insertAdjacentHTML('beforeend', propertyItem);
+                });
+
+                // Update the map with new markers
+                updateMap(data.properties);
+
+                // Close the filters form after applying filters
+                const filters = document.getElementById('filters'); // Adjust this ID if needed
+                if (filters.classList.contains('filters-visible')) {
+                    filters.classList.remove('filters-visible'); // Hide the filter form
+                    document.getElementById('filter-button').textContent = 'Show Filters'; // Reset button text
+                }
+            })
+            .catch(error => {
+                console.error('Error filtering properties:', error);
+            });
     };
 
-    // Apply filters and hide filter options
-    window.applyFilters = function() {
-        const mlsId = document.getElementById('mls-listing-id').value || null;
-        const locate = document.getElementById('location').value || null;;
-        const minPrice = parseFloat(document.getElementById('min-price').value)|| 0;
-        const maxPrice = parseFloat(document.getElementById('max-price').value) || Infinity;
-        const minBeds = parseInt(document.getElementById('min-beds').value)|| null;
-        const minBaths = parseFloat(document.getElementById('min-baths').value)|| null;
-        const propertyItems = document.querySelectorAll('.property-item')|| null;
+    function updateMap(properties) {
+        // Clear existing markers
+        windowsOpen.forEach(window => window.close());
+        windowsOpen = [];
+        map.markers.forEach(marker => marker.setMap(null));  // Remove existing markers
+        map.markers = [];
 
-        propertyItems.forEach(item => {
-            const price = parseFloat(item.getAttribute('data-price'));
-            const beds = parseInt(item.getAttribute('data-beds'));
-            const fullBaths = parseFloat(item.getAttribute('data-full-baths'));
-            const halfBaths = parseFloat(item.getAttribute('data-half-baths'));
-            const location = item.getAttribute('data-location');
-            const mlsNumber = item.getAttribute('data-mls-number');
+        // Add new markers to the map
+        properties.forEach(property => {
+            if (!isNaN(property.latitude) && !isNaN(property.longitude)) {
+                const priceMarkerDiv = document.createElement('div');
+                priceMarkerDiv.className = 'price-marker';
+                priceMarkerDiv.innerHTML = `$${property.list_price}`;
 
-            let baths = fullBaths +(halfBaths / 2);
-            let priceFlag = true;
-            let bedsFlag = true;
-            let bathsFlag = true;
-            let locationFlag = true;
-            let mlsFlag = true;
-            let mlschecked = false;
+                const marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(property.latitude, property.longitude),
+                    map: map,
+                    title: property.house_number + ' ' + property.street_name
+                });
 
-            if (mlsId != null){
-                mlschecked = true;
-            }
+                map.markers.push(marker);
 
-            if (mlschecked == true){
-                if (mlsId != mlsNumber){
-                    mlsFlag = false;
-                }
-                priceFlag =false;
-                bedsFlag = false;
-                bathsFlag = false;
-                locationFlag = false;
-                if (mlsFlag == true){
-                    item.style.display = 'block';
-                }else{
-                    item.style.display = 'none';
-                };
-            }else if(mlschecked == false){
-                
-                if (locate != null && location.toUpperCase() != locate.toUpperCase()) {
-                    locationFlag = false;
-                }
-            
-                if (price < minPrice || price > maxPrice){
-                    priceFlag = false;
-                }
+                const infoWindowContent = `
+                    <div class="map-popup">
+                        <h3 class="popup-title"><a href="/property/${property.id}">${property.house_number} ${property.street_name}, ${property.city}, ${property.state}</a></h3>
+                        <p class="popup-price">Price: $${property.list_price}</p>
+                    </div>
+                `;
 
-                if (beds != null && beds < minBeds){
-                    bedsFlag = false;
-                }
+                const infoWindow = new google.maps.InfoWindow({
+                    content: infoWindowContent
+                });
 
-                if (baths != null && baths < minBaths){
-                    bathsFlag = false;
-                }
-                
-                if (priceFlag == true && locationFlag == true && bedsFlag == true && bathsFlag == true){
-                    item.style.display = 'block';
-                }else{
-                    item.style.display = 'none';
-                };
-
+                marker.addListener('click', () => {
+                    windowsOpen.forEach(win => win.close());
+                    infoWindow.open(map, marker);
+                    windowsOpen.push(infoWindow);
+                });
             }
         });
+    }
 
-        // Hide filters after applying
-        document.getElementById('filters').classList.remove('filters-visible');
-        document.getElementById('filter-button').textContent = 'Show Filters';
+    window.moveToProperty = function (lat, lng) {
+        map.setCenter({ lat: lat, lng: lng });
+        map.setZoom(15);
     };
 });
+
+
 
 // Get commas in infowindow on maps for price, REGEX is dumb
 function formatPriceWithCommas(price) {
