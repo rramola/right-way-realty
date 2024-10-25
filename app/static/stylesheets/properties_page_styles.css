@@ -60,6 +60,9 @@
 
 #property-card-images-container{
   width: 50%;
+  background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .main-image-container {
   position: relative; 
@@ -120,7 +123,6 @@
     margin-left: 5px;
   }
   .collapsible {
-    background-color: #eee;
     color: #444;
     cursor: pointer;
     width: auto;
@@ -132,6 +134,8 @@
     padding: 0;
     padding-left: 18px;
     padding-right: 18px;
+    background: linear-gradient(to bottom, #ffffff, hsla(171, 50%, 169%, 0.349));
+    border-radius: 8px;
   }
 
   .active, .collapsible:hover {
@@ -147,6 +151,12 @@
   .property-details-card{
     margin-right: 10rem;
   }
+
+.card-body{
+    background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
   .property-detail-item{
     text-align: left; 
