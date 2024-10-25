@@ -44,6 +44,7 @@
     margin-bottom: 30px;
     margin-left: 5rem;
     padding: 5px;
+    row-gap: 1rem;
   }
 
   #main-property-card {
@@ -123,10 +124,15 @@
     margin-left: 5px;
   }
 
+.overview-detail-title{
+  font-style: italic;
+}
+
   .overview-content{
     background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 18px;
   }
   .collapsible {
     color: #444;
