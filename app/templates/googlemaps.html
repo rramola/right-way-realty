@@ -42,6 +42,7 @@
                    data-half-baths="{{ property.baths_half|default:"0" }}"
                    data-location="{{property.city}}"
                    data-mls-number="{{property.mls_number}}">
+                  images = PropertyImage.objects.filter(property_id=property_id)
                 <div class="property-image">
                     <div class="main-image-container">
                       <button id="prev-image" class="image-arrow" onclick="changeImage(-1)">&#9664;</button>
