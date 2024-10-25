@@ -65,6 +65,11 @@
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+#property-card-images-inner-container{
+  padding: 18px;
+  }
+
 .main-image-container {
   position: relative; 
   width: 100%; 
@@ -124,7 +129,7 @@
     margin-left: 5px;
   }
 
-.overview-detail-title{
+#overview-detail-title{
   font-style: italic;
 }
 
