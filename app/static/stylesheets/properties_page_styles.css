@@ -224,9 +224,7 @@
   top: 10%;
   right: 0;
   margin-right: 1%;
-  background: rgb(124, 194, 182);
-  z-index: 1001;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px;
+
 }
 
 
@@ -235,6 +233,10 @@
   padding: 20px;
   border-radius: 8px;
   margin-top: 20px;
+  background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
 }
 
 .mortgage-calculator h5 {
@@ -283,9 +285,10 @@
   top: 10%;
   right: 0;
   margin-right: 1%;
-  background: rgb(124, 194, 182);
+  background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1001;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px;
 }
 
 #messageGroup{
