@@ -122,6 +122,12 @@
   #overview-header{
     margin-left: 5px;
   }
+
+  .overview-content{
+    background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
   .collapsible {
     color: #444;
     cursor: pointer;
