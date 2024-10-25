@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{% static "stylesheets\about_page_styles.css" %}">
     <link rel="stylesheet" href="{% static "stylesheets\maps_styles.css" %}">
     <link rel="stylesheet" href="{% static "stylesheets\footer_styles.css" %}">
+    <link rel="stylesheet" href="{% static "stylesheets\rental_styles.css" %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon"  href="{% static "images/favicon.ico" %}"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +40,7 @@
             <div class="navbar_item"><a href="{% url 'home'%}">Home</a></div>
             {% comment %} <div class="navbar_item"><a href="{% url 'properties'%}">Properties</a></div> {% endcomment %}
             <div class="navbar_item dropdown">
-                <a href="#" class="dropbtn">About</a>
+                <button class="dropbtn" onclick="toggleDropdown()">About</button>
                 <div class="dropdown-content">
                     <a href="{% url 'about' %}">About Us</a>
                     <a href="{% url 'oxford' %}">About Oxford</a>

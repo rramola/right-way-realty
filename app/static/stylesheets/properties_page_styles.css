@@ -10,13 +10,6 @@
 }
 
  /* General Styles */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: var(--light-bg);
-    margin: 0;
-    padding: 0;
-  }
-
   h3, h5 {
     color: var(--dark-green);
   }
@@ -24,11 +17,15 @@
   .property-address {
     font-size: 1.3em;
     margin: 5px;
-    margin-top: 5rem;
+    margin-top: 2rem;
   }
 
   .property-page {
     background-color: var(--white);
+  }
+
+  .property-status{
+    margin: 5px;
   }
 
   .property-status h3 {
@@ -38,6 +35,7 @@
 
   .property-overview-header {
     font-weight: 700;
+    margin-left: 5px;
   }
 
   .property-card {
@@ -45,32 +43,71 @@
     flex-direction: column;
     margin-bottom: 30px;
     margin-left: 5rem;
-    margin-right: 30rem;
+    padding: 5px;
   }
 
   #main-property-card {
     height: max-content;
   }
 
-  /* Property Image Styles */
-
-  .card-img-top {
-    width: 100%;
-    object-fit: cover;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  .properties-details-card{
+    margin-right: 10rem;
   }
+  
+  
 
+/* Property Image Styles */
+
+#property-card-images-container{
+  width: 50%;
+}
+.main-image-container {
+  position: relative; 
+  width: 100%; 
+  max-width: 800px; 
+  height: 400px; 
+  overflow: hidden; 
+}
+
+.card-img-top {
+  width: 100%;
+  height: 100%; 
+  object-fit: cover; 
+  object-position: center; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.image-arrow {
+  background: rgb(255 255 255 / 50%);
+  color: var(--dark-green);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  height: 30%;
+}
+
+#prev-image {
+  left: 10px;
+}
+
+#next-image {
+  right: 10px;
+}
   .thumbnail-carousel {
     display: flex;
-    justify-content: center;
+    column-gap: 5px;
     overflow-x: auto;
     padding: 10px 0;
+    max-width: 800px;
   }
 
   .thumbnail {
     width: 80px;
-    height: auto;
-    margin: 0 5px;
+    height: 80px;
     cursor: pointer;
     transition: transform 0.2s;
   }
@@ -79,6 +116,9 @@
     transform: scale(1.05);
   }
 
+  #overview-header{
+    margin-left: 5px;
+  }
   .collapsible {
     background-color: #eee;
     color: #444;
@@ -102,33 +142,63 @@
     display: none;
     padding: 0 18px;
     overflow: hidden;
-    background-color: #f1f1f1;
+  }
+  
+  .property-details-card{
+    margin-right: 10rem;
+  }
+
+  .property-detail-item{
+    text-align: left; 
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 2fr;
+    align-items: baseline;
+    column-gap: 3rem;
+
+  }
+
+  .property-detail-item h3{
+    display: flex;
+  }
+
+  .property-detail-item span{
+    text-align: left;
+    padding-left: 2rem;
   }
 
   .property-details-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
+    grid-gap: 15px;
     margin-top: 15px;
     margin-bottom: 30px;
   }
 
   #description-header{
-    margin-left: 3rem;
+    margin-left: 5px;
   }
 
-  .property-detail-item {
+  .description-content{
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: left;
+  }
+
+  .forms-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     background-color: var(--light-blue);
-    padding: 10px;
-    text-align: center;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  #mortgage-calculator-container {
-  margin-left: 5rem;
-  margin-right: 30rem;
 }
+
+#mortgage-calculator-container{
+  display:none;
+  position: fixed;
+  top: 10%;
+  right: 0;
+  margin-right: 2rem;
+}
+
 
   .mortgage-calculator {
   background-color: var(--light-blue);
@@ -163,18 +233,103 @@
   font-size: 1.2em;
 }
 
+#contactUsForm{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+}
 
+.contact-form {
+  background-color: var(--light-blue);
+  padding: 20px;
+  border-radius: 8px;position: fixed;
+    right: 0;
+  margin-top: 20px;
+}
+
+#contactForm{
+  display:none;
+  position: fixed;
+  top: 10%;
+  right: 0;
+  margin-right: 2rem;
+}
+
+#messageGroup{
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.contact-form h5 {
+  margin-bottom: 15px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-form .form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+  width: -webkit-fill-available;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contact-form .form-error {
+  color: red; 
+  margin-top: 5px;
+}
+
+.contact-form .form-button {
+  background-color: var(--dark-blue); 
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact-form .form-button:hover {
+  background-color: var(--darker-blue); 
+}
+
+.properties-popout-button{
+    position: fixed;
+    right: 0;
+  margin-right:2rem;
+}
+  #properties-calculate{
+    top:20%
+  }
+  #properties-contact{
+    top:15%
+  }
 
   /* Mobile Styles */
   @media (max-width: 1000px) {
     .main-image-container{
       width: auto;
+      max-width: auto;
+      max-height: auto;
+      height: auto;
     }
     .thumbnail-carousel {
     width: auto;
+    max-width: auto;
+    max-height: auto;
+    height: auto;
   }
   }
   @media (max-width: 768px) {
+    #property-card-images-container{
+    width: 100%;
+    }
     .property-details-grid {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -186,24 +341,34 @@
     margin-left: 0;
     margin-right: 0;
     }
-
-    #overview-header{
-      margin-left: 3rem;
-    }
     .card-img-top {
     height: auto;
     max-height: 400px;
-  }
-
-      #description-header{
-      margin-left: 3rem;
+    }
+    .property-details-card{
+      margin-right: 0;
     }
 
-    .description-content{
-      padding-left:18px;
-      padding-right: 18PX
-  }
+    #contactForm{
+    display:block;
+    position: initial;
+      margin-right: 0;
+    }
 
+    #mortgage-calculator-container{
+    display:block;
+    position: initial;
+    }
+
+    .properties-popout-button{
+    display: none;
+    }
+
+    #contactUsForm{
+    display: block;
+}
+
+  }
   @media (max-width: 480px) {
     .property-details-grid {
       grid-template-columns: 1fr;

@@ -5,64 +5,74 @@
 
 <div class="property-page">
   <div class="property-card" id="main-property-card">
-    <h5 class="property-address">
-      {{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }},
-      {{ property.city }}, {{ property.state }} {{ property.postal_code }}
-    </h5>
-
-    <!-- Main Property Image -->
-    <div class="main-image-container">
-      <img id="main-image" src="{% if images %}{{ images.0.url }}{% else %}{% static 'default-image.jpg' %}{% endif %}" alt="Image of {{ property.house_number }} {{ property.street_name }}" class="card-img-top" />
+    <div id="property-card-images-container">
+      <h5 class="property-address">
+        {{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }},
+        {{ property.city }}, {{ property.state }} {{ property.postal_code }}
+      </h5>
+  
+      <!-- Main Property Image -->
+      <div class="main-image-container">
+        <button id="prev-image" class="image-arrow" onclick="changeImage(-1)">&#9664;</button>
+        <img id="main-image" src="{% if images %}{{ images.0.url }}{% else %}{% static 'default-image.jpg' %}{% endif %}" alt="Image of {{ property.house_number }} {{ property.street_name }}" class="card-img-top" />
+        <button id="next-image" class="image-arrow" onclick="changeImage(1)">&#9654;</button>
+      </div>
+  
+      <!-- Thumbnail Carousel -->
+      <div class="thumbnail-carousel">
+        {% if images %}
+          {% for image in images %}
+            <img src="{{ image.url }}" alt="Thumbnail of {{ property.house_number }} {{ property.street_name }}" class="thumbnail" onclick="changeMainImage('{{ image.url }}')" />
+          {% endfor %}
+        {% else %}
+          <p>No additional images available.</p>
+        {% endif %}
+      </div>
     </div>
-
-    <!-- Thumbnail Carousel -->
-    <div class="thumbnail-carousel">
-      {% if images %}
-        {% for image in images %}
-          <img src="{{ image.url }}" alt="Thumbnail of {{ property.house_number }} {{ property.street_name }}" class="thumbnail" onclick="changeMainImage('{{ image.url }}')" />
-        {% endfor %}
-      {% else %}
-        <p>No additional images available.</p>
-      {% endif %}
-    </div>
-
+      
+   <!-- Property Status -->
     <div class="property-status">
       <span><span class='property-overview-header'>MLS#</span> {{ property.mls_number }}</span> |
       <span><span class='property-overview-header'>Property Type: </span>{{ property.property_subtype }}</span> |
       <span><span class='property-overview-header'>Status: </span>{{ property.mls_status }}</span>
     </div>
 
-        <!-- Property Overview -->
-        <div class="card-body">
-          <h3 id="overview-header">Overview:</h3>
-          <div class="overview-content">
-            <div class="property-details-grid">
-              <div class="property-detail-item">
-                <h3>${{ property.list_price|floatformat:0|intcomma }}</h3>
-                <span id="overview-detail-title">Price</span>
-              </div>
-              <div class="property-detail-item">
-                <h3>{{ property.bedrooms }}</h3>
-                <span id="overview-detail-title">Beds</span>
-              </div>
-              <div class="property-detail-item">
-                <h3>{{ property.baths_total }}</h3>
-                <span id="overview-detail-title">Baths</span>
-              </div>
-              <div class="property-detail-item">
-                <h3>{{ property.building_area_total|intcomma }}</h3>
-                <span id="overview-detail-title">SqFt</span>
-              </div>
-              <div class="property-detail-item">
-                <h3>{{ property.year_built }}</h3>
-                <span id="overview-detail-title">Built</span>
-              </div>
-              <div class="property-detail-item">
-                <h3>{{ property.highschool_district }}</h3>
-                <span id="overview-detail-title">Schools</span>
-              </div>
-            </div>
+    <!-- Property Overview -->
+    <div class="property-details-card">
+      <h3 id="overview-header">Overview:</h3>
+      <div class="overview-content">
+        <div class="property-details-grid">
+          <div class="property-detail-item">
+            <span id="overview-detail-title">Price</span>
+            <h3>${{ property.list_price|floatformat:0|intcomma }}</h3>
+<!--                 <span id="overview-detail-title">Price</span> -->
           </div>
+          <div class="property-detail-item">
+            <span id="overview-detail-title">Beds</span>
+            <h3>{{ property.bedrooms }}</h3>
+<!--                 <span id="overview-detail-title">Beds</span> -->
+          </div>
+          <div class="property-detail-item">
+            <span id="overview-detail-title">Baths</span>
+            <h3>{{ property.baths_total }}</h3>
+<!--                 <span id="overview-detail-title">Baths</span> -->
+          </div>
+          <div class="property-detail-item">
+            <span id="overview-detail-title">SqFt</span>
+            <h3>{{ property.building_area_total|intcomma }}</h3>
+<!--                 <span id="overview-detail-title">SqFt</span> -->
+          </div>
+          <div class="property-detail-item">
+            <span id="overview-detail-title">Built</span>
+            <h3>{{ property.year_built }}</h3>
+<!--                 <span id="overview-detail-title">Built</span> -->
+          </div>
+          <div class="property-detail-item">
+            <span id="overview-detail-title">Schools</span>
+            <h3>{{ property.highschool_district }}</h3>
+<!--                 <span id="overview-detail-title">Schools</span> -->
+          </div>
+        </div>
         <!-- Property Description -->
         <h3 id="description-header">Description:</h3>
         <div class="description-content">
@@ -70,52 +80,41 @@
             <div id="property-description">{{ property.description }}</div>
           </div>
         </div>
-
-        <!-- Location Details -->
-        <div class="card-body">
-          <h3 class="collapsible" onclick="toggleCollapse(this)"><p>Location:</p><p id="collapsible-icon">+</p></h3>
-          <div class="content">
-             <div class="property-detail-item">
-                <h3>Address:</h3>
-                {{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }},
-                {{ property.city }}, {{ property.state }} {{ property.postal_code }}
-             </div>
-              <div class="property-detail-item">
-                <h3>Area:</h3>
-                <span>{{ property.mls_area }}</span>
-                {% comment %} <span>Area</span> {% endcomment %}
-              </div>
-              <div class="property-detail-item">
-                <h3>City:</h3>
-                <span>{{ property.city }}</span>
-                {% comment %} <span>City</span> {% endcomment %}
-              </div>
-              <div class="property-detail-item">
-                <h3>County:</h3>
-                <span>{{ property.county}}</span>
-                {% comment %} <span>County</span> {% endcomment %}
-                <span>{{ property.county }}</span>
-              </div>
-              <div class="property-detail-item">
-                <h3>Subdivision:</h3>
-                <span>
-                  {% if property.subdivision_name != "None"  %}{{ property.subdivision_name}}{% endif %}
-                  {% if property.subdivision_name == "None"  %}N/A{% endif %}
-                  {% if property.subdivision_name != "None" %}{{ property.subdivision_name }}{% else %}N/A{% endif %}
-                </span>
-                {% comment %} <span>County</span> {% endcomment %}
-              </div>
-              <div class="property-detail-item">
-                <h3>Schools:</h3>
-                <span>{{ property.highschool_district }}</span>
-                {% comment %} <span>Schools</span> {% endcomment %}
-              </div>
-              <div class="property-detail-item">
-                <strong>Zip:</strong>
-                <span>{{ property.postal_code}}</span>
-                {% comment %} <span>Zip</span> {% endcomment %}
-                <span>{{ property.postal_code }}</span>
-              </div>
+      </div>
+      <!-- Location Details -->
+      <div class="card-body">
+        <h3 class="collapsible" onclick="toggleCollapse(this)"><p>Location:</p><p id="collapsible-icon">+</p></h3>
+        <div class="content">
+           <div class="property-detail-item">
+              <h3>Address:</h3>
+              <span>{{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }},
+              {{ property.city }}, {{ property.state }} {{ property.postal_code }}</span>
+           </div>
+            <div class="property-detail-item">
+              <h3>Area:</h3>
+              <span>{{ property.mls_area }}</span>
+            </div>
+            <div class="property-detail-item">
+              <h3>City:</h3>
+              <span>{{ property.city }}</span>
+            </div>
+            <div class="property-detail-item">
+              <h3>County:</h3>
+              <span>{{ property.county}}</span>
+            </div>
+            <div class="property-detail-item">
+              <h3>Subdivision:</h3>
+              <span>
+                {% if property.subdivision_name != "None" %}{{ property.subdivision_name }}{% else %}N/A{% endif %}
+              </span>
+            </div>
+            <div class="property-detail-item">
+              <h3>Schools:</h3>
+              <span>{{ property.highschool_district }}</span>
+            </div>
+            <div class="property-detail-item">
+              <strong>Zip:</strong>
+              <span>{{ property.postal_code}}</span>
             </div>
           </div>
         </div>
@@ -126,57 +125,56 @@
           <div class="content">
               <div class="property-detail-item" id="detail-item-grid-span">
                 <h3>Appliances:</h3>
-                {% for appliance in property.appliances %}
+                <span>{% for appliance in property.appliances %}
                   {{ appliance }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                     N/A
-                {% endfor %}
+                {% endfor %}</span>
 
               </div>
               <div class="property-detail-item">
                 <h3>Bathrooms Full:</h3>
-                {{ property.baths_full }}
+                <span>{{ property.baths_full }}</span>
               </div>
               <div class="property-detail-item">
                 <h3>Bathrooms Total:</h3>
-                {{ property.baths_total }}
+                <span>{{ property.baths_total }}</span>
               </div>
               <div class="property-detail-item">
                 <h3>Bedrooms Total:</h3>
-                {{ property.bedrooms }}
+                <span>{{ property.bedrooms }}</span>
               </div>
               <div class="property-detail-item">
                 <h3>Flooring:</h3> 
-                  {% for item in property.flooring %}
+                  <span>{% for item in property.flooring %}
                     {{ item }}{% if not forloop.last %}, {% endif %}
                     {%empty%}
                       N/A
-                  {% endfor %}
+                  {% endfor %}</span>
               </div>
               <div class="property-detail-item">
                 <h3>Fireplace:</h3>
-                  {% for item in property.fireplace_features %}
+                  <span>{% for item in property.fireplace_features %}
                     {{ item }}{% if not forloop.last %}, {% endif %}
                     {%empty%}
                       None
-                  {% endfor %} 
+                  {% endfor %}</span>
               </div>
               <div class="property-detail-item">
                 <h3>Laundry:</h3> 
-                  {% for item in property.laundry_features %}
+                  <span>{% for item in property.laundry_features %}
                     {{ item }}{% if not forloop.last %}, {% endif %}
                     {%empty%}
                       N/A
-                  {% endfor %}
+                  {% endfor %}</span>
               </div>
               <div class="property-detail-item">
                 <h3>Additional Features:</h3> 
-                  {% for item in property.interior_features %}
+                  <span>{% for item in property.interior_features %}
                     {{ item }}{% if not forloop.last %}, {% endif %}
                     {%empty%}
                       N/A
-                  {% endfor %} 
-
+                  {% endfor %}</span>
               </div>
           </div>
         </div>
@@ -187,17 +185,17 @@
           <div class="content">
               <div class="property-detail-item">
                 <h3>Additional Structures:</h3> 
-                  {% for item in property.other_structures %}
-                    {{ item }}{% if not forloop.last %}, {% endif %}
+                  <span>{% for item in property.other_structures %}
+                     {{ item }}{% if not forloop.last %}, {% endif %}
                     {%empty%}
                       N/A
-                  {% endfor %} 
+                  {% endfor %}</span>
               </div>
               <div class="property-detail-item">
                 <h3>Garage / Carport:</h3> 
-                {% if property.garage_yes_no == true %}{{property.garage_spaces}} Car Garage{% endif %}
-                {% if property.carport == true %}{{property.car_port_spaces}} Space Car Port{% endif %}
-                {% if property.carport != true and property.garage_yes_no != true %}N/A{% endif %}
+                {% if property.garage_yes_no == true %}<span>{{property.garage_spaces}} Car Garage</span>{% endif %}
+                {% if property.carport == true %}<span>{{property.car_port_spaces}} Space Car Port</span>{% endif %}
+                {% if property.carport != true and property.garage_yes_no != true %}<span>N/A</span>{% endif %}
               </div>     
               <div class="property-detail-item">
                 <h3>Lot Size:</h3>
@@ -205,44 +203,44 @@
               </div>
               <div class="property-detail-item">
                 <h3>Patio / Porch:</h3>
-                {% for item in property.patio_porch_features %}
+                <span>{% for item in property.patio_porch_features %}
                   {{ item }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                       N/A
-                {% endfor %} 
+                {% endfor %} </span>
               </div>
               <div class="property-detail-item">
                 <h3>Parking Features:</h3>
-                {% for item in property.parking_features %}
+                 <span>{% for item in property.parking_features %}
                   {{ item }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                       N/A
-                {% endfor %} 
+                {% endfor %} </span>
               </div>      
               <div class="property-detail-item">
                 <h3>Pool:</h3>
-                {% for item in property.pool_features %}
+                <span>{% for item in property.pool_features %}
                   {{ item }}{% if not forloop.last %}, {% endif %}
                   {% empty%}
                     None
-                {% endfor %} 
+                {% endfor %} </span>
 
               </div>
               <div class="property-detail-item">
                 <h3>Road Surface:</h3> 
-                {% for item in property.road_surface_type %}
+                <span>{% for item in property.road_surface_type %}
                  {{ item }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                       N/A
-                {% endfor %} 
+                {% endfor %} </span>
               </div>
               <div class="property-detail-item">
                 <h3>Roofing:</h3>
-                {% for item in property.roofing %}
+                <span>{% for item in property.roofing %}
                   {{ item }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                       N/A
-                {% endfor %} 
+                {% endfor %} </span>
               </div>     
               <div class="property-detail-item">
                 <h3>Zoning:</h3> 
@@ -250,11 +248,11 @@
               </div>
               <div class="property-detail-item">
                 <h3>Notes:</h3> 
-                  {% for item in property.exterior_features %}
+                  <span>{% for item in property.exterior_features %}
                     {{ item }}{% if not forloop.last %}, {% endif %}
                     {% empty%}
                       N/A
-                  {% endfor %} 
+                  {% endfor %} </span>
               </div>
           </div>
         </div>
@@ -269,31 +267,27 @@
               </div>
               <div class="property-detail-item">
                 <h3>Exterior:</h3> 
-                  {% for item in property.construction_materials %}
+                   <span>{% for item in property.construction_materials %}
                     {{ item }}{% if not forloop.last %}, {% endif %}
                     {%empty%}
                       N/A
-                  {% endfor %} 
+                  {% endfor %} </span>
               </div>
               <div class="property-detail-item">
                 <h3>Roof:</h3>
-                {% for item in property.roof  %}
-                  <span>{{ item }}{% if not forloop.last %},</span>{% endif %}
+                <span>{% for item in property.roof  %}
+                  {{ item }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                       N/A
-                {% endfor %}      
+                {% endfor %}</span>     
               </div>
               <div class="property-detail-item">
                 <h3>Foundation:</h3> 
-                {% for item in property.foundation_details %}
-                  <span>{{ item }}{% if not forloop.last %},</span>{% endif %}
+                <span>{% for item in property.foundation_details %}
+                  {{ item }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                       N/A
-                {% endfor %} 
-                <h3>Utilities:</h3>
-                {% for item in property.utilities %}
-                  {{ item }}{% if not forloop.last %}, {% endif %}
-                {% empty %} N/A {% endfor %}
+                {% endfor %} </span>
               </div>
             </div>
           </div>
@@ -305,43 +299,43 @@
           <div class="content">
               <div class="property-detail-item" id="cooling-detail-item">
                 <h3>Cooling: </h3>
-                {% for cooling in property.cooling %}
-                  <span>{{ cooling }}{% if not forloop.last %},</span>{% endif %}
+                <span>{% for cooling in property.cooling %}
+                  {{ cooling }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                       N/A
-                {% endfor %}
+                {% endfor %}</span>
               </div>
               <div class="property-detail-item">
                   <h3>Heating: </h3>
-                {% for heating in property.heating %}
+                <span>{% for heating in property.heating %}
                   {{ heating }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                       N/A
-                {% endfor %}
+                {% endfor %}</span>
               </div>
               <div class="property-detail-item">
                 <h3>Water:</h3> 
-                  {% for item in property.water_source %}
-                  <span>{{ item }}{% if not forloop.last %},</span>{% endif %}
+                  <span>{% for item in property.water_source %}
+                  {{ item }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                       N/A
-                {% endfor %} 
+                {% endfor %} </span>
               </div>
               <div class="property-detail-item">
                 <h3>Sewer:</h3> 
-                {% for item in property.sewer %}
-                  <span>{{ item }}{% if not forloop.last %},</span>{% endif %}
+                <span>{% for item in property.sewer %}
+                  {{ item }}{% if not forloop.last %}, {% endif %}
                   {%empty%}
                       N/A
-                {% endfor %} 
+                {% endfor %} </span>
               </div>
               <div class="property-detail-item">
                 <h3>Electric:</h3> 
-                {% for item in property.electric %}
-                  <span>{{ item }}{% if not forloop.last %},</span>{% endif %}
+                <span>{% for item in property.electric %}
+                  {{ item }}{% if not forloop.last %},{% endif %}
                   {%empty%}
                       N/A
-                {% endfor %} 
+                {% endfor %} </span>
               </div>
           </div>
         </div>
@@ -349,6 +343,7 @@
     </div>
 
     <!-- Mortgage Calculator -->
+  <div id="forms-container">
     <div id="mortgage-calculator-container">
       <div class="mortgage-calculator">
         <h5>Mortgage Calculator</h5>
@@ -374,10 +369,87 @@
         <div id="monthlyPayment" class="result"></div>
       </div>
     </div> 
+
+  <div class="contact-form" id="contactForm">
+    <h5 id="contactFormHeader">Contact Us</h5>
+    <form method="POST" action="{% url 'contact' %}" id="contactUsForm">
+      {% csrf_token %}
+      <div class="form-group" id="firstNameGroup">
+        <label for="{{ form.first_name.id_for_label }}" class="form-label">First Name:</label>
+        {{ form.first_name }}
+        {% if form.first_name.errors %}
+        <div class="form-error" id="firstNameError">
+          {{ form.first_name.errors|striptags }}
+        </div>
+        {% endif %}
+      </div>
+      
+      <div class="form-group" id="lastNameGroup">
+        <label for="{{ form.last_name.id_for_label }}" class="form-label">Last Name:</label>
+        {{ form.last_name }}
+        {% if form.last_name.errors %}
+        <div class="form-error" id="lastNameError">
+          {{ form.last_name.errors|striptags }}
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="form-group" id="phoneNumberGroup">
+        <label for="{{ form.phone_number.id_for_label }}" class="form-label">Phone Number:</label>
+        {{ form.phone_number }}
+        {% if form.phone_number.errors %}
+        <div class="form-error" id="phoneNumberError">
+          {{ form.phone_number.errors|striptags }}
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="form-group" id="emailGroup">
+        <label for="{{ form.email.id_for_label }}" class="form-label">Email:</label>
+        {{ form.email }}
+        {% if form.email.errors %}
+        <div class="form-error" id="emailError">
+          {{ form.email.errors|striptags }}
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="form-group" id="messageGroup">
+        <label for="{{ form.message.id_for_label }}" class="form-label">Message:</label>
+        {{ form.message }}
+        {% if form.message.errors %}
+        <div class="form-error" id="messageError">
+          {{ form.message.errors|striptags }}
+        </div>
+        {% endif %}
+      </div>
+
+      <button type="submit" id="contact_form_submit_button" class="form-button">Send Message</button>
+    </form>
   </div>
+    <button type="submit" id="properties-calculate" class="properties-popout-button" onclick="displayMortgageCalculator()">calculate</button>
+    <button type="submit" id="properties-contact" class="properties-popout-button" onclick="displayContactForm()">contact</button>
 </div>
 
 <script>
+
+let currentImageIndex = 0;
+const images = [{% for image in images %}'{{ image.url }}'{% if not forloop.last %}, {% endif %}{% endfor %}];
+
+function changeImage(direction) {
+  currentImageIndex += direction;
+  
+  // Loop around if the index is out of bounds
+  if (currentImageIndex < 0) {
+    currentImageIndex = images.length - 1;
+  } else if (currentImageIndex >= images.length) {
+    currentImageIndex = 0;
+  }
+
+  // Update the main image
+  document.getElementById('main-image').src = images[currentImageIndex];
+}
+
 // Change the main image when a thumbnail is clicked
 function changeMainImage(imageUrl) {
   document.getElementById('main-image').src = imageUrl;
@@ -399,6 +471,26 @@ document.getElementById('mortgage-calculator-form').addEventListener('submit', f
   const monthlyPayment = (loanAmount * interestRate) / (1 - Math.pow(1 + interestRate, -loanTerm));
   document.getElementById('calculation-result').innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
 });
+
+function displayContactForm(){
+  let contact = document.getElementById('contactForm');
+  let calculate = document.getElementById('mortgage-calculator-container');
+  contact.style.display = (contact.style.display === "block") ? "none" : "block";
+   if (calculate.style.display === "block"){
+    calculate.style.display = "none"
+  }
+}
+
+function displayMortgageCalculator(){
+  let contact = document.getElementById('contactForm');
+  let calculate = document.getElementById('mortgage-calculator-container');
+  calculate.style.display = (calculate.style.display === "block") ? "none" : "block";
+  if (contact.style.display === "block"){
+    contact.style.display = "none"
+  }
+  
+}
+  
 </script>
 
 {% endblock %}

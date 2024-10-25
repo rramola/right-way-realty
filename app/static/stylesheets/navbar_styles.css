@@ -10,31 +10,53 @@
   z-index: 1000;
   padding-bottom: .5rem;
   padding-top: .5rem;
-  overflow-x: hidden;
+  overflow-x: visible;
+}
+
+
+#navbar_items{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 2rem;
+  column-gap: 2rem;
+}
+
+
+.navbar_item>a {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  color: #2a7a3d;
+  text-decoration: none;
+  padding: 1rem;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+  font-weight: lighter;
+  letter-spacing: .1rem;
+
+}
+
+.navbar_item>a:hover {
+  color: black;
+  transform: scale(1.2);
+  text-shadow: 0 0 5px #EAEEFB;
+  border-radius: 5px; 
 }
 
 
 .navbar_item {
-  position: relative;
-  display: inline-block;
-  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
 }
 
-.navbar_item a {
-  display: inline-block;
-  padding: 10px 15px;
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.2rem;
-}
-
-.navbar_item a:hover {
-  border-radius: 5px; 
-}
 
 .dropbtn {
-  font-size: 1.2rem;
-  color: #fff;
+  font-size: 1.1rem;
+  color: green;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -44,22 +66,23 @@
 
 .dropbtn:hover {
   background-color: #444;
-  border-radius: 5px; 
+  border-radius: 5px;
 }
 
 .dropdown {
   position: relative;
-  display: inline-block;
 }
 
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #333;
-  min-width: 160px; 
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); 
-  z-index: 1;
+  background-color:#0b3a2d;
+  min-width: 10px;
+  width: max-content;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  border-radius: 5px;
 }
 
 
@@ -72,11 +95,22 @@
 }
 
 .dropdown-content a:hover {
-  background-color: #555
+  background-color: #555;
+  border-radius: 5px;
 }
 
-.navbar_item.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content {
   display: block;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 #logo {
@@ -93,46 +127,12 @@
 
 }
 
-#navbar_items {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-left: auto;
-  padding-right: 2rem;
-}
 
 #navbar_items.show {
   height: auto;
   opacity: 1;
 }
 
-.navbar_item {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  text-align: center;
-}
-
-.navbar_item>a {
-  font-family: sans-serif;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  color: #2a7a3d;
-  text-decoration: none;
-  padding: 1rem;
-  font-size: 1.1rem;
-  margin-right: 1rem;
-  font-weight: lighter;
-  letter-spacing: .1rem;
-
-}
-
-.navbar_item>a:hover {
-  color: black;
-  transform: scale(1.2);
-  text-shadow: 0 0 5px #EAEEFB;
-}
 
 #hamburger_menu {
   display: none;
@@ -170,6 +170,7 @@
     z-index: 1001;
     height: 0;
     overflow: hidden;
+    margin-right: 0;
     row-gap: 1rem;
     opacity: 0;
     transition: height 0.5s ease, opacity 0.5s ease;
@@ -197,4 +198,55 @@
   #navbar_items.show {
     display: flex;
   }
+
+  .dropdown-content {
+    position: relative; /* Make it relative to the parent on mobile */
+    background-color: #014235; /* Match mobile navbar background */
+    width: 100%; /* Take up full width of container */
+    left: 0; /* Align with "About" button */
+    top: 0; /* Ensure no top offset */
+    display: none; /* Default hidden on mobile */
+  }
+  .dropdown-content a {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #2a7a3d; /* Match mobile design */
+    color: #EAEEFB;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #0b3a2d;
+    color: white;
+  }
+
+  .navbar_item.dropdown{
+    flex-direction: column;
+  }
+
+  .navbar_item.dropdown .dropdown-content.show {
+    display: block;
+  }
+
+  /* Mobile-specific dropdown button behavior */
+  .dropdown:hover .dropdown-content {
+    display: none; /* Disable hover behavior on mobile */
+  }
+
+
+  /* Display dropdown when clicked */
+  .dropbtn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropbtn:after {
+    content: '\25BC'; /* Arrow down icon */
+    float: right;
+    padding-right: 10px;
+  }
+
+  .navbar_item.dropdown .dropdown-content.show {
+    display: block; /* Show the dropdown when clicked */
+  }
+
 }

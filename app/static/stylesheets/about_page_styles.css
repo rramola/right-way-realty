@@ -16,7 +16,7 @@ h2 {
 
 p {
   font-size: 1.2em;
-  color: #555;
+  /* color: #555; */
   line-height: 1.6;
 }
 
@@ -43,6 +43,9 @@ p {
 
 .about-text {
   width: 55%; 
+  text-align: left;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 /* Team Section */
@@ -51,12 +54,32 @@ p {
   justify-content: space-around; 
   margin-top: 50px;
   flex-wrap: wrap; 
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 }
 
 .team-member {
-  width: 45%; 
   text-align: center;
   margin-bottom: 40px; 
+}
+
+#team-member-april{
+  grid-row: 2;
+  grid-column: 1;
+}
+
+#team-member-terry{
+  grid-column: 2;
+  grid-row: 2;
+}
+
+#team-member-whites{
+  width: 100%;
+  grid-row: 1;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
 .team-member img {
@@ -75,12 +98,46 @@ p {
   font-size: 1.5em;
 }
 
-.bio {
+/* .bio {
   margin-top: 15px;
   font-size: 1.1em;
   color: #666;
   text-align: left; 
   padding: 10px 20px; 
+}
+ */
+.bio {
+    position: relative;
+    margin-top: 15px;
+    text-align: left;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.bio-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.bio-full {
+    display: none; 
+}
+.bio-overlay{
+  width:100%
+}
+.bio button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #295943;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width:100%
+}
+
+.bio button:hover {
+    background-color: #0b3a2d;
 }
 
 .cta-container {
@@ -409,7 +466,12 @@ body {
     font-size: 1.2em;
   }
 
-  
+  .team-section{
+    display: flex;
+    justify-content: space-around; 
+    margin-top: 50px;
+    flex-wrap: wrap; 
+  }
 
 }
 @media (max-width: 400px){
