@@ -150,7 +150,14 @@
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
 
+@media (max-width: 1000px) {
 
+  #contact_page_container{
+    width: auto;
+  }
+
+
+}
 
 @media (max-width: 750px) {
 
@@ -163,6 +170,10 @@
 
   .contact_us_form_group label {
     font-size: 1.1rem;
+  }
+
+  #contact_page_container{
+    width: 100vw;
   }
 
 }
@@ -201,6 +212,14 @@
 
   #contact_us_form_button_container {
     margin-bottom: 3rem;
+  }
+  #contact_form_container {
+    width: 100%;
+    border-radius: 0%;
+    box-shadow: none;
+  }
+  #contact_page_container{
+   margin: 0;
   }
 }
 
