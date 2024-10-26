@@ -55,7 +55,6 @@ p {
   margin-top: 50px;
   flex-wrap: wrap; 
   display: grid;
-  align-items: center;
   justify-content: center;
   align-content: center;
 }
@@ -80,6 +79,8 @@ p {
   grid-row: 1;
   grid-column-start: 1;
   grid-column-end: 3;
+  display: flex;
+  justify-content: center;
 }
 
 .team-member img {
@@ -112,8 +113,13 @@ p {
     text-align: left;
     margin-left: 15px;
     margin-right: 15px;
+
 }
 
+#family-bio{
+    margin-left: 10%;
+    margin-right: 10%;
+}
 .bio-content {
     overflow: hidden;
     transition: max-height 0.3s ease;
@@ -168,7 +174,6 @@ p {
 
   .about-rwr {
       width: 70%;
-      margin: 0 auto 20px;
   }
 
   .about-text {
@@ -433,8 +438,18 @@ body {
   }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1000px) {
+    .about-content{
+      flex-direction: column;
+    }
+    .about-rwr{
+      margin-left: 0;
+    }
 
+    .about-text{
+      width: 80%;
+      margin: 0;
+    }
 
 
 }

@@ -14,7 +14,7 @@ body {
   padding: 0;
   overflow-y: auto;
   margin: 0;
-  width: 100vw;
+  width: fit-content;
   overflow-x: hidden;
 }
 
