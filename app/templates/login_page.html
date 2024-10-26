@@ -1,22 +1,22 @@
 {% extends "base_template.html" %}{% load static %}
 {% block content %}
-<div class="login_page_container">
-    <center>
-    <form method="POST">
+<div class="login-page-container">
+  <h1>Login to Right-Way Realty</h1>
+  <form method="POST" class="login-form">
       {% csrf_token %}
       <fieldset class="form-group">
-        <label for="id_username">Username:</label>
-        <p id="id_username" class="contact">{{ form.username }}</li>
-        <label for="id_password1">Password:</label>
-        <p id="id_password1" class="contact">{{ form.password }}</li>
+          <div class="form-field">
+              <label for="username">Username:</label>
+              {{ form.username }}
+          </div>
+          <div class="form-field">
+              <label for="password">Password:</label>
+              {{ form.password }}
+          </div>
       </fieldset>
-     <center>
-      <button id="login_button" type="submit">login</button>
-    </center>
-    <br/>
-    <a href="{% url 'register' %}">don't have account,sign up</a>
-    </form>
-  </center>
+      <button id="login-button" type="submit">Login</button>
+      <p class="signup-link">Don't have an account? <a href="{% url 'register' %}">Sign up here</a>.</p>
+  </form>
 </div>
 
 {% endblock content%}
