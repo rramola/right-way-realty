@@ -1,13 +1,15 @@
-{% extends "base_template.html" %} {% load static%}
+{% extends "base_template.html" %}
+{% load static %}
 {% block content %}
-<div class="content-section col-md-8 col-md-offset-2">
-    <form method="POST">
-      {% csrf_token %}
-      <fieldset class="form-group">
-        {{ form.as_p}}
-      </fieldset>
-        <button id="registration_button">sign up</button>
-        <a href="{% url "login" %}">Already have an account ?</a>
+<div class="registration-page-container">
+    <h1>Sign Up for Right-Way Realty</h1>
+    <form method="POST" class="registration-form">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            {{ form.as_p }}
+        </fieldset>
+        <button id="registration-button" type="submit">Sign Up</button>
+        <p class="login-link">Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
     </form>
-  </div>
-{% endblock content%}
+</div>
+{% endblock content %}
