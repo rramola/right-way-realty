@@ -15,6 +15,7 @@ from django.conf import settings
 from django.urls import reverse
 from django.db import connection
 from datetime import date
+from django.contrib.auth import logout
 
 
 # from populate_dummy_data import *
@@ -270,3 +271,10 @@ def user_login(request):
         form = AuthenticationForm()
     return render(request, "login_page.html", {'form': form,
         'title': 'log in'})
+
+def profile_page(request):
+    return render(request, "profile.html")
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
