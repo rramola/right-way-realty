@@ -19,6 +19,8 @@
   justify-content: flex-end;
   align-items: center;
   margin-left: auto;
+  margin-right: 2rem;
+  column-gap: 2rem;
 }
 
 
@@ -28,12 +30,10 @@
   justify-content: center;
   color: #2a7a3d;
   text-decoration: none;
-  padding: 1rem;
   font-size: 1.1rem;
   margin-right: 1rem;
   font-weight: lighter;
   letter-spacing: .1rem;
-
 }
 
 .navbar_item>a:hover {
@@ -116,7 +116,6 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-right: 1rem;
 }
 
 #logo>img {
@@ -138,6 +137,15 @@
   cursor: pointer;
   z-index: 1001;
   color: #2a7a3d;
+}
+
+@media (max-width: 1000px) {
+  #navbar_items{
+    column-gap: 0;
+  }
+  .navbar_item a{
+    padding: 0;
+  }
 }
 
 
@@ -191,6 +199,7 @@
 
   .navbar_item>a {
     color: #EAEEFB;
+    padding: 1rem;
   }
 
   #navbar_items.show {
