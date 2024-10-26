@@ -1,3 +1,14 @@
+:root {
+  --dark-green: #0b3a2d; /* Dark Green */
+  --green: #2a7a3d; /* Green */
+  --beige: #d1c6a8; /* Beige */
+  --light-bg: #f4f4f4; /* Light background */
+  --white: #ffffff; /* White */
+  --light-blue: #EAEEFB; /* Light blue for details */
+  --text-dark: #444; /* Dark text */
+  --text-light: #555; /* Light text */
+}
+
 body {
   background-color: #EAEEFB;
   padding: 0;
@@ -7,3 +18,5 @@ body {
   width: 100vw;
   overflow-x: hidden;
 }
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900');

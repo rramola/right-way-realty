@@ -1,0 +1,20 @@
+{% extends "base_template.html" %}{% load static %}
+{% block content %}
+<div class="login_page_container">
+    <center>
+    <form method="POST">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <p id="subject" class="contact">{{ form.username }}</li>
+        <p id="email" class="contact">{{ form.password }}</li>
+      </fieldset>
+     <center>
+      <button id="login_button" type="submit">login</button>
+    </center>
+    <br/>
+    <a href="{% url 'register' %}">don't have account,sign up</a>
+    </form>
+  </center>
+</div>
+
+{% endblock content%}

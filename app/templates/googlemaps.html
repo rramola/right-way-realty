@@ -43,12 +43,6 @@
                    data-location="{{property.city}}"
                    data-mls-number="{{property.mls_number}}">
                 <div class="property-image">
-                    {{property.images}}
-<!--                     <div class="main-image-container">
-                      <button id="prev-image" class="image-arrow" onclick="changeImage(-1)">&#9664;</button>
-                      <img id="main-image" src="{% if property.images|length > 0%}{{ property.images.first.url }}{% else %}{% static 'default-image.jpg' %}{% endif %}" alt="Image of {{ property.house_number }} {{ property.street_name }}" class="card-img-top" />
-                      <button id="next-image" class="image-arrow" onclick="changeImage(1)">&#9654;</button>
-                    </div> -->
                   <img src="{{ property.images.first.url }}" alt="Property Image">
                 </div>
                 <h2>{{ property.house_number }} {{ property.street_name }}, {{ property.city }}, {{ property.state }} {{ property.postal_code }}</h2>

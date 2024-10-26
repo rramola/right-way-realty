@@ -19,13 +19,13 @@
     <link rel="stylesheet" href="{% static "stylesheets\maps_styles.css" %}">
     <link rel="stylesheet" href="{% static "stylesheets\footer_styles.css" %}">
     <link rel="stylesheet" href="{% static "stylesheets\rental_styles.css" %}">
+    <link rel="stylesheet" href="{% static "stylesheets\login_page_styles.css" %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon"  href="{% static "images/favicon.ico" %}"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Antic+Didone&display=swap" rel="stylesheet">
-
-<script src="{% static "scripts.js" %}"></script>   
+    <script src="{% static "scripts.js" %}"></script>   
 </head>
 <body>
 
@@ -49,6 +49,8 @@
             <div class="navbar_item"><a href="{% url 'googlemaps'%}">Properties</a></div>
             <div class="navbar_item"><a href="{% url 'contact'%}">Contact</a></div>
             <div class="navbar_item"><a href="{% url 'rental_list'%}">Rentals</a></div>
+            <div class="navbar_item"><a href="{% url 'register'%}">Register</a></div>
+            <div class="navbar_item"><a href="{% url 'login'%}">Login</a></div>
         </div>
     </div>
     </div>
