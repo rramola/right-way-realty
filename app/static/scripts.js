@@ -172,112 +172,115 @@ document.addEventListener('DOMContentLoaded', function () {
         filters.classList.toggle('filters-visible');
         this.textContent = filters.classList.contains('filters-visible') ? 'Hide Filters' : 'Show Filters';
     });
-
-    window.applyFilters = function () {
-        const mlsId = document.getElementById('mls-listing-id').value.trim();
-        const location = document.getElementById('location').value.trim();
-        const minPrice = document.getElementById('min-price').value.trim();
-        const maxPrice = document.getElementById('max-price').value.trim();
-        const minBeds = document.getElementById('min-beds').value.trim();
-        const minBaths = document.getElementById('min-baths').value.trim();
-
-        // Send AJAX request
-        const url = `/filter-properties?mls_listing_id=${mlsId}&location=${location}&min_price=${minPrice}&max_price=${maxPrice}&min_beds=${minBeds}&min_baths=${minBaths}`;
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                const propertyList = document.getElementById('property-list');
-                propertyList.innerHTML = '';  // Clear current list
-
-                // Update property list
-                data.properties.forEach(property => {
-                    const formattedPrice = parseFloat(property.list_price).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-                    const beds = property.bedrooms || 'N/A';
-                    const baths = property.baths_total || 'N/A';
-                    const sqFt = property.building_area_total ? `${property.building_area_total.toLocaleString()} Sq. Ft.` : 'N/A';
-
-                    const propertyItem = `
-                        <a href="/property/${property.id}" class="property-link">
-                            <div class="property-item">
-                                <div class="property-image">
-                                    <img src="${property.image_url}" alt="Property Image">
-                                </div>
-                                <h2>${property.house_number || ''} ${property.street_name}, ${property.city}, ${property.state} ${property.postal_code}</h2>
-                                <div class="property-details">
-                                    <h3>${formattedPrice}</h3>
-                                    <p>${beds} Beds &nbsp; | &nbsp; ${baths} Baths &nbsp; | &nbsp; ${sqFt}</p>
-                                    <p>${property.property_type || 'N/A'}</p>
-                                    <p class="agent-info">${property.agent_name || 'N/A'}</p>
-                                    <a href="#" onclick="moveToProperty(${property.latitude}, ${property.longitude})">View on Map</a>
-                                </div>
-                            </div>
-                        </a>
-                    `;
-                    propertyList.insertAdjacentHTML('beforeend', propertyItem);
-                });
-
-                // Update the map with new markers
-                updateMap(data.properties);
-
-                // Close the filters form after applying filters
-                const filters = document.getElementById('filters'); // Adjust this ID if needed
-                if (filters.classList.contains('filters-visible')) {
-                    filters.classList.remove('filters-visible'); // Hide the filter form
-                    document.getElementById('filter-button').textContent = 'Show Filters'; // Reset button text
-                }
-            })
-            .catch(error => {
-                console.error('Error filtering properties:', error);
-            });
-    };
-
-    function updateMap(properties) {
-        // Clear existing markers
-        windowsOpen.forEach(window => window.close());
-        windowsOpen = [];
-        map.markers.forEach(marker => marker.setMap(null));  // Remove existing markers
-        map.markers = [];
-
-        // Add new markers to the map
-        properties.forEach(property => {
-            if (!isNaN(property.latitude) && !isNaN(property.longitude)) {
-                const priceMarkerDiv = document.createElement('div');
-                priceMarkerDiv.className = 'price-marker';
-                priceMarkerDiv.innerHTML = `$${property.list_price}`;
-
-                const marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(property.latitude, property.longitude),
-                    map: map,
-                    title: property.house_number + ' ' + property.street_name
-                });
-
-                map.markers.push(marker);
-
-                const infoWindowContent = `
-                    <div class="map-popup">
-                        <h3 class="popup-title"><a href="/property/${property.id}">${property.house_number} ${property.street_name}, ${property.city}, ${property.state}</a></h3>
-                        <p class="popup-price">Price: $${property.list_price}</p>
-                    </div>
-                `;
-
-                const infoWindow = new google.maps.InfoWindow({
-                    content: infoWindowContent
-                });
-
-                marker.addListener('click', () => {
-                    windowsOpen.forEach(win => win.close());
-                    infoWindow.open(map, marker);
-                    windowsOpen.push(infoWindow);
-                });
-            }
-        });
-    }
-
-    window.moveToProperty = function (lat, lng) {
-        map.setCenter({ lat: lat, lng: lng });
-        map.setZoom(15);
-    };
 });
+
+//     window.applyFilters = function (AdvancedMarkerElement, markers) {
+//         const mlsId = document.getElementById('mls-listing-id').value.trim();
+//         const location = document.getElementById('location').value.trim();
+//         const minPrice = document.getElementById('min-price').value.trim();
+//         const maxPrice = document.getElementById('max-price').value.trim();
+//         const minBeds = document.getElementById('min-beds').value.trim();
+//         const minBaths = document.getElementById('min-baths').value.trim();
+//         markers.forEach(marker => marker.setMap(null));
+//         markers = [];
+//         console.log(markers)
+//         // Send AJAX request
+//         const url = `/filter-properties?mls_listing_id=${mlsId}&location=${location}&min_price=${minPrice}&max_price=${maxPrice}&min_beds=${minBeds}&min_baths=${minBaths}`;
+//         fetch(url)
+//             .then(response => response.json())
+//             .then(data => {
+//                 const propertyList = document.getElementById('property-list');
+//                 propertyList.innerHTML = '';  // Clear current list
+
+//                 // Update property list
+//                 data.properties.forEach(property => {
+//                     const formattedPrice = parseFloat(property.list_price).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+//                     const beds = property.bedrooms || 'N/A';
+//                     const baths = property.baths_total || 'N/A';
+//                     const sqFt = property.building_area_total ? `${property.building_area_total.toLocaleString()} Sq. Ft.` : 'N/A';
+
+//                     const propertyItem = `
+//                         <a href="/property/${property.id}" class="property-link">
+//                             <div class="property-item">
+//                                 <div class="property-image">
+//                                     <img src="${property.image_url}" alt="Property Image">
+//                                 </div>
+//                                 <h2>${property.house_number || ''} ${property.street_name}, ${property.city}, ${property.state} ${property.postal_code}</h2>
+//                                 <div class="property-details">
+//                                     <h3>${formattedPrice}</h3>
+//                                     <p>${beds} Beds &nbsp; | &nbsp; ${baths} Baths &nbsp; | &nbsp; ${sqFt}</p>
+//                                     <p>${property.property_type || 'N/A'}</p>
+//                                     <p class="agent-info">${property.agent_name || 'N/A'}</p>
+//                                     <a href="#" onclick="moveToProperty(${property.latitude}, ${property.longitude})">View on Map</a>
+//                                 </div>
+//                             </div>
+//                         </a>
+//                     `;
+//                     propertyList.insertAdjacentHTML('beforeend', propertyItem);
+//                 });
+
+//                 // Update the map with new markers
+//                 updateMap(data.properties, AdvancedMarkerElement);
+
+//                 // Close the filters form after applying filters
+//                 const filters = document.getElementById('filters'); // Adjust this ID if needed
+//                 if (filters.classList.contains('filters-visible')) {
+//                     filters.classList.remove('filters-visible'); // Hide the filter form
+//                     document.getElementById('filter-button').textContent = 'Show Filters'; // Reset button text
+//                 }
+//             })
+//             .catch(error => {
+//                 console.error('Error filtering properties:', error);
+//             });
+//     }
+
+//     function updateMap(properties) {
+//         // Clear existing markers
+//         windowsOpen.forEach(window => window.close());
+//         windowsOpen = [];
+//         markers.forEach(marker => marker.setMap(null));
+//         markers = [];
+//         console.log(markers)
+//         // Add new markers to the map
+//         properties.forEach(property => {
+//             if (!isNaN(property.latitude) && !isNaN(property.longitude)) {
+//                 const priceMarkerDiv = document.createElement('div');
+//                 priceMarkerDiv.className = 'price-marker';
+//                 priceMarkerDiv.innerHTML = `$${property.list_price}`;
+
+//                 const marker = new google.maps.Marker({
+//                     position: new google.maps.LatLng(property.latitude, property.longitude),
+//                     map: map,
+//                     title: property.house_number + ' ' + property.street_name
+//                 });
+
+//                 map.markers.push(marker);
+
+//                 const infoWindowContent = `
+//                     <div class="map-popup">
+//                         <h3 class="popup-title"><a href="/property/${property.id}">${property.house_number} ${property.street_name}, ${property.city}, ${property.state}</a></h3>
+//                         <p class="popup-price">Price: $${property.list_price}</p>
+//                     </div>
+//                 `;
+
+//                 const infoWindow = new google.maps.InfoWindow({
+//                     content: infoWindowContent
+//                 });
+
+//                 marker.addListener('click', () => {
+//                     windowsOpen.forEach(win => win.close());
+//                     infoWindow.open(map, marker);
+//                     windowsOpen.push(infoWindow);
+//                 });
+//             }
+//         });
+//     }
+
+//     window.moveToProperty = function (lat, lng) {
+//         map.setCenter({ lat: lat, lng: lng });
+//         map.setZoom(15);
+//     };
+// });
 
 
 
