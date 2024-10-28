@@ -164,10 +164,10 @@
 
 
 @media (max-width: 900px) {
-  #home_page_properties_container h1 {
+/*   #home_page_properties_container h1 {
     font-size: 3rem
   }
-
+ */
   #home_page_properties_container {
     height: auto;
   }
@@ -176,9 +176,9 @@
     margin-bottom: 3rem;
   }
 
-  .property_info_content {
+/*   .property_info_content {
     font-size: 1.5rem;
-  }
+  } */
 
   .property-list-wrapper {
     padding: 0;
@@ -220,16 +220,19 @@
 
   .property_info {
     margin-bottom: 0;
+    height: auto;
   }
 
   .property-list {
     display: flex;
     flex-direction: column;
     gap: 0;
+    height: auto;
   }
 
   .property-list-wrapper {
     padding-bottom: 0;
+    margin-bottom: 0;
   }
 
   .property {
@@ -248,7 +251,7 @@
 
 @media (max-width: 650px) {
   #home_page_properties_container h1 {
-    font-size: 3rem;
+/*     font-size: 3rem; */
     letter-spacing: .2rem;
     padding-left: 1rem;
     padding-right: 1rem;
