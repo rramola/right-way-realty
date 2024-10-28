@@ -2,14 +2,36 @@
 {% load static %}
 {% block content %}
 <div class="registration-page-container">
-    <h1>Sign Up for Right-Way Realty</h1>
-    <form method="POST" class="registration-form">
-        {% csrf_token %}
-        <fieldset class="form-group">
-            {{ form.as_p }}
-        </fieldset>
-        <button id="registration-button" type="submit">Sign Up</button>
-        <p class="login-link">Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
-    </form>
+    <div id="registration-form-container">
+        <h1>Sign Up for Right-Way Realty</h1>
+        <form method="POST" class="registration-form">
+            {% csrf_token %}
+            <fieldset class="form-group" id="registration-form-group">
+                <div id="username-container">
+                    {{form.username}}
+                </div>
+                <div id="email-container">
+                    {{form.email}}
+                </div>
+                <div id="phone-number-container">
+                    {{form.phone_number}}
+                </div>
+                <div id="first-name-container">
+                    {{form.first_name}}
+                </div>
+                <div id="last-name-container">
+                    {{form.last_name}}
+                </div>
+                <div id="password-one-container">
+                    {{form.password1}}
+                </div>
+                <div id="password-two-container">
+                    {{form.password2}}
+                </div>
+            </fieldset>
+            <button id="registration-button" type="submit">Sign Up</button>
+            <p class="login-link">Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
+        </form>
+    </div>
 </div>
 {% endblock content %}
