@@ -58,6 +58,7 @@
   text-decoration: underline 1px;
   text-underline-offset: .4rem;
   color: white;
+  align-self: baseline;
 }
 
 .expertise_box_text {
