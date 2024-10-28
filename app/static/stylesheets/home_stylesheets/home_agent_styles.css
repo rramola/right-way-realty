@@ -152,6 +152,11 @@
 /*     font-size: 1.3em; */
   }
 
+  .home-agent-info-text{
+    font-size: 1.3rem;
+  }
+    
+
   #agent_profile_section {
     clip-path: none;
   }
