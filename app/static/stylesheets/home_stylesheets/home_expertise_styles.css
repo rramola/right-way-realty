@@ -45,7 +45,7 @@
   margin: 10px;
   box-sizing: border-box;
   height: 300px;
-  align-items: center;
+  align-items: end;
 }
 
 .expertise_box_header {
