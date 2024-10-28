@@ -146,7 +146,7 @@
 
 @media (max-width: 750px) {
   #expertise_container {
-    display: flex;
+     grid-template-columns: 1fr;
   }
 
   #expertise_section {
