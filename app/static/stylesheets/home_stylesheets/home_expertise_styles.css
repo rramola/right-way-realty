@@ -28,11 +28,14 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .expertise_box {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   flex-direction: column;
   margin-top: -5rem;
   justify-content: space-between;
@@ -74,7 +77,6 @@
   text-decoration: none;
   border-radius: 5px;
   font-size: 1em;
-  width: 80%;
 }
 
 .book_now_button:hover{
