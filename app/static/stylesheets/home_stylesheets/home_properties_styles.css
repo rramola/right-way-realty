@@ -9,7 +9,8 @@
 
 #home_page_properties_container {
   margin-top: 2rem;
-  height: 45rem;
+  height: auto;
+  margin-bottom: 2rem;
 
 }
 
@@ -29,7 +30,8 @@
   padding-top: 3rem;
   padding-left: 3rem;
   padding-right: 3rem;
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
+  margin-bottom: 2rem;
   height: -webkit-fill-available;
 }
 
@@ -42,7 +44,7 @@
   justify-items: center;
   align-items: center;
   margin: 0 auto;
-  height: 70%;
+  height: 300px;
 }
 
 .property {
@@ -61,7 +63,7 @@
 .home_page_property_images {
   position: relative;
   width: 80%;
-  height: 50%;
+  height: 100%;
 }
 
 .home_page_property_images img {
