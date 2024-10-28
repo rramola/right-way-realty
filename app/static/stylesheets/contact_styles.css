@@ -37,12 +37,13 @@
 
 #contact_us_header {
   margin-top: 0;
-  font-size: 5rem;
+  font-size: 2.5rem;
   color: #EAEEFB;
   color: var(--dark-green);
   font-family: "Albert Sans", sans-serif;
   font-weight: 100;
   font-style: normal;
+  margin-bottom: .8rem;
 }
 
 #contact_us_form {
@@ -52,7 +53,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
 }
 
 
@@ -85,7 +89,7 @@
   font-family: "Antic Didone";
   font-weight: 400;
   font-style: normal;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .contact_us_form_group input,
@@ -107,6 +111,10 @@
   padding: 1rem;
   width: 100%;
   resize: vertical;
+}
+
+#contact_us_message{
+  height: 65px;
 }
 
 .contact_us_form_group input::placeholder {
