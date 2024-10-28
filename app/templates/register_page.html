@@ -7,7 +7,8 @@
         <form method="POST" class="registration-form">
             {% csrf_token %}
             <fieldset class="form-group" id="registration-form-group">
-                <div id="username-container">
+                {{form.as_p}}
+<!--                 <div id="username-container">
                     {{form.username}}
                 </div>
                 <div id="email-container">
@@ -27,7 +28,7 @@
                 </div>
                 <div id="password-two-container">
                     {{form.password2}}
-                </div>
+                </div> -->
             </fieldset>
             <button id="registration-button" type="submit">Sign Up</button>
             <p class="login-link">Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
