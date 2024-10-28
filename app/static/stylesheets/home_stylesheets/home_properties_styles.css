@@ -21,8 +21,8 @@
   font-weight: 400;
   font-style: normal;
   letter-spacing: .5rem;
-  margin-bottom: 50px;
-  font-size: 5rem;
+  font-size: 2.5rem;
+  margin-bottom: 0;
 }
 
 .property-list-wrapper {
@@ -62,7 +62,7 @@
 .home_page_property_images {
   position: relative;
   width: 80%;
-  height: 80%;
+  height: 50%;
 }
 
 .home_page_property_images img {
@@ -75,6 +75,9 @@
   display: block;
 }
 
+.property_info {
+  height: 50%;
+}
 
 .property_info_header {
   text-align: center;
@@ -112,7 +115,7 @@
 }
 
 #home_property_city {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin: 0;
   color: #1b5e20;
   font-weight: 500;
@@ -124,7 +127,7 @@
 }
 
 #home_property_street {
-  font-size: 1.3rem;
+  font-size: 1rem;
   margin: 0;
 
 }
