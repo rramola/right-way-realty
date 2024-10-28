@@ -3,7 +3,10 @@
 }
 
 #home_page_banner_image {
-  display: none;
+  display: block;
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
 }
 
 #home_page_banner_video {
@@ -52,6 +55,7 @@
   object-fit: fill;
   object-position: center;
   width: 100%;
+  display: none;
 }
 
 #home_page_banner_text {
