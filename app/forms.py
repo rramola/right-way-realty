@@ -75,13 +75,24 @@ class ContactForm(forms.Form):
 
 
 class UserRegisterForm(UserCreationForm):
+    username = form.CharField(
+        max_length=15,
+        required=True,
+        widget=forms.TextInput(
+            attrs={
+                "id": "username-container",
+                "class": "form_group",
+                "placeholder": "Username",
+            }
+        ),
+        
     first_name = forms.CharField(
         max_length=30,
         required=True,
         widget=forms.TextInput(
             attrs={
-                "id": "contact_us_first_name",
-                "class": "contact_us_form_group",
+                "id": "first-name-container",
+                "class": "form_group",
                 "placeholder": "First Name",
             }
         ),
@@ -91,8 +102,8 @@ class UserRegisterForm(UserCreationForm):
         required=True,
         widget=forms.TextInput(
             attrs={
-                "id": "contact_us_last_name",
-                "class": "contact_us_form_group",
+                "id": "last-name-container",
+                "class": "form_group",
                 "placeholder": "Last Name",
             }
         ),
@@ -107,8 +118,8 @@ class UserRegisterForm(UserCreationForm):
         ],
         widget=forms.TextInput(
             attrs={
-                "id": "contact_us_phone_number",
-                "class": "contact_us_form_group",
+                "id": "phone-number-container",
+                "class": "form_group",
                 "placeholder": "123-456-7890",
             }
         ),
@@ -117,8 +128,8 @@ class UserRegisterForm(UserCreationForm):
         required=True,
         widget=forms.EmailInput(
             attrs={
-                "id": "contact_us_email",
-                "class": "contact_us_form_group",
+                "id": "email-container",
+                "class": "form_group",
                 "placeholder": "Email",
             }
         ),
