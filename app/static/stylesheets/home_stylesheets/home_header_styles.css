@@ -15,6 +15,7 @@
   align-items: center;
   justify-content: center;
   width: 100vw;
+  height: auto;
 }
 
 #home_page_banner_text {
