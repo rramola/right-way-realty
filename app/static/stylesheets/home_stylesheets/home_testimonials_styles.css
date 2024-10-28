@@ -5,19 +5,21 @@
 }
 
 #testimonials_header{
-  font-size: 4rem;
   color: #014235;
   text-align: center;
   font-family: "Antic Didone";
   font-weight:400;
 }
 
+#client-testimonials-header-text{
+  font-size: 2.5rem;
+  margin-bottom: 0;
+}
+
 
 #testimonials_section {
   display: flex;
   justify-content: space-between;
-  margin-top: 3rem;
-  padding-bottom: 3rem;
   padding-right: 1rem;
   padding-left: 1rem;
   gap: 20px;
@@ -40,7 +42,7 @@
 } */
 
 .testimonial_text {
-  font-size: 1.3em;
+  font-size: 1.3rem;
   color: #1b5e20;
   margin: 20px 0;
   line-height: 1.6;
@@ -92,12 +94,12 @@
     border-bottom: 1px solid #1b5e20;
   }
 
-  .testimonial_item .quote {
+/*   .testimonial_item .quote {
     font-size: 3rem;
   }
-
+ */
   .testimonial_text {
-    font-size: 1.3rem ;
+/*     font-size: 1.3rem ; */
     -webkit-line-clamp: 4;
   }
 
@@ -107,15 +109,15 @@
   #testimonials_header{
     padding-left: 1rem;
     padding-right: 1rem;
-    font-size: 3rem;
+/*     font-size: 3rem; */
   }
 
   .testimonial_item .quote {
-    font-size: 2rem;
+/*     font-size: 2rem; */
   }
 
   .testimonial_text {
-    font-size: 1rem;
+/*     font-size: 1rem; */
     -webkit-line-clamp: 3;
   }
 
