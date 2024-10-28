@@ -145,9 +145,7 @@
 
 
 @media (max-width: 1250px) {
-  .property-list {
-    height: 50%;
-  }
+
 
   .property-list-wrapper {
     height: inherit;
