@@ -96,26 +96,26 @@
 
 
 @media (max-width: 900px) {
-  #home_page_personalized_service {
+/*   #home_page_personalized_service {
     font-size: 3rem;
-  }
+  } */
 
-  #home_page_the_right_way {
+/*   #home_page_the_right_way {
     font-size: 2rem;
   }
 }
-
+ */
 /* --------------------------------------------------------------- */
 
 
 @media (max-width: 650px) {
-  #home_page_personalized_service h1 {
+/*   #home_page_personalized_service h1 {
     font-size: 1.7rem;
   }
-
+ */
   #home_page_banner_video {
     width: auto;
-    height: 40rem;
+    height: auto;
   }
 
   #fillV {
@@ -139,10 +139,10 @@
 }
 
 @media (max-width: 500px) {
-  #home_page_personalized_service {
+/*   #home_page_personalized_service {
     font-size: 2.8rem;
     letter-spacing: .2rem;
-  }
+  } */
 }
 
 
@@ -153,8 +153,8 @@
 } */
 
 @media (max-width: 400px) {
-  #home_page_personalized_service {
+/*   #home_page_personalized_service {
     font-size: 2.5rem;
     letter-spacing: .2rem;
-  }
+  } */
 }
