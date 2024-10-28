@@ -6,6 +6,11 @@
 
 }
 
+#home-agent-info-header{
+  font-size: 2.5rem;
+  color: white;
+}
+
 .agent_profile_container {
   display: grid;
   grid-template-columns: 1fr 1fr;
