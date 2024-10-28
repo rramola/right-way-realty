@@ -85,7 +85,7 @@ class UserRegisterForm(UserCreationForm):
                 "placeholder": "Username",
             }
         ),
-        
+    )
     first_name = forms.CharField(
         max_length=30,
         required=True,
