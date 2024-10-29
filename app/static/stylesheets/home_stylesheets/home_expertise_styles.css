@@ -4,14 +4,6 @@
 }
 
 #expertise_section {
-/*   text-align: center;
-  padding-top: 10%;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 5%;
-  background-color: #0b3a2d;
-  color: #EAEEFB;
-  clip-path: polygon(50% 10%, 70% 0, 100% 0, 100% 100%, 100% 100%, 100% 100%, 0% 100%, 0 100%, 0 0, 30% 0); */
   padding: 40px 20px;
 }
 
@@ -21,7 +13,7 @@
   font-style: normal;
   letter-spacing: .5rem;
   font-size: 2.5rem;
-  color: white;
+  color: #014235;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -30,24 +22,11 @@
   justify-content: space-around;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding: 40px 0;
+  padding-top: 20px;
   grid-gap: 1rem;
 }
 
 .expertise_box {
-/*   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: 1fr;
-  flex-direction: column;
-  margin-top: -5rem;
-  justify-content: space-between;
-  background-color: transparent;
-  border: 1px solid #EAEEFB;
-  padding: 20px;
-  margin: 10px;
-  box-sizing: border-box;
-  height: 300px;
-  align-items: end; */
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -64,7 +43,7 @@
   font-style: normal;
   text-decoration: underline 1px;
   text-underline-offset: .4rem;
-  color: white;
+  color: #1b5e20;
   align-self: baseline;
 }
 
@@ -72,9 +51,8 @@
   font-size: 1.3rem;
   margin-bottom: 20px;
   font-family: "Albert Sans", sans-serif;
-  font-weight: 100;
   font-style: normal;
-  color: white;
+  color: #1b5e20;
 }
 
 .book_now_button {
@@ -111,43 +89,12 @@
 
 /* -------------------------------------------------------------------------------------------------------------------------------*/
 
-
-
-/* @media (max-width: 1500px) {
-  #expertise_section h1 {
-    font-size: 4rem;
-  }
-
-  .expertise_box h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-
-  .expertise_box p {
-    font-size: 1rem;
-    margin-bottom: 20px;
-  }
-}
- */
-
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
   #our_expertise_section_header {
-/*     margin-bottom: .5; */
     padding-top: 3rem;
   }
-/* 
-  #expertise_section h1 {
-    font-size: 3rem;
-  }
 
-  .expertise_box_header {
-    font-size: 2rem;
-  } */
-
-/*   .expertise_box {
-    height: 20rem;
-  } */
-}
+} */
 
 
 @media (max-width: 750px) {
