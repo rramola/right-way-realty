@@ -37,7 +37,6 @@
 
 .property {
   display: grid;
-  grid-template-rows: 2fr 1fr;
   background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
   padding: 20px;
   border-radius: 8px;
@@ -144,10 +143,6 @@
     margin-bottom: 3rem;
   }
 
-/*   .property_info_content {
-    font-size: 1.5rem;
-  } */
-
   .property-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -161,9 +156,6 @@
     padding-bottom: 0;
   }
 
-  .home_page_property_images {
-    height: 90%;
-  }
 }
 
 
@@ -172,6 +164,10 @@
     margin-bottom: 0;
   }
 
+  #home-property-image{
+    object-fit: cover;
+  }
+  
   .property_info {
     margin-bottom: 0;
     height: auto;
@@ -185,6 +181,7 @@
   .property {
     justify-content: center;
     border-bottom: 1px solid #1b5e20;
+    display: block;
   }
 
 }
