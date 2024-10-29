@@ -2,7 +2,7 @@
   background-color: #EAEEFB;
   margin: 0;
   display: flex;
-  height: 8%;
+  height: fit-content;
   top: 0;
   width: 100%;
   left: 0;
