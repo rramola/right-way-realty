@@ -10,11 +10,12 @@
 }
 
 body {
-  background-color: #EAEEFB;
+  background-color: var(--light-blue);
   padding: 0;
   overflow-y: auto;
   margin: 0;
   overflow-x: hidden;
+  margin-bottom: 5rem
 }
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900');
