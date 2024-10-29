@@ -8,9 +8,9 @@
 }
 
 #home_page_properties_container {
-  margin-top: 2rem;
   height: auto;
-  margin-bottom: 2rem;
+  background-color: #f4f4f4;
+  padding: 40px 20px;
 
 }
 
@@ -33,6 +33,7 @@
   padding-bottom: 3rem;
   margin-bottom: 2rem;
   height: -webkit-fill-available; */
+  padding-top: 20px;
 }
 
 .property-list {
