@@ -172,6 +172,7 @@
         markers.push(marker);
     });
 }
+
 function applyFilters(AdvancedMarkerElement) {
     const mlsId = document.getElementById('mls-listing-id').value.trim();
     const location = document.getElementById('location').value.trim();
@@ -247,6 +248,53 @@ function updateMap(newProperties, AdvancedMarkerElement) {
 
 initMap();
 
+function loadMoreProperties() {
+  const propertyList = document.getElementById('property-list');
+  const limit = parseInt(propertyList.getAttribute('data-limit'));
+  const offset = parseInt(propertyList.getAttribute('data-offset')) + limit;
+
+  fetch(`/load-more-properties?offset=${offset}&limit=${limit}`)
+    .then(response => response.json())
+    .then(data => {
+      if (data.properties.length > 0) {
+        data.properties.forEach(property => {
+          // Format the price with commas
+          const formattedPrice = parseFloat(property.list_price).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+          // Ensure baths and beds are correctly displayed (null checks)
+          const beds = property.bedrooms || 'N/A';
+          const baths = property.baths_total || 'N/A';
+          const sqFt = property.building_area_total ? `${property.building_area_total.toLocaleString()} Sq. Ft.` : 'N/A';
+          // Create property item HTML
+          const propertyItem = `
+            <a href="/property/${property.id}" class="property-link">
+              <div class="property-item">
+                <div class="property-image">
+                  <img src="${property.image_url}" alt="Property Image">
+                </div>
+                <h2>${property.house_number || ''} ${property.street_name}, ${property.city}, ${property.state} ${property.postal_code}</h2>
+                <div class="property-details">
+                  <h3>${formattedPrice}</h3>  <!-- Display formatted price -->
+                  <p>${beds} Beds &nbsp; | &nbsp; ${baths} Baths &nbsp; | &nbsp; ${sqFt}</p>  <!-- Beds, Baths, and Sq. Ft. -->
+                  <p>${property.property_type || 'N/A'}</p>
+                  <p class="agent-info">${property.agent_name || 'N/A'}</p>
+                  <a id="move_to_property_link" href="#" onclick="moveToProperty(${property.latitude}, ${property.longitude})">View on Map</a>
+                </div>
+              </div>
+            </a>
+          `;
+          propertyList.insertAdjacentHTML('beforeend', propertyItem);
+        });
+        // Update the offset
+        propertyList.setAttribute('data-offset', offset);
+      } else {
+        // Hide "Load More" button if no more properties
+        document.getElementById('load-more').style.display = 'none';
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching more properties:', error);
+    });
+}
 
 </script>
 

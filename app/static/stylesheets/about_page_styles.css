@@ -339,16 +339,13 @@ p {
 
 /* OXFORD */
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+#about-oxford-page-container{
+  background-color: #EAEEFB;
 }
 
 #oxford_image {
   width: 100%;
-  height: auto;
+  height: 400px;
   object-fit: cover;
 }
 

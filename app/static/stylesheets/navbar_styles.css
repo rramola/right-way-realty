@@ -207,17 +207,17 @@
   }
 
   .dropdown-content {
-    position: relative; /* Make it relative to the parent on mobile */
-    background-color: #014235; /* Match mobile navbar background */
-    width: 100%; /* Take up full width of container */
-    left: 0; /* Align with "About" button */
-    top: 0; /* Ensure no top offset */
-    display: none; /* Default hidden on mobile */
+    position: relative;
+    background-color: #014235; 
+    width: 100%; 
+    left: 0; 
+    top: 0;
+    display: none; 
   }
   .dropdown-content a {
     padding: 1rem;
     text-align: center;
-    border-bottom: 1px solid #2a7a3d; /* Match mobile design */
+    border-bottom: 1px solid #2a7a3d; 
     color: #EAEEFB;
   }
 
@@ -234,26 +234,26 @@
     display: block;
   }
 
-  /* Mobile-specific dropdown button behavior */
+
   .dropdown:hover .dropdown-content {
-    display: none; /* Disable hover behavior on mobile */
+    display: none;
   }
 
 
-  /* Display dropdown when clicked */
+
   .dropbtn {
     width: 100%;
     text-align: center;
   }
 
   .dropbtn:after {
-    content: '\25BC'; /* Arrow down icon */
+    content: '\25BC'; 
     float: right;
     padding-right: 10px;
   }
 
   .navbar_item.dropdown .dropdown-content.show {
-    display: block; /* Show the dropdown when clicked */
+    display: block; 
   }
 
 }

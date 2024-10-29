@@ -1,14 +1,8 @@
 #container {
-  /* display: flex; */
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 3fr;
-  /* background-color: #2c3e50; */
-  /* background-color: #155e49;
-  border-color: #014235;
-  background-color: #2a7a3d; */
   background: linear-gradient(to bottom, #ffffff, #2255384b);
-  /* background-color: #073528; */
   contain: content;
 }
 
@@ -166,16 +160,16 @@
 }
 
 .property-link {
-  color: inherit; /* Keep the text color the same as the parent element */
-  text-decoration: none; /* Remove the underline from the link */
+  color: inherit; 
+  text-decoration: none; 
 }
 
 .property-link:visited,
 .property-link:hover,
 .property-link:active,
 .property-link:focus {
-  color: inherit; /* Keep the same color on all link states */
-  text-decoration: none; /* Ensure the underline stays removed */
+  color: inherit; 
+  text-decoration: none; 
 }
 
 
@@ -204,39 +198,6 @@
 }
 
 
-
-
-/* .gm-style{
-
-}
-.gm-style-iw {
-
-}
-
-
-.gm-style-iw-c{
-
-}
-.gm-style-iw-ch{
-
-}
-.gm-style-iw-chr{
-
-}
-
-.gm-ui-hover-effect{
-
-}
-
-.gm-ui-hover-effect span{
-  
-}
-.gm-style-iw-d{
-
-}
-.gm-style-iw-d div{
-
-} */
 .price-marker {
   background-color: #00bfa5;
   color: white;
@@ -308,11 +269,11 @@
   padding: 15px;
   border-radius: 10px;
   margin-top: 1rem;
-  display: none; /* Hidden by default */
+  display: none; 
 }
 
 #filters.filters-visible {
-  display: block; /* Show when active */
+  display: block;
 }
 
 #filters h3 {
@@ -403,7 +364,7 @@
 
 
   #filters_mobile.filters-visible {
-    display: block; /* Show when active */
+    display: block; 
 
   }
   
