@@ -36,14 +36,7 @@
         </div>
       </div>
     </div>
-      
-   <!-- Property Status -->
-<!--     <div class="property-status">
-      <span><span class='property-overview-header'>MLS#</span> {{ property.mls_number }}</span> |
-      <span><span class='property-overview-header'>Property Type: </span>{{ property.property_subtype }}</span> |
-      <span><span class='property-overview-header'>Status: </span>{{ property.mls_status }}</span>
-    </div>
- -->
+    
     <!-- Property Overview -->
     <div class="property-details-card">
       <div class="overview-content">
@@ -52,34 +45,29 @@
           <div class="property-detail-item">
             <span id="overview-detail-title">Price:</span>
             <h3>${{ property.list_price|floatformat:0|intcomma }}</h3>
-<!--                 <span id="overview-detail-title">Price</span> -->
           </div>
           <div class="property-detail-item">
             <span id="overview-detail-title">Beds:</span>
             <h3>{{ property.bedrooms }}</h3>
-<!--                 <span id="overview-detail-title">Beds</span> -->
           </div>
           <div class="property-detail-item">
             <span id="overview-detail-title">Baths:</span>
             <h3>{{ property.baths_total }}</h3>
-<!--                 <span id="overview-detail-title">Baths</span> -->
           </div>
           <div class="property-detail-item">
             <span id="overview-detail-title">SqFt:</span>
             <h3>{{ property.building_area_total|intcomma }}</h3>
-<!--                 <span id="overview-detail-title">SqFt</span> -->
           </div>
           <div class="property-detail-item">
             <span id="overview-detail-title">Built:</span>
             <h3>{{ property.year_built }}</h3>
-<!--                 <span id="overview-detail-title">Built</span> -->
           </div>
           <div class="property-detail-item">
             <span id="overview-detail-title">Schools:</span>
             <h3>{{ property.highschool_district }}</h3>
-<!--                 <span id="overview-detail-title">Schools</span> -->
           </div>
         </div>
+        
         <!-- Property Description -->
         <h3 id="description-header">Description:</h3>
         <div class="description-content">
@@ -137,7 +125,6 @@
                   {%empty%}
                     N/A
                 {% endfor %}</span>
-
               </div>
               <div class="property-detail-item">
                 <h3>Bathrooms Full:</h3>
@@ -231,7 +218,6 @@
                   {% empty%}
                     None
                 {% endfor %} </span>
-
               </div>
               <div class="property-detail-item">
                 <h3>Road Surface:</h3> 
@@ -263,6 +249,7 @@
               </div>
           </div>
         </div>
+      
         <!-- Architecture -->
         <div class="card-body">
           <h3 class="collapsible" onclick="toggleCollapse(this)"><p>Architecture:</p><p id="collapsible-icon">+</p></h3>
@@ -350,7 +337,7 @@
     </div>
 
     <!-- Mortgage Calculator -->
-<!--   <div id="forms-container">
+  <div id="forms-container">
     <div id="mortgage-calculator-container">
       <div class="mortgage-calculator">
         <h5>Mortgage Calculator</h5>
@@ -435,7 +422,7 @@
   </div>
     <p id="properties-calculate" class="properties-popout-button" onclick="displayMortgageCalculator()"><i class="fa-solid fa-calculator"></i></p>
     <p id="properties-contact" class="properties-popout-button" onclick="displayContactForm()"><i class="fa-solid fa-envelope"></i></p>
-  </div> -->
+  </div>
 </div>
 
 <script>
