@@ -44,7 +44,7 @@
                             </div>  {% endcomment %}
                             <div class="property_info_content">
                                 <a href="{% url 'property_detail' property.id %}" class="home_property_info_content" id="home_property_city">
-                                    {{ property.house_number }} {{ property.street_name }} {{ property.street_suffix }},
+                                    {{ property.house_number }} {{ property.street_name }},
                                     <br>{{ property.city }}, {{ property.state }} {{ property.postal_code }}</a>
                                 <p class="home_property_info_content" id="home_property_street"> <span class="home_info_content_labels">Beds:</span> {{ property.bedrooms}}  
                                     | <span class="home_info_content_labels">Baths:</span> {{ property.baths_info }}  

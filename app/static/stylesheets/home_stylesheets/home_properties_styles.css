@@ -238,7 +238,7 @@
   .property {
     justify-content: center;
     height: 30rem;
-    border-top: 2px solid #1b5e20;
+    border-bottom: 1px solid #1b5e20;
     padding-top: 1rem;
   }
 

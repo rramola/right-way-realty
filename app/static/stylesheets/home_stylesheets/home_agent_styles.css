@@ -66,5 +66,16 @@
 
   .agent_info {
       text-align: center; /* Center text on smaller screens */
+      grid-row:2;
   }
+}
+
+
+@media (max-width: 750px) {
+  #agent_profile_section {
+    clip-path: none;
+  }
+  .agent_profile_container {
+    margin-bottom: 0;
+}
 }

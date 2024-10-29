@@ -13,10 +13,17 @@ footer {
 
 .footer-left h1 {
   padding-top: 1.5rem;
-  /* padding-bottom: 1.5rem; */
-  /* margin: 0; */
   font-size: 1.8rem;
   color: #EAEEFB;
+  font-family: "Antic Didone";
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: .5rem;
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .footer-left {
@@ -24,6 +31,9 @@ footer {
   font-weight: 100;
   font-style: normal;
   padding-left: 3rem;
+  display: flex;    
+  align-items: center;
+  justify-content: center;
 }
 
 #footer_right_container {
@@ -47,6 +57,12 @@ footer {
 
 .footer_contact_text {
   width: max-content;
+  font-size:.9rem;
+  margin-bottom: 20px;
+  font-family: "Albert Sans", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  color: white;
 }
 
 .footer_contact_link {
@@ -135,6 +151,7 @@ footer {
     text-align: center;
     margin: 0;
     padding: 0;
+    padding-top: 1rem;
   }
 
 
