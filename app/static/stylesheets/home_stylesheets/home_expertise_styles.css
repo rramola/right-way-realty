@@ -4,14 +4,15 @@
 }
 
 #expertise_section {
-  text-align: center;
+/*   text-align: center;
   padding-top: 10%;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 5%;
   background-color: #0b3a2d;
   color: #EAEEFB;
-  clip-path: polygon(50% 10%, 70% 0, 100% 0, 100% 100%, 100% 100%, 100% 100%, 0% 100%, 0 100%, 0 0, 30% 0);
+  clip-path: polygon(50% 10%, 70% 0, 100% 0, 100% 100%, 100% 100%, 100% 100%, 0% 100%, 0 100%, 0 0, 30% 0); */
+  padding: 40px 20px;
 }
 
 #our_expertise_section_header {
@@ -21,18 +22,20 @@
   letter-spacing: .5rem;
   font-size: 2.5rem;
   color: white;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .expertise_container {
-  display: flex;
   justify-content: space-around;
-  flex-wrap: wrap;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  padding: 40px 0;
+  grid-gap: 1rem;
 }
 
 .expertise_box {
-  display: grid;
+/*   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr;
   flex-direction: column;
@@ -44,7 +47,12 @@
   margin: 10px;
   box-sizing: border-box;
   height: 300px;
-  align-items: end;
+  align-items: end; */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
 }
 
 .expertise_box_header {
