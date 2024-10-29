@@ -90,14 +90,6 @@
 
 /* -------------------------------------------------------------------------------------------------------------------------------*/
 
-/* @media (max-width: 900px) {
-  #our_expertise_section_header {
-    padding-top: 3rem;
-  }
-
-} */
-
-
 @media (max-width: 750px) {
   .expertise_container {
      grid-template-columns: 1fr;
@@ -108,28 +100,21 @@
     padding-top: 0;
   }
 
+  .experise-box{
+    border-bottom: 1px solid #1b5e20;
+  }
 
   .expertise_box_header {
-/*     font-size: 2.5rem; */
     margin-bottom: 10px;
   }
 
   .expertise_box_text {
-/*     font-size: 1.5rem; */
     margin-bottom: 20px;
   }
-
-
-/*   #expertise_section h1 {
-    font-size: 3rem;
-  }
-
- */
 }
 
 @media (max-width: 650px) {
   #our_expertise_section_header {
-/*     font-size: 1rem; */
     letter-spacing: .2rem;
   }
 
