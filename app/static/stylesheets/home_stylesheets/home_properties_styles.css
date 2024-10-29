@@ -55,9 +55,12 @@
   vertical-align: top;
   flex-shrink: 0;
   text-align: center;
-  border-left: 1px solid #1b5e20;
   height: 100%;
   width: 100%;
+  background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .home_page_property_images {
