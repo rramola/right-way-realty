@@ -13,6 +13,7 @@
 
   .property-page {
     background-color: var(--light-blue);
+    width: 100vw;
   }
 
   .property-status{
