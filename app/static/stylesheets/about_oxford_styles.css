@@ -1,8 +1,8 @@
 .calendar-card {
-  background: linear-gradient(to right, #CE1126, #14213D); /* Match the gradient */
+  background: linear-gradient(to right, #CE1126, #14213D); 
   padding: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 100%; /* Make the card smaller */
+  max-width: 100%; 
   text-align: center;
 }
 
@@ -95,8 +95,12 @@
 
 .why-oxford h2{
   text-align: center;
-  font-size: 3em;
-  color: #0b3a2d;
+  font-size: 2.2em;
+  color: #014235;
+  font-family: "Antic Didone", serif;
+  letter-spacing: .5rem;
+  font-weight: 500;
+  font-style: normal;
 }
 
 .why-oxford p{
@@ -105,7 +109,7 @@
   font-style: normal;
   color: #1b5e20;
   line-height: 1.6;
-  text-align: left;
+  text-align: center;
   margin: 0 auto;
 }
 .three-columns {
@@ -240,6 +244,7 @@
 
   .why-oxford h2 {
       font-size: 2.2em;
+      font-family: "Antic Didone", serif;
   }
 }
 
@@ -277,10 +282,48 @@
   .features-grid {
     grid-template-columns: 1fr; /* One column on smaller screens */
   }
+
+  .responsive-calendar iframe {
+    width: 100%;
+    height: 100%; 
+  }
+  .responsive-calendar {
+    max-width: 100%;
+    width: 100%;
+    padding-bottom: 80%; 
+  }
+
+  .calendar-card h2 {
+    font-size: 1.3rem;
+  }
 }
 
 @media (min-width: 1201px) {
   .features-grid {
-      grid-template-columns: repeat(2, 1fr); /* Ensure 2 equal columns on larger screens */
+      grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media (max-width: 768px) {
+  .responsive-calendar {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 590px) {
+  .responsive-calendar iframe {
+    width: 100%;
+    height: 100%; 
+  }
+  .responsive-calendar {
+    max-width: 100%;
+    width: 100%;
+    padding-bottom: 90%; 
+  }
+
+  .calendar-card h2 {
+    font-size: 1.3rem;
   }
 }

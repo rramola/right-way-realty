@@ -9,9 +9,9 @@
 
 
 .registration-page-container h1 {
-    font-family: 'Arial', sans-serif;
+    font-family: "Antic Didone", serif;
     font-size: 2rem;
-    color: #333;
+    color:#0b3a2d;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
@@ -19,11 +19,14 @@
 
 #registration-form-container{
     width: 70%;
+    margin: 0 auto;
 }
 
 
 .registration-form {
     width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 
@@ -34,7 +37,7 @@
     grid-template-columns: 1fr 1fr;
 }
 
-#username-container{
+/* #username-container{
     grid-row: 1;
     grid-column-start: 1;
     margin-bottom: 0;
@@ -79,7 +82,7 @@
     grid-column-start: 1;
     grid-column-end: 3;
     margin-bottom: 0;
-}
+} */
 
 .form-group input, 
 .form-group select, 
