@@ -62,13 +62,17 @@
   color: #2a7a3d;
 
 }
-
+/* 
 #home_property_image:hover{
   transform: scale(1.05);
   transition: .3s ease-in-out;
 }
-
-
+ */
+.property:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px #295943;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 .property_info_content {
   display: flex;
   flex-direction: column;
