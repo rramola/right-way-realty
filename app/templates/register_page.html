@@ -6,29 +6,43 @@
         <h1>Sign Up for Right-Way Realty</h1>
         <form method="POST" class="registration-form">
             {% csrf_token %}
+            {% if form.errors %}
+                <div class="form-errors">
+                    <ul>
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <li>{{ field.label }}: {{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
             <fieldset class="form-group" id="registration-form-group">
-                {{form.as_p}}
-<!--                 <div id="username-container">
-                    {{form.username}}
+                <div id="username-container">
+                    {{ form.username.label_tag }}{{ form.username }}
                 </div>
                 <div id="email-container">
-                    {{form.email}}
+                    {{ form.email.label_tag }}{{ form.email }}
                 </div>
                 <div id="phone-number-container">
-                    {{form.phone_number}}
+                    {{ form.phone_number.label_tag }}{{ form.phone_number }}
                 </div>
+                
                 <div id="first-name-container">
-                    {{form.first_name}}
+                    {{ form.first_name.label_tag }}{{ form.first_name }}
                 </div>
                 <div id="last-name-container">
-                    {{form.last_name}}
+                    {{ form.last_name.label_tag }}{{ form.last_name }}
                 </div>
                 <div id="password-one-container">
-                    {{form.password1}}
+                    {{ form.password1.label_tag }}{{ form.password1 }}
                 </div>
                 <div id="password-two-container">
-                    {{form.password2}}
-                </div> -->
+                    {{ form.password2.label_tag }}{{ form.password2 }}
+                </div>
             </fieldset>
             <button id="registration-button" type="submit">Sign Up</button>
             <p class="login-link">Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
