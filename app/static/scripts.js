@@ -45,96 +45,54 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-/////////////////////////////////////////// CAROUSEL //////////////////////////////////////////////
-
-let currentSlide = 0;
-const itemsPerPage = 1 
-
-function moveCarousel(direction) {
-    const items = document.querySelectorAll('.grid-item');
-    const totalSlides = Math.ceil(items.length / itemsPerPage); 
-
-    // Update the current slide index
-    currentSlide += direction;
-
-    // Loop the carousel
-    if (currentSlide < 0) {
-        currentSlide = totalSlides -1; 
-    } else if (currentSlide >=totalSlides) {
-        currentSlide = 0; 
-    }
-
-    // Move the carousel
-    const carouselInner = document.querySelector('.carousel-inner');
-    const offset = -currentSlide * (itemsPerPage * (100 / itemsPerPage));
-    carouselInner.style.transform = `translateX(${offset}%)`;
-}
-
-let currentCarouselSlide = currentSlide;
-const carouselItemsPerPage = 5;
-
-function moveCarouselSlider(direction) {
-    const items = document.querySelectorAll('.grid-item-scroll');
-    const totalSlides = Math.ceil(items.length / carouselItemsPerPage);
-
-    // Update the current slide index
-    currentCarouselSlide += direction;
-
-    // Loop the carousel
-    if (currentCarouselSlide < 0) {
-        currentCarouselSlide = totalSlides -1; 
-    } else if (currentCarouselSlide >= totalSlides) {
-        currentCarouselSlide = 0; 
-    }
-
-    // Move the carousel
-    const carouselInner = document.querySelector('.carousel-inner-scroll');
-    const offset = -currentCarouselSlide * (carouselItemsPerPage * (100 / carouselItemsPerPage)); 
-    carouselInner.style.transform = `translateX(${offset}%)`;
-}
-
-function changeMainImage(imageUrl) {
-    document.getElementById("mainImage").src = imageUrl;
-  }
-
 
 
 //////////////////////////////////////////////// MORTGAGE CALCULATOR //////////////////////////////////////
-function calculateMortgage(loanAmount, interestRate, loanTerm) {
-    const monthlyRate = interestRate / 100 / 12; 
-    const totalMonths = loanTerm * 12; 
+// function calculateMortgage(loanAmount, interestRate, loanTerm) {
+//     const monthlyRate = interestRate / 100 / 12; 
+//     const totalMonths = loanTerm * 12; 
 
-    const monthlyPayment = (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -totalMonths));
+//     const monthlyPayment = (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -totalMonths));
 
-    return monthlyPayment;
-}
+//     return monthlyPayment;
+// }
 
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('mortgage-form');
+// document.addEventListener('DOMContentLoaded', function () {
+//     const form = document.getElementById('mortgage-form');
 
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
+//     if (form) {
+//         form.addEventListener('submit', function(e) {
+//             e.preventDefault();
 
-            const loanAmount = parseFloat(document.getElementById('loanAmount').value);
-            const downPaymentPercentage = parseFloat(document.getElementById('downPaymentPercentage').value);
-            const interestRate = parseFloat(document.getElementById('interestRate').value);
-            const loanTerm = parseInt(document.getElementById('loanTerm').value);
+//             const loanAmount = parseFloat(document.getElementById('loanAmount').value);
+//             const downPaymentPercentage = parseFloat(document.getElementById('downPaymentPercentage').value);
+//             const interestRate = parseFloat(document.getElementById('interestRate').value);
+//             const loanTerm = parseInt(document.getElementById('loanTerm').value);
 
-            // Calculate the actual loan amount after the down payment
-            const downPaymentAmount = loanAmount * (downPaymentPercentage / 100);
-            const effectiveLoanAmount = loanAmount - downPaymentAmount;
+//             // Calculate the actual loan amount after the down payment
+//             const downPaymentAmount = loanAmount * (downPaymentPercentage / 100);
+//             const effectiveLoanAmount = loanAmount - downPaymentAmount;
 
-            const monthlyPayment = calculateMortgage(effectiveLoanAmount, interestRate, loanTerm);
+//             const monthlyPayment = calculateMortgage(effectiveLoanAmount, interestRate, loanTerm);
             
-            if (!isNaN(monthlyPayment) && (monthlyPayment !== Infinity) && (monthlyPayment > 0)) {
-                document.getElementById('monthlyPayment').innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
-            } else {
-                document.getElementById('monthlyPayment').innerText = 'Please enter valid values';
-            }
-        });
-    }
-});
+//             if (!isNaN(monthlyPayment) && (monthlyPayment !== Infinity) && (monthlyPayment > 0)) {
+//                 document.getElementById('monthlyPayment').innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
+//             } else {
+//                 document.getElementById('monthlyPayment').innerText = 'Please enter valid values';
+//             }
+//         });
+//     }
+// });
+
+// document.getElementById('mortgage-calculator-form').addEventListener('submit', function(event) {
+//     event.preventDefault();
+//     const loanAmount = parseFloat(document.getElementById('loan-amount').value);
+//     const interestRate = parseFloat(document.getElementById('interest-rate').value) / 100 / 12;
+//     const loanTerm = parseFloat(document.getElementById('loan-term').value) * 12;
+  
+//     const monthlyPayment = (loanAmount * interestRate) / (1 - Math.pow(1 + interestRate, -loanTerm));
+//     document.getElementById('calculation-result').innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
+//   });
 
 
 
@@ -247,32 +205,11 @@ function prevPage() {
 
 function toggleCollapse(element) {
     const content = element.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
+    content.style.display = (content.style.display === "block") ? "none" : "block";
   }
-  
-  // Optional: Hide collapsible content by default
-  document.querySelectorAll('.content').forEach(content => {
-    content.style.display = "none";
-  });
 
 
-function toggleDropdown() {
-    const dropdownContent = document.querySelector('.dropdown-content');
-    if (dropdownContent.classList.contains('show')) {
-        dropdownContent.classList.remove('show');
-    } else {
-        dropdownContent.classList.add('show');
-    }
-}
 
-document.querySelector('.dropbtn').addEventListener('click', function (e) {
-    e.preventDefault();
-    toggleDropdown();
-});
 
 
 /////////////////////////////////////////////// RENTAL SCROLLING FUNCTIONALITY /////////////////////////////////
@@ -320,6 +257,8 @@ function showSlide(carouselIndex, slideIndex) {
 function moveSlide(carouselIndex, step) {
     showSlide(carouselIndex, slideIndices[carouselIndex] + step);
 }
+
+
 
 
 

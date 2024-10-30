@@ -42,27 +42,27 @@
       <div class="overview-content">
         <h3 id="overview-header">Overview:</h3>
         <div class="property-details-grid">
-          <div class="property-detail-item">
+          <div class="property-overview-item">
             <span id="overview-detail-title">Price:</span>
             <h3>${{ property.list_price|floatformat:0|intcomma }}</h3>
           </div>
-          <div class="property-detail-item">
+          <div class="property-overview-item">
             <span id="overview-detail-title">Beds:</span>
             <h3>{{ property.bedrooms }}</h3>
           </div>
-          <div class="property-detail-item">
+          <div class="property-overview-item">
             <span id="overview-detail-title">Baths:</span>
             <h3>{{ property.baths_total }}</h3>
           </div>
-          <div class="property-detail-item">
+          <div class="property-overview-item">
             <span id="overview-detail-title">SqFt:</span>
             <h3>{{ property.building_area_total|intcomma }}</h3>
           </div>
-          <div class="property-detail-item">
+          <div class="property-overview-item">
             <span id="overview-detail-title">Built:</span>
             <h3>{{ property.year_built }}</h3>
           </div>
-          <div class="property-detail-item">
+          <div class="property-overview-item">
             <span id="overview-detail-title">Schools:</span>
             <h3>{{ property.highschool_district }}</h3>
           </div>
@@ -78,7 +78,7 @@
       </div>
       <!-- Location Details -->
       <div class="card-body">
-        <h3 class="collapsible" onclick="toggleCollapse(this)"><p>Location:</p><p id="collapsible-icon">+</p></h3>
+        <h3 class="collapsible" onclick="toggleCollapse(this)"><p id='collapsible-header'>Location:</p><p id="collapsible-icon">+</p></h3>
         <div class="content">
            <div class="property-detail-item">
               <h3>Address:</h3>
@@ -116,7 +116,7 @@
 
         <!-- Interior Details -->
         <div class="card-body">
-          <h3 class="collapsible" onclick="toggleCollapse(this)"><p>Interior:</p><p id="collapsible-icon">+</p></h3>
+          <h3 class="collapsible" onclick="toggleCollapse(this)"><p id='collapsible-header'>Interior:</p><p id="collapsible-icon">+</p></h3>
           <div class="content">
               <div class="property-detail-item" id="detail-item-grid-span">
                 <h3>Appliances:</h3>
@@ -175,7 +175,7 @@
 
         <!-- Exterior / Lot Details -->
         <div class="card-body">
-          <h3 class="collapsible" onclick="toggleCollapse(this)"><p>Exterior / Lot:</p><p id="collapsible-icon">+</p></h3>
+          <h3 class="collapsible" onclick="toggleCollapse(this)"><p id='collapsible-header'>Exterior / Lot:</p><p id="collapsible-icon">+</p></h3>
           <div class="content">
               <div class="property-detail-item">
                 <h3>Additional Structures:</h3> 
@@ -252,7 +252,7 @@
       
         <!-- Architecture -->
         <div class="card-body">
-          <h3 class="collapsible" onclick="toggleCollapse(this)"><p>Architecture:</p><p id="collapsible-icon">+</p></h3>
+          <h3 class="collapsible" onclick="toggleCollapse(this)"><p id='collapsible-header'>Architecture:</p><p id="collapsible-icon">+</p></h3>
           <div class="content">
             <div class="additional-features">
               <div class="property-detail-item">
@@ -289,7 +289,7 @@
 
       <!-- Utilities Features -->
         <div class="card-body">
-          <h3 class="collapsible" onclick="toggleCollapse(this)"><p>Utilities:</p><p id="collapsible-icon">+</p></h3>
+          <h3 class="collapsible" onclick="toggleCollapse(this)"><p id='collapsible-header'>Utilities:</p><p id="collapsible-icon">+</p></h3>
           <div class="content">
               <div class="property-detail-item" id="cooling-detail-item">
                 <h3>Cooling: </h3>
@@ -427,6 +427,7 @@
 
 <script>
 
+///////////////////////Carousel/////////////////////////////
 let currentImageIndex = 0;
 const images = [{% for image in images %}'{{ image.url }}'{% if not forloop.last %}, {% endif %}{% endfor %}];
 
@@ -449,42 +450,8 @@ function changeMainImage(imageUrl) {
   document.getElementById('main-image').src = imageUrl;
 }
 
-// Toggle collapsible sections
-function toggleCollapse(element) {
-  const content = element.nextElementSibling;
-  content.style.display = (content.style.display === "block") ? "none" : "block";
-}
 
-// Handle mortgage calculator form submission
-document.getElementById('mortgage-calculator-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-  const loanAmount = parseFloat(document.getElementById('loan-amount').value);
-  const interestRate = parseFloat(document.getElementById('interest-rate').value) / 100 / 12;
-  const loanTerm = parseFloat(document.getElementById('loan-term').value) * 12;
 
-  const monthlyPayment = (loanAmount * interestRate) / (1 - Math.pow(1 + interestRate, -loanTerm));
-  document.getElementById('calculation-result').innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
-});
-
-function displayContactForm(){
-  let contact = document.getElementById('contactForm');
-  let calculate = document.getElementById('mortgage-calculator-container');
-  contact.style.display = (contact.style.display === "block") ? "none" : "block";
-   if (calculate.style.display === "block"){
-    calculate.style.display = "none"
-  }
-}
-
-function displayMortgageCalculator(){
-  let contact = document.getElementById('contactForm');
-  let calculate = document.getElementById('mortgage-calculator-container');
-  calculate.style.display = (calculate.style.display === "block") ? "none" : "block";
-  if (contact.style.display === "block"){
-    contact.style.display = "none"
-  }
-  
-}
-  
 </script>
 
 {% endblock %}
