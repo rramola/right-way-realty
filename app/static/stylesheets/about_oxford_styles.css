@@ -87,6 +87,9 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.feature{
+    padding: 40px 20px;
+}
 .feature:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 12px #295943;
