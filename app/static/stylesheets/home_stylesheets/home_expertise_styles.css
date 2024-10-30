@@ -37,6 +37,12 @@
   background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
 }
 
+.expertise_box:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px #295943;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 .expertise_box_header {
   font-size: 1.5rem;
   margin-bottom: 10px;
@@ -68,10 +74,10 @@
   font-size: 1em;
 }
 
-.book_now_button:hover{
+/* .book_now_button:hover{
   background-color: #1e8d1e;
 }
-
+ */
 
 
 
