@@ -158,11 +158,22 @@
   display: flex;
 }
 
-#contact_us_form{
+#about-contact_us_form{
   background-color: white;
   border-radius: 18px;
   width: 70%;
+  box-shadow: 0 1px 8px #0b3a2d;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
 }
+
 #about-contact-form-header {
   font-family: "Antic Didone", serif;
   font-size: 2rem;
