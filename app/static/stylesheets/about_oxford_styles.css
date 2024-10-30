@@ -1,29 +1,35 @@
 /* CALENDAR */
+.calendar-card {
+  background: linear-gradient(to right, #CE1126, #14213D); /* Match the gradient */
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 100%; /* Make the card smaller */
+  text-align: center;
+}
+
+/* Responsive calendar container with smaller size */
 .responsive-calendar {
-  max-width: 100%;
-  min-width: 300px; 
-  position: relative; 
-  padding-bottom: 56.25%; 
+  max-width: 80%; /* Limit the width to card */
+  min-width: 200px;
+  width: 80%; /* Ensure it takes up the full card width */
+  position: relative;
+  padding-bottom: 50%; /* Adjusted height for a smaller display */
   height: 0;
   overflow: hidden;
+  margin: 0 auto;
+  border-radius: 8px;
 }
 
 .responsive-calendar iframe {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%; 
-  height: 100%; 
-}
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  grid-gap: 20px; 
-  margin-left: 5%;
-  margin-right: 5%;
+  width: 100%;
+  height: 100%;
 }
 
-.calendar-section h2 {
+/* Header styling */
+.calendar-card h2 {
   text-align: center;
   font-size: 2em;
   color: white;
@@ -32,7 +38,7 @@
   margin-top: 0;
   margin-bottom: 0;
   padding: 1rem;
-
+  border-radius: 8px;
 }
 
 
