@@ -1,0 +1,231 @@
+/* Header and Intro Section */
+#about-us-intro-container {
+  padding: 40px 20px;
+  background-color: #f7f3ed;
+}
+
+#about-us-page-header {
+  color: #014235;
+  font-family: "Antic Didone", serif;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: .5rem;
+  text-align: center;
+  font-size: 2.5rem;
+  margin:0;
+}
+
+#about-us-header-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-text {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.about-us-text {
+  font-size: 1.2rem;
+  font-family: "Albert Sans", sans-serif;
+  color: #333333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Meet the Team Section */
+#meet-us-container {
+  background-color: #f3f0eb;
+  color: #014235;
+  padding: 0px 20px;
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#meet-us-container-header {
+  font-family: "Antic Didone", serif;
+  font-weight: 500;
+  letter-spacing: 0.5rem;
+  font-size: 2.3rem;
+  color: #014235;
+  margin-bottom: 40px;
+}
+
+.team-section {
+  display: grid;
+
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-member {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}
+
+.team-member img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.team-member img:hover {
+  transform: scale(1.05);
+}
+
+.team-member-name {
+  font-family: "Antic Didone", serif;
+  font-size: 1.8rem;
+  color: #014235;
+  margin: 10px 0;
+}
+
+#team-member-terry{
+  grid-column: 2;
+}
+
+#team-member-whites{
+  grid-row: 2;
+  grid-column-end: 3;
+  grid-column-start: 1;
+}
+.agent-title {
+  font-size: 1.1rem;
+  font-family: "Albert Sans", sans-serif;
+  font-style: italic;
+  color: #6b6b6b;
+  margin-bottom: 15px;
+}
+
+#april-bio{
+  display: none;
+}
+
+#terry-bio{
+  display: none;
+}
+
+
+.bio-content-text {
+  font-size: 1.1rem;
+  font-family: "Albert Sans", sans-serif;
+  color: #333333;
+  line-height: 1.5;
+}
+
+.bio-overlay button {
+  background: none;
+  color: #014235;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.bio-overlay button:hover {
+  color: #2a7a3d;
+}
+
+/* Contact Form */
+#about-contact-form-container {
+  background-color: #f7f3ed;
+  padding: 40px 20PX;
+  border-radius: 8px;
+}
+
+#about-contact-form-header {
+  font-family: "Antic Didone", serif;
+  font-size: 2rem;
+  color: #014235;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#about-contact-form-grouping{
+  width: 70%;
+}
+
+#about-contact-group{
+  padding-bottom: 20px;
+}
+
+.contact_us_form_group label {
+  font-size: 1rem;
+  font-family: "Albert Sans", sans-serif;
+  color: #014235;
+}
+
+.contact_us_form_group input, 
+.contact_us_form_group textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: "Albert Sans", sans-serif;
+  margin-top: 8px;
+}
+
+.form-error {
+  color: #b23c3c;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+#contact_form_submit_button {
+  background-color: #2a7a3d;
+  color: #ffffff;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 1rem;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#contact_form_submit_button:hover {
+  background-color: #014235;
+}
+
+
+
+
+/* MOBILE STYLES */
+@media (max-width: 750px) {
+  .team-section {
+    display: flex;
+  }
+
+  #contact_us_form{
+    padding: 0;
+  }
+}
+
+@media (max-width: 475px) {
+  #contact_form_submit_button{
+    width: 100%;
+  }
+}

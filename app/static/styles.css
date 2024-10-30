@@ -1,7 +1,9 @@
 :root {
   --dark-green: #0b3a2d; /* Dark Green */
+  --light-green: #295943 /* Light Green */
   --green: #2a7a3d; /* Green */
   --beige: #d1c6a8; /* Beige */
+  --light-og: #f7f3ed;
   --light-bg: #f4f4f4; /* Light background */
   --white: #ffffff; /* White */
   --light-blue: #EAEEFB; /* Light blue for details */
@@ -20,3 +22,29 @@ body {
 }
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900');
+
+
+
+/* 
+
+h1, h2 {
+  font-family: 'YourPreferredFont', sans-serif;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2.5em;
+  text-align: center;
+}
+
+p {
+  font-size: 1.2em;
+
+  line-height: 1.6;
+} */

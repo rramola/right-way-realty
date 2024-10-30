@@ -1,24 +1,27 @@
- {% extends "base_template.html" %}
+{% extends "base_template.html" %}
 {% load static %}
 {% block content %}
 
 <div class="about-us">
-    <h1 id="about-us-page-header">About Us</h1>
-    {% comment %} <h2>Realty Done Right!</h2> {% endcomment %}
+    <div id="about-us-page-header-image-container">
+        <img src="{% static 'images/oxford-square-image.jpg' %}" alt="oxford-square" class="oxford-square-image" id="about-us-header-image">
+    </div>
+    <div id="about-us-intro-container">
+        <h1 id="about-us-page-header">About Us</h1>
 
-    <div class="about-content">
-        <img src="{% static 'images/rwraboutlogo.png' %}" alt="rwrstore" class="about-rwr">
-        <div class="about-text">
-            <p class="about-us-text">
-                At Right-Way Realty, we believe that finding your dream home or the perfect property investment should be an enjoyable and rewarding experience. Founded in Oxford, Mississippi, we have been serving the local community with dedication, transparency, and integrity for over a decade.
-            </p>
-            <p class="about-us-text">
-                Our team of experienced real estate professionals is committed to providing personalized service tailored to your unique needs. Whether you are buying, selling, or renting, we are here to guide you every step of the way.
-            </p>
+        <div class="about-content">
+            {% comment %} <img src="{% static 'images/rwraboutlogo.png' %}" alt="rwrstore" class="about-rwr"> {% endcomment %}
+            <div class="about-text">
+                <p class="about-us-text">
+                    At Right-Way Realty, we believe that finding your dream home or the perfect property investment should be an enjoyable and rewarding experience. Founded in Oxford, Mississippi, we have been serving the local community with dedication, transparency, and integrity for over a decade.
+                </p>
+                <p class="about-us-text">
+                    Our team of experienced real estate professionals is committed to providing personalized service tailored to your unique needs. Whether you are buying, selling, or renting, we are here to guide you every step of the way.
+                </p>
+            </div>
         </div>
     </div>
 
-    {% comment %} <div class="section-divider"></div> {% endcomment %}
     <div id="meet-us-container">
         <h2 id="meet-us-container-header">Meet April & Terry</h2>
 
@@ -31,10 +34,17 @@
                     <div class="bio-content">
                         <p class="bio-content-text">April White, was born and raised in Yalobusha County, just south of Lafayette County, where she has lived for 31 years.</p>
                     </div>
-                    <div class="bio-full">
-                        <p class="bio-content-text">As the owner of Right-Way Realty and licensed real estate broker, she is passionate about real estate and committed to providing exceptional service. </p><p class="bio-content-text">April is known for her detailed knowledge of the area and her ability to guide clients through every aspect of the home buying process, from property selection to closing.</p><p class="bio-content-text">Her favorite quote, “Money don’t sleep & neither does April White when there are clients to care for,” reflects her dedication.</p><p class="bio-content-text">She also offers post-sale support, with an extensive network of trusted professionals to meet homeowners' needs. </p><p class="bio-content-text">Additionally, April is a licensed residential contractor and has developed the BayRidge Rentals subdivision, currently managing over 70 rental properties. </p><p class="bio-content-text">She believes in hard work, honesty, integrity, and doing things the right way, and is a graduate of the MS Realtor Institute.</p>
+                    <div class="bio-full" id="april-bio">
+                        <p class="bio-content-text">As the owner of Right-Way Realty and licensed real estate broker, she is passionate about real estate and committed to providing exceptional service. </p>
+                        <p class="bio-content-text">April is known for her detailed knowledge of the area and her ability to guide clients through every aspect of the home buying process, from property selection to closing.</p>
+                        <p class="bio-content-text">Her favorite quote, “Money don’t sleep & neither does April White when there are clients to care for,” reflects her dedication.</p>
+                        <p class="bio-content-text">She also offers post-sale support, with an extensive network of trusted professionals to meet homeowners' needs.</p>
+                        <p class="bio-content-text">Additionally, April is a licensed residential contractor and has developed the BayRidge Rentals subdivision, currently managing over 70 rental properties.</p>
+                        <p class="bio-content-text">She believes in hard work, honesty, integrity, and doing things the right way, and is a graduate of the MS Realtor Institute.</p>
                     </div>
-                    <div class="bio-overlay"><button class="see-more">Read More</button></div>
+                    <div class="bio-overlay">
+                        <button class="see-more" id="april-bio-button" onClick="aprilBio()">Read More</button>
+                    </div>
                 </div>
             </div>
 
@@ -46,108 +56,96 @@
                     <div class="bio-content">
                         <p class="bio-content-text">Terry White, a lifelong resident of Lafayette County, is a graduate of Lafayette High School and a licensed Mississippi Realtor.</p>
                     </div>
-                    <div class="bio-full">
-                        <p class="bio-content-text">He brings over 15 years of experience in the timber industry, where he expertly managed machinery.</p><p bio-content-text>Terry owns White Oak Ridge LLC, specializing in excavating, land clearing, and constructing ponds and lakes, having built multiple projects for local residents.</p><p class="bio-content-text">His education and experience in land management and development make him a valuable asset in the real estate process.</p><p class="bio-content-text">Terry believes in hard work and balances his professional life with leisure time at Pickwick Lake, fishing with April.</p>
+                    <div class="bio-full" id="terry-bio">
+                        <p class="bio-content-text">He brings over 15 years of experience in the timber industry, where he expertly managed machinery.</p>
+                        <p class="bio-content-text">Terry owns White Oak Ridge LLC, specializing in excavating, land clearing, and constructing ponds and lakes, having built multiple projects for local residents.</p>
+                        <p class="bio-content-text">His education and experience in land management and development make him a valuable asset in the real estate process.</p>
+                        <p class="bio-content-text">Terry believes in hard work and balances his professional life with leisure time at Pickwick Lake, fishing with April.</p>
                     </div>
-                    <div class="bio-overlay"><button class="see-more">Read More</button></div>
+                    <div class="bio-overlay">
+                        <button class="see-more" id="terry-bio-button" onClick="terryBio()">Read More</button>
+                    </div>
                 </div>
             </div>
 
-            <div class="team-member" id="team-member-whites">
+            <div class="team" id="team-member-whites">
                 <div class="bio" id="family-bio-container">
                     <div class="bio-content" id="family-bio">
-                        <p class="bio-content-text">Married for over 30 years, April and Terry White form a dedicated real estate team.Together, they offer a comprehensive range of expertise, ensuring clients receive the best home, land, or commercial buying experience possible.</p><p class="bio-content-text">Their commitment to hard work and integrity, along with their diverse skill sets, makes them a trusted choice for anyone seeking real estate guidance.</p><p class="bio-content-text">With both being graduates of the MS Realtor Institute and licensed professionals, they are equipped to handle every aspect of the real estate journey for their clients.</p>
+                        <p class="bio-content-text">Married for over 30 years, April and Terry White form a dedicated real estate team. Together, they offer a comprehensive range of expertise, ensuring clients receive the best home, land, or commercial buying experience possible.</p>
+                        <p class="bio-content-text">Their commitment to hard work and integrity, along with their diverse skill sets, makes them a trusted choice for anyone seeking real estate guidance.</p>
+                        <p class="bio-content-text">With both being graduates of the MS Realtor Institute and licensed professionals, they are equipped to handle every aspect of the real estate journey for their clients.</p>
                     </div>
-    <!--                 <div class="bio-full"> -->
-    <!--                     <p>Together, they offer a comprehensive range of expertise, ensuring clients receive the best home, land, or commercial buying experience possible.</p><p>Their commitment to hard work and integrity, along with their diverse skill sets, makes them a trusted choice for anyone seeking real estate guidance.</p><p>With both being graduates of the MS Realtor Institute and licensed professionals, they are equipped to handle every aspect of the real estate journey for their clients.</p> -->
-    <!--                 </div> -->
-    <!--                 <div class="bio-overlay"><button class="see-more">Read More</button></div> -->
                 </div>
             </div>
         </div>
     </div>
+
     <div id="about-contact-form-container">
         <form method="POST" action="{% url 'contact' %}" id="contact_us_form">
-          <h2 id="about-contact-form-header">Contact Us</h2>
-          {% csrf_token %}
-          <div id="about-contact-form-grouping">
-            <div id="contact_us_form_name_group">
-              <div class="contact_us_form_group">
-                <label for="{{ form.first_name.id_for_label }}">First Name</label>
-                {{ form.first_name }}
-              </div>
-              <div class="contact_us_form_group">
-                  <label for="{{ form.last_name.id_for_label }}">Last Name</label>
-                  {{ form.last_name }}
-                  {% if form.first_name.errors %}
-                  <div class="form-error">
-                      {{ form.first_name.errors|striptags }}
-                      {% if form.last_name.errors %}
-                      <div class="form-error">
-                          {{ form.last_name.errors|striptags }}
-                      </div>
-                  {% endif %}
-                  </div>
-              {% endif %}
-              </div>
-            </div>
-    
-            <div class="contact_us_form_group">
-                <label for="{{ form.phone_number.id_for_label }}">Phone Number</label>
-                {{ form.phone_number }}
-                {% if form.phone_number.errors %}
-                <div class="form-error">
-                    {{ form.phone_number.errors|striptags }}
+            <h2 id="about-contact-form-header">Contact Us</h2>
+            {% csrf_token %}
+            <div id="about-contact-form-grouping">
+                <div id="contact_us_form_name_group">
+                    <div class="contact_us_form_group" id="about-contact-group">
+                        <label for="{{ form.first_name.id_for_label }}">First Name</label>
+                        {{ form.first_name }}
+                    </div>
+                    <div class="contact_us_form_group" id="about-contact-group">
+                        <label for="{{ form.last_name.id_for_label }}">Last Name</label>
+                        {{ form.last_name }}
+                        {% if form.first_name.errors %}
+                            <div class="form-error">
+                                {{ form.first_name.errors|striptags }}
+                                {% if form.last_name.errors %}
+                                    <div class="form-error">
+                                        {{ form.last_name.errors|striptags }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
-            {% endif %}
-            </div>
-            <div class="contact_us_form_group">
-                <label for="{{ form.email.id_for_label }}">Email</label>
-                {{ form.email }}
-                {% if form.email.errors %}
-                    <div class="form-error">
-                        {{ form.email.errors|striptags }}
-                    </div>
-                {% endif %}
-            </div>
-            <div class="contact_us_form_group">
-                <label for="{{ form.message.id_for_label }}">Message</label>
-                {{ form.message }}
-                {% if form.message.errors %}
-                    <div class="form-error">
-                        {{ form.message.errors|striptags }}
-                    </div>
-                {% endif %}
-            </div>
-            <div id="contact_us_form_button_container">
-                <button type="submit" id="contact_form_submit_button" class="form-button">
-                    Send Message
-                </button>
-            </div>
-          </div>
-      </form>
-      </div>
 
-    {% comment %} <div class="section-divider"></div> {% endcomment %}
+                <div class="contact_us_form_group" id="about-contact-group">
+                    <label for="{{ form.phone_number.id_for_label }}">Phone Number</label>
+                    {{ form.phone_number }}
+                    {% if form.phone_number.errors %}
+                        <div class="form-error">
+                            {{ form.phone_number.errors|striptags }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="contact_us_form_group" id="about-contact-group">
+                    <label for="{{ form.email.id_for_label }}">Email</label>
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                        <div class="form-error">
+                            {{ form.email.errors|striptags }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="contact_us_form_group" id="about-contact-group">
+                    <label for="{{ form.message.id_for_label }}">Message</label>
+                    {{ form.message }}
+                    {% if form.message.errors %}
+                        <div class="form-error">
+                            {{ form.message.errors|striptags }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div id="contact_us_form_button_container">
+                    <button type="submit" id="contact_form_submit_button" class="form-button">
+                        Send Message
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
 
 </div>
-<script>
-    document.querySelectorAll('.see-more').forEach(button => {
-    button.addEventListener('click', () => {
-        const bio = button.closest('.bio');
-        const bioContent = bio.querySelector('.bio-content');
-        const bioFull = bio.querySelector('.bio-full');
-
-        if (bioFull.style.display === "block") {
-            bioFull.style.display = "none";
-            bioContent.style.maxHeight = "60px"; 
-            button.textContent = "Read More";
-        } else {
-            bioFull.style.display = "block"; 
-            bioContent.style.maxHeight = "none"; 
-            button.textContent = "Read Less";
-        }
-    });
-});
-</script>
+    
 {% endblock %}

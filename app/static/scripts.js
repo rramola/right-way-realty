@@ -1,5 +1,5 @@
 
-////////////////////// Mobile Navbar //////////////////////////////////////
+////////////////////////////////////// Mobile Navbar //////////////////////////////////////
 
 function toggleNavbar() {
     var navbarItems = document.getElementById('navbar_items');
@@ -23,33 +23,8 @@ document.addEventListener('click', function(event) {
 });
 
 
-///////////////////////////////
 
-document.addEventListener("DOMContentLoaded", function () {
-    
-    // const video = document.querySelector('video').playbackRate = 0.5;
-    const sections = document.querySelectorAll("section");
-
-    const options = {
-        threshold: 0.5
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("in-view");
-                observer.unobserve(entry.target);
-            }
-        });
-    }, options);
-
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-});
-
-
-// HOME PAGE FADE IN BANNER TEXT
+//////////////////////////// HOME PAGE FADE IN BANNER TEXT//////////////////////////////////
 document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll('#home_page_banner_text .content');
 
@@ -70,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-////////////////////// CAROUSEL //////////////////////////////////////
+/////////////////////////////////////////// CAROUSEL //////////////////////////////////////////////
 
 let currentSlide = 0;
 const itemsPerPage = 1 
@@ -94,7 +69,6 @@ function moveCarousel(direction) {
     const offset = -currentSlide * (itemsPerPage * (100 / itemsPerPage));
     carouselInner.style.transform = `translateX(${offset}%)`;
 }
-
 
 let currentCarouselSlide = currentSlide;
 const carouselItemsPerPage = 5;
@@ -124,7 +98,8 @@ function changeMainImage(imageUrl) {
   }
 
 
-////////////////////// MORTGAGE CALCULATOR ///////////////////////////////
+
+//////////////////////////////////////////////// MORTGAGE CALCULATOR //////////////////////////////////////
 function calculateMortgage(loanAmount, interestRate, loanTerm) {
     const monthlyRate = interestRate / 100 / 12; 
     const totalMonths = loanTerm * 12; 
@@ -163,8 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// ////////////////////////////// GOOGLE MAPS JAVA SCRIPT FOR FILTERING //////////////////////////////////
-
+//////////////////////////////// GOOGLE MAPS JAVA SCRIPT FOR FILTERING //////////////////////////////////
 document.addEventListener('DOMContentLoaded', function () {
     // Toggle filter visibility
     document.getElementById('filter-button').addEventListener('click', function () {
@@ -222,8 +196,6 @@ window.addEventListener('scroll', handleScroll);
 window.addEventListener('load', handleScroll);
 
 
-
-
 let currentPage = 0;
 const propertiesPerPage = 3;
 
@@ -245,6 +217,7 @@ function showProperties(page) {
       property.style.display = 'none'; // Hide the rest
     }
   });
+
 
   // Disable buttons at the edges
   document.getElementById('prev-button').disabled = page === 0;
@@ -270,7 +243,7 @@ function prevPage() {
 
 
 
-// Property detail collapsible functions
+/////////////////////////////////////////////Property detail collapsible functions//////////////////////////////////////////////
 
 function toggleCollapse(element) {
     const content = element.nextElementSibling;
@@ -302,7 +275,7 @@ document.querySelector('.dropbtn').addEventListener('click', function (e) {
 });
 
 
-// RENTAL SCROLLING FUNCTIONALITY
+/////////////////////////////////////////////// RENTAL SCROLLING FUNCTIONALITY /////////////////////////////////
 
 // Declare the slideIndices array in the global scope so it can be accessed in all functions
 let slideIndices = [];
@@ -347,3 +320,24 @@ function showSlide(carouselIndex, slideIndex) {
 function moveSlide(carouselIndex, step) {
     showSlide(carouselIndex, slideIndices[carouselIndex] + step);
 }
+
+
+
+//////////////////////////////////////////AGENT BIO COLLAPSIBLE//////////////////////////////////
+function aprilBio(){
+    const aprilBio = document.getElementById('april-bio');
+    if (aprilBio.style.display === "none") {
+        aprilBio.style.display = "block";
+    } else {
+        aprilBio.style.display = "none";
+    };
+};
+
+function terryBio(){
+    const terryBio = document.getElementById('terry-bio');
+    if (terryBio.style.display === "none") {
+        terryBio.style.display = "block";
+    } else {
+        terryBio.style.display = "none";
+    };
+};
