@@ -1,7 +1,7 @@
 /* Header and Intro Section */
 #about-us-intro-container {
   padding: 40px 20px;
-  background-color: #f7f3ed;
+  background-color: #EAEEFB;
 }
 
 #about-us-page-header {
@@ -46,7 +46,7 @@
 
 /* Meet the Team Section */
 #meet-us-container {
-  background-color: #f3f0eb;
+  background-color: #EAEEFB;
   color: #014235;
   padding: 0px 20px;
 
@@ -151,11 +151,18 @@
 
 /* Contact Form */
 #about-contact-form-container {
-  background-color: #f7f3ed;
+  background-color: #EAEEFB;
   padding: 40px 20PX;
   border-radius: 8px;
+  justify-content: center;
+  display: flex;
 }
 
+#contact_us_form{
+  background-color: white;
+  border-radius: 18px;
+  width: 70%;
+}
 #about-contact-form-header {
   font-family: "Antic Didone", serif;
   font-size: 2rem;
