@@ -1,5 +1,6 @@
 :root {
   --dark-green: #0b3a2d; /* Dark Green */
+  --medium-green: #014235; /* Medium Green */
   --light-green: #295943 /* Light Green */
   --green: #2a7a3d; /* Green */
   --beige: #d1c6a8; /* Beige */
@@ -10,6 +11,8 @@
   --text-dark: #444; /* Dark text */
   --text-light: #555; /* Light text */
 }
+
+
 
 body {
   background-color: var(--light-blue);

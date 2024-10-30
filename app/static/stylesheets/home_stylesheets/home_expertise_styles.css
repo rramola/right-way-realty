@@ -35,6 +35,7 @@
   text-align: center;
   padding: 20px;
   background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
+  border-bottom: 1px solid #1b5e20;
 }
 
 .expertise_box:hover{
@@ -53,8 +54,10 @@
   font-style: normal;
   text-decoration: underline 1px;
   text-underline-offset: .4rem;
-  color: #1b5e20;
   align-self: baseline;
+  color: #014235;
+  font-weight: 600;
+
 }
 
 .expertise_box_text {

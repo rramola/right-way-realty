@@ -97,9 +97,10 @@
 #home_property_city {
   font-size: 1.3rem;
   margin: 0;
-  color: #1b5e20;
-  font-weight: 500;
+  color: #014235;
+  font-weight: 600;
   text-decoration: none;
+  
 }
 
 #home_property_city:hover {
