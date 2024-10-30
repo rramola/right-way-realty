@@ -51,20 +51,27 @@
 .intro-section {
   padding: 40px 20px;
   text-align: center;
-  background-color: #f4f4f4;
 }
 
 .intro-section h2 {
-  font-size: 2.5em;
-  color: #374046;
-  margin-bottom: 20px;
+  color: #014235;
+  font-family: "Antic Didone", serif;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: .5rem;
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 0;
 }
 
 .intro-section p {
-  font-size: 1.2em;
-  margin: 0 auto;
-  max-width: 800px;
-  color: #333;
+  font-size: 1.3rem;
+  font-family: "Albert Sans", sans-serif;
+  font-style: normal;
+  color: #1b5e20;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: left;
 }
 
 
