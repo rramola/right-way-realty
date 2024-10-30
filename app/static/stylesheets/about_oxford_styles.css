@@ -1,4 +1,3 @@
-/* CALENDAR */
 .calendar-card {
   background: linear-gradient(to right, #CE1126, #14213D); /* Match the gradient */
   padding: 1rem;
@@ -7,13 +6,13 @@
   text-align: center;
 }
 
-/* Responsive calendar container with smaller size */
+
 .responsive-calendar {
-  max-width: 80%; /* Limit the width to card */
+  max-width: 80%; 
   min-width: 200px;
-  width: 80%; /* Ensure it takes up the full card width */
+  width: 80%; 
   position: relative;
-  padding-bottom: 50%; /* Adjusted height for a smaller display */
+  padding-bottom: 50%; 
   height: 0;
   overflow: hidden;
   margin: 0 auto;
@@ -28,7 +27,6 @@
   height: 100%;
 }
 
-/* Header styling */
 .calendar-card h2 {
   text-align: center;
   font-size: 2em;
