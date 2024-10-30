@@ -79,7 +79,7 @@
   background-color: #ffffff;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px #0b3a2d;
   height: fit-content;
 }
 
@@ -160,7 +160,7 @@
 
 #about-contact_us_form{
   background-color: white;
-  border-radius: 18px;
+  border-radius: 12px;
   width: 70%;
   box-shadow: 0 1px 8px #0b3a2d;
   height: 100%;
