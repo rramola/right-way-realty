@@ -15,6 +15,11 @@
     margin-bottom: 20px;
 }
 
+#registration-form{
+    outline: none;
+}
+
+
 #registration-form-container {
     width: 80%;
     margin: 0 auto;
@@ -49,12 +54,13 @@
     grid-template-columns: 1fr 1fr;
 }
 
+
 .form-group input, 
 .form-group select, 
 .form-group textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     border-radius: 5px;
     font-size: 1rem;
     box-sizing: border-box;
@@ -68,7 +74,7 @@
 }
 
 #registration-button {
-    width: 100%;
+    width: 30%;
     padding: 12px;
     background-color: #2a7a3d;
     color: white;

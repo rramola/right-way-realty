@@ -32,36 +32,37 @@
         <div id="property-list-wrapper">
           <div id="property-list" data-limit="2" data-offset="0">
             {% if properties %}
-            {% for property in properties|slice:":2" %}
-            <a href="{% url 'property_detail' property.id %}" class="property-link">
-              <div class="property-item"
-                   data-price="{{ property.list_price }}"
-                   data-beds="{{ property.bedrooms }}"
-                   data-total-baths="{{ property.baths_total|default:"0"}}"
-                   data-full-baths="{{ property.baths_full|default:"0" }}"
-                   data-half-baths="{{ property.baths_half|default:"0" }}"
-                   data-location="{{property.city}}"
-                   data-mls-number="{{property.mls_number}}">
-                <div class="property-image">
-                  <img src="{{ property.images.first.url }}" alt="Property Image">
-                </div>
-                <h2>{{ property.house_number }} {{ property.street_name }}, {{ property.city }}, {{ property.state }} {{ property.postal_code }}</h2>
-                <div class="property-details">
-                  <h3>${{ property.list_price|floatformat:0|intcomma }}</h3>
-                  <p>{{ property.bedrooms }} Beds &nbsp; | &nbsp; {{ property.baths_total }} Baths &nbsp; | &nbsp; {{ property.building_area_total }} Sq. Ft.</p>
-                  <p>{{ property.property_type }}</p>
-                  <p class="agent-info">{{ property.agent_name }}</p>
-                  <a id="move_to_property_link" href="#" onclick="moveToProperty({{ property.latitude }}, {{ property.longitude }})">View on Map</a>
-                </div>
-              </div>
-            </a>
-            {% endfor %}
+              {% for property in properties|slice:":5" %}
+                <a href="{% url 'property_detail' property.id %}" class="property-link">
+                  <div class="property-item"
+                       data-price="{{ property.list_price }}"
+                       data-beds="{{ property.bedrooms }}"
+                       data-total-baths="{{ property.baths_total|default:"0"}}"
+                       data-full-baths="{{ property.baths_full|default:"0" }}"
+                       data-half-baths="{{ property.baths_half|default:"0" }}"
+                       data-location="{{property.city}}"
+                       data-mls-number="{{property.mls_number}}">
+                    <div class="property-image">
+                      <img src="{{ property.images.first.url }}" alt="Property Image">
+                    </div>
+                    <h2>{{ property.house_number }} {{ property.street_name }}, {{ property.city }}, {{ property.state }} {{ property.postal_code }}</h2>
+                    <div class="property-details">
+                      <h3>${{ property.list_price|floatformat:0|intcomma }}</h3>
+                      <p>{{ property.bedrooms }} Beds &nbsp; | &nbsp; {{ property.baths_total }} Baths &nbsp; | &nbsp; {{ property.building_area_total }} Sq. Ft.</p>
+                      <p>{{ property.property_type }}</p>
+                      <p class="agent-info">{{ property.agent_name }}</p>
+                    </div>
+                  </a>
+                  <a href="#" onclick="moveToProperty({{ property.latitude }}, {{ property.longitude }})" class="view-on-map-link">View on Map</a>
+                  </div>
+              {% endfor %}
             {% else %}
-            <p>No properties available.</p>
+              <p>No properties available.</p>
             {% endif %}
           </div>
           <button id="load-more" onclick="loadMoreProperties()">Show More Properties</button>
         </div>
+        
         {% comment %} <p><span class="home_info_content_labels">Price: </span>${{ property.list_price|floatformat:0|intcomma }}</p>
       {% if property.bedrooms != nonce %} <p><span class="home_info_content_labels">Bedrooms: </span>{{ property.bedrooms }}</p>{% endif %}
 

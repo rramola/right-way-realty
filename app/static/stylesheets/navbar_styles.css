@@ -1,5 +1,6 @@
 #navbar_container {
-  background-color: #EAEEFB;
+  background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
+  border-bottom: #014235 1px solid;
   margin: 0;
   display: flex;
   height: fit-content;

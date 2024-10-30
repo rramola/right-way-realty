@@ -7,9 +7,9 @@
 }
 
 .rental-card {
-    background-color: #fff;
+    background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px #0b3a2d;
     overflow: hidden;
     transition: transform 0.3s ease;
     display: flex;
@@ -87,12 +87,12 @@
 }
 
 
-h1 {
+#rental-header  {
     text-align: center;
     margin-top: 20px;
-    font-family: 'Arial', sans-serif;
-    font-size: 2.5rem;
-    color: #333;
+    font-family: "Antic Didone", serif;
+    font-size: 2rem;
+    color:#0b3a2d;
 }
 
 .rental-info p {
