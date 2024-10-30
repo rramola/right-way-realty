@@ -68,17 +68,12 @@
 }
 
 .intro-section p {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-family: "Albert Sans", sans-serif;
   font-style: normal;
   color: #1b5e20;
   line-height: 1.6;
   text-align: left;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -97,10 +92,6 @@
   box-shadow: 0 8px 12px #295943;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.intro-section p{
-  font-size: 1.5em;
-}
-
 
 .why-oxford h2{
   text-align: center;
@@ -109,7 +100,13 @@
 }
 
 .why-oxford p{
-  font-size: 1.5em;
+  font-size: 1.5rem;
+  font-family: "Albert Sans", sans-serif;
+  font-style: normal;
+  color: #1b5e20;
+  line-height: 1.6;
+  text-align: left;
+  margin: 0 auto;
 }
 .three-columns {
   display: flex;
@@ -144,13 +141,9 @@
   border-radius: 8px;
 }
 .about_card h3 {
-  color: #014235;
-  font-family: "Antic Didone", serif;
-  font-weight: 500;
-  font-style: normal;
-  letter-spacing: .5rem;
-  text-align: center;
-  font-size: 2.5rem;
+  font-size: 1.8em;
+  color: #295943;
+  margin-top: 15px;
 }
 
 
@@ -173,6 +166,12 @@
 
 .feature * {
   pointer-events: none; 
+}
+
+.feature h3{
+  font-size: 1.8em;
+  color: #295943;
+  margin-top: 15px;
 }
 
 .features-grid .feature:hover {
