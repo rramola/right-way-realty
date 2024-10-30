@@ -31,9 +31,10 @@
 }
 
 .about-us-text {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-family: "Albert Sans", sans-serif;
-  color: #333333;
+  font-style: normal;
+  color: #1b5e20;
   line-height: 1.6;
   margin-bottom: 20px;
   text-align: left;
@@ -71,11 +72,11 @@
 
 .team-member {
   text-align: center;
-  background-color: #ffffff;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 1px 8px #0b3a2d;
   height: fit-content;
+  background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
 }
 
 .team-member img {
@@ -110,8 +111,8 @@
   font-size: 1.1rem;
   font-family: "Albert Sans", sans-serif;
   font-style: italic;
-  color: #6b6b6b;
   margin-bottom: 15px;
+  color: #1b5e20;
 }
 
 #april-bio{
@@ -126,8 +127,8 @@
 .bio-content-text {
   font-size: 1.1rem;
   font-family: "Albert Sans", sans-serif;
-  color: #333333;
   line-height: 1.5;
+  color: #1b5e20;
 }
 
 .bio-overlay button {
@@ -154,7 +155,7 @@
 }
 
 #about-contact_us_form{
-  background-color: white;
+  background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
   border-radius: 12px;
   width: 70%;
   box-shadow: 0 1px 8px #0b3a2d;
