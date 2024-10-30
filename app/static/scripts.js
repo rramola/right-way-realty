@@ -218,18 +218,6 @@ function prevPage() {
 }
 
 
-
-/////////////////////////////////////////////Property detail collapsible functions//////////////////////////////////////////////
-
-function toggleCollapse(element) {
-    const content = element.nextElementSibling;
-    content.style.display = (content.style.display === "block") ? "none" : "block";
-  }
-
-
-
-
-
 /////////////////////////////////////////////// RENTAL SCROLLING FUNCTIONALITY /////////////////////////////////
 
 // Declare the slideIndices array in the global scope so it can be accessed in all functions
@@ -281,8 +269,18 @@ function moveSlide(carouselIndex, step) {
 
 
 //////////////////////////////////////////AGENT BIO COLLAPSIBLE//////////////////////////////////
-function toggleBio(bioId) {
+function toggleBio(btn, bioId) {
+    const bioBtn = document.getElementById(btn);
+    console.log(bioBtn.value);
     const bio = document.getElementById(bioId);
     bio.style.display = (bio.style.display === "none" || bio.style.display === "") ? "block" : "none";
 }
+
+
+/////////////////////////////////////////////Property detail collapsible functions//////////////////////////////////////////////
+
+function toggleCollapse(element) {
+    const content = element.nextElementSibling;
+    content.style.display = (content.style.display === "block") ? "none" : "block";
+  }
 

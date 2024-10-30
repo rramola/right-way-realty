@@ -26,7 +26,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -63,7 +63,6 @@
 
 .team-section {
   display: grid;
-
   gap: 2rem;
   flex-wrap: wrap;
   max-width: 1200px;
@@ -77,19 +76,22 @@
   box-shadow: 0 1px 8px #0b3a2d;
   height: fit-content;
   background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
+  border-bottom: 1px solid #1b5e20;
 }
 
 .team-member img {
-  width: 180px;
-  height: 180px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   transition: transform 0.3s ease;
   margin-bottom: 20px;
+  border: 10px solid #EAEEFB;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0);
+  box-shadow: 0 1px 8px #0b3a2d;
+  background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
 }
 
-.team-member img:hover {
-  transform: scale(1.05);
-}
 
 .team-member-name {
   font-family: "Antic Didone", serif;
@@ -106,6 +108,9 @@
   grid-row: 2;
   grid-column-end: 3;
   grid-column-start: 1;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .agent-title {
   font-size: 1.1rem;
@@ -125,10 +130,13 @@
 
 
 .bio-content-text {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-family: "Albert Sans", sans-serif;
-  line-height: 1.5;
+  font-style: normal;
   color: #1b5e20;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: left;
 }
 
 .bio-overlay button {
@@ -168,6 +176,7 @@
   padding-right: 2rem;
   padding-bottom: 2rem;
   padding-top: 1rem;
+  border-bottom: 1px solid #1b5e20;
 }
 
 #about-contact-form-header {
