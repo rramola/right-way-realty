@@ -281,20 +281,8 @@ function moveSlide(carouselIndex, step) {
 
 
 //////////////////////////////////////////AGENT BIO COLLAPSIBLE//////////////////////////////////
-function aprilBio(){
-    const aprilBio = document.getElementById('april-bio');
-    if (aprilBio.style.display === "none") {
-        aprilBio.style.display = "block";
-    } else {
-        aprilBio.style.display = "none";
-    };
-};
+function toggleBio(bioId) {
+    const bio = document.getElementById(bioId);
+    bio.style.display = (bio.style.display === "none" || bio.style.display === "") ? "block" : "none";
+}
 
-function terryBio(){
-    const terryBio = document.getElementById('terry-bio');
-    if (terryBio.style.display === "none") {
-        terryBio.style.display = "block";
-    } else {
-        terryBio.style.display = "none";
-    };
-};

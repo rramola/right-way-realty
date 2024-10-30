@@ -4,7 +4,7 @@
     padding: 30px;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
     text-align: center;
 }
 
