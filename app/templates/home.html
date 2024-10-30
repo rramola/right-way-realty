@@ -26,8 +26,8 @@
                 <div class="property-list">
                     {% with properties|slice:"7:10" as properties_slice %}
                     {% for property in properties_slice %}
-                    <a href="{% url 'property_detail' property.id %}" class="home_property_info_content" id="home_property_city">
                         <div class="property">
+                            <a href="{% url 'property_detail' property.id %}" class="home_property_info_content" id="home_property_city">
                             {% if property.images.all %}
                             <div class="home_page_property_images">
                                 {% for image in property.images.all %}
@@ -54,8 +54,8 @@
                                     {% comment %} <p class="home_property_info_content" id="home_property_price">${{ property.list_price }}</p> {% endcomment %}
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                     {% endfor %}
                     {% endwith %}
                 </div>
