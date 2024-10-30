@@ -19,7 +19,7 @@
 /* Image Card */
 
 #property-cards-images-inner-container{
-  padding: 18px;
+  padding: 20px;;
   }
 
 .main-image-container {
@@ -226,8 +226,8 @@
     display: flex;
     justify-content: space-between;
     padding: 0;
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: 20px;;
+    padding-right: 20px;;
     background: linear-gradient(to bottom, #ffffff, hsla(171, 50%, 169%, 0.349));
     border-radius: 8px;
     align-items: center;
@@ -252,7 +252,7 @@
 
   .content {
     display: none;
-    padding: 0 18px;
+    padding: 0 20px;;
     overflow: hidden;
     padding: 0 60px;
   }
@@ -451,9 +451,28 @@ margin-right: 10%;
       grid-template-columns: repeat(2, 1fr);
     }
     .property-card{
-      margin-left: 0;
-      margin-right: 0;
+      margin: 0;
+      padding: 0;
     }
+
+    #property-cards-images-inner-container{
+      padding: 0;
+    }
+
+    #property-cards-images-inner-container h5{
+      padding: 20px;;
+    }
+
+    .thumbnail-carousel{
+      padding: 2px;
+    }
+
+
+    .property-status{
+      padding: 20px;;
+    }
+
+
     #mortgage-calculator-container{
     margin-left: 0;
     margin-right: 0;
@@ -464,6 +483,7 @@ margin-right: 10%;
     }
     .property-details-card{
       margin-right: 0;
+      padding: 20px;;
     }
 
     #contactForm{
@@ -475,6 +495,7 @@ margin-right: 10%;
     #mortgage-calculator-container{
     display:block;
     position: initial;
+    padding: 20px;
     }
 
     .properties-popout-button{
