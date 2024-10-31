@@ -205,17 +205,6 @@ function addMarkers(properties, AdvancedMarkerElement) {
     });
 }
 
-markers.forEach(marker => {
-  marker.addListener("click", () => {
-    windowsOpen.forEach(openWindow => openWindow.close());
-    infoWindow.open(map, marker);
-    windowsOpen.push(infoWindow);
-
-    google.maps.event.addListener(map, 'click', () => {
-      infoWindow.close();
-      windowsOpen = windowsOpen.filter(win => win !== infoWindow);
-    });
-  });
 }
 
 function applyFilters(AdvancedMarkerElement) {
