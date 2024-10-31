@@ -200,8 +200,8 @@ function addMarkers(properties, AdvancedMarkerElement) {
             windowsOpen = windowsOpen.filter(win => win !== infoWindow);
           });
         });
+        markers.push(marker);
       }
-    markers.push(marker);
     });
 }
 function applyFilters(AdvancedMarkerElement) {
