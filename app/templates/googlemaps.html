@@ -271,11 +271,12 @@ function updateMap(newProperties, AdvancedMarkerElement) {
   // Add new markers to the map
   newProperties.forEach(property => {
       const { latitude, longitude, list_price, id, house_number, street_name, city, state } = property;
+      formattedPrice = parseFloat(property.list_price).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
       if (!isNaN(latitude) && !isNaN(longitude)) {
         // Create custom div marker showing price
         const priceMarkerDiv = document.createElement('div');
         priceMarkerDiv.className = 'price-marker';
-        priceMarkerDiv.innerHTML = `$${property.price}`;
+        priceMarkerDiv.innerHTML = `${formattedPrice}`;
 
         
         const marker = new AdvancedMarkerElement({
@@ -287,7 +288,7 @@ function updateMap(newProperties, AdvancedMarkerElement) {
         const infoWindowContent = `
         <div class="map-popup">
           <h3 class="popup-title"><a href="/property/${id}">${house_number} ${street_name}, ${city}, ${state}</a></h3>
-         <p class="popup-price">Price: $${property.price}</p>
+         <p class="popup-price">Price: ${formattedPrice}</p>
         </div>
         `;
 
