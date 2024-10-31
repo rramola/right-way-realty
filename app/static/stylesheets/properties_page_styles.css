@@ -327,18 +327,24 @@
 #amount-container{
   grid-row: 1;
     grid-column: 1;
+  padding-bottom: 20px;
 }
 
 #down-payment-container{
   grid-row: 2;
     grid-column: 1;
+  padding-bottom: 20px;
 }
 
 #interest-rate-container{
   grid-row: 2;
     grid-column: 2;
+  padding-bottom: 20px;
 }
 
+#loan-terms-container{
+  padding-bottom: 20px;
+}
   .mortgage-calculator {
     background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
     border-radius: 12px;
