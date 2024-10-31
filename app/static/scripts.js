@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
         minBaths.value = null;
         document.getElementById('filter-button').textContent = 'Show Filters';
     };
+});
 
 
 // Get commas in infowindow on maps for price, REGEX is dumb
