@@ -344,8 +344,11 @@
   display: none; 
 }
 
+#filters.filters-hidden {
+    display: none;
+}
 #filters.filters-visible {
-  display: block;
+    display: block; /* or flex, depending on your layout */
 }
 
 #filters h3 {
