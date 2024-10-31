@@ -137,7 +137,7 @@
   });
 
 
-  async function initMap() {
+async function initMap() {
     const { Map } = await google.maps.importLibrary("maps");
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
     AdvancedMarkerElementInstance = AdvancedMarkerElement;
@@ -147,31 +147,61 @@
       mapId: "9dd514aacb4d086b",  // Your Map ID
     });
     loadInitialProperties('{{properties}}', AdvancedMarkerElement);
+}
 
-  }
+function loadInitialProperties(properties, AdvancedMarkerElement){
+  const properties_items = [
+    {% for property in properties %}
+    {
+      lat: parseFloat("{{ property.latitude }}"),
+      lng: parseFloat("{{ property.longitude }}"),
+      title: "{{ property.house_number }} {{ property.street_name }}, {{ property.city }}, {{ property.state }}",
+      price: "{{ property.list_price|floatformat:0|intcomma }}",
+      url: "{% url 'property_detail' property.id %}"
+    },
+    {% endfor %}
+  ];
 
-  function loadInitialProperties(properties, AdvancedMarkerElement){
-    const properties_items = [
-      {% for property in properties %}
-      {
-        lat: parseFloat("{{ property.latitude }}"),
-        lng: parseFloat("{{ property.longitude }}"),
-      },
-      {% endfor %}
-    ];
+  addMarkers(properties_items, AdvancedMarkerElement);
+} 
 
-    addMarkers(properties_items, AdvancedMarkerElement);
+function addMarkers(properties, AdvancedMarkerElement) {
+  properties.forEach(property => {
+      if (!isNaN(property.lat) && !isNaN(property.lng)) {
+      // Create custom div marker showing price
+      const priceMarkerDiv = document.createElement('div');
+      priceMarkerDiv.className = 'price-marker';
+      priceMarkerDiv.innerHTML = `$${property.price}`;
+      const marker = new AdvancedMarkerElement({
+          position: new google.maps.LatLng(property.lat, property.lng),
+          map: map // Directly add the marker to the map here
+          content: priceMarkerDiv,  // Using the custom price div as the marker content
+      });
+      const infoWindowContent = `
+        <div class="map-popup">
+          <h3 class="popup-title"><a href="${property.url}">${property.title}</a></h3>
+          <p class="popup-price">Price: $${property.price}</p>
+        </div>
+        `;
 
-  } 
+      const infoWindow = new google.maps.InfoWindow({
+        content: infoWindowContent
+      });
+      markers.push(marker);
+  });
+}
 
-  function addMarkers(properties, AdvancedMarkerElement) {
-    properties.forEach(property => {
-        const marker = new AdvancedMarkerElement({
-            position: new google.maps.LatLng(property.lat, property.lng),
-            map: map // Directly add the marker to the map here
-        });
-        markers.push(marker);
+markers.forEach(marker => {
+  marker.addListener("click", () => {
+    windowsOpen.forEach(openWindow => openWindow.close());
+    infoWindow.open(map, marker);
+    windowsOpen.push(infoWindow);
+
+    google.maps.event.addListener(map, 'click', () => {
+      infoWindow.close();
+      windowsOpen = windowsOpen.filter(win => win !== infoWindow);
     });
+  });
 }
 
 function applyFilters(AdvancedMarkerElement) {
@@ -238,13 +268,41 @@ function updateMap(newProperties, AdvancedMarkerElement) {
 
   // Add new markers to the map
   newProperties.forEach(item => {
+      if (!isNaN(property.lat) && !isNaN(property.lng)) {
+      // Create custom div marker showing price
+      const priceMarkerDiv = document.createElement('div');
+      priceMarkerDiv.className = 'price-marker';
+      priceMarkerDiv.innerHTML = `$${property.price}`;
+        
       const marker = new AdvancedMarkerElement({
           position: new google.maps.LatLng(item.latitude, item.longitude),
           map: map // Directly add the marker to the map here
       });
+      const infoWindowContent = `
+        <div class="map-popup">
+          <h3 class="popup-title"><a href="${property.url}">${property.title}</a></h3>
+          <p class="popup-price">Price: $${property.price}</p>
+        </div>
+        `;
+
+      const infoWindow = new google.maps.InfoWindow({
+        content: infoWindowContent
+      });
       markers.push(marker);
   });
+  markers.forEach(marker => {
+    marker.addListener("click", () => {
+      windowsOpen.forEach(openWindow => openWindow.close());
+      infoWindow.open(map, marker);
+      windowsOpen.push(infoWindow);
+  
+      google.maps.event.addListener(map, 'click', () => {
+        infoWindow.close();
+        windowsOpen = windowsOpen.filter(win => win !== infoWindow);
+      });
+    });
 }
+
 
 
 initMap();
