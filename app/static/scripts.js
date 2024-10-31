@@ -241,17 +241,19 @@ function calculate(loanAmount, interestRate, loanTerm) {
     const monthlyRate = interestRate / 100 / 12; 
     const totalMonths = loanTerm * 12; 
     const monthlyPayment = (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -totalMonths));
-
+    console.log(monthlyPayment);
     return monthlyPayment;
+    
 }
 
 // Get data needed to calculate
 function calculateMortgage(loanAmount,downPaymentPercentage,interestRate,loanTerm,payment){
     // Calculate the actual loan amount after the down payment
+     console.log('yay);
     const downPaymentAmount = loanAmount * (downPaymentPercentage / 100);
     const effectiveLoanAmount = loanAmount - downPaymentAmount;
     const monthlyPayment = calculate(effectiveLoanAmount, interestRate, loanTerm);
-    
+    console.log('yay);
     if (!isNaN(monthlyPayment) && (monthlyPayment !== Infinity) && (monthlyPayment > 0)) {
         payment.innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
     } else {
