@@ -14,6 +14,10 @@
 
 }
 
+#home-prop-image-container{
+  position: relative;
+}
+
 #property_showcase_text {
   text-align: center;
   font-family: "Antic Didone";
