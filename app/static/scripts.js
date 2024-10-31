@@ -247,13 +247,19 @@ function calculate(loanAmount, interestRate, loanTerm) {
 }
 
 // Get data needed to calculate
-function calculateMortgage(loanAmount,downPaymentPercentage,interestRate,loanTerm,payment){
+function calculateMortgage(loanAmountId, downPaymentPercentageId, interestRateId, loanTermId, paymentId) {
+    const loanAmount = parseFloat(document.getElementById(loanAmountId).value);
+    const downPaymentPercentage = parseFloat(document.getElementById(downPaymentPercentageId).value);
+    const interestRate = parseFloat(document.getElementById(interestRateId).value);
+    const loanTerm = parseFloat(document.getElementById(loanTermId).value);
+    const payment = document.getElementById(paymentId);
+    
     // Calculate the actual loan amount after the down payment
-     console.log('yay);
     const downPaymentAmount = loanAmount * (downPaymentPercentage / 100);
     const effectiveLoanAmount = loanAmount - downPaymentAmount;
     const monthlyPayment = calculate(effectiveLoanAmount, interestRate, loanTerm);
-    console.log('yay);
+    
+    // Display Payment
     if (!isNaN(monthlyPayment) && (monthlyPayment !== Infinity) && (monthlyPayment > 0)) {
         payment.innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
     } else {
