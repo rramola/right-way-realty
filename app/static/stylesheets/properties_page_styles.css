@@ -39,7 +39,6 @@
 }
 
 .image-arrow {
-  background: rgb(255 255 255 / 50%);
   color: var(--dark-green);
   border: none;
   font-size: 2rem;
@@ -53,10 +52,24 @@
 
 #prev-image {
   left: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 8px #0b3a2d;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(to bottom, #ffffff, hsl(171deg 29% 69% / 48%));
+  border-bottom: 1px solid #1b5e20;
+  width: 15%;
 }
 
 #next-image {
   right: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 8px #0b3a2d;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(to bottom, #ffffff, hsl(171deg 29% 69% / 48%));
+  border-bottom: 1px solid #1b5e20;
+  width: 15%;
 }
   .thumbnail-carousel {
     display: flex;
@@ -126,6 +139,7 @@
   border-radius: 10px;
   box-shadow: 0 1px 8px #0b3a2d;
   padding: 40px 20px;
+  border-bottom: 1px solid #1b5e20;
 }
 
   
@@ -213,6 +227,7 @@
   background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
   border-radius: 10px;
   box-shadow: 0 1px 8px #0b3a2d;
+  border-bottom: 1px solid #1b5e20;
 }
 
 
@@ -278,6 +293,16 @@
     color: #1b5e20;
   }
 
+  .collapsible-icon{
+    color: #014235;
+    font-family: "Antic Didone";
+    font-weight: 900;
+    font-style: normal;
+    letter-spacing: normal;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
 
 /* Contact and Calculator */
 .forms-container{
