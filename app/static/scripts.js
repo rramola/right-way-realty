@@ -240,7 +240,6 @@ function toggleCollapse(element, icon) {
 function calculateMortgage(loanAmount, interestRate, loanTerm) {
     const monthlyRate = interestRate / 100 / 12; 
     const totalMonths = loanTerm * 12; 
-
     const monthlyPayment = (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -totalMonths));
 
     return monthlyPayment;
@@ -256,7 +255,6 @@ function calculateMortgae(){
             // Calculate the actual loan amount after the down payment
             const downPaymentAmount = loanAmount * (downPaymentPercentage / 100);
             const effectiveLoanAmount = loanAmount - downPaymentAmount;
-
             const monthlyPayment = calculateMortgage(effectiveLoanAmount, interestRate, loanTerm);
             
             if (!isNaN(monthlyPayment) && (monthlyPayment !== Infinity) && (monthlyPayment > 0)) {
