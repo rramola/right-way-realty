@@ -42,6 +42,7 @@ document.querySelector('.dropbtn').addEventListener('click', function (e) {
 document.addEventListener('DOMContentLoaded', function () {
     // Toggle filter visibility
     document.getElementById('filter-button').addEventListener('click', function() {
+        console.log('yay');
         const filters = document.getElementById('filters');
         if (filters.classList.contains('filters-visible')) {
             filters.classList.remove('filters-visible');
