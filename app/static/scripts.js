@@ -246,21 +246,16 @@ function calculateMortgage(loanAmount, interestRate, loanTerm) {
 }
 
 // Get data needed to calculate
-function calculateMortgae(){
-            const loanAmount = parseFloat(document.getElementById('loanAmount').value);
-            const downPaymentPercentage = parseFloat(document.getElementById('downPaymentPercentage').value);
-            const interestRate = parseFloat(document.getElementById('interestRate').value);
-            const loanTerm = parseInt(document.getElementById('loanTerm').value);
-
+function calculateMortgae(loanAmount,downPaymentPercentage,interestRate,loanTerm,payment){
             // Calculate the actual loan amount after the down payment
             const downPaymentAmount = loanAmount * (downPaymentPercentage / 100);
             const effectiveLoanAmount = loanAmount - downPaymentAmount;
             const monthlyPayment = calculateMortgage(effectiveLoanAmount, interestRate, loanTerm);
             
             if (!isNaN(monthlyPayment) && (monthlyPayment !== Infinity) && (monthlyPayment > 0)) {
-                document.getElementById('monthlyPayment').innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
+                payment.innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
             } else {
-                document.getElementById('monthlyPayment').innerText = 'Please enter valid values';
+                payment.innerText = 'Please enter valid values';
             }
         });
     }
