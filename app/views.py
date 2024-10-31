@@ -16,6 +16,7 @@ from django.urls import reverse
 from django.db import connection
 from datetime import date
 from django.contrib.auth import logout
+from django.core.paginator import Paginator
 import random
 
 
