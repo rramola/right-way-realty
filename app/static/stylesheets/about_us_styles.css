@@ -79,6 +79,11 @@
   border-bottom: 1px solid #1b5e20;
 }
 
+.team-member:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px #295943;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 .team-member img {
   width: 250px;
   height: 250px;

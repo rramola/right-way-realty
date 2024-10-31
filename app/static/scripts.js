@@ -271,16 +271,20 @@ function moveSlide(carouselIndex, step) {
 //////////////////////////////////////////AGENT BIO COLLAPSIBLE//////////////////////////////////
 function toggleBio(btn, bioId) {
     const bioBtn = document.getElementById(btn);
-    console.log(bioBtn.value);
     const bio = document.getElementById(bioId);
     bio.style.display = (bio.style.display === "none" || bio.style.display === "") ? "block" : "none";
+    bioBtn.innerText = (bio.style.display === "none" || bio.style.display === "") ? "Read More" : "Read Less";
 }
 
 
 /////////////////////////////////////////////Property detail collapsible functions//////////////////////////////////////////////
 
-function toggleCollapse(element) {
+function toggleCollapse(element, icon) {
     const content = element.nextElementSibling;
+    const propertyIcon = document.getElementById(icon);
     content.style.display = (content.style.display === "block") ? "none" : "block";
+    propertyIcon.innerText = (content.style.display === "block") ? "-" :"+";
+    
+    
   }
 
