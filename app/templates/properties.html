@@ -341,7 +341,7 @@
     <div id="mortgage-calculator-container">
       <div class="mortgage-calculator">
         <h5>Mortgage Calculator</h5>
-        <form id="mortgage-form">
+        <div id="mortgage-form">
             <div class="form-group" id="amount-container">
                 <label for="loanAmount">Loan Amount ($):</label>
                 <input type="number" id="loanAmount" placeholder="Enter loan amount" required>
@@ -361,7 +361,7 @@
             <div id="calculate_form_button_container">
               <button id="calculate_form_submit_button" class="calculate-form-button" onClick="calculateMortgage('loanAmount','downPaymentPercentage', 'interestRate','loanTerm', 'payment')">Calculate</button>
             ,/div>
-        </form>
+        </div>
         <div id="monthlyPayment" class="result"></div>
       </div>
     </div> 
