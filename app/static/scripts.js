@@ -39,15 +39,11 @@ document.querySelector('.dropbtn').addEventListener('click', function (e) {
 
 
 //////////////////////////////// GOOGLE MAPS JAVA SCRIPT FOR FILTERING //////////////////////////////////
-document.addEventListener('DOMContentLoaded', function () {
-    // Toggle filter visibility
-    document.getElementById('filter-button').addEventListener('click', function () {
+function showFilters(){
         console.log('yay')
         const filters = document.getElementById('filters');
-        filters.classList.toggle('filters-visible');
-        this.textContent = filters.classList.contains('filters-visible') ? 'Hide Filters' : 'Show Filters';
-    });
-});
+        filters.style.display = (filters.style.display === 'none') ? 'block' : 'none';
+}
 
 
 // Get commas in infowindow on maps for price, REGEX is dumb
