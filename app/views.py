@@ -16,6 +16,7 @@ from django.urls import reverse
 from django.db import connection
 from datetime import date
 from django.contrib.auth import logout
+from django.core.paginator import Paginator
 
 
 # from populate_dummy_data import *
@@ -169,6 +170,9 @@ def contact_page(request):
 
 def rental_list(request):
     rentals = Rental.objects.all()
+    paginator = Paginator(rentals, 5)
+    page_number = request.GET.get('page')
+    rentals = paginator.get_page(page_number)
     return render(request, 'rental_list.html', {'rentals': rentals})
 
 def load_more_properties(request):

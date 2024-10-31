@@ -17,6 +17,16 @@
     border: 5px solid #f4f4f4;
 }
 
+#rental-location{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #0b3a2d;
+}
+
+.rental-label {
+    font-weight: bold;
+    color: #1b5e20;
+}
 /* Hover effect on card */
 .rental-card:hover {
     transform: translateY(-10px);
@@ -81,10 +91,7 @@
 }
 
 
-.rental-label {
-    font-weight: bold;
-    color: #333;
-}
+
 
 
 #rental-header  {
@@ -93,12 +100,26 @@
     font-family: "Antic Didone", serif;
     font-size: 2rem;
     color:#0b3a2d;
+    letter-spacing: .2rem;
+    font-weight: 500;
 }
 
 .rental-info p {
     margin: 5px 0;
     font-size: 1rem;
     color: #666;
+}
+
+/* pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+}
+
+.current{
+    color:#0b3a2d
 }
 
 
@@ -109,5 +130,9 @@
 
     .rental-card {
         margin: 10px;
+    }
+
+    .rental-container .rental-card:nth-child(n+6) {
+        display: none;
     }
 }
