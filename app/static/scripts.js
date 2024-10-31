@@ -294,5 +294,3 @@ function calculateMortgage(loanAmountId, downPaymentPercentageId, interestRateId
         payment.innerText = 'Please enter valid values';
     }
 }
-
-
