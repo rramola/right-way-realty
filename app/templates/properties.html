@@ -358,7 +358,7 @@
                 <label for="interestRate">Interest Rate (%):</label>
                 <input type="number" id="interestRate" placeholder="Enter interest rate" step="0.01" required>
             </div>
-            <button id="contact_form_submit_button" class="form-button" onClick="calculateMortgage(loanAmount,downPaymentPercentage, interestRate,loanTerm, payment)">Calculate</button>
+            <button id="contact_form_submit_button" class="form-button" onClick="calculateMortgage('loanAmount','downPaymentPercentage', 'interestRate','loanTerm', 'payment')">Calculate</button>
         </form>
         <div id="monthlyPayment" class="result"></div>
       </div>
@@ -435,11 +435,11 @@
 
 ///////////////////////Calculator Values/////////////////////////////
 
-let loanAmount = parseFloat(document.getElementById('loanAmount').value);
-let downPaymentPercentage = parseFloat(document.getElementById('downPaymentPercentage').value);
-let interestRate = parseFloat(document.getElementById('interestRate').value);
-let loanTerm = parseInt(document.getElementById('loanTerm').value);
-let payment = document.getElementById('monthlyPayment');
+// let loanAmount = parseFloat(document.getElementById('loanAmount').value);
+// let downPaymentPercentage = parseFloat(document.getElementById('downPaymentPercentage').value);
+// let interestRate = parseFloat(document.getElementById('interestRate').value);
+// let loanTerm = parseInt(document.getElementById('loanTerm').value);
+// let payment = document.getElementById('monthlyPayment');
 ///////////////////////Carousel/////////////////////////////
 let currentImageIndex = 0;
 const images = [{% for image in images %}'{{ image.url }}'{% if not forloop.last %}, {% endif %}{% endfor %}];
