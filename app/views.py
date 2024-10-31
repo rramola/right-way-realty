@@ -16,13 +16,15 @@ from django.urls import reverse
 from django.db import connection
 from datetime import date
 from django.contrib.auth import logout
+import random
 
 
 # from populate_dummy_data import *
 def home_page(request):
+    # FETCH PROPERTIES
     property_list = []
     try:
-        properties = Property.objects.all().iterator(chunk_size=100)
+        properties = Property.objects.filter(city='Oxford').iterator(chunk_size=100)
         property_list = list(properties)
     except Exception as e:
         print(f"Error retrieving properties: {e}")
@@ -45,8 +47,36 @@ def home_page(request):
         else:
             property.baths_info = f"{full_baths:.1f}"
         property_list.append(property)
+
+    # Randomize properties
+    list_of_nums = []
+    list_len = len(property_list) - 1
+    while len(list_of_nums) < 3:
+        rand = random.randint(0,list_len)
+        if rand not in list_of_nums:
+            list_of_nums.append(rand)
+
+    # Add properties to new list
+    display_properties = []
+    display_properties.append(property_list[list_of_nums[0]])
+    display_properties.append(property_list[list_of_nums[1]])
+    display_properties.append(property_list[list_of_nums[2]])
+
+    # Random property image lists   
+    prop_one_images = PropertyImage.objects.filter(property=display_properties[0])
+    prop_two_images = PropertyImage.objects.filter(property=display_properties[1])
+    prop_three_images = PropertyImage.objects.filter(property=display_properties[2])
     
-    return render(request, "home.html", {"properties": property_list})
+
+
+    context = {
+        'list': list_of_nums,
+        'properties': display_properties,
+        'prop_one_images': prop_one_images,
+        'prop_two_images' : prop_two_images,
+        'prop_three_images': prop_three_images
+    }
+    return render(request, "home.html", context)
 
 
 def about_page(request):

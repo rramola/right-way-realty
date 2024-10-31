@@ -21,43 +21,117 @@
         </div> 
     </div>
         <div id="home_page_properties_container">
+            
             <h1 id="property_showcase_text">PROPERTY SHOWCASE</h1>
             <div class="property-list-wrapper">
                 <div class="property-list">
-                    {% with properties|slice:"7:10" as properties_slice %}
-                    {% for property in properties_slice %}
+
+
                         <div class="property">
-                            <a href="{% url 'property_detail' property.id %}" class="home_property_info_content" id="home_property_city">
-                            {% if property.images.all %}
-                            <div class="home_page_property_images">
-                                {% for image in property.images.all %}
-                                {% if forloop.first %}
-                                    <img src="{{ image.url }}" alt="Property Image" id="home_property_image"/>
-                                {% endif %}
-                                {% endfor %}
+                            <div id="home-prop-image-container" class="home_page_property_images">
+                                <img id="main-property-image-one" src="{% if prop_three_images %}{{ prop_three_images.0.url }}{% else %}{% static 'default-image.jpg' %}{% endif %}" alt="Image of {{ property.house_number }} {{ property.street_name }}" class="card-img-top" />
+                       
+                                    <button id="prev-image" class="image-arrow" onclick="changePropOne(-1)">&#9664;</button>
+                                    <button id="next-image" class="image-arrow" onclick="changePropOne(1)">&#9654;</button>
+                       
                             </div>
-                            {% else %}
-                            <p>No images available.</p>
-                            {% endif %}
                             <div class="property_info">
-                                {% comment %} <div class="property_info_header">
-                                    <h2>{{ property.name|default:"No name available" }}</h2>
-                                </div>  {% endcomment %}
                                 <div class="property_info_content">
-                                    <a href="{% url 'property_detail' property.id %}" class="home_property_info_content" id="home_property_city">
-                                        {{ property.house_number }} {{ property.street_name }},
-                                        <br>{{ property.city }}, {{ property.state }} {{ property.postal_code }}</a>
-                                    <p class="home_property_info_content" id="home_property_street"> <span class="home_info_content_labels">Beds:</span> {{ property.bedrooms}}  
-                                        | <span class="home_info_content_labels">Baths:</span> {{ property.baths_info }}  
-                                        |   <span class="home_info_content_labels">Price:</span> ${{ property.list_price|floatformat:0|intcomma }}</p>
-                                    {% comment %} <p>{{ property.description }}</p> {% endcomment %}
-                                    {% comment %} <p class="home_property_info_content" id="home_property_price">${{ property.list_price }}</p> {% endcomment %}
+                                    <a href="{% url 'property_detail' properties.2.id %}" class="home_property_info_content" id="home_property_city">
+                                        <div class="home_property_info_content" id="home_property_city">
+                                            {{ properties.2.house_number }} {{ properties.2.street_name }},
+                                            <br>{{ properties.2.city }}, {{ properties.2.state }} {{ properties.2.postal_code }}
+                                        </div>
+                                    </a>
+                                    <p class="home_property_info_content" id="home_property_street"> <span class="home_info_content_labels">Beds:</span> {{ properties.2.bedrooms}}  
+                                        | <span class="home_info_content_labels">Baths:</span> {{ properties.2.baths_info }}  
+                                        |   <span class="home_info_content_labels">Price:</span> ${{ properties.2.list_price|floatformat:0|intcomma }}</p>
                                 </div>
                             </div>
-                        </a>
+                        </div>
+
+                        <div class="property">
+                            <div id="home-prop-image-container" class="home_page_property_images">
+                                <img id="main-property-image-two" src="{% if prop_one_images %}{{ prop_one_images.0.url }}{% else %}{% static 'default-image.jpg' %}{% endif %}" alt="Image of {{ property.house_number }} {{ property.street_name }}" class="card-img-top" />
+                     
+                                    <button id="prev-image" class="image-arrow" onclick="changePropTwo(-1)">&#9664;</button>
+                                    <button id="next-image" class="image-arrow" onclick="changePropTwo(1)">&#9654;</button>
+              
+                            </div>
+                            <div class="property_info">
+                                <div class="property_info_content">
+                                    <a href="{% url 'property_detail' properties.0.id %}" class="home_property_info_content" id="home_property_city">
+                                        <div class="home_property_info_content" id="home_property_city">
+                                            {{ properties.0.house_number }} {{ properties.0.street_name }},
+                                            <br>{{ properties.0.city }}, {{ properties.0.state }} {{ properties.0.postal_code }}
+                                        </div>
+                                    </a>
+                                    <p class="home_property_info_content" id="home_property_street"> <span class="home_info_content_labels">Beds:</span> {{ properties.0.bedrooms}}  
+                                        | <span class="home_info_content_labels">Baths:</span> {{ properties.0.baths_info }}  
+                                        |   <span class="home_info_content_labels">Price:</span> ${{ properties.0.list_price|floatformat:0|intcomma }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="property">
+                            <div id="home-prop-image-container" class="home_page_property_images">
+                                <img id="main-property-image-three" src="{% if prop_two_images %}{{ prop_two_images.0.url }}{% else %}{% static 'default-image.jpg' %}{% endif %}" alt="Image of {{ property.house_number }} {{ property.street_name }}" class="card-img-top" />
+
+                                    <button id="prev-image" class="image-arrow" onclick="changePropThree(-1)">&#9664;</button>
+                                    <button id="next-image" class="image-arrow" onclick="changePropThree(1)">&#9654;</button>
+    
+                            </div>
+                            <div class="property_info">
+                                <div class="property_info_content">
+                                    <a href="{% url 'property_detail' properties.1.id %}" class="home_property_info_content" id="home_property_city">
+                                        <div class="home_property_info_content" id="home_property_city">
+                                            {{  properties.1.house_number }} {{ properties.1.street_name }},
+                                            <br>{{  properties.1.city }}, {{ properties.1.state }} {{  properties.1.postal_code }}
+                                        </div>
+                                    </a>
+                                    <p class="home_property_info_content" id="home_property_street"> <span class="home_info_content_labels">Beds:</span> {{ properties.1.bedrooms}}  
+                                        | <span class="home_info_content_labels">Baths:</span> {{  properties.1.baths_info }}  
+                                        |   <span class="home_info_content_labels">Price:</span> ${{  properties.1.list_price|floatformat:0|intcomma }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+            {% comment %} 
+         
+                <div class="property">
+                    <a href="{% url 'property_detail' property.id %}" class="home_property_info_content" id="home_property_city">
+                    {% if property.images.all %}
+                    <div class="home_page_property_images">
+                        
+                        {% for image in property.images.all %}
+                        {% if forloop.first %}
+                            <img src="{{ image.url }}" alt="Property Image" id="home_property_image"/>
+                        {% endif %}
+                        {% endfor %}
+
                     </div>
-                    {% endfor %}
-                    {% endwith %}
+                    {% else %}
+                    <p>No images available.</p>
+                    {% endif %}
+                    <div class="property_info">
+                        <div class="property_info_content">
+                            <a href="{% url 'property_detail' property.id %}" class="home_property_info_content" id="home_property_city">
+                                {{ property.house_number }} {{ property.street_name }},
+                                <br>{{ property.city }}, {{ property.state }} {{ property.postal_code }}</a>
+                            <p class="home_property_info_content" id="home_property_street"> <span class="home_info_content_labels">Beds:</span> {{ property.bedrooms}}  
+                                | <span class="home_info_content_labels">Baths:</span> {{ property.baths_info }}  
+                                |   <span class="home_info_content_labels">Price:</span> ${{ property.list_price|floatformat:0|intcomma }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+ {% endcomment %}
+
+
+
+                    {% comment %} {% endfor %} {% endcomment %}
                 </div>
             </div>
         </div>
@@ -132,4 +206,71 @@
     </div>
 </div>
 <script src="{% static 'js/script.js' %}"></script>
+
+
+
+<script>
+
+///////////////////////Image Slideshow/////////////////////////////
+
+
+
+////First container
+let propOneImageIndex = 0;
+const propOneImages = [{% for image in prop_three_images %}'{{ image.url }}'{% if not forloop.last %}, {% endif %}{% endfor %}];
+
+function changePropOne(direction) {
+    propOneImageIndex+= direction;
+    
+    // Loop around if the index is out of bounds
+    if (propOneImageIndex < 0) {
+    propOneImageIndex = propOneImages.length - 1;
+    } else if (propOneImageIndex >= propOneImages.length) {
+    propOneImageIndex = 0;
+    }
+
+    // Update the main image
+    document.getElementById('main-property-image-one').src = propOneImages[propOneImageIndex];
+}
+
+////second container
+let propTwoImageIndex = 0;
+const propTwoImages = [{% for image in prop_one_images %}'{{ image.url }}'{% if not forloop.last %}, {% endif %}{% endfor %}];
+
+function changePropTwo(direction) {
+    propTwoImageIndex  += direction;
+    
+    // Loop around if the index is out of bounds
+    if (propTwoImageIndex < 0) {
+        propTwoImageIndex  = propTwoImages.length - 1;
+    } else if (propTwoImageIndex  >= propTwoImages.length) {
+        propTwoImageIndex  = 0;
+    }
+
+    // Update the main image
+    document.getElementById('main-property-image-two').src = propTwoImages[propTwoImageIndex ];
+}
+ 
+
+////Third container
+let propThreeImageIndex = 0;
+const propThreeImages = [{% for image in prop_two_images %}'{{ image.url }}'{% if not forloop.last %}, {% endif %}{% endfor %}];
+
+function changePropThree(direction) {
+    propThreeImageIndex += direction;
+    
+    // Loop around if the index is out of bounds
+    if (propThreeImageIndex < 0) {
+        propThreeImageIndex = propThreeImages.length - 1;
+    } else if (propThreeImageIndex >= propThreeImages.length) {
+        propThreeImageIndex = 0;
+    }
+
+    // Update the main image
+    document.getElementById('main-property-image-three').src = propThreeImages[propThreeImageIndex];
+}
+ 
+ 
+</script>
+
 {% endblock content %}

@@ -284,7 +284,6 @@ function toggleCollapse(element, icon) {
     const propertyIcon = document.getElementById(icon);
     content.style.display = (content.style.display === "block") ? "none" : "block";
     propertyIcon.innerText = (content.style.display === "block") ? "-" :"+";
-    
-    
   }
+
 
