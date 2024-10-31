@@ -247,19 +247,16 @@ function calculate(loanAmount, interestRate, loanTerm) {
 
 // Get data needed to calculate
 function calculateMortgage(loanAmount,downPaymentPercentage,interestRate,loanTerm,payment){
-            // Calculate the actual loan amount after the down payment
-            const downPaymentAmount = loanAmount * (downPaymentPercentage / 100);
-            const effectiveLoanAmount = loanAmount - downPaymentAmount;
-            const monthlyPayment = calculate(effectiveLoanAmount, interestRate, loanTerm);
-            
-            if (!isNaN(monthlyPayment) && (monthlyPayment !== Infinity) && (monthlyPayment > 0)) {
-                payment.innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
-            } else {
-                payment.innerText = 'Please enter valid values';
-            }
-        });
+    // Calculate the actual loan amount after the down payment
+    const downPaymentAmount = loanAmount * (downPaymentPercentage / 100);
+    const effectiveLoanAmount = loanAmount - downPaymentAmount;
+    const monthlyPayment = calculate(effectiveLoanAmount, interestRate, loanTerm);
+    
+    if (!isNaN(monthlyPayment) && (monthlyPayment !== Infinity) && (monthlyPayment > 0)) {
+        payment.innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
+    } else {
+        payment.innerText = 'Please enter valid values';
     }
-});
 }
 
 
