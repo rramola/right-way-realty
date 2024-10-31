@@ -561,6 +561,14 @@
     /* width: 70%; */
     flex-direction: column;
     }
+
+    #monthlyPayment{
+      font-family: "Antic Didone", serif;
+      font-size: 2rem;
+      color: #014235;
+      text-align: center;
+      margin-bottom: 20px;
+    }
     
     .card-img-top {
     height: auto;
@@ -605,8 +613,9 @@
       grid-template-columns: 1fr 1fr;
     }
 
-    #calculate_form_button_container{
-      margin-bottom: 3rem;
+    .calculate-form-button{
+      width: 100%;
+    }
   }
 
   
