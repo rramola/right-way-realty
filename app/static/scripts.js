@@ -247,13 +247,7 @@ function calculateMortgage(loanAmount, interestRate, loanTerm) {
 }
 
 // Get data needed to calculate
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('mortgage-form');
-
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
+function calculateMortgae(){
             const loanAmount = parseFloat(document.getElementById('loanAmount').value);
             const downPaymentPercentage = parseFloat(document.getElementById('downPaymentPercentage').value);
             const interestRate = parseFloat(document.getElementById('interestRate').value);
@@ -273,6 +267,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
-
+}
 
 
