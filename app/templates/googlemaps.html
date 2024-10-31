@@ -175,7 +175,7 @@ function addMarkers(properties, AdvancedMarkerElement) {
       const marker = new AdvancedMarkerElement({
           position: new google.maps.LatLng(property.lat, property.lng),
           map: map, // Directly add the marker to the map here
-          content: priceMarkerDiv,  // Using the custom price div as the marker content
+          content: priceMarkerDiv  // Using the custom price div as the marker content
       });
       const infoWindowContent = `
         <div class="map-popup">
@@ -276,7 +276,8 @@ function updateMap(newProperties, AdvancedMarkerElement) {
         
       const marker = new AdvancedMarkerElement({
           position: new google.maps.LatLng(item.latitude, item.longitude),
-          map: map // Directly add the marker to the map here
+          map: map, // Directly add the marker to the map here
+          content: priceMarkerDiv
       });
       const infoWindowContent = `
         <div class="map-popup">
