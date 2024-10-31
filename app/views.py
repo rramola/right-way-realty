@@ -63,18 +63,18 @@ def home_page(request):
     display_properties.append(property_list[list_of_nums[2]])
 
     # Random property image lists   
-    prop_one_images = PropertyImage.objects.filter(property=display_properties[0])
-    prop_two_images = PropertyImage.objects.filter(property=display_properties[1])
-    prop_three_images = PropertyImage.objects.filter(property=display_properties[2])
+    # prop_one_images = PropertyImage.objects.filter(property=display_properties[0])
+    # prop_two_images = PropertyImage.objects.filter(property=display_properties[1])
+    # prop_three_images = PropertyImage.objects.filter(property=display_properties[2])
     
 
 
     context = {
         'list': list_of_nums,
-        'properties': display_properties,
-        'prop_one_images': prop_one_images,
-        'prop_two_images' : prop_two_images,
-        'prop_three_images': prop_three_images
+        'properties': display_properties
+        # 'prop_one_images': prop_one_images,
+        # 'prop_two_images' : prop_two_images,
+        # 'prop_three_images': prop_three_images
     }
     return render(request, "home.html", context)
 
