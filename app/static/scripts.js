@@ -41,12 +41,39 @@ document.querySelector('.dropbtn').addEventListener('click', function (e) {
 //////////////////////////////// GOOGLE MAPS JAVA SCRIPT FOR FILTERING //////////////////////////////////
 document.addEventListener('DOMContentLoaded', function () {
     // Toggle filter visibility
-    document.getElementById('filter-button').addEventListener('click', function () {
+    document.getElementById('filter-button').addEventListener('click', function() {
         const filters = document.getElementById('filters');
-        filters.classList.toggle('filters-visible');
-        this.textContent = filters.classList.contains('filters-visible') ? 'Hide Filters' : 'Show Filters';
+        if (filters.classList.contains('filters-visible')) {
+            filters.classList.remove('filters-visible');
+            this.textContent = 'Show Filters';
+        } else {
+            filters.classList.add('filters-visible');
+            this.textContent = 'Hide Filters';
+        }
     });
-});
+
+    window.resetFilters = function() { 
+        const mlsId = document.getElementById('mls-listing-id');
+        const locate = document.getElementById('location');
+        const minPrice = document.getElementById('min-price');
+        const maxPrice = document.getElementById('max-price');
+        const minBeds = document.getElementById('min-beds');
+        const minBaths = document.getElementById('min-baths');
+        const propertyItems = document.querySelectorAll('.property-item');
+
+        propertyItems.forEach(item => { 
+            item.style.display = 'block';
+        })
+
+        document.getElementById('filters').classList.remove('filters-visible');
+        mlsId.value = null;
+        locate.value = null;
+        minPrice.value = null;
+        maxPrice.value = null;
+        minBeds.value = null;
+        minBaths.value = null;
+        document.getElementById('filter-button').textContent = 'Show Filters';
+    };
 
 
 // Get commas in infowindow on maps for price, REGEX is dumb
