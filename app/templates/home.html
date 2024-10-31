@@ -40,9 +40,7 @@
                         <p>No images available.</p>
                         {% endif %}
                         <div class="property_info">
-                            {% comment %} <div class="property_info_header">
-                                <h2>{{ property.name|default:"No name available" }}</h2>
-                            </div>  {% endcomment %}
+
                             <div class="property_info_content">
                                 <a href="{% url 'property_detail' property.id %}" class="home_property_info_content" id="home_property_city">
                                     {{ property.house_number }} {{ property.street_name }},
@@ -50,8 +48,7 @@
                                 <p class="home_property_info_content" id="home_property_street"> <span class="home_info_content_labels">Beds:</span> {{ property.bedrooms}}  
                                     | <span class="home_info_content_labels">Baths:</span> {{ property.baths_info }}  
                                     |   <span class="home_info_content_labels">Price:</span> ${{ property.list_price|floatformat:0|intcomma }}</p>
-                                {% comment %} <p>{{ property.description }}</p> {% endcomment %}
-                                {% comment %} <p class="home_property_info_content" id="home_property_price">${{ property.list_price }}</p> {% endcomment %}
+                    
                             </div>
                         </div>
                     </a>
@@ -63,6 +60,8 @@
         {% comment %} <div id="home_page_properties_container">
             
             <h1 id="property_showcase_text">PROPERTY SHOWCASE</h1>
+        <div id="home_page_properties_container">
+            <h1 id="property_showcase_text">Property Showcase</h1>
             <div class="property-list-wrapper">
                 <div class="property-list">
 
@@ -140,7 +139,7 @@
             </div>
         </div> {% endcomment %}
         <div id="expertise_section">
-          <h1 id="our_expertise_section_header">OUR EXPERTISE</h1>
+          <h1 id="our_expertise_section_header">Filter the Right-Way!</h1>
           <div class="expertise_container">
               <div class="expertise_box">
                 <h2 class="expertise_box_header">Filter Near You</h2>

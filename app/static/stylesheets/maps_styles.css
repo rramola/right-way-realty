@@ -227,9 +227,9 @@
   background-color: #717171;
 }
 
-.property-item a:hover {
+/* .property-item a:hover {
   text-decoration: underline;
-}
+} */
 
 .property-link {
   color: inherit; 
