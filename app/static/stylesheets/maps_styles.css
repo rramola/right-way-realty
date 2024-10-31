@@ -344,12 +344,12 @@
   display: none; 
 }
 
-#filters.filters-hidden {
+/* #filters.filters-hidden {
     display: none;
 }
 #filters.filters-visible {
     display: block; /* or flex, depending on your layout */
-}
+} */
 
 #filters h3 {
   font-family: "Albert Sans", sans-serif;
