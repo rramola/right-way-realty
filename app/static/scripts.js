@@ -42,7 +42,7 @@ document.querySelector('.dropbtn').addEventListener('click', function (e) {
 function showFilters(){
         console.log('yay')
         const filters = document.getElementById('filters');
-        filters.style.display = (filters.style.display === 'none') ? 'block' : 'none';
+        filters.style.display = (filters.style.display === 'none'||filters.style.display === '') ? 'block' : 'none';
 }
 
 
