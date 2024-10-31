@@ -265,17 +265,18 @@ function updateMap(newProperties, AdvancedMarkerElement) {
   // Clear existing markers
   markers.forEach(marker => marker.setMap(null));
   markers = [];
-
+  windowsOpen.forEach(win => win.close());
+  windowsOpen = [];
   // Add new markers to the map
-  newProperties.forEach(property => {
-    if (!isNaN(property.lat) && !isNaN(property.lng)) {
+ newProperties.forEach(item => {
+      if (!isNaN(item.lat) && !isNaN(item.lng)) {
         // Create custom div marker showing price
-        const priceMarkerDiv = document.createElement('div');
+        priceMarkerDiv = document.createElement('div');
         priceMarkerDiv.className = 'price-marker';
         priceMarkerDiv.innerHTML = `$${property.price}`;
         
-        const marker = new AdvancedMarkerElement({
-          position: new google.maps.LatLng(property.lat, property.lng),
+          marker = new AdvancedMarkerElement({
+          position: new google.maps.LatLng(item.lat, item.lng),
           map: map,
           content: priceMarkerDiv,  // Using the custom price div as the marker content
         });
