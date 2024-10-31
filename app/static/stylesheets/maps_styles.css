@@ -6,6 +6,50 @@
   contain: content;
 }
 
+/* LIST VIEW */
+#property-list-view {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+#property-list-view .property-item {
+  height: 400px; /* Set a fixed height for uniformity */
+}
+
+#list-container  h1 {
+  font-family: "Antic Didone", serif;
+  font-size: 2rem;
+  color: #0b3a2d;
+  margin-bottom: 20px;
+  letter-spacing: .2rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+
+#toggle-view-button{
+  /* position: absolute; */
+  background-color: #0b3a2d;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 1.5rem;
+  color: #EAEEFB;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#toggle-view-button:hover {
+  background-color: #0d4a3b;
+  transform: scale(1.05);
+  transition: .3s;
+}
+
 #filters_container {
   grid-row: 1;
   padding-left: 20px;
@@ -227,9 +271,6 @@
   background-color: #717171;
 }
 
-/* .property-item a:hover {
-  text-decoration: underline;
-} */
 
 .property-link {
   color: inherit; 

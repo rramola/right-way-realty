@@ -1,113 +1,79 @@
 {% extends "base_template.html" %} {% load static %} {% load humanize %} {% block content %}
-<div id="container">
+<button id="toggle-view-button" onclick="toggleView()">List View</button>
+
+<div id="container" style="display: none;">
   <div id="map"></div>
-  <div id ="filters_container">
+  <div id="filters_container">
     <div id="filter_button_container">
-      <button id="filter-button">Show Filters</button>
+      <button id="filter-button" style="display: block;">Show Filters</button>
     </div>
     <div id="filters">
       <h3>Filters</h3>
       <form id="filter-form">
         <label for="mls-listing-number">MLS Number</label>
         <input type="textbox" id="mls-listing-id" name="mls-listing-id">
-    
         <label for="location">Location</label>
         <input type="textbox" id="location" name="location">
-    
         <label for="min-price">Min Price:</label>
         <input type="number" id="min-price" name="min-price" step="0.01">
-    
         <label for="max-price">Max Price:</label>
         <input type="number" id="max-price" name="max-price" step="0.01">
-    
         <label for="min-beds">Min Bedrooms:</label>
         <input type="number" id="min-beds" name="min-beds" min="0">
-    
         <label for="min-baths">Min Baths:</label>
         <input type="number" id="min-baths" name="min-baths" step="0.1">
-    
         <button type="button" onclick="applyFilters(AdvancedMarkerElementInstance)">Apply Filters</button>
       </form>
-        </div>
-        <div id="property-list-wrapper">
-          <div id="property-list" data-limit="2" data-offset="0">
-            {% if properties %}
-              {% for property in properties|slice:":5" %}
-                <a href="{% url 'property_detail' property.id %}" class="property-link">
-                  <div class="property-item"
-                       data-price="{{ property.list_price }}"
-                       data-beds="{{ property.bedrooms }}"
-                       data-total-baths="{{ property.baths_total|default:"0"}}"
-                       data-full-baths="{{ property.baths_full|default:"0" }}"
-                       data-half-baths="{{ property.baths_half|default:"0" }}"
-                       data-location="{{property.city}}"
-                       data-mls-number="{{property.mls_number}}">
-                    <div class="property-image">
-                      <img src="{{ property.images.first.url }}" alt="Property Image">
-                    </div>
-                    <h2>{{ property.house_number }} {{ property.street_name }}, {{ property.city }}, {{ property.state }} {{ property.postal_code }}</h2>
-                    <div class="property-details">
-                      <h3>${{ property.list_price|floatformat:0|intcomma }}</h3>
-                      <p>{{ property.bedrooms }} Beds &nbsp; | &nbsp; {{ property.baths_total }} Baths &nbsp; | &nbsp; {{ property.building_area_total }} Sq. Ft.</p>
-                      <p>{{ property.property_type }}</p>
-                      <p class="agent-info">{{ property.agent_name }}</p>
-                    </div>
-                  </a>
-                  <a href="#" onclick="moveToProperty({{ property.latitude }}, {{ property.longitude }})" class="view-on-map-link">View on Map</a>
-                  </div>
-              {% endfor %}
-            {% else %}
-              <p>No properties available.</p>
-            {% endif %}
-          </div>
-          <button id="load-more" onclick="loadMoreProperties()">Show More Properties</button>
-        </div>
-        
-        {% comment %} <p><span class="home_info_content_labels">Price: </span>${{ property.list_price|floatformat:0|intcomma }}</p>
-      {% if property.bedrooms != nonce %} <p><span class="home_info_content_labels">Bedrooms: </span>{{ property.bedrooms }}</p>{% endif %}
-
-      {% if property.baths_total != None %}<p><span class="home_info_content_labels">Baths: </span>{{ property.baths_total }}</p>{% endif %}
-      <a id="move_to_property_link" href="#" onclick="moveToProperty({{ property.latitude }}, {{ property.longitude }})">View on Map</a> {% endcomment %}
-    
-
-            {% comment %} </div>
-            {% endfor %}
-            {% else %}
-            <p>No properties available.</p>
-            {% endif %}
-          </div> {% endcomment %}
-
-  {% comment %} <p><span class="home_info_content_labels">Price: </span>${{ property.list_price|floatformat:0|intcomma }}</p>
-      {% if property.bedrooms != nonce %} <p><span class="home_info_content_labels">Bedrooms: </span>{{ property.bedrooms }}</p>{% endif %}
-
-      {% if property.baths_total != None %}<p><span class="home_info_content_labels">Baths: </span>{{ property.baths_total }}</p>{% endif %}
-      <a id="move_to_property_link" href="#" onclick="moveToProperty({{ property.latitude }}, {{ property.longitude }})">View on Map</a>
-    </div> {% endcomment %}
-  
-
-      {% comment %} <h2>
-        {% if property.id %}
-          <a href="{% url 'property_detail' property.id %}">
-            {{ property.house_number }} {{ property.street_name }},
-            {{ property.city }}, {{ property.state }} {{ property.postal_code }}
-          </a>
-          
-        {% else %}
-          <span>Invalid Property</span>
-        {% endif %}
-      </h2> {% endcomment %}
-
-      {% comment %} <p><span class="home_info_content_labels">Price: </span>${{ property.list_price|floatformat:0|intcomma }}</p>
-      {% if property.bedrooms != nonce %} <p><span class="home_info_content_labels">Bedrooms: </span>{{ property.bedrooms }}</p>{% endif %}
-
-      {% if property.baths_total != None %}<p><span class="home_info_content_labels">Baths: </span>{{ property.baths_total }}</p>{% endif %}
-      <a id="move_to_property_link" href="#" onclick="moveToProperty({{ property.latitude }}, {{ property.longitude }})">View on Map</a> {% endcomment %}
     </div>
-    {% comment %} {% endfor %}
-    {% else %}
-    <p>No properties available.</p>
-    {% endif %} {% endcomment %}
   </div>
+</div>
+
+<!-- List View Container -->
+<div id="list-container" style="display: block;">
+  <h1>AVAILABLE PROPERTIES</h1>
+  <div id="property-list-view" data-limit="2" data-offset="0">
+    {% if properties %}
+      {% for property in properties|slice:":15" %}
+        <a href="{% url 'property_detail' property.id %}" class="property-link">
+          <div class="property-item"
+               data-price="{{ property.list_price }}"
+               data-beds="{{ property.bedrooms }}"
+               data-total-baths="{{ property.baths_total|default:"0"}}"
+               data-full-baths="{{ property.baths_full|default:"0" }}"
+               data-half-baths="{{ property.baths_half|default:"0" }}"
+               data-location="{{property.city}}"
+               data-mls-number="{{property.mls_number}}">
+            <div class="property-image">
+              <img src="{{ property.images.first.url }}" alt="Property Image">
+            </div>
+            <h2>{{ property.house_number }} {{ property.street_name }}, {{ property.city }}, {{ property.state }} {{ property.postal_code }}</h2>
+            <div class="property-details">
+              <h3>${{ property.list_price|floatformat:0|intcomma }}</h3>
+              <p>{{ property.bedrooms }} Beds &nbsp; | &nbsp; {{ property.baths_total }} Baths &nbsp; | &nbsp; {{ property.building_area_total }} Sq. Ft.</p>
+              <p>{{ property.property_type }}</p>
+              <p class="agent-info">{{ property.agent_name }}</p>
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    {% else %}
+      <p>No properties available.</p>
+    {% endif %}
+  </div>
+  <div class="pagination">
+    {% if properties.has_previous %}
+      <a href="?page=1">&laquo; first</a>
+      <a href="?page={{ properties.previous_page_number }}">previous</a>
+    {% endif %}
+  
+    <span>Page {{ properties.number }} of {{ properties.paginator.num_pages }}</span>
+  
+    {% if properties.has_next %}
+      <a href="?page={{ properties.next_page_number }}">next</a>
+      <a href="?page={{ properties.paginator.num_pages }}">last &raquo;</a>
+    {% endif %}
+  </div>
+</div>
 </div>
 
 <script>
@@ -297,6 +263,43 @@ function loadMoreProperties() {
     });
 }
 
+</script>
+
+<script>
+  function toggleView() {
+  const mapContainer = document.getElementById("container");
+  const listContainer = document.getElementById("list-container");
+  const toggleButton = document.getElementById("toggle-view-button");
+  const filterContainer = document.getElementById("filters_container");
+
+  // Show map view
+  if (mapContainer.style.display === "none") {
+    mapContainer.style.display = "block";
+    listContainer.style.display = "none";
+    toggleButton.textContent = "List View";
+    filterContainer.style.display = "block"; // Display filter container in map view
+  } else {
+    // Show list view
+    mapContainer.style.display = "none";
+    listContainer.style.display = "block";
+    toggleButton.textContent = "Map View";
+    filterContainer.style.display = "none"; // Hide filter container in list view
+  }
+}
+
+  {% comment %} function toggleView() {
+    const map = document.getElementById('map');
+    const list = document.getElementById('list');
+    const filter = document.getElementById('filters_container');
+    if (list.style.display === 'none') {
+      list.style.display = 'block';
+      map.style.display = 'none';
+    } else {
+      filter.style.display = 'block';
+      list.style.display = 'none';
+      map.style.display = 'block';
+    }
+  } {% endcomment %}
 </script>
 
 {% endblock %}
