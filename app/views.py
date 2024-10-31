@@ -16,6 +16,7 @@ from django.urls import reverse
 from django.db import connection
 from datetime import date
 from django.contrib.auth import logout
+from django.core.paginator import Paginator
 import random
 
 
@@ -120,7 +121,7 @@ def googlemaps_view(request):
         property_list = list(properties)
         paginator = Paginator(properties, 15)
         page_number = request.GET.get('page')
-        properties = paginator.get_page(page_number)
+        page_props = paginator.get_page(page_number)
     except Exception as e:
         print(f"Error retrieving properties: {e}")
         connection.close()
@@ -132,7 +133,7 @@ def googlemaps_view(request):
 
         property_list.append(property)
     
-    return render(request, "googlemaps.html", {'properties': properties})
+    return render(request, "googlemaps.html", {'properties': properties, 'page_props': page_props })
 
 # def googlemaps_view(request):
 #     property_list = []

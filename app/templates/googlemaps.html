@@ -1,39 +1,38 @@
 {% extends "base_template.html" %} {% load static %} {% load humanize %} {% block content %}
 <button id="toggle-view-button" onclick="toggleView()">List View</button>
-
+<div id="filters_container">
+  <div id="filter_button_container">
+    <button id="filter-button" onClick="showFilters()">Show Filters</button>
+  </div>
+  <div id="filters" class="filters-hidden">
+    <h3>Filters</h3>
+    <form id="filter-form">
+      <label for="mls-listing-number">MLS Number</label>
+      <input type="textbox" id="mls-listing-id" name="mls-listing-id">
+      <label for="location">Location</label>
+      <input type="textbox" id="location" name="location">
+      <label for="min-price">Min Price:</label>
+      <input type="number" id="min-price" name="min-price" step="0.01">
+      <label for="max-price">Max Price:</label>
+      <input type="number" id="max-price" name="max-price" step="0.01">
+      <label for="min-beds">Min Bedrooms:</label>
+      <input type="number" id="min-beds" name="min-beds" min="0">
+      <label for="min-baths">Min Baths:</label>
+      <input type="number" id="min-baths" name="min-baths" step="0.1">
+      <button type="button" onclick="applyFilters(AdvancedMarkerElementInstance)">Apply Filters</button>
+    </form>
+  </div>
+</div>
 <div id="container" style="display: none;">
   <div id="map"></div>
-  <div id="filters_container">
-    <div id="filter_button_container">
-      <button id="filter-button" onClick="showFilters()">Show Filters</button>
-    </div>
-    <div id="filters" class="filters-hidden">
-      <h3>Filters</h3>
-      <form id="filter-form">
-        <label for="mls-listing-number">MLS Number</label>
-        <input type="textbox" id="mls-listing-id" name="mls-listing-id">
-        <label for="location">Location</label>
-        <input type="textbox" id="location" name="location">
-        <label for="min-price">Min Price:</label>
-        <input type="number" id="min-price" name="min-price" step="0.01">
-        <label for="max-price">Max Price:</label>
-        <input type="number" id="max-price" name="max-price" step="0.01">
-        <label for="min-beds">Min Bedrooms:</label>
-        <input type="number" id="min-beds" name="min-beds" min="0">
-        <label for="min-baths">Min Baths:</label>
-        <input type="number" id="min-baths" name="min-baths" step="0.1">
-        <button type="button" onclick="applyFilters(AdvancedMarkerElementInstance)">Apply Filters</button>
-      </form>
-    </div>
-  </div>
 </div>
 
 <!-- List View Container -->
 <div id="list-container" style="display: block;">
   <h1>AVAILABLE PROPERTIES</h1>
   <div id="property-list-view" data-limit="2" data-offset="0">
-    {% if properties %}
-      {% for property in properties|slice:":15" %}
+    {% if page_props %}
+      {% for property in page_props|slice:":15" %}
         <a href="{% url 'property_detail' property.id %}" class="property-link">
           <div class="property-item"
                data-price="{{ property.list_price }}"
@@ -61,16 +60,16 @@
     {% endif %}
   </div>
   <div class="pagination">
-    {% if properties.has_previous %}
+    {% if page_props.has_previous %}
       <a href="?page=1">&laquo; first</a>
-      <a href="?page={{ properties.previous_page_number }}">previous</a>
+      <a href="?page={{ page_props.previous_page_number }}">previous</a>
     {% endif %}
   
-    <span>Page {{ properties.number }} of {{ properties.paginator.num_pages }}</span>
+    <span>Page {{ page_props.number }} of {{ page_props.paginator.num_pages }}</span>
   
-    {% if properties.has_next %}
-      <a href="?page={{ properties.next_page_number }}">next</a>
-      <a href="?page={{ properties.paginator.num_pages }}">last &raquo;</a>
+    {% if page_props.has_next %}
+      <a href="?page={{ page_props.next_page_number }}">next</a>
+      <a href="?page={{ page_props.paginator.num_pages }}">last &raquo;</a>
     {% endif %}
   </div>
 </div>
