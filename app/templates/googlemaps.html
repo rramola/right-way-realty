@@ -174,7 +174,7 @@ function addMarkers(properties, AdvancedMarkerElement) {
       priceMarkerDiv.innerHTML = `$${property.price}`;
       const marker = new AdvancedMarkerElement({
           position: new google.maps.LatLng(property.lat, property.lng),
-          map: map // Directly add the marker to the map here
+          map: map, // Directly add the marker to the map here
           content: priceMarkerDiv,  // Using the custom price div as the marker content
       });
       const infoWindowContent = `
