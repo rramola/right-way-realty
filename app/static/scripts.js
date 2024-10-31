@@ -1,29 +1,4 @@
 
-////////////////////////////////////// Mobile Navbar //////////////////////////////////////
-
-function toggleNavbar() {
-    var navbarItems = document.getElementById('navbar_items');
-    if (navbarItems.classList.contains('show')) {
-        navbarItems.classList.remove('show');
-        navbarItems.classList.add('hide');
-    } else {
-        navbarItems.classList.remove('hide');
-        navbarItems.classList.add('show');
-    }
-}
-
-document.addEventListener('click', function(event) {
-    var navbarItems = document.getElementById('navbar_items');
-    var hamburgerMenu = document.getElementById('hamburger_menu');
-
-    if (!navbarItems.contains(event.target) && !hamburgerMenu.contains(event.target)) {
-        navbarItems.classList.remove('show');
-        navbarItems.classList.add('hide');
-    }
-});
-
-
-
 //////////////////////////// HOME PAGE FADE IN BANNER TEXT//////////////////////////////////
 document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll('#home_page_banner_text .content');
@@ -60,57 +35,6 @@ document.querySelector('.dropbtn').addEventListener('click', function (e) {
     e.preventDefault();
     toggleDropdown();
 });
-
-
-
-
-
-//////////////////////////////////////////////// MORTGAGE CALCULATOR //////////////////////////////////////
-// function calculateMortgage(loanAmount, interestRate, loanTerm) {
-//     const monthlyRate = interestRate / 100 / 12; 
-//     const totalMonths = loanTerm * 12; 
-
-//     const monthlyPayment = (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -totalMonths));
-
-//     return monthlyPayment;
-// }
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     const form = document.getElementById('mortgage-form');
-
-//     if (form) {
-//         form.addEventListener('submit', function(e) {
-//             e.preventDefault();
-
-//             const loanAmount = parseFloat(document.getElementById('loanAmount').value);
-//             const downPaymentPercentage = parseFloat(document.getElementById('downPaymentPercentage').value);
-//             const interestRate = parseFloat(document.getElementById('interestRate').value);
-//             const loanTerm = parseInt(document.getElementById('loanTerm').value);
-
-//             // Calculate the actual loan amount after the down payment
-//             const downPaymentAmount = loanAmount * (downPaymentPercentage / 100);
-//             const effectiveLoanAmount = loanAmount - downPaymentAmount;
-
-//             const monthlyPayment = calculateMortgage(effectiveLoanAmount, interestRate, loanTerm);
-            
-//             if (!isNaN(monthlyPayment) && (monthlyPayment !== Infinity) && (monthlyPayment > 0)) {
-//                 document.getElementById('monthlyPayment').innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
-//             } else {
-//                 document.getElementById('monthlyPayment').innerText = 'Please enter valid values';
-//             }
-//         });
-//     }
-// });
-
-// document.getElementById('mortgage-calculator-form').addEventListener('submit', function(event) {
-//     event.preventDefault();
-//     const loanAmount = parseFloat(document.getElementById('loan-amount').value);
-//     const interestRate = parseFloat(document.getElementById('interest-rate').value) / 100 / 12;
-//     const loanTerm = parseFloat(document.getElementById('loan-term').value) * 12;
-  
-//     const monthlyPayment = (loanAmount * interestRate) / (1 - Math.pow(1 + interestRate, -loanTerm));
-//     document.getElementById('calculation-result').innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
-//   });
 
 
 
@@ -268,7 +192,32 @@ function moveSlide(carouselIndex, step) {
 
 
 
-//////////////////////////////////////////AGENT BIO COLLAPSIBLE//////////////////////////////////
+//////////////////////RYAN SCRIPTS////////////////////////////////
+
+////////////////////////////////////// Mobile Navbar //////////////////////////////////////
+function toggleNavbar() {
+    var navbarItems = document.getElementById('navbar_items');
+    if (navbarItems.classList.contains('show')) {
+        navbarItems.classList.remove('show');
+        navbarItems.classList.add('hide');
+    } else {
+        navbarItems.classList.remove('hide');
+        navbarItems.classList.add('show');
+    }
+}
+
+document.addEventListener('click', function(event) {
+    var navbarItems = document.getElementById('navbar_items');
+    var hamburgerMenu = document.getElementById('hamburger_menu');
+
+    if (!navbarItems.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+        navbarItems.classList.remove('show');
+        navbarItems.classList.add('hide');
+    }
+});
+
+
+//////////////////////////////////////////AGENT BIO COLLAPSIBLE////////////////////////////////////////////////////////////////
 function toggleBio(btn, bioId) {
     const bioBtn = document.getElementById(btn);
     const bio = document.getElementById(bioId);
@@ -285,5 +234,45 @@ function toggleCollapse(element, icon) {
     content.style.display = (content.style.display === "block") ? "none" : "block";
     propertyIcon.innerText = (content.style.display === "block") ? "-" :"+";
   }
+
+
+//////////////////////////////////////////////// MORTGAGE CALCULATOR //////////////////////////////////////////////////////////
+function calculateMortgage(loanAmount, interestRate, loanTerm) {
+    const monthlyRate = interestRate / 100 / 12; 
+    const totalMonths = loanTerm * 12; 
+
+    const monthlyPayment = (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -totalMonths));
+
+    return monthlyPayment;
+}
+
+// Get data needed to calculate
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('mortgage-form');
+
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const loanAmount = parseFloat(document.getElementById('loanAmount').value);
+            const downPaymentPercentage = parseFloat(document.getElementById('downPaymentPercentage').value);
+            const interestRate = parseFloat(document.getElementById('interestRate').value);
+            const loanTerm = parseInt(document.getElementById('loanTerm').value);
+
+            // Calculate the actual loan amount after the down payment
+            const downPaymentAmount = loanAmount * (downPaymentPercentage / 100);
+            const effectiveLoanAmount = loanAmount - downPaymentAmount;
+
+            const monthlyPayment = calculateMortgage(effectiveLoanAmount, interestRate, loanTerm);
+            
+            if (!isNaN(monthlyPayment) && (monthlyPayment !== Infinity) && (monthlyPayment > 0)) {
+                document.getElementById('monthlyPayment').innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
+            } else {
+                document.getElementById('monthlyPayment').innerText = 'Please enter valid values';
+            }
+        });
+    }
+});
+
 
 
