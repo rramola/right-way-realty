@@ -390,6 +390,22 @@
     margin-top: 8px;
 }
 
+#calculate_form_submit_button {
+  padding: 12px;
+  background-color: #2a7a3d;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #EAEEFB;
+
+}
+
+#calculate_form_submit_button:hover {
+  background-color: #1e8d1e;
+}
+
 .result {
   margin-top: 20px;
   font-weight: bold;
@@ -581,12 +597,16 @@
     .property-details-grid {
       grid-template-columns: 1fr;
     }
+    
   }
 
   @media (max-width: 500px) {
     .property-detail-item {
       grid-template-columns: 1fr 1fr;
     }
+
+    #calculate_form_button_container{
+      margin-bottom: 3rem;
   }
 
   
