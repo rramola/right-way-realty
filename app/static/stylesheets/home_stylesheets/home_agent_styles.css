@@ -68,6 +68,10 @@
       text-align: center; 
       grid-row:2;
   }
+
+  .home-agent-info-text{
+    text-align-left;
+  }
 }
 
 
