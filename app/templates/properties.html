@@ -346,7 +346,7 @@
                 <label for="loanAmount">Loan Amount ($):</label>
                 <input type="number" id="loanAmount" placeholder="Enter loan amount" required>
             </div>
-            <div class="form-group" id="loan-terms-container>
+            <div class="form-group" id="loan-terms-container">
                 <label for="loanTerm">Loan Term (years):</label>
                 <input type="number" id="loanTerm" placeholder="Enter loan term" required>
             </div>
@@ -432,16 +432,9 @@
             </div>
         </form>
     </div>
-<script src="{% static 'scripts.js' %}"></script>
+<!-- <script src="{% static 'scripts.js' %}"></script> -->
 <script>
 
-///////////////////////Calculator Values/////////////////////////////
-
-// let loanAmount = parseFloat(document.getElementById('loanAmount').value);
-// let downPaymentPercentage = parseFloat(document.getElementById('downPaymentPercentage').value);
-// let interestRate = parseFloat(document.getElementById('interestRate').value);
-// let loanTerm = parseInt(document.getElementById('loanTerm').value);
-// let payment = document.getElementById('monthlyPayment');
 ///////////////////////Carousel/////////////////////////////
 let currentImageIndex = 0;
 const images = [{% for image in images %}'{{ image.url }}'{% if not forloop.last %}, {% endif %}{% endfor %}];
