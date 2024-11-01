@@ -1,22 +1,24 @@
 {% extends "base_template.html" %}{% load static %}
 {% block content %}
 <div class="login-page-container">
-  <h1>Login to Right-Way Realty</h1>
-  <form method="POST" class="login-form">
-      {% csrf_token %}
-      <fieldset class="form-group">
-          <div class="form-field">
-              <label for="username">Username:</label>
-              {{ form.username }}
-          </div>
-          <div class="form-field">
-              <label for="password">Password:</label>
-              {{ form.password }}
-          </div>
-      </fieldset>
-      <button id="login-button" type="submit">Login</button>
-      <p class="signup-link">Don't have an account? <a href="{% url 'register' %}">Sign up here</a>.</p>
-  </form>
+  <div id="login-form-container">
+    <h1>Login to Right-Way Realty</h1>
+    <form method="POST" class="login-form">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <div class="form-field">
+                <label for="username">Username:</label>
+                {{ form.username }}
+            </div>
+            <div class="form-field">
+                <label for="password">Password:</label>
+                {{ form.password }}
+            </div>
+        </fieldset>
+        <button id="login-button" type="submit">Login</button>
+        <p class="signup-link">Don't have an account? <a href="{% url 'register' %}">Sign up here</a>.</p>
+    </form>
+  </div>
 </div>
 
 {% endblock content%}
