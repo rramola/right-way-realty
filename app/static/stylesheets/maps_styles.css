@@ -548,6 +548,14 @@
   #filtered-properties-container{
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .property-item{
+    max-width: none;
+  }
+
+  .property-link{
+    padding: 0 5%;
+  }
 }
 
 @media (max-width: 400px){
