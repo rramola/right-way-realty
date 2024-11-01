@@ -512,12 +512,27 @@
     grid-column: 1;
   }
 
+  #filtered-properties-container{
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   #filters_mobile.filters-visible {
     display: block; 
 
   }
   
+}
+
+@media (max-width: 1000px) {
+  #filtered-properties-container{
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 800px) {
@@ -528,6 +543,9 @@
 
 @media (max-width: 600px) {
   #property-list-view{
+    grid-template-columns: repeat(1, 1fr);
+  }
+  #filtered-properties-container{
     grid-template-columns: repeat(1, 1fr);
   }
 }
