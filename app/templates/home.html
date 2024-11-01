@@ -46,8 +46,8 @@
                                     {{ property.house_number }} {{ property.street_name }},
                                     <br>{{ property.city }}, {{ property.state }} {{ property.postal_code }}</a>
                                 <p class="home_property_info_content" id="home_property_street"> <span class="home_info_content_labels">Beds:</span> {{ property.bedrooms}}  
-                                    | <span class="home_info_content_labels">Baths:</span> {{ property.baths_info }}  
-                                    |   <span class="home_info_content_labels">Price:</span> ${{ property.list_price|floatformat:0|intcomma }}</p>
+                                    | <span class="home_info_content_labels">Baths:</span> {{ property.baths_total }}  
+                                    | <span class="home_info_content_labels">Price:</span> ${{ property.list_price|floatformat:0|intcomma }}</p>
                     
                             </div>
                         </div>
