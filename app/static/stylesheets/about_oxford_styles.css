@@ -227,7 +227,7 @@
 }
 
 /* MEDIA QUERIES */
-@media (max-width: 1300px){
+/* @media (max-width: 1300px){
   .about_card, .feature {
     flex-basis: 45%;
   }
@@ -278,17 +278,17 @@
   }
 
   .features-grid {
-    grid-template-columns: 1fr; /* One column on smaller screens */
+    grid-template-columns: 1fr; /* One column on smaller screens 
   }
 
   .intro-section p, .why-oxford p, .key-features p {
     font-size: 1.2em;
   }
 
-}
+} 
 @media (max-width: 400px){
   .features-grid {
-    grid-template-columns: 1fr; /* One column on smaller screens */
+    grid-template-columns: 1fr;
   }
 
   .responsive-calendar iframe {
@@ -335,3 +335,4 @@
     font-size: 1.3rem;
   }
 }
+ */
