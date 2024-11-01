@@ -123,6 +123,12 @@
     max-width: none;
   }
 
+  .expertise_box {
+    display: flex;
+    flex-direction: column;
+    max-width: none;
+  }
+  
   .expertise_box_header {
     width: 100%;
     text-align: center;
