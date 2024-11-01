@@ -120,9 +120,6 @@
   .experise-box{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: none;
   }
 
   .expertise_box_header {
@@ -133,6 +130,10 @@
 
   .expertise_box_text {
     margin-bottom: 20px;
+    text-align: center;
+  }
+  .book-now-button{
+    align-self: center;
   }
 }
 
