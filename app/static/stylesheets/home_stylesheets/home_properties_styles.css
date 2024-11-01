@@ -48,6 +48,10 @@
   border-bottom: 1px solid #1b5e20;
 }
 
+.home_property_images{
+  height: 100%;
+}
+
 .home_page_property_images img {
   height: 100%;
   max-height: 300px;
@@ -99,7 +103,7 @@
   text-decoration: underline;
 }
 
-#home_property_city {
+#home-property-link {
   font-size: 1.3rem;
   margin: 0;
   color: #014235;
@@ -122,11 +126,6 @@
   font-size: 1.3rem;
   margin: 0;
 }
-
-.home_property_info_content {
-  padding-top: 1rem;
-}
-
 
 
 @media (max-width: 1250px) {
