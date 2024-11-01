@@ -61,8 +61,46 @@
                 <div class="navbar_item"><a href="{% url 'login'%}">Login</a></div>
             {% endif %}
         </div>
+        <div id="navbar_overlay">
+            <div id="close_menu" onclick="toggleNavbar()">
+                <i class="fas fa-times"></i>
+            </div>
+            <div id="overlay_items">
+                <a href="{% url 'home' %}" class="overlay_item"><i class="fas fa-home"></i> Home</a>
+                <a href="{% url 'about' %}" class="overlay_item"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="{% url 'oxford' %}" class="overlay_item"><i class="fas fa-map-marker-alt"></i> About Oxford</a>
+                <a href="{% url 'googlemaps' %}" class="overlay_item"><i class="fas fa-map"></i> Properties</a>
+                <a href="{% url 'contact' %}" class="overlay_item"><i class="fas fa-phone-alt"></i> Contact</a>
+                <a href="{% url 'rental_list' %}" class="overlay_item"><i class="fas fa-building"></i> Rentals</a>
+                {% if user.is_authenticated %}
+                    <div class="overlay_item">Logged in as:  {{ user.username }}</div>
+                    <a href="{% url 'logout' %}" class="overlay_item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="overlay_item"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a href="{% url 'register' %}" class="overlay_item"><i class="fas fa-user-plus"></i> Register</a>
+                {% endif %}
+            </div>
+        </div>
     </div>
     </div>
+    </div>
+
+    <script>
+        function toggleNavbar() {
+            const navbarOverlay = document.getElementById('navbar_overlay');
+            const hamburgerIcon = document.getElementById('hamburger_icon');
+        
+            // Toggle the visibility of the overlay
+            navbarOverlay.classList.toggle('show');
+        
+            // Toggle the hamburger and close icons
+            if (navbarOverlay.classList.contains('show')) {
+                hamburgerIcon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                hamburgerIcon.classList.replace('fa-times', 'fa-bars');
+            }
+        }
+    </script>
     
     
     {% block content %}
