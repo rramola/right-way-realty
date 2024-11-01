@@ -122,18 +122,23 @@ def googlemaps_view(request):
         paginator = Paginator(properties, 15)
         page_number = request.GET.get('page')
         page_props = paginator.get_page(page_number)
+        property_list = list(properties)
     except Exception as e:
         print(f"Error retrieving properties: {e}")
         connection.close()
-        # try:
-        #     properties = Property.objects.all().iterator(chunk_size=100)
-        #     property_list = list(properties)  # Convert the iterator to a list
-        # except Exception as inner_e:
-        #     print(f"Error retrieving properties again: {inner_e}")
+        try:
+            properties = Property.objects.all()
+            property_list = list(properties)
+            paginator = Paginator(properties, 15)
+            page_number = request.GET.get('page')
+            page_props = paginator.get_page(page_number)
+            property_list = list(properties)
+        except Exception as inner_e:
+            print(f"Error retrieving properties again: {inner_e}")
 
         property_list.append(property)
     
-    return render(request, "googlemaps.html", {'properties': properties, 'page_props': page_props })
+    return render(request, "googlemaps.html", {'properties': property_list, 'page_props': page_props })
 
 # def googlemaps_view(request):
 #     property_list = []

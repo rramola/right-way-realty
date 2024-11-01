@@ -73,7 +73,9 @@
     {% endif %}
   </div>
 </div>
+<div id='filtered-properties-container'>
 </div>
+<div id="pagination-container"></div>
 
 <script>
   let AdvancedMarkerElementInstance;
@@ -181,8 +183,10 @@ function applyFilters(AdvancedMarkerElement) {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            const propertyList = document.getElementById('property-list');
+            const propertyList = document.getElementById('property-list-view');
             propertyList.innerHTML = '';  // Clear current list
+            propertyList.style.display = 'none';
+            let newPropertyList = [];
 
             // Update property list
             data.properties.forEach(property => {
@@ -208,7 +212,10 @@ function applyFilters(AdvancedMarkerElement) {
                         </div>
                     </a>
                 `;
+                newPropertyList.push(propertyItem);
+                paginate(newPropertyList);
                 propertyList.insertAdjacentHTML('beforeend', propertyItem);
+                
             });
 
             // Update the map with new markers
@@ -220,11 +227,58 @@ function applyFilters(AdvancedMarkerElement) {
                 filters.classList.remove('filters-visible'); // Hide the filter form
                 document.getElementById('filter-button').textContent = 'Show Filters'; // Reset button text
             }
+            
         })
         .catch(error => {
             console.error('Error filtering properties:', error);
         });
 }
+
+
+function paginate(newPropertyList) {
+  const propertiesPerPage = 15;
+  const totalPages = Math.ceil(newPropertyList.length / propertiesPerPage);
+  let currentPage = 1;
+
+  function showItems(page) {
+      const propertiesContainer = document.getElementById('filtered-properties-container');
+      propertiesContainer.innerHTML = '';
+      const startIndex = (page - 1) * propertiesPerPage;
+      const endIndex = startIndex + propertiesPerPage;
+      const pageItems = newPropertyList.slice(startIndex, endIndex);
+
+      pageItems.forEach(item => {
+          propertiesContainer.insertAdjacentHTML('beforeend', item);
+      });
+  }
+
+  function setupPagination() {
+      const paginationContainer = document.getElementById('pagination-container');
+      paginationContainer.innerHTML = '';
+
+      for (let i = 1; i <= totalPages; i++) {
+          const pageLink = document.createElement('a');
+          pageLink.href = '#';
+          pageLink.innerText = i;
+          pageLink.className = (i === currentPage) ? 'active' : '';
+
+          pageLink.addEventListener('click', (event) => {
+              event.preventDefault();
+              currentPage = i;
+              showItems(currentPage);
+
+              paginationContainer.querySelector('.active')?.classList.remove('active');
+              pageLink.classList.add('active');
+          });
+
+          paginationContainer.appendChild(pageLink);
+      }
+  }
+
+  showItems(currentPage);
+  setupPagination();
+}
+
 
 function updateMap(newProperties, AdvancedMarkerElement) {
   // Clear existing markers
@@ -276,7 +330,6 @@ function updateMap(newProperties, AdvancedMarkerElement) {
       }
   });
 }
-
 
 
 initMap();
