@@ -26,17 +26,20 @@
   grid-template-columns: 1fr 1fr 1fr;
   padding-top: 20px;
   grid-gap: 1rem;
+  width: 100%;
 }
 
 .expertise_box {
-  display: grid;
-  justify-content: center;
-  border-radius: 8px;
-  box-shadow: 0 1px 8px #0b3a2d;
-  text-align: center;
-  padding: 20px;
-  background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
-  border-bottom: 1px solid #1b5e20;
+    background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 300px;
+    box-shadow: 0 1px 8px #0b3a2d;
+    margin: 0.5rem auto;
+    transition: transform 0.3s;
+    width: 90%;
+    padding: 0.5rem;
 }
 
 .expertise_box:hover{
@@ -105,7 +108,8 @@
 
 @media (max-width: 750px) {
   .expertise_container {
-     grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
   }
 
   #expertise_section {
@@ -114,7 +118,7 @@
   }
 
   .experise-box{
-    border-bottom: 1px solid #1b5e20;
+    max-width: none;
   }
 
   .expertise_box_header {
