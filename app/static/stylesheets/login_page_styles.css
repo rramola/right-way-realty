@@ -1,4 +1,8 @@
-.login-page-container {
+.login-page-container{
+    padding 0 20px;
+}
+
+#login-form-container {
     max-width: 400px;
     margin: 60px auto;
     padding: 30px;
