@@ -482,7 +482,7 @@
 }
 
 
-@media (max-width: 750px) {
+@media (max-width: 1200px) {
 
   #container {
     display: flex;
@@ -518,4 +518,16 @@
 
   }
   
+}
+
+@media (max-width: 800px) {
+  #property-list-view{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  #property-list-view{
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
