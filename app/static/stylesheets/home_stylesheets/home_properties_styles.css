@@ -10,7 +10,7 @@
 #home_page_properties_container {
   height: auto;
   background-color: #EAEEFB;
-  padding: 40px 20px;
+  padding: 5%;
 
 }
 
@@ -95,7 +95,6 @@
   font-weight: 400;
   font-style: normal;
   color: #1b5e20;
-  font-size: 2.5rem;
 }
 
 #property-card-content-address{

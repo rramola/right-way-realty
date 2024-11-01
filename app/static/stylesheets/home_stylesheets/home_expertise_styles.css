@@ -4,7 +4,7 @@
 }
 
 #expertise_section {
-  padding: 40px 20px;
+  padding: 0 5% 5%;
 }
 
 #our_expertise_section_header {
@@ -27,6 +27,7 @@
   padding-top: 20px;
   grid-gap: 1rem;
   width: 100%;
+  text-align: center;
 }
 
 .expertise_box {
@@ -88,25 +89,9 @@
  */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* -------------------------------------------------------------------------------------------------------------------------------*/
 
-@media (max-width: 750px) {
+@media (max-width: 768px) {
   .expertise_container {
         display: flex;
         flex-direction: column;
@@ -142,11 +127,4 @@
   .book_now_button{
     align-self: center;
   }
-}
-
-@media (max-width: 650px) {
-  #our_expertise_section_header {
-    letter-spacing: .2rem;
-  }
-
 }
