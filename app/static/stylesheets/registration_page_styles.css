@@ -1,11 +1,5 @@
 .registration-page-container {
-    max-width: 800px;
-    margin: 60px auto;
-    padding: 30px;
-    background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 1px 8px #0b3a2d;
+    padding: 0 20px;
 }
 
 .registration-page-container h1 {
@@ -23,8 +17,13 @@
 
 
 #registration-form-container {
-    width: 80%;
-    margin: 0 auto;
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 30px;
+    background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 1px 8px #0b3a2d;
 }
 
 #registration-form-group {
@@ -108,10 +107,6 @@
 }
 
 @media (max-width: 768px) {
-    .registration-page-container {
-        max-width: 90%;
-        padding: 20px;
-    }
 
     #registration-form-group {
         grid-template-columns: 1fr; 
@@ -120,10 +115,6 @@
 }
 
 @media (max-width: 530px) {
-    .registration-page-container {
-        max-width: 95%;
-        padding: 15px;
-    }
 
     #registration-form-group {
         grid-template-columns: 1fr; 
