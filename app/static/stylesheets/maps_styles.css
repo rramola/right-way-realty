@@ -507,7 +507,7 @@
     overflow-y: scroll;
   }
   #map{
-    height: 50vh;
+    height: 100vh;
     grid-row:1;
     grid-column: 1;
   }
@@ -529,5 +529,11 @@
 @media (max-width: 600px) {
   #property-list-view{
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 400px){
+  #list-container h1{
+    font-size: 1.5rem;
   }
 }
