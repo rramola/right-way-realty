@@ -121,35 +121,28 @@
   max-width: 1200px;
 }
 .three-columns {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding-top: 70px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
 }
 .three-columns .about_card {
-  width: 30%;
-  background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: grid;
+    background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 8px #0b3a2d;
+    border-bottom: 1px solid #1b5e20;
 }
 
-.about_card {
-  flex-basis: 30%;
-  background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
 .three-columns .about_card:hover {
   box-shadow: 0 8px 12px #295943;
 }
 
 .about_card img {
+  height: 100%;
+  max-height: 300px;
   width: 100%;
-  height: 50%;
   border-radius: 8px;
 }
 .about_card h3 {
@@ -178,6 +171,7 @@
 
 .feature * {
   pointer-events: none; 
+  
 }
 
 .feature h3{
@@ -196,7 +190,8 @@
   background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
   margin-bottom: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px #0b3a2d;
+  border-bottom: 1px solid #1b5e20;
   text-align: center;
 }
 
