@@ -27,7 +27,7 @@
             <div class="property-list">
                 {% for property in properties%}
                     <div class="property">
-                        <a href="{% url 'property_detail' property.id %}" class="home-property-container-link" id="home-property-link">
+<!--                         <a href="{% url 'property_detail' property.id %}" class="home-property-container-link" id="home-property-link"> -->
                         {% if property.images.all %}
                         <div class="home_page_property_images">
                             {% for image in property.images.all %}
@@ -37,23 +37,23 @@
                             {% endfor %}
                         </div>
                         {% else %}
-                        <p>No images available.</p>
+                        <div id="home-property-image-alt-text">
+                            <p>No images available.</p>
+                        </div>
                         {% endif %}
                         <div class="property_info">
-
-                            <div class="property_info_content">
                                 <div id='property-card-content-address'>
                                     {{ property.house_number }} {{ property.street_name }},
                                     <br>{{ property.city }}, {{ property.state }} {{ property.postal_code }}
                                 </div>
-                                <p class="home_property_info_content" id="home_property_street"> <span class="home_info_content_labels">Beds:</span> {{ property.bedrooms}}  
-                                    | <span class="home_info_content_labels">Baths:</span> {{ property.baths_total }}  
-                                    | <span class="home_info_content_labels">Price:</span> ${{ property.list_price|floatformat:0|intcomma }}</p>
-                    
+                                <div class="property_info_content">
+                                    <p class="home_property_info_content" id="home_property_street"> <span class="home_info_content_labels">Beds:</span> {{ property.bedrooms}}  
+                                        | <span class="home_info_content_labels">Baths:</span> {{ property.baths_total }}  
+                                        | <span class="home_info_content_labels">Price:</span> ${{ property.list_price|floatformat:0|intcomma }}</p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
+<!--                     </a> -->
+                    </div>
                 {% endfor %}
             </div>
         </div>
