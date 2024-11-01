@@ -59,7 +59,7 @@
       <p>No properties available.</p>
     {% endif %}
   </div>
-  <div class="pagination">
+  <div class="pagination" id='pages'>
     {% if page_props.has_previous %}
       <a href="?page=1">&laquo; first</a>
       <a href="?page={{ page_props.previous_page_number }}">previous</a>
@@ -184,6 +184,8 @@ function applyFilters(AdvancedMarkerElement) {
         .then(response => response.json())
         .then(data => {
             const propertyList = document.getElementById('property-list-view');
+            const prevPagination = document.getElementById('pages');
+            prevPagination.style.display = 'none';
             propertyList.innerHTML = '';  // Clear current list
             propertyList.style.display = 'none';
             let newPropertyList = [];
@@ -196,7 +198,7 @@ function applyFilters(AdvancedMarkerElement) {
                 const sqFt = property.building_area_total ? `${property.building_area_total.toLocaleString()} Sq. Ft.` : 'N/A';
 
                 const propertyItem = `
-                    <a href="/property/${property.id}" class="property-link">
+                  
                         <div class="property-item">
                             <div class="property-image">
                                 <img src="${property.image_url}" alt="Property Image">
@@ -210,7 +212,7 @@ function applyFilters(AdvancedMarkerElement) {
                                 <a href="#" onclick="moveToProperty(${property.latitude}, ${property.longitude})">View on Map</a>
                             </div>
                         </div>
-                    </a>
+                   
                 `;
                 newPropertyList.push(propertyItem);
                 paginate(newPropertyList);
@@ -390,15 +392,18 @@ function loadMoreProperties() {
   const listContainer = document.getElementById("list-container");
   const toggleButton = document.getElementById("toggle-view-button");
   const filterContainer = document.getElementById("filters_container");
+  const filteredProperties = document.getElementById('filtered-properties-container');
 
   // Show map view
   if (mapContainer.style.display === "none") {
     mapContainer.style.display = "block";
     listContainer.style.display = "none";
+    filteredProperties.style.display = "none"
     toggleButton.textContent = "List View";
     filterContainer.style.display = "block"; // Display filter container in map view
   } else {
     // Show list view
+    filteredProperties.style.display = "grid";
     mapContainer.style.display = "none";
     listContainer.style.display = "block";
     toggleButton.textContent = "Map View";

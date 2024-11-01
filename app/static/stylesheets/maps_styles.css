@@ -390,7 +390,6 @@
 }
 #filters.filters-visible {
     display: block; /* or flex, depending on your layout */
-} */
 
 #filters h3 {
   font-family: "Albert Sans", sans-serif;
@@ -449,6 +448,12 @@
   display: none;
 }
 
+#filtered-properties-container{
+  display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
 
 
 @media (max-width: 750px) {
