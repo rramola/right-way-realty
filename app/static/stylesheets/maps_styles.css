@@ -6,6 +6,14 @@
   contain: content;
 }
 
+#button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Space between the buttons */
+  margin: 20px; /* Adjust spacing as needed */
+}
+
 /* LIST VIEW */
 #property-list-view {
   display: grid;
@@ -33,27 +41,33 @@
 
 
 
-#toggle-view-button{
-  /* position: absolute; */
+#toggle-view-button,
+#filter-button {
   background-color: #0b3a2d;
   font-family: "Albert Sans", sans-serif;
   font-size: 1.5rem;
   color: #EAEEFB;
   border: none;
-  padding: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
-#toggle-view-button:hover {
+#toggle-view-button:focus,
+#filter-button:focus {
+  outline: none;
+}
+
+#toggle-view-button:hover,
+#filter-button:hover {
   background-color: #0d4a3b;
   transform: scale(1.05);
-  transition: .3s;
 }
 
 #filters_container {
-  grid-row: 1;
-  padding-left: 20px;
-  padding-right: 20px;
+  margin-top: 10px; /* Space between the buttons and the filter container */
+  display: none; /* Hidden initially; display using JavaScript */
 }
 
 /* PROPERTIES */
@@ -356,35 +370,47 @@
 }
 
 
-#filter-button {
-  background-color: #0b3a2d;
-  font-family: "Albert Sans", sans-serif;
-  font-size: 1.5rem;
-  color: #EAEEFB;
-  border: none;
-  margin-top: 1rem;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-  text-align: center;
-  
-}
-
-#filter-button:hover {
-  background-color: #0d4a3b;
-  transform: scale(1.05);
-  transition: .3s;
-}
-
 #filters {
   background-color: #073528;
   padding: 15px;
   border-radius: 10px;
   margin-top: 1rem;
-  display: none; 
+  display: none;
+  width: 50%;
+  margin: 0 auto;
 }
 
+
+.pagination a {
+  text-decoration: none;
+  background-color: #0b3a2d;
+  color: #ddd;
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+
+
+.pagination a.active {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
+}
+
+.pagination a:hover:not(.active) {
+  background-color:#0d4a3b;
+  color: white;
+}
+
+
+
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
 /* #filters.filters-hidden {
     display: none;
 }
@@ -471,11 +497,14 @@
     padding-right: 0;
     grid-row:2;
   }
-  #property-list{
+  #property-list-view{
     height: 100%;
     width: 100%;
     padding: 0;
-    grid-row: 3;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    max-height: 100vh;
+    overflow-y: scroll;
   }
   #map{
     height: 50vh;

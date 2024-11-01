@@ -1,9 +1,8 @@
 {% extends "base_template.html" %} {% load static %} {% load humanize %} {% block content %}
-<button id="toggle-view-button" onclick="toggleView()">List View</button>
-<div id="filters_container">
-  <div id="filter_button_container">
-    <button id="filter-button" onClick="showFilters()">Show Filters</button>
-  </div>
+<div id="button-container">
+  <button id="toggle-view-button" onclick="toggleView()">List View</button>
+  <button id="filter-button" onclick="showFilters()">Show Filters</button>
+</div>
   <div id="filters" class="filters-hidden">
     <h3>Filters</h3>
     <form id="filter-form">
