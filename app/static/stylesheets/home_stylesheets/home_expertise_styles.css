@@ -120,6 +120,7 @@
   .experise-box{
     display: flex;
     flex-direction: column;
+    max-width: none;
   }
 
   .expertise_box_header {
