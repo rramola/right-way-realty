@@ -12,7 +12,7 @@
 .property-card {
   display: flex;
   flex-direction: column;
-  padding: 0 20px 20px 20px;
+  padding: 0 5%;
   row-gap: 1rem;
 }
 
@@ -124,9 +124,6 @@
 
   /* Overview Styles */
   
-  .properties-details-card{
-    margin-right: 10rem;
-  }
   .property-details-card{
     display: grid;
     row-gap: 20px;
@@ -313,7 +310,7 @@
 
 
 #mortgage-calculator-container{
-    padding: 40px 20PX;
+    padding: 5%;
     border-radius: 8px;
     justify-content: center;
     display: flex;
@@ -348,7 +345,7 @@
   .mortgage-calculator {
     background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
     border-radius: 12px;
-    width: 70%;
+    width: 100%;
     box-shadow: 0 1px 8px #0b3a2d;
     height: 100%;
     display: flex;
