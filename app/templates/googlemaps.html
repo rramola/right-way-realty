@@ -124,7 +124,7 @@ function loadInitialProperties(properties, AdvancedMarkerElement){
       lng: parseFloat("{{ property.longitude }}"),
       title: "{{ property.house_number }} {{ property.street_name }}, {{ property.city }}, {{ property.state }}",
       price: "{{ property.list_price|floatformat:0|intcomma }}",
-      url: "{% url 'property_detail' property.id %}"
+      url: "{% if property.id %}{% url 'property_detail' property.id %}{% else %}#{% endif %}"
     },
     {% endfor %}
   ];
