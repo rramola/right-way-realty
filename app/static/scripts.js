@@ -215,11 +215,23 @@ document.addEventListener('click', function(event) {
 
 
 //////////////////////////////////////////AGENT BIO COLLAPSIBLE/////////////////////////////
-function toggleBio(btn, bioId) {
+function toggleBio(btn, bioId, bioAnchor, bioClose) {
     const bioBtn = document.getElementById(btn);
     const bio = document.getElementById(bioId);
-    bio.style.display = (bio.style.display === "none" || bio.style.display === "") ? "block" : "none";
-    bioBtn.innerText = (bio.style.display === "none" || bio.style.display === "") ? "Read More" : "Read Less";
+    const bioBtnAnchor = document.getElementById(bioAnchor);
+    const bioBtnClose = document.getElementById(bioClose);
+
+    bio.classList.toggle("show");
+
+    const isBioVisible = bio.classList.contains("show");
+
+    bioBtn.style.display = isBioVisible ? "none" : "inline";
+    bioBtnClose.style.display = isBioVisible ? "inline" : "none";
+
+    // Smooth scroll back to the top of the section if the bio is hidden
+    if (!isBioVisible) {
+        bioBtnAnchor.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
 }
 
 
