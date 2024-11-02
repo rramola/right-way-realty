@@ -192,26 +192,26 @@ function moveSlide(carouselIndex, step) {
 ///////////////////////////////////////////////RYAN SCRIPTS////////////////////////////////
 
 ////////////////////////////////////// Mobile Navbar //////////////////////////////////////
-function toggleNavbar() {
-    var navbarItems = document.getElementById('navbar_items');
-    if (navbarItems.classList.contains('show')) {
-        navbarItems.classList.remove('show');
-        navbarItems.classList.add('hide');
-    } else {
-        navbarItems.classList.remove('hide');
-        navbarItems.classList.add('show');
-    }
-}
+// function toggleNavbar() {
+//     var navbarItems = document.getElementById('navbar_items');
+//     if (navbarItems.classList.contains('show')) {
+//         navbarItems.classList.remove('show');
+//         navbarItems.classList.add('hide');
+//     } else {
+//         navbarItems.classList.remove('hide');
+//         navbarItems.classList.add('show');
+//     }
+// }
 
-document.addEventListener('click', function(event) {
-    var navbarItems = document.getElementById('navbar_items');
-    var hamburgerMenu = document.getElementById('hamburger_menu');
+// document.addEventListener('click', function(event) {
+//     var navbarItems = document.getElementById('navbar_items');
+//     var hamburgerMenu = document.getElementById('hamburger_menu');
 
-    if (!navbarItems.contains(event.target) && !hamburgerMenu.contains(event.target)) {
-        navbarItems.classList.remove('show');
-        navbarItems.classList.add('hide');
-    }
-});
+//     if (!navbarItems.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+//         navbarItems.classList.remove('show');
+//         navbarItems.classList.add('hide');
+//     }
+// });
 
 
 //////////////////////////////////////////AGENT BIO COLLAPSIBLE/////////////////////////////

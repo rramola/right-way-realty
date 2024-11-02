@@ -139,7 +139,7 @@
 }
 
 .bio-full.show {
-  max-height: 1000px; /* Adjust based on content length */
+  max-height: fit-content;
   opacity: 1;
 }
 
