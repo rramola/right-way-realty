@@ -1,5 +1,6 @@
 from django.db import models
 import requests
+from cloudinary.models import CloudinaryField
 
 
 class Property(models.Model):
@@ -131,7 +132,7 @@ class Rental(models.Model):
 
 class RentalImage(models.Model):
     rental = models.ForeignKey(Rental, related_name='images', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='rental_images/')  # Change the upload path as needed
+    image = CloudinaryField('image')
     
     def __str__(self):
         return f'Image for rental at {self.rental.street_name}, {self.rental.city}'
