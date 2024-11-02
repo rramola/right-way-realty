@@ -1,5 +1,5 @@
 #navbar_container {
-  background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
+  /* background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349)); */
   border-bottom: #014235 1px solid;
   padding: 0.5rem 1rem;
   display: flex;
@@ -8,6 +8,10 @@
   position: relative;
   z-index: 1000;
   max-height: 45px;
+  /* background: #014235; */
+  background: #EAEEFB;
+  border-bottom: grey 2 5px;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1)
 }
 
 
