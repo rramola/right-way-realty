@@ -24,7 +24,7 @@ class Property(models.Model):
     baths_total = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True)
     baths_three_quarter = models.IntegerField(null=True, blank=True)
     building_area_total = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
-    car_port_spaces = models.CharField(null=True, blank=True)
+    car_port_spaces = models.IntegerField(null=True, blank=True)
     property_subtype = models.CharField(max_length=100, blank=True, null=True)
     property_type = models.CharField(max_length=50, blank=True, null=True)
     public_remarks = models.TextField(blank=True, null=True)

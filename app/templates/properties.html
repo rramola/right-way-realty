@@ -48,19 +48,32 @@
           </div>
           <div class="property-overview-item">
             <span id="overview-detail-title">Beds:</span>
+            {% if property.bedrooms %}
             <h3>{{ property.bedrooms }}</h3>
+            {% else %}
+            <h3>N/A</h3>
+            {% endif %}
           </div>
           <div class="property-overview-item">
             <span id="overview-detail-title">Baths:</span>
-            <h3>{{ property.baths_total }}</h3>
+              {% if property.baths_total %}
+              <h3>{{ property.baths_total }}</h3>
+              {% else %}
+              <h3>N/A</h3>
+              {% endif %}</h3>
           </div>
           <div class="property-overview-item">
             <span id="overview-detail-title">SqFt:</span>
             <h3>{{ property.building_area_total|intcomma }}</h3>
           </div>
           <div class="property-overview-item">
+            
             <span id="overview-detail-title">Built:</span>
+            {% if property.year_built %}
             <h3>{{ property.year_built }}</h3>
+            {% else %}
+            <h3>N/A</h3>
+            {% endif %}</h3>
           </div>
           <div class="property-overview-item">
             <span id="overview-detail-title">Schools:</span>
@@ -128,15 +141,27 @@
               </div>
               <div class="property-detail-item">
                 <h3>Bathrooms Full:</h3>
+                {% if property.baths_full %}
                 <span>{{ property.baths_full }}</span>
+                {% else %}
+                <span>N/A</span>
+                {% endif %}
               </div>
               <div class="property-detail-item">
                 <h3>Bathrooms Total:</h3>
+                {% if property.baths_total %}
                 <span>{{ property.baths_total }}</span>
+                {% else %}
+                <span>N/A</span>
+                {% endif %}
               </div>
               <div class="property-detail-item">
                 <h3>Bedrooms Total:</h3>
+                {% if property.bedrooms %}
                 <span>{{ property.bedrooms }}</span>
+                {% else %}
+                <span>N/A</span>
+                {% endif %}
               </div>
               <div class="property-detail-item">
                 <h3>Flooring:</h3> 
@@ -151,7 +176,7 @@
                   <span>{% for item in property.fireplace_features %}
                     {{ item }}{% if not forloop.last %}, {% endif %}
                     {%empty%}
-                      None
+                      N/A
                   {% endfor %}</span>
               </div>
               <div class="property-detail-item">
@@ -187,9 +212,11 @@
               </div>
               <div class="property-detail-item">
                 <h3>Garage / Carport:</h3> 
-                {% if property.garage_yes_no == true %}<span>{{property.garage_spaces}} Car Garage</span>{% endif %}
-                {% if property.carport == true %}<span>{{property.car_port_spaces}} Space Car Port</span>{% endif %}
-                {% if property.carport != true and property.garage_yes_no != true %}<span>N/A</span>{% endif %}
+                {% if property.garage_spaces %}<span>{{property.garage_spaces}} Car Garage</span>
+                {%elif property.car_port_spaces %}<span>{{property.car_port_spaces}} Space Car Port</span>
+                {% else %}
+                <span>N/A</span>
+                {% endif %}
               </div>     
               <div class="property-detail-item">
                 <h3>Lot Size:</h3>
@@ -216,7 +243,7 @@
                 <span>{% for item in property.pool_features %}
                   {{ item }}{% if not forloop.last %}, {% endif %}
                   {% empty%}
-                    None
+                    N/A
                 {% endfor %} </span>
               </div>
               <div class="property-detail-item">
@@ -252,7 +279,7 @@
       
         <!-- Architecture -->
         <div class="card-body">
-          <h3 class="collapsible" onclick="toggleCollapse(this,'architecure-collapsible-icon')"><p id='collapsible-header'>Architecture:</p><p class="collapsible-icon" id="architecture-collapsible-icon">+</p></h3>
+          <h3 class="collapsible" onclick="toggleCollapse(this,'architecture-collapsible-icon')"><p id='collapsible-header'>Architecture:</p><p class="collapsible-icon" id="architecture-collapsible-icon">+</p></h3>
           <div class="content">
             <div class="additional-features">
               <div class="property-detail-item">
@@ -432,6 +459,7 @@
             </div>
         </form>
     </div>
+  </div>
 <!-- <script src="{% static 'scripts.js' %}"></script> -->
 <script>
 
