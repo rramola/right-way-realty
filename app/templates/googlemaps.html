@@ -44,12 +44,14 @@
             <div class="property-image">
               <img src="{{ property.images.first.url }}" alt="Property Image">
             </div>
-            <h2>{{ property.house_number }} {{ property.street_name }}, {{ property.city }}, {{ property.state }} {{ property.postal_code }}</h2>
-            <div class="property-details">
-              <h3>${{ property.list_price|floatformat:0|intcomma }}</h3>
-              <p>{{ property.bedrooms }} Beds &nbsp; | &nbsp; {{ property.baths_total }} Baths &nbsp; | &nbsp; {{ property.building_area_total }} Sq. Ft.</p>
-              <p>{{ property.property_type }}</p>
-              <p class="agent-info">{{ property.agent_name }}</p>
+            <div class="property-info">
+              <strong id="property-location">{{ property.house_number }} {{ property.street_name }}, {{ property.city }}, {{ property.state }} {{ property.postal_code }}</strong><br>
+              <p><span class="property-label">Price:</span> ${{ property.list_price|floatformat:0|intcomma }}</p>
+              <p><span class="property-label">Bedrooms:</span> {{ property.bedrooms }}</p>
+              <p><span class="property-label">Baths:</span> {{ property.baths_total }}</p>
+              <p><span class="property-label">Building Area:</span> {{ property.building_area_total }} Sq. Ft.</p>
+              <p><span class="property-label">Property Type:</span> {{ property.property_type }}</p>
+              <p><span class="property-label">Agent:</span> {{ property.agent_name }}</p>
             </div>
           </div>
         </a>
