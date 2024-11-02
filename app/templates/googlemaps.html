@@ -42,7 +42,7 @@
                data-location="{{property.city}}"
                data-mls-number="{{property.mls_number}}">
             <div class="property-image">
-              <img src="{{ property.images.first.url }}" alt="Property Image">
+              <img src="{{ property.images.first.url|default:"/static/images/no_property.png" }}" alt="Property Image">
             </div>
             <div class="property-info">
               <strong id="property-location">{{ property.house_number }} {{ property.street_name }}, {{ property.city }}, {{ property.state }} {{ property.postal_code }}</strong><br>
