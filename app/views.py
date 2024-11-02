@@ -138,7 +138,8 @@ def googlemaps_view(request):
 
         property_list.append(property)
     
-    return render(request, "googlemaps.html", {'properties': property_list, 'page_props': page_props })
+    
+    return render(request, "googlemaps.html", {'properties': property_list, 'page_props': page_props,})
 
 # def googlemaps_view(request):
 #     property_list = []
