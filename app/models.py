@@ -82,7 +82,7 @@ class Property(models.Model):
         super(Property, self).save(*args, **kwargs)
 
     def geocode_address(self, address):
-        api_key = "AIzaSyDvMHU4swcbaypo_PBbgpywoXo5Xa-NSlU"
+        api_key = "GEOCODE_API_KEY"
         url = f"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={api_key}"
         response = requests.get(url)
         geocode_result = response.json()

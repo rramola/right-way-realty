@@ -172,6 +172,14 @@ cloudinary.config(
     api_secret=os.getenv("CLOUDINARY_API_SECRET"),
 )
 
+# GOOGLE MAPS CONFIG
+MAP_ID = os.getenv("MAP_ID"),
+GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY'),
+GEOCODE_API_KEY = os.getenv("GEOCODE_API_KEY"),
+
+# NAVICA CONFIG
+
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
