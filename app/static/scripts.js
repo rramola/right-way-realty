@@ -222,13 +222,11 @@ function toggleBio(btn, bioId, bioAnchor, bioClose) {
     const bioBtnClose = document.getElementById(bioClose);
 
     bio.classList.toggle("show");
-
     const isBioVisible = bio.classList.contains("show");
 
     bioBtn.style.display = isBioVisible ? "none" : "inline";
     bioBtnClose.style.display = isBioVisible ? "inline" : "none";
 
-    // Smooth scroll back to the top of the section if the bio is hidden
     if (!isBioVisible) {
         bioBtnAnchor.scrollIntoView({ behavior: "smooth", block: "start" });
     }
