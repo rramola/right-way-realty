@@ -1,7 +1,7 @@
 
 #contact_form_container {
     background-color: #EAEEFB;
-    padding: 40px 20PX;
+    padding: 5%;
     border-radius: 8px;
     justify-content: center;
     display: flex;
@@ -20,7 +20,6 @@
 #contact_us_form {
     background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
     border-radius: 12px;
-    width: 70%;
     box-shadow: 0 1px 8px #0b3a2d;
     height: 100%;
     display: flex;

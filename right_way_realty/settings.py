@@ -14,10 +14,15 @@ from pathlib import Path
 import os
 import dj_database_url
 from typing import Dict, Any
+import cloudinary
+from dotenv import load_dotenv
 # import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Load environment variables from .env file
+load_dotenv()
 
 
 # Quick-start development settings - unsuitable for production
@@ -43,6 +48,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "phonenumber_field",
+    "cloudinary",
+    "cloudinary_storage",
     "app",
 ]
 
@@ -158,6 +165,22 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Cloudinary configuration
+cloudinary.config(
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.getenv("CLOUDINARY_API_KEY"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET"),
+)
+
+# GOOGLE MAPS CONFIG
+MAP_ID = os.getenv("MAP_ID"),
+GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY'),
+GEOCODE_API_KEY = os.getenv("GEOCODE_API_KEY"),
+
+# NAVICA CONFIG
+NAVICA_TOKEN = os.getenv("NAVICA_TOKEN")
+
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -169,6 +192,7 @@ STATIC_URL = "/static/"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

@@ -1,5 +1,6 @@
 from django.db import models
 import requests
+from cloudinary.models import CloudinaryField
 
 
 class Property(models.Model):
@@ -24,7 +25,7 @@ class Property(models.Model):
     baths_total = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True)
     baths_three_quarter = models.IntegerField(null=True, blank=True)
     building_area_total = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
-    car_port_spaces = models.CharField(null=True, blank=True)
+    car_port_spaces = models.IntegerField(null=True, blank=True)
     property_subtype = models.CharField(max_length=100, blank=True, null=True)
     property_type = models.CharField(max_length=50, blank=True, null=True)
     public_remarks = models.TextField(blank=True, null=True)
@@ -81,7 +82,7 @@ class Property(models.Model):
         super(Property, self).save(*args, **kwargs)
 
     def geocode_address(self, address):
-        api_key = "AIzaSyDvMHU4swcbaypo_PBbgpywoXo5Xa-NSlU"
+        api_key = "GEOCODE_API_KEY"
         url = f"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={api_key}"
         response = requests.get(url)
         geocode_result = response.json()
@@ -131,7 +132,7 @@ class Rental(models.Model):
 
 class RentalImage(models.Model):
     rental = models.ForeignKey(Rental, related_name='images', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='rental_images/')  # Change the upload path as needed
+    image = CloudinaryField('image')
     
     def __str__(self):
         return f'Image for rental at {self.rental.street_name}, {self.rental.city}'

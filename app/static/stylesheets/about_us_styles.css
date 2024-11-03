@@ -1,6 +1,6 @@
 /* Header and Intro Section */
 #about-us-intro-container {
-  padding: 40px 20px;
+  padding: 5%;
   background-color: #EAEEFB;
 }
 
@@ -44,8 +44,7 @@
 #meet-us-container {
   background-color: #EAEEFB;
   color: #014235;
-  padding: 0px 20px;
-
+  padding: 0 5% 5%;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -59,6 +58,7 @@
   font-size: 2.3rem;
   color: #014235;
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .team-section {
@@ -70,12 +70,16 @@
 }
 
 .team-member {
-  text-align: center;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 1px 8px #0b3a2d;
-  height: fit-content;
   background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  height: fit-content;
+  box-shadow: 0 1px 8px #0b3a2d;
+  margin: 0.5rem auto;
+  transition: transform 0.3s;
+  padding: 0.5rem;
+  text-align: center;
   border-bottom: 1px solid #1b5e20;
 }
 
@@ -125,12 +129,18 @@
   color: #1b5e20;
 }
 
-#april-bio{
-  display: none;
+
+
+.bio-full {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.7s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-#terry-bio{
-  display: none;
+.bio-full.show {
+  max-height: 1200px;
+  opacity: 1;
 }
 
 
@@ -158,19 +168,52 @@
   color: #2a7a3d;
 }
 
+#april-bio-button-close{
+  display: none;
+  background: none;
+  color: #014235;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+#terry-bio-button-close{
+  display: none;
+  background: none;
+  color: #014235;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+
+
+#april-bio-anchor:visited{
+  color: #014235;
+}
+
+
+#terry-bio-anchor:visited{
+  color: #014235;
+}
+
+
 /* Contact Form */
 #about-contact-form-container {
   background-color: #EAEEFB;
-  padding: 40px 20PX;
   border-radius: 8px;
   justify-content: center;
   display: flex;
+  padding: 0 5% 5% 5%;
 }
 
 #about-contact_us_form{
   background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
   border-radius: 12px;
-  width: 70%;
   box-shadow: 0 1px 8px #0b3a2d;
   height: 100%;
   display: flex;
@@ -190,10 +233,6 @@
   color: #014235;
   text-align: center;
   margin-bottom: 20px;
-}
-
-#about-contact-form-grouping{
-  width: 70%;
 }
 
 #about-contact-group{
@@ -238,18 +277,10 @@
   background-color: #014235;
 }
 
-
-
-
 /* MOBILE STYLES */
 @media (max-width: 750px) {
   .team-section {
     display: flex;
-  }
-
-  #about-contact_us_form{
-    padding: 20px 0;
-    width: 100%;
   }
 }
 
