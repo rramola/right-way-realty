@@ -273,3 +273,13 @@ function calculateMortgage(loanAmountId, downPaymentPercentageId, interestRateId
         payment.innerText = 'Please enter valid values';
     }
 }
+
+// Rental form Toggle
+function toggleForm() {
+    var form = document.getElementById("searchForm");
+    if (form.style.display === "none") {
+        form.style.display = "block";
+    } else {
+        form.style.display = "none";
+    }
+}
