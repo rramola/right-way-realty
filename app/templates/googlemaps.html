@@ -61,15 +61,15 @@
   </div>
   <div class="pagination" id='pages'>
     {% if page_props.has_previous %}
-      <a href="?page=1">&laquo; first</a>
-      <a href="?page={{ page_props.previous_page_number }}">previous</a>
+      <a href="?page=1">&laquo; &laquo; </a>
+      <a href="?page={{ page_props.previous_page_number }}">&laquo;</a>
     {% endif %}
   
     <span>Page {{ page_props.number }} of {{ page_props.paginator.num_pages }}</span>
   
     {% if page_props.has_next %}
-      <a href="?page={{ page_props.next_page_number }}">next</a>
-      <a href="?page={{ page_props.paginator.num_pages }}">last &raquo;</a>
+      <a href="?page={{ page_props.next_page_number }}">&raquo;</a>
+      <a href="?page={{ page_props.paginator.num_pages }}"> &raquo; &raquo;</a>
     {% endif %}
   </div>
 </div>
@@ -235,8 +235,7 @@ function applyFilters(AdvancedMarkerElement) {
             console.error('Error filtering properties:', error);
         });
 }
-
-
+{% comment %} 
 function paginate(newPropertyList) {
   const propertiesPerPage = 15;
   const totalPages = Math.ceil(newPropertyList.length / propertiesPerPage);
@@ -279,7 +278,109 @@ function paginate(newPropertyList) {
 
   showItems(currentPage);
   setupPagination();
-}
+} {% endcomment %}
+
+
+
+
+function paginate(newPropertyList) {
+const propertiesPerPage = 15;
+const totalPages = Math.ceil(newPropertyList.length / propertiesPerPage);
+let currentPage = 1;
+  function showItems(page) {
+      const propertiesContainer = document.getElementById('filtered-properties-container');
+      propertiesContainer.innerHTML = '';
+      const startIndex = (page - 1) * propertiesPerPage;
+      const endIndex = startIndex + propertiesPerPage;
+      const pageItems = newPropertyList.slice(startIndex, endIndex);
+
+      pageItems.forEach(item => {
+          propertiesContainer.insertAdjacentHTML('beforeend', item);
+      });
+    }
+
+    function setupPagination() {
+        const paginationContainer = document.getElementById('pagination-container');
+
+
+        paginationContainer.innerHTML = '';
+
+        
+        const pageLinkForward = document.createElement('a');
+        const pageLinkBack = document.createElement('a');
+        const pageLinkEnd= document.createElement('a');
+        const pageLinkBeginning = document.createElement('a');
+        const pageNumber = document.createElement('p');
+
+
+        pageLinkBeginning.href = '#';
+        pageLinkBeginning.innerText = '« «';
+        pageLinkBack.href = '#';
+        pageLinkBack.innerText = '«';
+        
+        pageNumber.innerText ='Page ' + currentPage + ' of ' + totalPages;
+
+        pageLinkForward.href = '#';
+        pageLinkForward.innerText = '»'
+        pageLinkEnd.href = '#';
+        pageLinkEnd.innerText = '» »';
+    
+  
+        pageLinkForward.addEventListener('click', (event) => {
+          event.preventDefault();
+          if (currentPage < totalPages){
+            currentPage++;
+            pageNumber.innerText ='Page ' + currentPage + ' of ' + totalPages;
+            showItems(currentPage);
+            
+          }
+        });
+
+        pageLinkBack.addEventListener('click', (event) => {
+          event.preventDefault();
+          if (currentPage > 1){
+            pageLinkBeginning.style.display = 'block' 
+            currentPage--;
+            pageNumber.innerText ='Page ' + currentPage + ' of ' + totalPages;
+            showItems(currentPage);
+          }
+      }); 
+
+      pageLinkBeginning.addEventListener('click', (event) => {
+          event.preventDefault();
+          currentPage = 1;
+          pageNumber.innerText ='Page ' + currentPage + ' of ' + totalPages;
+          showItems(currentPage);
+        
+      });
+
+      pageLinkEnd.addEventListener('click', (event) => {
+        event.preventDefault();
+        currentPage = totalPages;
+        pageNumber.innerText ='Page ' + currentPage + ' of ' + totalPages;
+        showItems(currentPage);
+      
+    });
+
+    
+
+        paginationContainer.appendChild(pageLinkBeginning);
+        paginationContainer.appendChild(pageLinkBack);
+
+        paginationContainer.appendChild(pageNumber);
+
+        paginationContainer.appendChild(pageLinkForward);
+        paginationContainer.appendChild(pageLinkEnd);
+        
+      }
+
+      
+    
+  showItems(currentPage);
+  setupPagination();
+} 
+
+
 
 
 function updateMap(newProperties, AdvancedMarkerElement) {

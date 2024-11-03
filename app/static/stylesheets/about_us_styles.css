@@ -135,11 +135,11 @@
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: max-height 0.2s ease-in-out, opacity 0.5s ease-in-out;
+  transition: max-height 0.7s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 .bio-full.show {
-  max-height: fit-content;
+  max-height: 1200px;
   opacity: 1;
 }
 
@@ -276,9 +276,6 @@
 #contact_form_submit_button:hover {
   background-color: #014235;
 }
-
-
-
 
 /* MOBILE STYLES */
 @media (max-width: 750px) {
