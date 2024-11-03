@@ -386,11 +386,7 @@
 }
 
 .map-popup {
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   width: 100%;
   max-width: 260px;
@@ -404,13 +400,12 @@
   height: auto;
   max-height: 200px;
   border-radius: 8px;
-  margin-bottom: 10px;
 }
 
 .popup-title a {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #2a2a2a;
+  color:#0d4a3b;
   text-decoration: none;
   margin-bottom: 5px;
 }
