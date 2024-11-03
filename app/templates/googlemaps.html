@@ -172,68 +172,63 @@ function addMarkers(properties, AdvancedMarkerElement) {
     });
 }
 function applyFilters(AdvancedMarkerElement) {
-    const mlsId = document.getElementById('mls-listing-id').value.trim();
-    const location = document.getElementById('location').value.trim();
-    const minPrice = document.getElementById('min-price').value.trim();
-    const maxPrice = document.getElementById('max-price').value.trim();
-    const minBeds = document.getElementById('min-beds').value.trim();
-    const minBaths = document.getElementById('min-baths').value.trim();
-    // Send AJAX request
-    const url = `/filter-properties?mls_listing_id=${mlsId}&location=${location}&min_price=${minPrice}&max_price=${maxPrice}&min_beds=${minBeds}&min_baths=${minBaths}`;
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            const propertyList = document.getElementById('property-list-view');
-            const prevPagination = document.getElementById('pages');
-            prevPagination.style.display = 'none';
-            propertyList.innerHTML = '';  // Clear current list
-            propertyList.style.display = 'none';
-            let newPropertyList = [];
+  const mlsId = document.getElementById('mls-listing-id').value.trim();
+  const location = document.getElementById('location').value.trim();
+  const minPrice = document.getElementById('min-price').value.trim();
+  const maxPrice = document.getElementById('max-price').value.trim();
+  const minBeds = document.getElementById('min-beds').value.trim();
+  const minBaths = document.getElementById('min-baths').value.trim();
 
-            // Update property list
-            data.properties.forEach(property => {
-                const formattedPrice = parseFloat(property.list_price).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-                const beds = property.bedrooms || 'N/A';
-                const baths = property.baths_total || 'N/A';
-                const sqFt = property.building_area_total ? `${property.building_area_total.toLocaleString()} Sq. Ft.` : 'N/A';
+  // Send AJAX request
+  const url = `/filter-properties?mls_listing_id=${mlsId}&location=${location}&min_price=${minPrice}&max_price=${maxPrice}&min_beds=${minBeds}&min_baths=${minBaths}`;
+  fetch(url)
+      .then(response => response.json())
+      .then(data => {
+          const propertyList = document.getElementById('property-list-view');
+          const prevPagination = document.getElementById('pages');
+          prevPagination.style.display = 'none';
+          propertyList.innerHTML = '';  // Clear current list
+          propertyList.style.display = 'none';
+          let newPropertyList = [];
 
-                const propertyItem = `
-                  
-                        <div class="property-item">
-                            <div class="property-image">
-                                <img src="${property.image_url}" alt="Property Image">
-                            </div>
-                            <h2>${property.house_number || ''} ${property.street_name}, ${property.city}, ${property.state} ${property.postal_code}</h2>
-                            <div class="property-details">
-                                <h3>${formattedPrice}</h3>
-                                <p>${beds} Beds &nbsp; | &nbsp; ${baths} Baths &nbsp; | &nbsp; ${sqFt}</p>
-                                <p>${property.property_type || 'N/A'}</p>
-                                <p class="agent-info">${property.agent_name || 'N/A'}</p>
-                                <a href="#" onclick="moveToProperty(${property.latitude}, ${property.longitude})">View on Map</a>
-                            </div>
-                        </div>
-                   
-                `;
-                newPropertyList.push(propertyItem);
-                paginate(newPropertyList);
-                propertyList.insertAdjacentHTML('beforeend', propertyItem);
-                
-            });
+          // Update property list
+          data.properties.forEach(property => {
+              const formattedPrice = parseFloat(property.list_price).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+              const beds = property.bedrooms || 'N/A';
+              const baths = property.baths_total || 'N/A';
+              const sqFt = property.building_area_total ? `${property.building_area_total.toLocaleString()} Sq. Ft.` : 'N/A';
 
-            // Update the map with new markers
-            updateMap(data.properties, AdvancedMarkerElement);
+              const propertyItem = `
+                  <div class="property-item">
+                      <div class="property-image">
+                          <img src="${property.image_url}" alt="Property Image">
+                      </div>
+                      <h2>${property.house_number || ''} ${property.street_name}, ${property.city}, ${property.state} ${property.postal_code}</h2>
+                      <div class="property-details">
+                          <h3>${formattedPrice}</h3>
+                          <p>${beds} Beds &nbsp; | &nbsp; ${baths} Baths &nbsp; | &nbsp; ${sqFt}</p>
+                          <p>${property.property_type || 'N/A'}</p>
+                          <p class="agent-info">${property.agent_name || 'N/A'}</p>
+                          <a href="#" onclick="moveToProperty(${property.latitude}, ${property.longitude})">View on Map</a>
+                      </div>
+                  </div>
+              `;
+              newPropertyList.push(propertyItem);
+              paginate(newPropertyList);
+              propertyList.insertAdjacentHTML('beforeend', propertyItem);
+          });
 
-            // Close the filters form after applying filters
-            const filters = document.getElementById('filters'); // Adjust this ID if needed
-            if (filters.classList.contains('filters-visible')) {
-                filters.classList.remove('filters-visible'); // Hide the filter form
-                document.getElementById('filter-button').textContent = 'Show Filters'; // Reset button text
-            }
-            
-        })
-        .catch(error => {
-            console.error('Error filtering properties:', error);
-        });
+          // Update the map with new markers
+          updateMap(data.properties, AdvancedMarkerElement);
+
+          // Close the filters form after applying filters
+          const filters = document.getElementById('filters');
+          filters.style.display = 'none'; // Hide the filter form directly
+          document.getElementById('filter-button').textContent = 'Show Filters'; // Reset button text
+      })
+      .catch(error => {
+          console.error('Error filtering properties:', error);
+      });
 }
 {% comment %} 
 function paginate(newPropertyList) {
