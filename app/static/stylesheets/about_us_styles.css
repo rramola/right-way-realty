@@ -129,12 +129,18 @@
   color: #1b5e20;
 }
 
-#april-bio{
-  display: none;
+
+
+.bio-full {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.7s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-#terry-bio{
-  display: none;
+.bio-full.show {
+  max-height: 1200px;
+  opacity: 1;
 }
 
 
@@ -161,6 +167,40 @@
 .bio-overlay button:hover {
   color: #2a7a3d;
 }
+
+#april-bio-button-close{
+  display: none;
+  background: none;
+  color: #014235;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+#terry-bio-button-close{
+  display: none;
+  background: none;
+  color: #014235;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+
+
+#april-bio-anchor:visited{
+  color: #014235;
+}
+
+
+#terry-bio-anchor:visited{
+  color: #014235;
+}
+
 
 /* Contact Form */
 #about-contact-form-container {
@@ -236,9 +276,6 @@
 #contact_form_submit_button:hover {
   background-color: #014235;
 }
-
-
-
 
 /* MOBILE STYLES */
 @media (max-width: 750px) {

@@ -27,7 +27,7 @@
 
         <div class="team-section">
             <div class="team-member" id="team-member-april">
-                <img src="{% static 'images/april.jpg' %}" alt="April's Photo">
+                <img src="{% static 'images/APRIL3.jpg' %}" alt="April's Photo">
                 <h3 class="team-member-name">April White</h3>
                 <p class="agent-title">Founder & Lead Agent</p>
                 <div class="bio">
@@ -43,7 +43,10 @@
                         <p class="bio-content-text">She believes in hard work, honesty, integrity, and doing things the right way, and is a graduate of the MS Realtor Institute.</p>
                     </div>
                     <div class="bio-overlay">
-                        <button class="see-more" id="april-bio-button" onClick="toggleBio('april-bio-button', 'april-bio')">Read More</button>
+                        <button class="see-more" id="april-bio-button" onclick="toggleBio('april-bio-button', 'april-bio', 'april-bio-anchor', 'april-bio-button-close')">Read More</button>
+                        <a href="#team-member-april" class="show-less" id="april-bio-anchor">
+                            <button class="see-more" id="april-bio-button-close" onclick="toggleBio('april-bio-button', 'april-bio', 'april-bio-anchor', 'april-bio-button-close')">Read Less</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -63,7 +66,10 @@
                         <p class="bio-content-text">Terry believes in hard work and balances his professional life with leisure time at Pickwick Lake, fishing with April.</p>
                     </div>
                     <div class="bio-overlay">
-                        <button class="see-more" id="terry-bio-button" onClick="toggleBio('terry-bio-button','terry-bio')">Read More</button>
+                        <button class="see-more" id="terry-bio-button" onclick="toggleBio('terry-bio-button', 'terry-bio', 'terry-bio-anchor', 'terry-bio-button-close')">Read More</button>
+                        <a href="#team-member-terry" class="show-less" id="terry-bio-anchor">
+                            <button class="see-more" id="terry-bio-button-close" onclick="toggleBio('terry-bio-button', 'terry-bio', 'terry-bio-anchor', 'terry-bio-button-close')">Read Less</button>
+                        </a>
                     </div>
                 </div>
             </div>

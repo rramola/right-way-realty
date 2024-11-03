@@ -41,13 +41,15 @@
         <div id="navbar_items">
             <div class="navbar_item"><a href="{% url 'home'%}">Home</a></div>
             {% comment %} <div class="navbar_item"><a href="{% url 'properties'%}">Properties</a></div> {% endcomment %}
-            <div class="navbar_item dropdown">
+            <!-- <div class="navbar_item dropdown">
                 <button class="dropbtn" onclick="toggleDropdown()">About</button>
                 <div class="dropdown-content">
                     <a href="{% url 'about' %}">About Us</a>
                     <a href="{% url 'oxford' %}">About Oxford</a>
                 </div>
-            </div>
+            </div> -->
+            <div class="navbar_item"><a href="{% url 'about' %}">About Us</a></div>
+            <div class="navbar_item"><a href="{% url 'oxford' %}">About Oxford</a></div>
             <div class="navbar_item"><a href="{% url 'googlemaps'%}">Properties</a></div>
             <div class="navbar_item"><a href="{% url 'contact'%}">Contact</a></div>
             <div class="navbar_item"><a href="{% url 'rental_list'%}">Rentals</a></div>
