@@ -17,6 +17,7 @@ from django.db import connection
 from datetime import date
 from django.contrib.auth import logout
 from django.core.paginator import Paginator
+from django.db.models import Q
 import random
 
 
@@ -244,9 +245,33 @@ def contact_page(request):
 
 def rental_list(request):
     rentals = Rental.objects.all()
+
+    min_price = request.GET.get('min_price')
+    max_price = request.GET.get('max_price')
+    min_beds = request.GET.get('min_beds')
+    min_baths = request.GET.get('min_baths')
+    fenced_yard = request.GET.get('fenced_yard')
+    location = request.GET.get('location')
+
+    if min_price:
+        rentals = rentals.filter(rental_price__gte=min_price)
+    if max_price:
+        rentals = rentals.filter(rental_price__lte=max_price)
+    if min_beds:
+        rentals = rentals.filter(bedrooms__gte=min_beds)
+    if min_baths:
+        rentals = rentals.filter(baths__gte=min_baths)
+    if fenced_yard == 'Yes':
+        rentals = rentals.filter(fenced_yard=True)
+    elif fenced_yard == 'No':
+        rentals = rentals.filter(fenced_yard=False)
+    if location:
+        rentals = rentals.filter(Q(street_name__icontains=location) | Q(city__icontains=location) | Q(state__icontains=location))
+
     paginator = Paginator(rentals, 5)
     page_number = request.GET.get('page')
     rentals = paginator.get_page(page_number)
+
     return render(request, 'rental_list.html', {'rentals': rentals})
 
 def load_more_properties(request):
