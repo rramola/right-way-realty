@@ -386,32 +386,56 @@
 }
 
 .map-popup {
-  display: grid;
-  padding: 10px;
-  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  width: 100%;
+  max-width: 260px;
+  font-family: "Albert Sans", sans-serif;
+  transition: transform 0.3s ease;
+  max-height: 450px;
 }
-.popup-image{
-  margin-bottom: 3rem;
-  grid-row: 2 / span 3;
 
+.map-popup img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 .popup-title a {
-  font-size: 16px;
+  font-size: 1.2rem;
   font-weight: bold;
-  color: #333;
+  color: #2a2a2a;
   text-decoration: none;
-}
-.popup-price {
-  color: #666;
-  font-size: 14px;
+  margin-bottom: 5px;
 }
 
-.popup-description{
-  font-family: "Albert Sans", sans-serif;
-  font-size:1rem;
-  color: black;
-  margin: 0;
+.popup-price {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.popup_label {
+  font-weight: bold;
+  color: #1b5e20;
+}
+
+.popup-beds,
+.popup-baths {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.popup-description {
+  font-size: 0.9rem;
+  color: #444;
+  margin-top: 10px;
 }
 
 

@@ -124,6 +124,9 @@ function loadInitialProperties(properties, AdvancedMarkerElement){
       lng: parseFloat("{{ property.longitude }}"),
       title: "{{ property.house_number }} {{ property.street_name }}, {{ property.city }}, {{ property.state }}",
       price: "{{ property.list_price|floatformat:0|intcomma }}",
+      image_url: "{{ property.images.first.url|default:'/static/images/no_property.png' }}",
+      beds: "{{ property.bedrooms }}",
+      baths: "{{ property.baths_total }}",
       url: "{% if property.id %}{% url 'property_detail' property.id %}{% else %}#{% endif %}"
     },
     {% endfor %}
@@ -148,8 +151,11 @@ function addMarkers(properties, AdvancedMarkerElement) {
 
         const infoWindowContent = `
         <div class="map-popup">
+          <p class="popup-image"><a href="${property.url}"><img src="${property.image_url || '/static/images/no_property.png'}" alt="Property Image"></p></a>
           <h3 class="popup-title"><a href="${property.url}">${property.title}</a></h3>
-          <p class="popup-price">Price: $${property.price}</p>
+          <p class="popup-price"><strong><span class="popup_label">Price:</span></strong> $${property.price}</p>
+          <p class="popup-beds"><strong><span class="popup_label">Beds:</span></strong> ${property.beds}</p>
+          <p class="popup-baths"><strong><span class="popup_label">Baths:</span></strong> ${property.baths}</p>
         </div>
         `;
 
