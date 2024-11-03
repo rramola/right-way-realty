@@ -121,7 +121,7 @@
 }
 
 /* Form Styles */
-form {
+.rental_search form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
@@ -132,20 +132,20 @@ form {
     background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
 }
 
-form label {
+.rental_search form label {
     grid-column: span 2;
     font-weight: bold;
     color: #0b3a2d;
 }
 
-form input, form select, form button {
+.rental_search form input, .rental_search form select, .rental_search form button {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1rem;
 }
 
-form button {
+.rental_search form button {
     grid-column: span 2;
     background-color: #0b3a2d;
     color: white;
@@ -153,12 +153,12 @@ form button {
     transition: background-color 0.3s ease;
 }
 
-form button:hover {
+.rental_search form button:hover {
     background-color: #1b5e20;
 }
 
-.current{
-    color:#0b3a2d
+.rental_search .current {
+    color: #0b3a2d;
 }
 
 
