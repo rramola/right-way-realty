@@ -4,6 +4,31 @@
 
 <h1 id="rental-header">Available Rentals</h1>
 <div class="rental-container">
+    <form method="get" action="{% url 'rental_list' %}">
+        <label for="min_price">Min Price:</label>
+        <input type="number" name="min_price" id="min_price" value="{{ request.GET.min_price }}">
+    
+        <label for="max_price">Max Price:</label>
+        <input type="number" name="max_price" id="max_price" value="{{ request.GET.max_price }}">
+    
+        <label for="min_beds">Min Beds:</label>
+        <input type="number" name="min_beds" id="min_beds" value="{{ request.GET.min_beds }}">
+    
+        <label for="min_baths">Min Baths:</label>
+        <input type="number" name="min_baths" id="min_baths" value="{{ request.GET.min_baths }}">
+    
+        <label for="fenced_yard">Fenced Yard:</label>
+        <select name="fenced_yard" id="fenced_yard">
+            <option value="">Any</option>
+            <option value="Yes" {% if request.GET.fenced_yard == "Yes" %}selected{% endif %}>Yes</option>
+            <option value="No" {% if request.GET.fenced_yard == "No" %}selected{% endif %}>No</option>
+        </select>
+    
+        <label for="location">Location:</label>
+        <input type="text" name="location" id="location" value="{{ request.GET.location }}">
+    
+        <button type="submit">Search</button>
+    </form>
     {% for rental in rentals %}
         <div class="rental-card">
             <div class="rental-image-carousel-container">
