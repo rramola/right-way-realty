@@ -7,6 +7,7 @@
   height: 400px;
   width: 100%;
   object-fit: cover;
+  box-shadow: 0 1px 8px #0b3a2d;
 }
 
 #home_page_banner_video {

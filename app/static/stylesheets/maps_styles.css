@@ -390,7 +390,7 @@
   background-color: #fff;
   width: 100%;
   max-width: 260px;
-  font-family: "Albert Sans", sans-serif;
+  font-family: "Antic Didone", serif;
   transition: transform 0.3s ease;
   max-height: 450px;
 }
@@ -408,20 +408,27 @@
   color:#0d4a3b;
   text-decoration: none;
   margin-bottom: 5px;
+  font-family: "Antic Didone", serif;
 }
 
 .popup-price {
+  font-family: "Albert Sans", sans-serif;
+
   font-size: 1rem;
   margin-bottom: 5px;
 }
 
 .popup_label {
+  font-family: "Albert Sans", sans-serif;
+
   font-weight: bold;
   color: #1b5e20;
 }
 
 .popup-beds,
 .popup-baths {
+  font-family: "Albert Sans", sans-serif;
+
   font-size: 0.9rem;
   color: #555;
   margin-bottom: 5px;
