@@ -6,6 +6,8 @@
     margin: 20px;
 }
 
+
+
 .rental-card {
     background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
     border-radius: 8px;
@@ -118,9 +120,48 @@
     margin: 20px;
 }
 
+/* Form Styles */
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
+}
+
+form label {
+    grid-column: span 2;
+    font-weight: bold;
+    color: #0b3a2d;
+}
+
+form input, form select, form button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+form button {
+    grid-column: span 2;
+    background-color: #0b3a2d;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #1b5e20;
+}
+
 .current{
     color:#0b3a2d
 }
+
+
 
 
 @media (max-width: 768px) {
