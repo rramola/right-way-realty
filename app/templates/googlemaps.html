@@ -177,6 +177,7 @@ function addMarkers(properties, AdvancedMarkerElement) {
       }
     });
 }
+
 function applyFilters(AdvancedMarkerElement) {
   const mlsId = document.getElementById('mls-listing-id').value.trim();
   const location = document.getElementById('location').value.trim();
@@ -199,30 +200,40 @@ function applyFilters(AdvancedMarkerElement) {
 
           // Update property list
           data.properties.forEach(property => {
-              const formattedPrice = parseFloat(property.list_price).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-              const beds = property.bedrooms || 'N/A';
-              const baths = property.baths_total || 'N/A';
-              const sqFt = property.building_area_total ? `${property.building_area_total.toLocaleString()} Sq. Ft.` : 'N/A';
-
-              const propertyItem = `
-                  <div class="property-item">
-                      <div class="property-image">
-                          <img src="${property.image_url}" alt="Property Image">
-                      </div>
-                      <h2>${property.house_number || ''} ${property.street_name}, ${property.city}, ${property.state} ${property.postal_code}</h2>
-                      <div class="property-details">
-                          <h3>${formattedPrice}</h3>
-                          <p>${beds} Beds &nbsp; | &nbsp; ${baths} Baths &nbsp; | &nbsp; ${sqFt}</p>
-                          <p>${property.property_type || 'N/A'}</p>
-                          <p class="agent-info">${property.agent_name || 'N/A'}</p>
-                          <a href="#" onclick="moveToProperty(${property.latitude}, ${property.longitude})">View on Map</a>
-                      </div>
-                  </div>
-              `;
-              newPropertyList.push(propertyItem);
-              paginate(newPropertyList);
-              propertyList.insertAdjacentHTML('beforeend', propertyItem);
-          });
+            const formattedPrice = parseFloat(property.list_price).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+            const beds = property.bedrooms || 'N/A';
+            const baths = property.baths_total || 'N/A';
+            const sqFt = property.building_area_total ? `${property.building_area_total.toLocaleString()} Sq. Ft.` : 'N/A';
+        
+            const propertyItem = `
+                <a href="/property/${property.id}/" class="property-link">
+                    <div class="property-item"
+                         data-price="${property.list_price}"
+                         data-beds="${property.bedrooms}"
+                         data-total-baths="${property.baths_total || 0}"
+                         data-full-baths="${property.baths_full || 0}"
+                         data-half-baths="${property.baths_half || 0}"
+                         data-location="${property.city}"
+                         data-mls-number="${property.mls_number}">
+                        <div class="property-image">
+                            <img src="${property.image_url || '/static/images/no_property.png'}" alt="Property Image">
+                        </div>
+                        <div class="property-info">
+                            <strong id="property-location">${property.house_number || ''} ${property.street_name}, ${property.city}, ${property.state} ${property.postal_code}</strong><br>
+                            <p><span class="property-label">Price:</span> ${formattedPrice}</p>
+                            <p><span class="property-label">Bedrooms:</span> ${beds}</p>
+                            <p><span class="property-label">Baths:</span> ${baths}</p>
+                            <p><span class="property-label">Building Area:</span> ${sqFt}</p>
+                            <p><span class="property-label">Property Type:</span> ${property.property_type || 'N/A'}</p>
+                        </div>
+                    </div>
+                </a>
+            `;
+        
+            newPropertyList.push(propertyItem);
+            paginate(newPropertyList);
+            propertyList.insertAdjacentHTML('beforeend', propertyItem);
+        });
 
           // Update the map with new markers
           updateMap(data.properties, AdvancedMarkerElement);
