@@ -84,23 +84,30 @@
 </div>
 
 <script>
-function moveSlide(carouselIndex, step) {
-    const carousel = document.getElementById(`carousel-${carouselIndex}`);
-    const images = carousel.getElementsByClassName('rental-image');
-    let currentSlide = parseInt(carousel.getAttribute('data-current-slide'));
-        
-    // Hide current image
-    images[currentSlide].style.display = 'none';
-        
-    // Calculate next slide
-    currentSlide = (currentSlide + step + images.length) % images.length;
-        
-    // Show the new current image
-    images[currentSlide].style.display = 'block';
-        
-    // Update the current slide attribute
-    carousel.setAttribute('data-current-slide', currentSlide);
+    function moveSlide(carouselIndex, step) {
+        const carousel = document.getElementById(`carousel-${carouselIndex}`);
+        const images = carousel.getElementsByClassName('rental-image');
+        let currentSlide = parseInt(carousel.getAttribute('data-current-slide'));
+    
+        // Hide the current image
+        images[currentSlide].style.opacity = '0';
+        images[currentSlide].style.zIndex = '0';
+        images[currentSlide].style.display = 'none';
+    
+        // loop if needed
+        currentSlide = (currentSlide + step + images.length) % images.length;
+    
+        // Show current image
+        images[currentSlide].style.opacity = '1';
+        images[currentSlide].style.zIndex = '10';
+        images[currentSlide].style.display = 'block';
+    
+        // Update the current slide on the carousel container
+        carousel.setAttribute('data-current-slide', currentSlide);
+    
     }
 </script>
+    
+    
     
 {% endblock %}

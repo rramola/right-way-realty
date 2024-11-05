@@ -179,6 +179,43 @@
     font-size: 1.5rem;
 }
 
+.rental-image {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+    display: none; /* Hide by default */
+}
+.rental-image:first-child {
+    opacity: 1;
+    z-index: 10;
+    display: block; /* Show the first image initially */
+}
+
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    font-size: 24px;
+    color: black;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    z-index: 15; /* Ensure buttons are above images */
+    transform: translateY(-50%);
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
 
 
 @media (max-width: 768px) {
