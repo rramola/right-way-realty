@@ -37,14 +37,13 @@
     {% for rental in rentals %}
         <div class="rental-card">
             <div class="rental-image-carousel-container">
-                <!-- Display rental images as a carousel -->
                 {% if rental.images.all %}
-                    <div class="rental-image-carousel" id="carousel-{{ forloop.counter0 }}">
+                    <div class="rental-image-carousel" id="carousel-{{ forloop.counter0 }}" data-current-slide="0">
                         {% for image in rental.images.all %}
-                            <img src="{{ image.image.url }}" alt="Image of {{ rental.street_name }}" class="rental-image">
+                            <img src="{{ image.image.url }}" alt="Image of {{ rental.street_name }}" class="rental-image" style="{% if forloop.first %}display: block;{% else %}display: none;{% endif %}">
                         {% endfor %}
                     </div>
-                    <!-- Navigation buttons -->
+                    <!-- Carousel navigation buttons -->
                     <button class="carousel-prev" onclick="moveSlide({{ forloop.counter0 }}, -1)">&#10094;</button>
                     <button class="carousel-next" onclick="moveSlide({{ forloop.counter0 }}, 1)">&#10095;</button>
                 {% else %}
@@ -63,7 +62,7 @@
         </div>
     {% empty %}
         <p>No rentals available at this time.</p>
-{% endfor %}
+    {% endfor %}
 </div>
 
 <div class="pagination">
@@ -83,4 +82,25 @@
         {% endif %}
     </span>
 </div>
+
+<script>
+function moveSlide(carouselIndex, step) {
+    const carousel = document.getElementById(`carousel-${carouselIndex}`);
+    const images = carousel.getElementsByClassName('rental-image');
+    let currentSlide = parseInt(carousel.getAttribute('data-current-slide'));
+        
+    // Hide current image
+    images[currentSlide].style.display = 'none';
+        
+    // Calculate next slide
+    currentSlide = (currentSlide + step + images.length) % images.length;
+        
+    // Show the new current image
+    images[currentSlide].style.display = 'block';
+        
+    // Update the current slide attribute
+    carousel.setAttribute('data-current-slide', currentSlide);
+    }
+</script>
+    
 {% endblock %}
