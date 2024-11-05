@@ -15,8 +15,15 @@
         <!-- Main Property Image -->
         <div class="main-image-container">
           <button id="prev-image" class="image-arrow" onclick="changeImage(-1)">&#9664;</button>
-          <img id="main-image" src="{{ property.images.first.url|default:'/static/images/no_property.png' }}" alt="Image of {{ property.house_number }} {{ property.street_name }}" class="card-img-top" />
+          <img id="main-image" src="{{ property.images.first.url|default:'/static/images/no_property.png' }}" alt="Image of {{ property.house_number }} {{ property.street_name }}" class="card-img-top" onclick="openModal()" />
           <button id="next-image" class="image-arrow" onclick="changeImage(1)">&#9654;</button>
+        </div>
+        
+        <!-- Image Modal -->
+        <div id="imageModal" class="modal">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <img class="modal-content" id="modalImage">
+          <div id="caption"></div>
         </div>
     
         <!-- Thumbnail Carousel -->
@@ -481,12 +488,26 @@ function changeImage(direction) {
   document.getElementById('main-image').src = images[currentImageIndex];
 }
 
-// Change the main image when a thumbnail is clicked
+// Open the Modal
+function openModal() {
+  var modal = document.getElementById("imageModal");
+  var modalImg = document.getElementById("modalImage");
+  var captionText = document.getElementById("caption");
+  var mainImg = document.getElementById("main-image");
+
+  modal.style.display = "block";
+  modalImg.src = mainImg.src;
+  captionText.innerHTML = mainImg.alt;
+}
+
+// Close the Modal
+function closeModal() {
+  var modal = document.getElementById("imageModal");
+  modal.style.display = "none";
+}
 function changeMainImage(imageUrl) {
   document.getElementById('main-image').src = imageUrl;
 }
-
-
 
 </script>
 
