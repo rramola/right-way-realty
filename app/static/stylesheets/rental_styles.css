@@ -122,37 +122,40 @@
 
 /* Form Styles */
 .rental_search form {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
-    width: 50%;
-    max-width: 400px;
+    background-color: #073528;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 1rem;
+    width: auto;
     margin: 0 auto;
 }
 
 .rental_search form label {
-    font-weight: bold;
-    color: #0b3a2d;
+    display: block;
+    margin-bottom: 5px;
+    color: #ecf0f1;
+    font-family: "Antic Didone";
 }
 
-.rental_search form input, .rental_search form select, .rental_search form button {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    width: 100%;
-    box-sizing: border-box;
+.rental_search form input, .rental_search form select {
+    width: -webkit-fill-available;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ecf0f1;
+    border-radius: 5px;
 }
 
 .rental_search form button {
-    background-color: #0b3a2d;
-    color: white;
+    padding: 10px 15px;
+    background-color: #2a7a3d;
+    font-family: "Albert Sans", sans-serif;
+    font-size: 1rem;
+    color: #EAEEFB;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    width: 100%;
+    margin-top: .5rem;
     transition: background-color 0.3s ease;
 }
 
