@@ -25,14 +25,9 @@ import random
 def home_page(request):
     # FETCH PROPERTIES
     property_list = []
-    type = request.GET.get('property_type', '')
     try:
-        if type:
-            properties = Property.object.filter(property_type=type)
-            property_list = list(properties)
-        else:
-            properties = Property.objects.filter(city='Oxford').iterator(chunk_size=100)
-            property_list = list(properties)
+        properties = Property.objects.filter(city='Oxford').iterator(chunk_size=100)
+        property_list = list(properties)
     except Exception as e:
         print(f"Error retrieving properties: {e}")
         connection.close()
