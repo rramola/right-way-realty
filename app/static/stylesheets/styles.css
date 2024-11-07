@@ -12,6 +12,9 @@
   --text-light: #555; /* Light text */
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 
 body {

@@ -283,3 +283,27 @@ function toggleForm() {
         form.style.display = "none";
     }
 }
+
+//  Smooth scrolling for mobile
+document.addEventListener("DOMContentLoaded", function () {
+    const propertyListContainer = document.querySelector(".property-list-container"); // Replace with your property list container selector
+    let isEndOfList = false;
+
+    propertyListContainer.addEventListener("scroll", function () {
+        if (propertyListContainer.scrollTop + propertyListContainer.clientHeight >= propertyListContainer.scrollHeight) {
+            isEndOfList = true;
+        } else {
+            isEndOfList = false;
+        }
+    });
+
+    propertyListContainer.addEventListener("touchmove", function (event) {
+        if (isEndOfList) {
+            // Enable scrolling for the entire page when the end of the list is reached
+            document.body.style.overflowY = "scroll";
+        } else {
+            // Restrict scrolling to the container
+            document.body.style.overflowY = "hidden";
+        }
+    });
+});
