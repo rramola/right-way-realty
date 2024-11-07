@@ -33,6 +33,7 @@
   font-weight: 400;
   font-style: normal;
   color: #1b5e20;
+  margin: 0;
 }
 
 .property-label{
@@ -120,7 +121,7 @@
 .property-details h2 {
   font-size: 1.5rem;
   color: #0b3a2d;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .property-details h3 {
@@ -147,6 +148,7 @@
   flex-direction: column;
   border: 5px solid #f4f4f4;
   width: 100%;
+  margin: 0 20px;
 }
 
 .property-item h2 {
@@ -627,9 +629,9 @@
     max-width: none;
   }
 
-  .property-link{
+/*   .property-link{
     padding: 0 5%;
-  }
+  } */
 }
 
 /* @media (max-width: 400px){
