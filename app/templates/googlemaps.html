@@ -31,7 +31,7 @@
 <div id="list-container" style="display: block;">
   <div id="property-list-view" data-limit="2" data-offset="0">
     {% if page_props %}
-      {% for property in page_props|slice:":15" %}
+      {% for property in page_props|slice:":12" %}
         <a href="{% url 'property_detail' property.id %}" class="property-link">
           <div class="property-item"
                data-price="{{ property.list_price }}"
