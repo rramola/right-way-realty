@@ -33,7 +33,7 @@
   font-weight: 400;
   font-style: normal;
   color: #1b5e20;
-  margin: 0;
+  margin: 5px 0;
 }
 
 .property-label{
@@ -147,7 +147,6 @@
   display: flex;
   flex-direction: column;
   border: 5px solid #f4f4f4;
-  width: 100%;
   margin: 0 20px;
 }
 
