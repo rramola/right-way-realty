@@ -171,6 +171,7 @@
 
 .rental_search form button:hover {
     background-color: #1b5e20;
+    color: #ecf0f1;
 }
 
 .rental_search .current {
