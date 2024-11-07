@@ -277,8 +277,8 @@ function calculateMortgage(loanAmountId, downPaymentPercentageId, interestRateId
 // Rental form Toggle
 function toggleForm() {
     var form = document.getElementById("searchForm");
-    if (form.style.display === "none") {
-        form.style.display = "block";
+    if (form.style.display === "none" || form.style.display === "") {
+        form.style.display = "flex";
     } else {
         form.style.display = "none";
     }
