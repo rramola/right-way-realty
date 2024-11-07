@@ -177,7 +177,7 @@
 }
 
 .rental_search{
-    display: flex;
+    display: none;
 }
 
 #rental_filter_button {
