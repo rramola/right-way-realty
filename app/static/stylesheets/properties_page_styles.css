@@ -48,11 +48,6 @@
   transform: translateY(-50%);
 }
 
-.image-arrow:hover{
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #EAEEFB;
-}
-
 #prev-image {
   left: 10px;
   border-radius: 8px;
