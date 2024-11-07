@@ -45,7 +45,7 @@
               <img src="{{ property.images.first.url|default:"/static/images/no_property.png" }}" alt="Property Image">
             </div>
             <div class="property-info">
-              <strong id="property-location">{{ property.house_number }} {{ property.street_name }}, {{ property.city }}, {{ property.state }} {{ property.postal_code }}</strong><br>
+              <strong id="property-location">{{ property.house_number }} {{ property.street_name }}, {{ property.city }}, {{ property.state }} {{ property.postal_code }}</strong>
               <p><span class="property-label">Price:</span> ${{ property.list_price|floatformat:0|intcomma }}</p>
               <p><span class="property-label">Bedrooms:</span> {{ property.bedrooms }}</p>
               <p><span class="property-label">Baths:</span> {{ property.baths_total }}</p>
