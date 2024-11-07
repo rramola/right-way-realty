@@ -31,11 +31,11 @@ def home_page(request):
     except Exception as e:
         print(f"Error retrieving properties: {e}")
         connection.close()
-        # try:
-        #     properties = Property.objects.all().iterator(chunk_size=100)
-        #     property_list = list(properties)  # Convert the iterator to a list
-        # except Exception as inner_e:
-        #     print(f"Error retrieving properties again: {inner_e}")
+        try:
+            properties = Property.objects.all().iterator(chunk_size=100)
+            property_list = list(properties)  # Convert the iterator to a list
+        except Exception as inner_e:
+            print(f"Error retrieving properties again: {inner_e}")
 
     for property in properties:
         full_baths = float(property.baths_full or 0)
