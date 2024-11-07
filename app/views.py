@@ -113,12 +113,18 @@ def oxford_page(request):
 
 def googlemaps_view(request):
     property_list = []
+    type = request.GET.get('property_type', '')
     # list_props = Property.objects.all()
     # paginator = Paginator(list_props, 15)
     # page_number = request.GET.get('page')
-    # list_props = paginator.get_page(page_number)
+    # list_props = paginator.get_page(page_number)        
     try:
-        properties = Property.objects.all()
+        if type:
+            properties = Property.object.filter(property_type=type)
+            property_list = list(properties)
+        else:
+            properties = Property.objects.all()
+            
         property_list = list(properties)
         paginator = Paginator(properties, 15)
         page_number = request.GET.get('page')
