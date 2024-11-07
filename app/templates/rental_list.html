@@ -5,6 +5,7 @@
 <h1 id="rental-header">Available Rentals</h1>
 <button id="rental_filter_button" type="button" onclick="toggleForm()">Show Filters</button>
 <div class="rental_search" id="searchForm" style="display: none;">
+    <h3 id='filters-header'>Filters</h3>
     <form method="get" action="{% url 'rental_list' %}">
         <label for="min_price">Min Price:</label>
         <input type="number" name="min_price" id="min_price" value="{{ request.GET.min_price }}">
