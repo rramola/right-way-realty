@@ -68,17 +68,17 @@
 <div class="pagination">
     <span class="step-links">
         {% if rentals.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ rentals.previous_page_number }}">previous</a>
+            <a href="?page=1">&laquo; &laquo;</a>
+            <a href="?page={{ rentals.previous_page_number }}"&laquo;</a>
         {% endif %}
 
         <span class="current">
-            Page {{ rentals.number }} of {{ rentals.paginator.num_pages }}.
+            Page {{ rentals.number }} of {{ rentals.paginator.num_pages }}
         </span>
 
         {% if rentals.has_next %}
-            <a href="?page={{ rentals.next_page_number }}">next</a>
-            <a href="?page={{ rentals.paginator.num_pages }}">last &raquo;</a>
+            <a href="?page={{ rentals.next_page_number }}">&raquo;</a>
+            <a href="?page={{ rentals.paginator.num_pages }}">&raquo; &raquo;</a>
         {% endif %}
     </span>
 </div>
