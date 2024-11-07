@@ -52,18 +52,14 @@
   height: 450px; 
 }
 
-#list-container  h1 {
+#maps-header {
+  text-align: center;
+  margin-top: 20px;
   font-family: "Antic Didone", serif;
   font-size: 2rem;
   color: #0b3a2d;
-  margin-bottom: 20px;
   letter-spacing: .2rem;
   font-weight: 500;
-  display: flex;
-  justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  overflow-y: auto;
 }
 
 
@@ -636,8 +632,9 @@
   }
 }
 
-@media (max-width: 400px){
+/* @media (max-width: 400px){
   #list-container h1{
     font-size: 1.5rem;
   }
 }
+ */
