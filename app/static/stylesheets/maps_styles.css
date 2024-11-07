@@ -50,7 +50,7 @@
 }
 
 #property-list-view .property-item {
-  height: 450px; 
+  height: 490px; 
 }
 
 #maps-header {
@@ -627,6 +627,7 @@
 
   .property-item{
     max-width: none;
+    height: auto;
   }
 
 /*   .property-link{
