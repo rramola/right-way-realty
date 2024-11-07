@@ -6,7 +6,13 @@
     margin: 20px;
 }
 
-
+#filters-header{
+    font-family: "Albert Sans", sans-serif;
+    color: #EAEEFB;
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
 
 .rental-card {
     background: linear-gradient(to bottom, #ffffff, hsla(171, 29%, 69%, 0.349));
@@ -121,6 +127,10 @@
 }
 
 /* Form Styles */
+
+#SearchForm{
+    display: flex;
+}
 .rental_search form {
     background-color: #073528;
     padding: 10px 20px;
