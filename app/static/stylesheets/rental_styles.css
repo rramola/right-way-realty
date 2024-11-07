@@ -90,6 +90,7 @@
 
 .carousel-prev:hover, .carousel-next:hover {
     background-color: rgba(0, 0, 0, 0.8);
+    color: #EAEEFB;
 }
 
 
@@ -128,9 +129,7 @@
 
 /* Form Styles */
 
-#searchForm{
-    display: flex;
-}
+
 .rental_search form {
     background-color: #073528;
     padding: 10px 20px;
@@ -171,11 +170,14 @@
 
 .rental_search form button:hover {
     background-color: #1b5e20;
-    color: #ecf0f1;
 }
 
 .rental_search .current {
     color: #0b3a2d;
+}
+
+.rental_search{
+    display: flex;
 }
 
 #rental_filter_button {
