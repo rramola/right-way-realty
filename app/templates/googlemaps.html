@@ -1,4 +1,5 @@
 {% extends "base_template.html" %} {% load static %} {% load humanize %} {% block content %}
+<h1 id="maps-header">AVAILABLE PROPERTIES</h1>
 <div id="button-container">
   <button id="toggle-view-button" onclick="toggleView()">Map View</button>
   <button id="filter-button" onclick="showFilters()">Show Filters</button>
@@ -28,7 +29,6 @@
 
 <!-- List View Container -->
 <div id="list-container" style="display: block;">
-  <h1>AVAILABLE PROPERTIES</h1>
   <div id="property-list-view" data-limit="2" data-offset="0">
     {% if page_props %}
       {% for property in page_props|slice:":15" %}
