@@ -36,14 +36,21 @@
 
 .image-arrow {
   color: var(--dark-green);
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   z-index: 10;
   height: 30%;
+  position: absolute;
+  top: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  z-index: 15;
+  transform: translateY(-50%);
+}
+
+.image-arrow:hover{
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #EAEEFB;
 }
 
 #prev-image {
