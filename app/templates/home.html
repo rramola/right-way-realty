@@ -139,6 +139,11 @@
                 </div>
             </div>
         </div> {% endcomment %}
+            <div class="expertise_box">
+                <h2 class="expertise_box_header">Filter Near You</h2>
+                <p class="expertise_box_text">See available listings in your area</p>
+                <a href="{% url 'googlemaps'%}?property_type=Land" class="book_now_button">Filter Now</a>
+            </div>
         {% comment %} <div id="expertise_section">
           <h1 id="our_expertise_section_header">Filter the Right-Way!</h1>
           <div class="expertise_container">
@@ -155,7 +160,7 @@
               <div class="expertise_box">
                 <h2 class="expertise_box_header">Filter Near You</h2>
                 <p class="expertise_box_text">See available listings in your area</p>
-                <a href="{% url 'googlemaps'%}?AgentName=AprilWhite" class="book_now_button">Filter Now</a>
+                <a href="{% url 'googlemaps'%}?property_type=Land" class="book_now_button">Filter Now</a>
               </div>
           </div>
       </div> {% endcomment %}
