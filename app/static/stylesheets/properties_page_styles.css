@@ -558,12 +558,7 @@
 
   /* Mobile Styles */
   @media (max-width: 1000px) {
-    .main-image-container{
-      width: auto;
-      max-width: auto;
-      max-height: auto;
-      height: auto;
-    }
+
     .thumbnail-carousel {
     width: auto;
     max-width: auto;
